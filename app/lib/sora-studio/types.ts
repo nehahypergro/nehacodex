@@ -55,6 +55,17 @@ export interface SoraStudioFeedback {
   variants?: Partial<Record<SoraStudioRenderModelKey, SoraStudioVariantFeedback>>;
 }
 
+export interface SoraStudioRenderPostProcess {
+  applied: boolean;
+  profileKey: string;
+  profileLabel: string;
+  rawAssetFile?: string;
+  outputAssetFile?: string;
+  logoFile?: string;
+  endSlateFile?: string;
+  warnings?: string[];
+}
+
 export interface SoraStudioJobRecord {
   id: string;
   status: SoraStudioJobStatus;
@@ -114,6 +125,7 @@ export interface SoraStudioJobRecord {
     outputSummary?: Record<string, unknown>;
     assetFile?: string;
     assetUrl?: string;
+    postProcess?: SoraStudioRenderPostProcess;
   }>;
   emailNotifications?: Partial<
     Record<

@@ -145,6 +145,23 @@ function isValidEmailNotifications(value: unknown): boolean {
   return true;
 }
 
+function isValidRenderPostProcess(value: unknown): boolean {
+  if (!isRecord(value)) {
+    return false;
+  }
+  return (
+    typeof value.applied === "boolean" &&
+    isString(value.profileKey) &&
+    isString(value.profileLabel) &&
+    (typeof value.rawAssetFile === "undefined" || isString(value.rawAssetFile)) &&
+    (typeof value.outputAssetFile === "undefined" || isString(value.outputAssetFile)) &&
+    (typeof value.logoFile === "undefined" || isString(value.logoFile)) &&
+    (typeof value.endSlateFile === "undefined" || isString(value.endSlateFile)) &&
+    (typeof value.warnings === "undefined" ||
+      (Array.isArray(value.warnings) && value.warnings.every((warning) => isString(warning))))
+  );
+}
+
 function isValidJob(value: unknown): value is SoraStudioJobRecord {
   if (!isRecord(value)) {
     return false;
@@ -192,7 +209,8 @@ function isValidJob(value: unknown): value is SoraStudioJobRecord {
             (typeof render.inputSummary === "undefined" || isRecord(render.inputSummary)) &&
             (typeof render.outputSummary === "undefined" || isRecord(render.outputSummary)) &&
             (typeof render.assetFile === "undefined" || isString(render.assetFile)) &&
-            (typeof render.assetUrl === "undefined" || isString(render.assetUrl))
+            (typeof render.assetUrl === "undefined" || isString(render.assetUrl)) &&
+            (typeof render.postProcess === "undefined" || isValidRenderPostProcess(render.postProcess))
           );
         }))) ||
     (typeof value.steps !== "undefined" &&

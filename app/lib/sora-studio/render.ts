@@ -3,9 +3,15 @@ import { createHash } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { maybeSendSoraStudioRenderEmail } from "./email";
+import { applySoraStudioProductBranding } from "./postprocess";
 import { buildSafePromptFallbackFromBase, optimizeRenderPromptForModelWithAnthropicFal } from "./prompt-optimizer";
 import { getSoraStudioJobDir, mutateSoraStudioJob, requireSoraStudioJob } from "./store";
-import { SoraStudioBriefAttachment, SoraStudioRenderAspectRatio, SoraStudioRenderModelKey } from "./types";
+import {
+  SoraStudioBriefAttachment,
+  SoraStudioRenderAspectRatio,
+  SoraStudioRenderModelKey,
+  SoraStudioRenderPostProcess
+} from "./types";
 
 const FAL_SORA_TEXT_MODEL = process.env.FAL_SORA_TEXT_MODEL?.trim() || "fal-ai/sora-2/text-to-video/pro";
 const FAL_SORA_IMAGE_MODEL = process.env.FAL_SORA_IMAGE_MODEL?.trim() || "fal-ai/sora-2/image-to-video/pro";
@@ -89,6 +95,7 @@ interface ModelRenderResult {
   error?: string;
   inputSummary?: Record<string, unknown>;
   outputSummary?: Record<string, unknown>;
+  postProcess?: SoraStudioRenderPostProcess;
 }
 
 interface ModelRenderRequestPlan {
@@ -1458,14 +1465,33 @@ export async function runSoraStudioJob(jobId: string): Promise<void> {
 
         failureStage = `${config.key}:persist_assets`;
         const assetFile = buildBriefVideoFileName(job.input.brief, jobId, modelResults.length + 1);
-        await fs.writeFile(path.join(jobDir, assetFile), videoBytes);
+        const rawAssetFile = `${path.parse(assetFile).name}-raw.mp4`;
+        const rawAssetPath = path.join(jobDir, rawAssetFile);
+        const outputAssetPath = path.join(jobDir, assetFile);
+        await fs.writeFile(rawAssetPath, videoBytes);
+
+        failureStage = `${config.key}:post_process_branding`;
+        const branded = await applySoraStudioProductBranding({
+          input: job.input,
+          inputPath: rawAssetPath,
+          outputPath: outputAssetPath,
+          rawAssetFile,
+          outputAssetFile: assetFile
+        });
 
         if (config.key === "sora2") {
           await fs.writeFile(path.join(jobDir, "raw-sora-studio.mp4"), videoBytes);
-          await fs.writeFile(path.join(jobDir, "final-sora-studio.mp4"), videoBytes);
+          await fs.copyFile(outputAssetPath, path.join(jobDir, "final-sora-studio.mp4"));
         }
 
         await mutateSoraStudioJob(jobId, (state) => {
+          if (branded.warnings.length > 0) {
+            const nextWarnings = new Set<string>(state.warnings ?? []);
+            for (const warning of branded.warnings) {
+              nextWarnings.add(`Branding: ${warning}`);
+            }
+            state.warnings = Array.from(nextWarnings);
+          }
           const render = state.renders?.find((item) => item.key === config.key);
           if (render) {
             render.status = "completed";
@@ -1475,6 +1501,7 @@ export async function runSoraStudioJob(jobId: string): Promise<void> {
             render.outputSummary = outputSummary;
             render.assetFile = assetFile;
             render.assetUrl = undefined;
+            render.postProcess = branded.postProcess;
           }
           state.assets.sora2Mp4 = config.key === "sora2" ? assetFile : state.assets.sora2Mp4;
           state.assets.seedance2Mp4 = config.key === "seedance2" ? assetFile : state.assets.seedance2Mp4;
@@ -1495,8 +1522,11 @@ export async function runSoraStudioJob(jobId: string): Promise<void> {
           modelKey: config.key,
           requestId,
           endpointId,
-          bytes: videoBytes.length,
-          file: assetFile
+          downloadedBytes: videoBytes.length,
+          finalBytes: branded.bytes.length,
+          file: assetFile,
+          rawFile: rawAssetFile,
+          postProcess: branded.postProcess
         });
 
         await maybeSendSoraStudioRenderEmail(jobId, config.key);
@@ -1508,10 +1538,11 @@ export async function runSoraStudioJob(jobId: string): Promise<void> {
           status: "completed",
           requestId,
           assetFile,
-          bytes: videoBytes.length,
-          videoBytes,
+          bytes: branded.bytes.length,
+          videoBytes: branded.bytes,
           inputSummary: summarizeFalInput(input),
-          outputSummary
+          outputSummary,
+          postProcess: branded.postProcess
         });
       } catch (error) {
         const errorMessage = toFailureMessage(failureStage, error, requestId);
@@ -1582,7 +1613,8 @@ export async function runSoraStudioJob(jobId: string): Promise<void> {
         bytes: typeof item.bytes === "number" ? item.bytes : undefined,
         error: item.error,
         inputSummary: item.inputSummary,
-        outputSummary: item.outputSummary
+        outputSummary: item.outputSummary,
+        postProcess: item.postProcess
       }))
     };
     await fs.writeFile(path.join(jobDir, "render-manifest.json"), `${JSON.stringify(renderManifest, null, 2)}\n`, "utf8");
@@ -1719,7 +1751,7 @@ export async function retrySoraStudioJob(jobId: string): Promise<void> {
       existing.assets.sora2Mp4,
       existing.assets.seedance2Mp4,
       existing.assets.klingv3Mp4,
-      ...(existing.renders ?? []).map((render) => render.assetFile)
+      ...(existing.renders ?? []).flatMap((render) => [render.assetFile, render.postProcess?.rawAssetFile])
     ].filter((value): value is string => typeof value === "string" && value.endsWith(".mp4"))
   );
 

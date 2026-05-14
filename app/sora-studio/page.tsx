@@ -972,6 +972,12 @@ export default function SoraStudioPage() {
                             Download Video
                           </a>
                         ) : null}
+                        {card.render?.postProcess ? (
+                          <p className="mt-2 text-[11px] text-slate-500">
+                            Branding: {card.render.postProcess.profileLabel}
+                            {card.render.postProcess.applied ? " applied" : " not applied"}
+                          </p>
+                        ) : null}
                       </>
                     ) : (
                       <div className="mt-3 flex aspect-[9/16] w-full items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50 text-xs text-slate-500">
