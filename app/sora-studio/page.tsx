@@ -983,6 +983,7 @@ export default function SoraStudioPage() {
                               .filter(Boolean)
                               .join(" / ")}
                             {card.render.postProcess.applied ? " applied" : " not applied"}
+                            {card.render.postProcess.captionsApplied ? " / captions applied" : ""}
                           </p>
                         ) : null}
                       </>

@@ -156,6 +156,9 @@ function isValidRenderPostProcess(value: unknown): boolean {
     (typeof value.variantKey === "undefined" || isString(value.variantKey)) &&
     (typeof value.variantLabel === "undefined" || isString(value.variantLabel)) &&
     isString(value.funnelStage) &&
+    (typeof value.captionsApplied === "undefined" || typeof value.captionsApplied === "boolean") &&
+    (typeof value.captionSource === "undefined" || isString(value.captionSource)) &&
+    (typeof value.captionStyle === "undefined" || isString(value.captionStyle)) &&
     (typeof value.rawAssetFile === "undefined" || isString(value.rawAssetFile)) &&
     (typeof value.outputAssetFile === "undefined" || isString(value.outputAssetFile)) &&
     (typeof value.logoFile === "undefined" || isString(value.logoFile)) &&

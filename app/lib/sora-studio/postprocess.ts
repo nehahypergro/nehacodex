@@ -31,6 +31,16 @@ const FFPROBE_BIN =
 
 const BRANDING_ENABLED = process.env.SORA_STUDIO_BRANDING?.trim().toLowerCase() !== "false";
 const WARN_MISSING_LOGO = process.env.SORA_STUDIO_BRANDING_WARN_MISSING_LOGO?.trim().toLowerCase() === "true";
+const CAPTIONS_ENABLED = process.env.SORA_STUDIO_CAPTIONS?.trim().toLowerCase() !== "false";
+const FORCE_CAPTIONS = process.env.SORA_STUDIO_CAPTIONS_FORCE?.trim().toLowerCase() === "true";
+const DEFAULT_CAPTION_EXCLUDED_PROFILES = new Set([
+  "privy",
+  "privy_plus",
+  "privy_business",
+  "privy_plus_business",
+  "solitaire",
+  "solitaire_business"
+]);
 
 interface ProductBrandingProfile {
   key: string;
@@ -58,6 +68,19 @@ interface MediaProbe {
   height: number;
   durationSeconds: number;
   hasAudio: boolean;
+}
+
+interface CaptionCue {
+  text: string;
+  startSeconds: number;
+  endSeconds: number;
+}
+
+interface CaptionPlan {
+  cues: CaptionCue[];
+  assPath: string;
+  source: "script_voiceover";
+  style: "boxed_bottom";
 }
 
 interface ResolvedBranding {
@@ -534,6 +557,19 @@ function firstExisting(candidates: Array<string | undefined>): string | undefine
   return undefined;
 }
 
+function csvEnvSet(name: string): Set<string> | undefined {
+  const raw = process.env[name]?.trim();
+  if (!raw) {
+    return undefined;
+  }
+  return new Set(
+    raw
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean)
+  );
+}
+
 function extensionCandidates(stem: string): string[] {
   return [".png", ".jpg", ".jpeg", ".webp"].map((extension) => `${stem}${extension}`);
 }
@@ -742,6 +778,239 @@ function resolveBranding(input: SoraStudioResolvedInputRow): ResolvedBranding {
   };
 }
 
+function excludedCaptionProfiles(): Set<string> {
+  return csvEnvSet("SORA_STUDIO_CAPTIONS_EXCLUDE_PROFILES") ?? DEFAULT_CAPTION_EXCLUDED_PROFILES;
+}
+
+function shouldApplyCaptions(profileKey: string): boolean {
+  if (!CAPTIONS_ENABLED) {
+    return false;
+  }
+  if (FORCE_CAPTIONS) {
+    return true;
+  }
+  return !excludedCaptionProfiles().has(profileKey);
+}
+
+function normalizeCaptionText(value: string): string {
+  return value
+    .replace(/[\u201c\u201d]/g, '"')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^["']+|["']+$/g, "")
+    .replace(/^[A-Za-z][^:]{0,30}:\s+/, "")
+    .trim()
+    .replace(/^["']+|["']+$/g, "");
+}
+
+function splitCaptionText(value: string): string[] {
+  const words = normalizeCaptionText(value).split(/\s+/).filter(Boolean);
+  const chunks: string[] = [];
+  let current: string[] = [];
+  const maxWords = 7;
+  const maxChars = 44;
+
+  for (const word of words) {
+    const next = [...current, word];
+    const nextText = next.join(" ");
+    if (current.length > 0 && (next.length > maxWords || nextText.length > maxChars)) {
+      chunks.push(current.join(" "));
+      current = [word];
+    } else {
+      current = next;
+    }
+  }
+
+  if (current.length > 0) {
+    chunks.push(current.join(" "));
+  }
+
+  return chunks;
+}
+
+function parseShotRange(line: string): { startSeconds: number; endSeconds: number } | undefined {
+  const match = line.match(/\((\d+(?:\.\d+)?)\s*s?\s*[-\u2013]\s*(\d+(?:\.\d+)?)\s*s?\)/i);
+  if (!match) {
+    return undefined;
+  }
+  const startSeconds = Number.parseFloat(match[1] ?? "");
+  const endSeconds = Number.parseFloat(match[2] ?? "");
+  if (!Number.isFinite(startSeconds) || !Number.isFinite(endSeconds) || endSeconds <= startSeconds) {
+    return undefined;
+  }
+  return { startSeconds, endSeconds };
+}
+
+function extractCaptionEntries(script: string): Array<{ text: string; range?: { startSeconds: number; endSeconds: number } }> {
+  const lines = script.replace(/\r\n/g, "\n").split("\n");
+  const entries: Array<{ text: string; range?: { startSeconds: number; endSeconds: number } }> = [];
+  let currentRange: { startSeconds: number; endSeconds: number } | undefined;
+
+  for (const line of lines) {
+    if (/^\s*SHOT\s+\d+/i.test(line)) {
+      currentRange = parseShotRange(line);
+      continue;
+    }
+
+    const match = line.match(/^\s*-\s*(?:VO\/Dialogue|Dialogue\/VO|Dialogue|VO|Voice\s*Over|Voiceover)\s*:\s*(.+)\s*$/i);
+    if (!match?.[1]) {
+      continue;
+    }
+
+    const text = normalizeCaptionText(match[1]);
+    if (text) {
+      entries.push({ text, range: currentRange });
+    }
+  }
+
+  return entries;
+}
+
+function distributeCaptionChunks(
+  chunks: string[],
+  range: { startSeconds: number; endSeconds: number },
+  maxDurationSeconds: number
+): CaptionCue[] {
+  const start = Math.max(0, Math.min(range.startSeconds, maxDurationSeconds));
+  const end = Math.max(start + 0.25, Math.min(range.endSeconds, maxDurationSeconds));
+  const available = Math.max(0.8, end - start);
+  const slice = available / Math.max(1, chunks.length);
+
+  return chunks.map((text, index) => {
+    const chunkStart = start + index * slice;
+    const chunkEnd = index === chunks.length - 1 ? end : start + (index + 1) * slice;
+    return {
+      text,
+      startSeconds: Math.max(0, chunkStart),
+      endSeconds: Math.max(chunkStart + 0.45, chunkEnd)
+    };
+  });
+}
+
+function buildCaptionCues(script: string, durationSeconds: number): CaptionCue[] {
+  const entries = extractCaptionEntries(script);
+  if (entries.length === 0 || durationSeconds <= 0) {
+    return [];
+  }
+
+  const ranged: CaptionCue[] = [];
+  const unrangedChunks: string[] = [];
+
+  for (const entry of entries) {
+    const chunks = splitCaptionText(entry.text);
+    if (chunks.length === 0) {
+      continue;
+    }
+    if (entry.range) {
+      ranged.push(...distributeCaptionChunks(chunks, entry.range, durationSeconds));
+    } else {
+      unrangedChunks.push(...chunks);
+    }
+  }
+
+  if (ranged.length > 0 && unrangedChunks.length === 0) {
+    return ranged.filter((cue) => cue.endSeconds > cue.startSeconds);
+  }
+
+  const allChunks = [...ranged.map((cue) => cue.text), ...unrangedChunks];
+  if (allChunks.length === 0) {
+    return [];
+  }
+
+  const captionStart = Math.min(0.35, Math.max(0, durationSeconds * 0.05));
+  const captionEnd = Math.max(captionStart + 0.8, durationSeconds - Math.min(0.35, durationSeconds * 0.05));
+  return distributeCaptionChunks(allChunks, { startSeconds: captionStart, endSeconds: captionEnd }, durationSeconds);
+}
+
+function formatAssTime(value: number): string {
+  const totalCentiseconds = Math.max(0, Math.round(value * 100));
+  const hours = Math.floor(totalCentiseconds / 360000);
+  const minutes = Math.floor((totalCentiseconds % 360000) / 6000);
+  const seconds = Math.floor((totalCentiseconds % 6000) / 100);
+  const centiseconds = totalCentiseconds % 100;
+  return `${hours}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}.${String(centiseconds).padStart(2, "0")}`;
+}
+
+function escapeAssText(value: string): string {
+  return value.replace(/\\/g, "\\\\").replace(/\{/g, "\\{").replace(/\}/g, "\\}");
+}
+
+function wrapCaptionForAss(value: string): string {
+  const words = value.split(/\s+/).filter(Boolean);
+  if (words.length <= 4 || value.length <= 24) {
+    return escapeAssText(value);
+  }
+  const midpoint = Math.ceil(words.length / 2);
+  return `${escapeAssText(words.slice(0, midpoint).join(" "))}\\N${escapeAssText(words.slice(midpoint).join(" "))}`;
+}
+
+function buildAssSubtitle(cues: CaptionCue[], frame: { width: number; height: number }): string {
+  const portrait = frame.height >= frame.width;
+  const fontSize = portrait ? 58 : 46;
+  const marginV = portrait ? 170 : 82;
+  const outline = portrait ? 2 : 1.5;
+  const events = cues
+    .map(
+      (cue) =>
+        `Dialogue: 0,${formatAssTime(cue.startSeconds)},${formatAssTime(cue.endSeconds)},Default,,0,0,0,,${wrapCaptionForAss(
+          cue.text
+        )}`
+    )
+    .join("\n");
+
+  return [
+    "[Script Info]",
+    "ScriptType: v4.00+",
+    `PlayResX: ${frame.width}`,
+    `PlayResY: ${frame.height}`,
+    "ScaledBorderAndShadow: yes",
+    "",
+    "[V4+ Styles]",
+    "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
+    `Style: Default,Arial,${fontSize},&H00FFFFFF,&H00FFFFFF,&HAA000000,&H99000000,-1,0,0,0,100,100,0,0,3,${outline},0,2,70,70,${marginV},1`,
+    "",
+    "[Events]",
+    "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
+    events
+  ].join("\n");
+}
+
+async function createCaptionPlan(params: {
+  profileKey: string;
+  captionText?: string;
+  durationSeconds: number;
+  frame: { width: number; height: number };
+  outputPath: string;
+}): Promise<CaptionPlan | undefined> {
+  if (!shouldApplyCaptions(params.profileKey)) {
+    return undefined;
+  }
+  const cues = buildCaptionCues(params.captionText ?? "", params.durationSeconds);
+  if (cues.length === 0) {
+    return undefined;
+  }
+  const parsed = path.parse(params.outputPath);
+  const digest = createHash("sha256")
+    .update(`${params.outputPath}:caption:${Date.now()}:${Math.random()}`)
+    .digest("hex")
+    .slice(0, 8);
+  const assPath = path.join(parsed.dir, `${parsed.name}.captions-${digest}.ass`);
+  await fs.writeFile(assPath, buildAssSubtitle(cues, params.frame), "utf8");
+  return { cues, assPath, source: "script_voiceover", style: "boxed_bottom" };
+}
+
+function escapeFilterPath(value: string): string {
+  return value.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+}
+
+function applyCaptionsFilter(inputLabel: string, outputLabel: string, captionPlan?: CaptionPlan): string {
+  if (!captionPlan) {
+    return `[${inputLabel}]null[${outputLabel}]`;
+  }
+  return `[${inputLabel}]subtitles=filename='${escapeFilterPath(captionPlan.assPath)}'[${outputLabel}]`;
+}
+
 function runProcessResult(command: string, args: string[]): Promise<{ code: number | null; stdout: string; stderr: string }> {
   return new Promise((resolve, reject) => {
     let stdout = "";
@@ -875,37 +1144,37 @@ function encodeArgs(outputPath: string): string[] {
   ];
 }
 
-async function renderLogoOnly(params: {
+async function renderBaseVideoPostProcess(params: {
   inputPath: string;
   outputPath: string;
-  logoPath: string;
+  logoPath?: string;
+  captionPlan?: CaptionPlan;
   frame: { width: number; height: number };
 }): Promise<void> {
   const margin = Math.max(24, Math.round(params.frame.width * 0.04));
   const logoWidth = even(Math.max(92, Math.min(260, params.frame.width * (params.frame.width > params.frame.height ? 0.12 : 0.18))));
   const filters = [
-    buildBaseVideoFilter(0, params.frame.width, params.frame.height, "base", "rgba"),
-    `[1:v]scale=${logoWidth}:-1,format=rgba[logo]`,
-    `[base][logo]overlay=x=main_w-overlay_w-${margin}:y=${margin}:format=auto:shortest=1,format=yuv420p[v]`,
-    audioFilter(0, "a", await probeMedia(params.inputPath))
+    buildBaseVideoFilter(0, params.frame.width, params.frame.height, "base", "yuv420p"),
+    applyCaptionsFilter("base", "captioned", params.captionPlan)
   ];
 
-  await runProcess(
-    FFMPEG_BIN,
-    [
-      "-y",
-      "-i",
-      params.inputPath,
-      "-loop",
-      "1",
-      "-i",
-      params.logoPath,
-      "-filter_complex",
-      filters.join(";"),
-      ...encodeArgs(params.outputPath)
-    ],
-    "ffmpeg logo overlay failed"
-  );
+  if (params.logoPath) {
+    filters.push(`[1:v]scale=${logoWidth}:-1,format=rgba[logo]`);
+    filters.push("[captioned]format=rgba[baseLogo]");
+    filters.push(`[baseLogo][logo]overlay=x=main_w-overlay_w-${margin}:y=${margin}:format=auto:shortest=1,format=yuv420p[v]`);
+  } else {
+    filters.push("[captioned]format=yuv420p[v]");
+  }
+
+  filters.push(audioFilter(0, "a", await probeMedia(params.inputPath)));
+
+  const args = ["-y", "-i", params.inputPath];
+  if (params.logoPath) {
+    args.push("-loop", "1", "-i", params.logoPath);
+  }
+  args.push("-filter_complex", filters.join(";"), ...encodeArgs(params.outputPath));
+
+  await runProcess(FFMPEG_BIN, args, "ffmpeg base video post-processing failed");
 }
 
 async function renderSlateAndLogo(params: {
@@ -913,19 +1182,24 @@ async function renderSlateAndLogo(params: {
   outputPath: string;
   endSlatePath: string;
   logoPath?: string;
+  captionPlan?: CaptionPlan;
   frame: { width: number; height: number };
   inputProbe: MediaProbe;
   slateProbe: MediaProbe;
 }): Promise<void> {
   const margin = Math.max(24, Math.round(params.frame.width * 0.04));
   const logoWidth = even(Math.max(92, Math.min(260, params.frame.width * (params.frame.width > params.frame.height ? 0.12 : 0.18))));
-  const filters = [buildBaseVideoFilter(0, params.frame.width, params.frame.height, "base0", params.logoPath ? "rgba" : "yuv420p")];
+  const filters = [
+    buildBaseVideoFilter(0, params.frame.width, params.frame.height, "base0", "yuv420p"),
+    applyCaptionsFilter("base0", "captioned0", params.captionPlan)
+  ];
 
   if (params.logoPath) {
     filters.push(`[2:v]scale=${logoWidth}:-1,format=rgba[logo]`);
-    filters.push(`[base0][logo]overlay=x=main_w-overlay_w-${margin}:y=${margin}:format=auto:shortest=1,format=yuv420p[v0]`);
+    filters.push("[captioned0]format=rgba[baseLogo]");
+    filters.push(`[baseLogo][logo]overlay=x=main_w-overlay_w-${margin}:y=${margin}:format=auto:shortest=1,format=yuv420p[v0]`);
   } else {
-    filters.push("[base0]format=yuv420p[v0]");
+    filters.push("[captioned0]format=yuv420p[v0]");
   }
 
   filters.push(buildBaseVideoFilter(1, params.frame.width, params.frame.height, "v1"));
@@ -954,9 +1228,15 @@ export async function applySoraStudioProductBranding(params: {
   outputPath: string;
   rawAssetFile: string;
   outputAssetFile: string;
+  captionText?: string;
 }): Promise<SoraStudioPostProcessResult> {
   const branding = resolveBranding(params.input);
   const warnings = [...branding.warnings];
+  const effectiveLogoPath = BRANDING_ENABLED ? branding.logoPath : undefined;
+  const effectiveEndSlatePath = BRANDING_ENABLED ? branding.endSlatePath : undefined;
+  const captionsWanted = shouldApplyCaptions(branding.profileKey) && compact(params.captionText).length > 0;
+  const disabledWarning = BRANDING_ENABLED ? undefined : "Product branding is disabled.";
+  const initialWarnings = disabledWarning ? [...warnings, disabledWarning] : warnings;
   const basePostProcess: SoraStudioRenderPostProcess = {
     applied: false,
     profileKey: branding.profileKey,
@@ -966,69 +1246,86 @@ export async function applySoraStudioProductBranding(params: {
     funnelStage: branding.funnelStage,
     rawAssetFile: params.rawAssetFile,
     outputAssetFile: params.outputAssetFile,
-    logoFile: branding.logoPath ? path.basename(branding.logoPath) : undefined,
-    endSlateFile: branding.endSlatePath ? path.basename(branding.endSlatePath) : undefined
+    captionsApplied: false,
+    logoFile: effectiveLogoPath ? path.basename(effectiveLogoPath) : undefined,
+    endSlateFile: effectiveEndSlatePath ? path.basename(effectiveEndSlatePath) : undefined
   };
 
-  if (!BRANDING_ENABLED || (!branding.logoPath && !branding.endSlatePath)) {
+  if (!effectiveLogoPath && !effectiveEndSlatePath && !captionsWanted) {
     await fs.copyFile(params.inputPath, params.outputPath);
     const bytes = await fs.readFile(params.outputPath);
-    const disabledWarning = BRANDING_ENABLED ? undefined : "Product branding is disabled.";
-    const nextWarnings = disabledWarning ? [...warnings, disabledWarning] : warnings;
     return {
       bytes,
-      warnings: nextWarnings,
+      warnings: initialWarnings,
       postProcess: {
         ...basePostProcess,
-        warnings: nextWarnings.length > 0 ? nextWarnings : undefined
+        warnings: initialWarnings.length > 0 ? initialWarnings : undefined
       }
     };
   }
 
   const tempOutputPath = buildTempOutputPath(params.outputPath);
+  let captionPlan: CaptionPlan | undefined;
   try {
     const inputProbe = await probeMedia(params.inputPath);
     const frame = targetFrame(inputProbe, params.input.renderAspectRatio);
+    captionPlan = await createCaptionPlan({
+      profileKey: branding.profileKey,
+      captionText: params.captionText,
+      durationSeconds: inputProbe.durationSeconds,
+      frame,
+      outputPath: params.outputPath
+    });
 
-    if (branding.endSlatePath) {
-      const slateProbe = await probeMedia(branding.endSlatePath);
+    if (!effectiveLogoPath && !effectiveEndSlatePath && !captionPlan) {
+      await fs.copyFile(params.inputPath, params.outputPath);
+    } else if (effectiveEndSlatePath) {
+      const slateProbe = await probeMedia(effectiveEndSlatePath);
       await renderSlateAndLogo({
         inputPath: params.inputPath,
         outputPath: tempOutputPath,
-        endSlatePath: branding.endSlatePath,
-        logoPath: branding.logoPath,
+        endSlatePath: effectiveEndSlatePath,
+        logoPath: effectiveLogoPath,
+        captionPlan,
         frame,
         inputProbe,
         slateProbe
       });
-    } else if (branding.logoPath) {
-      await renderLogoOnly({
+    } else {
+      await renderBaseVideoPostProcess({
         inputPath: params.inputPath,
         outputPath: tempOutputPath,
-        logoPath: branding.logoPath,
+        logoPath: effectiveLogoPath,
+        captionPlan,
         frame
       });
     }
 
-    await fs.rename(tempOutputPath, params.outputPath);
+    if (existsSync(tempOutputPath)) {
+      await fs.rename(tempOutputPath, params.outputPath);
+    }
     const bytes = await fs.readFile(params.outputPath);
+    const nextWarnings = initialWarnings;
     return {
       bytes,
-      warnings,
+      warnings: nextWarnings,
       postProcess: {
         ...basePostProcess,
-        applied: Boolean(branding.logoPath || branding.endSlatePath),
-        warnings: warnings.length > 0 ? warnings : undefined
+        applied: Boolean(effectiveLogoPath || effectiveEndSlatePath || captionPlan),
+        captionsApplied: Boolean(captionPlan),
+        captionSource: captionPlan?.source,
+        captionStyle: captionPlan?.style,
+        warnings: nextWarnings.length > 0 ? nextWarnings : undefined
       }
     };
   } catch (error) {
     await fs.unlink(tempOutputPath).catch(() => undefined);
     await fs.copyFile(params.inputPath, params.outputPath);
     const bytes = await fs.readFile(params.outputPath);
-    const fallbackWarning = `Brand post-processing failed; kept unbranded generated video. ${
+    const fallbackWarning = `Post-processing failed; kept original generated video. ${
       error instanceof Error ? error.message : String(error)
     }`;
-    const nextWarnings = [...warnings, fallbackWarning];
+    const nextWarnings = [...initialWarnings, fallbackWarning];
     return {
       bytes,
       warnings: nextWarnings,
@@ -1037,5 +1334,9 @@ export async function applySoraStudioProductBranding(params: {
         warnings: nextWarnings
       }
     };
+  } finally {
+    if (captionPlan?.assPath) {
+      await fs.unlink(captionPlan.assPath).catch(() => undefined);
+    }
   }
 }

@@ -62,6 +62,9 @@ export interface SoraStudioRenderPostProcess {
   variantKey?: string;
   variantLabel?: string;
   funnelStage: string;
+  captionsApplied?: boolean;
+  captionSource?: string;
+  captionStyle?: string;
   rawAssetFile?: string;
   outputAssetFile?: string;
   logoFile?: string;

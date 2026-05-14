@@ -5,6 +5,7 @@ After a model video is generated, Sora Studio runs a post-processing step before
 The step can:
 
 - overlay a product logo on the generated video
+- burn captions from the generated VO/dialogue into the generated video
 - append a product and funnel-specific end slate
 - fall back to the generic Kotak end slate when a product-specific slate is not available
 
@@ -170,9 +171,36 @@ Example:
 SORA_STUDIO_CASHBACK_LOGO_PATH=assets/product-logos/cashback.png
 ```
 
+## Captions
+
+For non-premium products, Sora Studio burns captions into the generated video before attaching the end slate.
+The caption text comes from the generated screenplay's `VO/Dialogue`, `Dialogue`, `VO`, `Voice Over`, or `Voiceover`
+lines. When shot timings are available, captions follow those shot ranges.
+
+Captions are skipped by default for these premium profiles:
+
+```text
+privy
+privy_plus
+privy_business
+privy_plus_business
+solitaire
+solitaire_business
+```
+
+Controls:
+
+```bash
+SORA_STUDIO_CAPTIONS=false
+SORA_STUDIO_CAPTIONS_FORCE=true
+SORA_STUDIO_CAPTIONS_EXCLUDE_PROFILES=privy,privy_plus,solitaire
+```
+
+The current caption style is `boxed_bottom`: bold white text in a subtle dark box near the lower part of the generated video. The end slate itself is not captioned.
+
 ## Controls
 
-Turn the entire post-processing step off:
+Turn the logo and end-slate branding off:
 
 ```bash
 SORA_STUDIO_BRANDING=false

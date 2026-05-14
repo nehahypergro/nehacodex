@@ -1476,7 +1476,8 @@ export async function runSoraStudioJob(jobId: string): Promise<void> {
           inputPath: rawAssetPath,
           outputPath: outputAssetPath,
           rawAssetFile,
-          outputAssetFile: assetFile
+          outputAssetFile: assetFile,
+          captionText: job.script
         });
 
         if (config.key === "sora2") {
