@@ -14,11 +14,17 @@ Branding is selected from the product, brief, business objective, and funnel tex
 
 Current product profiles include:
 
+- `privy_plus_business`
+- `privy_business`
+- `privy_plus`
+- `privy`
+- `solitaire_business`
+- `league_credit_card`
+- `everyday_plus`
 - `air_plus`
 - `cashback`
 - `solitaire`
 - `credit_card`
-- `privy_business`
 - `home_loan`
 - `personal_loan`
 - `savings_account`
@@ -49,8 +55,13 @@ The funnel is resolved from terms like `Awareness`, `Consideration`, `Conversion
 
 The app first checks for product and funnel-specific assets:
 
+- `assets/end-slates/<profile>/<funnel>/<variant>-<ratio>.mp4`
+- `assets/end-slates/<profile>/<funnel>/<variant>.mp4`
 - `assets/end-slates/<profile>/<funnel>/<ratio>.mp4`
+- `assets/end-slates/<profile>/<funnel>/default-<ratio>.mp4`
 - `assets/end-slates/<profile>/<funnel>/default.mp4`
+- `assets/end-slates/<profile>/<variant>/<funnel>/<ratio>.mp4`
+- `assets/end-slates/<profile>-<variant>-<funnel>-<ratio>.mp4`
 - `assets/end-slates/<profile>-<funnel>-<ratio>.mp4`
 - `assets/end-slates/<profile>_<funnel>_<ratio>.mp4`
 - `assets/end-slates/<profile>-<funnel>.mp4`
@@ -105,6 +116,32 @@ assets/end-slates/generic-conversion-9x16.mp4
 ```
 
 For landscape videos, use `16x9` in the file name.
+
+The attached Kotak end-frame pack is mapped into `assets/end-slates/` and indexed in
+`docs/sora-studio-end-slate-asset-manifest.json`. These are curated app assets, not generated batch outputs.
+
+## Variant Matching
+
+When the sheet or brief mentions a more specific angle, the app now chooses that variant before falling back to the product default.
+
+Examples:
+
+```text
+Privy + Locker rent + Consideration -> assets/end-slates/privy_plus/consideration/locker-9x16.mp4
+Taxes + GST pre-approved loan -> assets/end-slates/tax_payment/awareness/gst_lending-9x16.mp4
+Working Capital + Solar Funding -> assets/end-slates/working_capital/awareness/solar_funding-9x16.mp4
+Solitaire Business + Import/Export -> assets/end-slates/solitaire_business/awareness/import_export-9x16.mp4
+```
+
+If a conversion slate is missing, lookup falls back in this order:
+
+```text
+conversion -> consideration -> awareness -> generic
+```
+
+So a conversion brief can still use the closest available product-specific end frame instead of dropping to the generic slate.
+
+Excel imports also merge a `Segment` column with `Product` when both are present. For example, `Privy+` plus `Locker rent` becomes `Privy+ Locker rent` for branding detection.
 
 ## Logos
 

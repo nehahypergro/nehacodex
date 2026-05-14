@@ -40,6 +40,13 @@ interface ProductBrandingProfile {
 
 type FunnelStageKey = "awareness" | "consideration" | "conversion" | "retention" | "generic";
 
+interface EndSlateVariantProfile {
+  key: string;
+  label: string;
+  profileKeys?: string[];
+  patterns: RegExp[];
+}
+
 interface FunnelStageProfile {
   key: FunnelStageKey;
   label: string;
@@ -56,6 +63,8 @@ interface MediaProbe {
 interface ResolvedBranding {
   profileKey: string;
   profileLabel: string;
+  variantKey?: string;
+  variantLabel?: string;
   funnelStage: FunnelStageKey;
   funnelLabel: string;
   logoPath?: string;
@@ -71,9 +80,48 @@ export interface SoraStudioPostProcessResult {
 
 const PRODUCT_BRANDING_PROFILES: ProductBrandingProfile[] = [
   {
+    key: "privy_plus_business",
+    label: "Privy+ Business",
+    patterns: [
+      /\bprivy\s*(?:\+|plus)\s+business\b/i,
+      /\bprivy\s*(?:\+|plus)(?:\b|\s|$).*\bbulk\s+payments?\b/i
+    ]
+  },
+  {
+    key: "privy_business",
+    label: "Privy Business",
+    patterns: [/\bprivy\s+business\b/i, /\bprivy\s+biz\b/i]
+  },
+  {
+    key: "privy_plus",
+    label: "Kotak Privy+",
+    patterns: [/\bprivy\s*(?:\+|plus)(?:\b|\s|$)/i]
+  },
+  {
+    key: "privy",
+    label: "Kotak Privy",
+    patterns: [/\bprivy\b/i]
+  },
+  {
+    key: "solitaire_business",
+    label: "Kotak Solitaire Business",
+    patterns: [/\bsolitaire\s+business\b/i]
+  },
+  {
+    key: "league_credit_card",
+    label: "Kotak League Credit Card",
+    patterns: [/\bleague\b/i]
+  },
+  {
+    key: "everyday_plus",
+    label: "Kotak Everyday+",
+    patterns: [/\bevery\s*day\s*(?:\+|plus)(?:\b|\s|$)/i, /\beveryday\s*(?:\+|plus)(?:\b|\s|$)/i]
+  },
+  {
     key: "air_plus",
     label: "Kotak Air / Air Plus",
     patterns: [
+      /\bair\s*\+(?:\b|\s|$)/i,
       /\bair\s*(?:plus|credit|card)\b/i,
       /\bairplus\b/i,
       /\bcomplimentary\s+flight\b/i,
@@ -95,11 +143,6 @@ const PRODUCT_BRANDING_PROFILES: ProductBrandingProfile[] = [
     key: "credit_card",
     label: "Kotak Credit Card",
     patterns: [/\bcredit\s+cards?\b/i, /\bcard\s+acquisition\b/i]
-  },
-  {
-    key: "privy_business",
-    label: "Privy Business",
-    patterns: [/\bprivy\s+business\b/i]
   },
   {
     key: "home_loan",
@@ -129,27 +172,47 @@ const PRODUCT_BRANDING_PROFILES: ProductBrandingProfile[] = [
   {
     key: "business_loan",
     label: "Kotak Business Loan",
-    patterns: [/\bbusiness\s+loans?\b/i, /\bpre[-\s]?approved\s+business\s+loans?\b/i]
+    patterns: [
+      /\bbusiness\s+loans?\b/i,
+      /\bpre[-\s]?approved\s+business\s+loans?\b/i,
+      /\bbusiness\s+banking\s+assets?\b.*\b(?:etb|ntb|business\s+loans?)\b/i
+    ]
   },
   {
     key: "working_capital",
     label: "Kotak Working Capital",
-    patterns: [/\bworking\s+capital\b/i, /\bsolar\s+funding\b/i, /\bhealthcare\s+finance\b/i]
+    patterns: [
+      /\bworking\s+capital\b/i,
+      /\bsolar\s+funding\b/i,
+      /\bhealthcare\s+financ(?:e|ing)\b/i,
+      /\bmachinery\s+financ(?:e|ing)\b/i,
+      /\bbill\s+discount(?:ing)?\b/i,
+      /\bler\s+prime\s+plus\b/i
+    ]
   },
   {
     key: "tax_payment",
     label: "Kotak Tax Payments",
-    patterns: [/\btax\s+payments?\b/i, /\badvance\s+tax\b/i, /\bself[-\s]?assessment\s+tax\b/i]
+    patterns: [
+      /\btax\s+payments?\b/i,
+      /\bkotax\b/i,
+      /\badvance\s+tax\b/i,
+      /\bself[-\s]?assessment\s+tax\b/i,
+      /\btds\b/i,
+      /\btcs\b/i,
+      /\bgst\b/i,
+      /\bchallans?\b/i
+    ]
   },
   {
     key: "trade_services",
     label: "Kotak Trade Services",
-    patterns: [/\btrade\s+services?\b/i, /\btrade\s+globally\b/i]
+    patterns: [/\btrade\s+services?\b/i, /\btrade\s+globally\b/i, /\btrade\s+(?:and\s+)?forex\b/i]
   },
   {
     key: "cash_management",
     label: "Kotak Cash Management",
-    patterns: [/\bcash\s+management\b/i, /\bcms\b/i]
+    patterns: [/\bcash\s+management\b/i, /\bcms\b/i, /\bbulk\s+payments?\b/i]
   },
   {
     key: "pos",
@@ -211,6 +274,239 @@ const FUNNEL_STAGE_PROFILES: FunnelStageProfile[] = [
   }
 ];
 
+const END_SLATE_VARIANT_PROFILES: EndSlateVariantProfile[] = [
+  {
+    key: "gst_lending",
+    label: "GST Lending",
+    profileKeys: ["tax_payment"],
+    patterns: [/\bgst\b.*\b(?:loan|lending|pre[-\s]?approved)\b/i, /\b(?:loan|lending|pre[-\s]?approved)\b.*\bgst\b/i]
+  },
+  {
+    key: "gst_bulk_payment",
+    label: "GST Bulk Payment",
+    profileKeys: ["tax_payment"],
+    patterns: [/\bgst\b.*\bbulk\s+payments?\b/i, /\bbulk\s+payments?\b.*\bgst\b/i, /\bmultiple\s+gst\s+challans?\b/i]
+  },
+  {
+    key: "card_offer",
+    label: "Debit Card Offer",
+    profileKeys: ["tax_payment"],
+    patterns: [/\b(?:cashback|select)\b.*\bdebit\s+cards?\b/i, /\b(?:offer\s+card|card\s+offer)\b/i]
+  },
+  {
+    key: "multiple_modes",
+    label: "Multiple Modes",
+    profileKeys: ["tax_payment"],
+    patterns: [/\bmultiple\s+modes?\b/i, /\bmultiple\s+payment\s+modes?\b/i]
+  },
+  {
+    key: "advance_tax",
+    label: "Advance Tax",
+    profileKeys: ["tax_payment"],
+    patterns: [/\badvance\s+tax\b/i]
+  },
+  {
+    key: "tds_tcs",
+    label: "TDS/TCS",
+    profileKeys: ["tax_payment"],
+    patterns: [/\btds\b/i, /\btcs\b/i]
+  },
+  {
+    key: "direct_tax",
+    label: "Direct Tax",
+    profileKeys: ["tax_payment"],
+    patterns: [/\bdirect\s+tax(?:es)?\b/i, /\bdeadline\b/i]
+  },
+  {
+    key: "gst",
+    label: "GST",
+    profileKeys: ["tax_payment"],
+    patterns: [/\bgst\b/i]
+  },
+  {
+    key: "ntb",
+    label: "NTB",
+    profileKeys: ["business_loan"],
+    patterns: [/\bntb\b/i, /\bnew\s+to\s+bank\b/i]
+  },
+  {
+    key: "etb",
+    label: "ETB",
+    profileKeys: ["business_loan"],
+    patterns: [/\betb\b/i, /\bexisting\s+to\s+bank\b/i, /\bexisting\s+customers?\b/i]
+  },
+  {
+    key: "solar_funding",
+    label: "Solar Funding",
+    profileKeys: ["working_capital"],
+    patterns: [/\bsolar\s+funding\b/i, /\bsolar\b/i]
+  },
+  {
+    key: "healthcare_financing",
+    label: "Healthcare Financing",
+    profileKeys: ["working_capital"],
+    patterns: [/\bhealthcare\s+financ(?:e|ing)\b/i, /\bhealth\s*care\s+financ(?:e|ing)\b/i]
+  },
+  {
+    key: "machinery_financing",
+    label: "Machinery Financing",
+    profileKeys: ["working_capital"],
+    patterns: [/\bmachinery\s+financ(?:e|ing)\b/i, /\bmachinery\b/i]
+  },
+  {
+    key: "bill_discounting",
+    label: "Bill Discounting",
+    profileKeys: ["working_capital"],
+    patterns: [/\bbill\s+discount(?:ing)?\b/i]
+  },
+  {
+    key: "ler_prime_plus",
+    label: "LER Prime Plus",
+    profileKeys: ["working_capital"],
+    patterns: [/\bler\s+prime\s+plus\b/i, /\bler\b/i]
+  },
+  {
+    key: "free_funding",
+    label: "Free Funding",
+    profileKeys: ["working_capital"],
+    patterns: [/\bfree\s+fund(?:ing)?\b/i]
+  },
+  {
+    key: "support",
+    label: "Support",
+    profileKeys: ["working_capital"],
+    patterns: [/\bsupport\b/i]
+  },
+  {
+    key: "locker",
+    label: "Locker Rent",
+    profileKeys: ["privy", "privy_plus"],
+    patterns: [/\blocker\s+rent\b/i, /\blockers?\b/i, /\b40\s*%\s*off\b/i]
+  },
+  {
+    key: "health_insurance",
+    label: "Health Insurance",
+    profileKeys: ["privy", "privy_plus"],
+    patterns: [/\bhealth\s+insurance\b/i, /\b1\s*cr(?:ore)?\s+health\b/i]
+  },
+  {
+    key: "home_loan",
+    label: "Home Loan",
+    profileKeys: ["privy", "privy_plus", "solitaire"],
+    patterns: [/\bhome\s+loans?\b/i, /\bpre[-\s]?qualified\s+home\b/i, /\bpre[-\s]?approved\s+loan\b/i]
+  },
+  {
+    key: "air_plus",
+    label: "Air+",
+    profileKeys: ["privy", "privy_plus", "air_plus"],
+    patterns: [/\bair\s*(?:\+|plus)(?:\b|\s|$)/i, /\bair\s*\+?\s*cc\b/i]
+  },
+  {
+    key: "fd_sip",
+    label: "FD + SIP",
+    profileKeys: ["privy", "privy_plus"],
+    patterns: [/\bfd\s*\+\s*sip\b/i, /\bfd\b.*\bsip\b/i, /\bsip\b.*\bfd\b/i, /\binvestment\s+fd\b/i]
+  },
+  {
+    key: "programme_led",
+    label: "Programme Led",
+    profileKeys: ["privy", "privy_plus"],
+    patterns: [/\bprogramme\s+led\b/i, /\bprogram\s+led\b/i, /\bhausla\b/i]
+  },
+  {
+    key: "trade_forex",
+    label: "Trade and Forex",
+    profileKeys: ["privy_business"],
+    patterns: [/\btrade\s+(?:and\s+)?forex\b/i, /\btrade\s+globally\b/i, /\bforex\s+solutions?\b/i]
+  },
+  {
+    key: "tax_payment",
+    label: "Tax Payments",
+    profileKeys: ["privy_business"],
+    patterns: [/\btax\s+payments?\b/i, /\btax\b/i]
+  },
+  {
+    key: "bulk_payments",
+    label: "Bulk Payments",
+    profileKeys: ["privy_plus_business", "cash_management"],
+    patterns: [/\bbulk\s+payments?\b/i]
+  },
+  {
+    key: "import_export",
+    label: "Import/Export",
+    profileKeys: ["solitaire_business"],
+    patterns: [/\bimport\s*(?:\/|&|and)\s*export\b/i, /\bimport\b.*\bexport\b/i, /\bexport\s+transactions?\b/i]
+  },
+  {
+    key: "forex",
+    label: "Forex",
+    profileKeys: ["solitaire_business"],
+    patterns: [/\bforex\b/i]
+  },
+  {
+    key: "ad_hoc_working_capital",
+    label: "Ad Hoc Working Capital",
+    profileKeys: ["solitaire_business"],
+    patterns: [/\bad\s*hoc\s+working\s+capital\b/i]
+  },
+  {
+    key: "working_capital",
+    label: "Working Capital",
+    profileKeys: ["solitaire_business"],
+    patterns: [/\bworking\s+capital\b/i]
+  },
+  {
+    key: "credit_card",
+    label: "Credit Card",
+    profileKeys: ["solitaire", "solitaire_business"],
+    patterns: [/\bcredit\s+cards?\b/i, /\bcc\b/i, /\bsolitaire\s+cc\b/i]
+  },
+  {
+    key: "investments",
+    label: "Investments",
+    profileKeys: ["solitaire"],
+    patterns: [/\binvestments?\b/i]
+  },
+  {
+    key: "pre_approved",
+    label: "Pre-approved",
+    profileKeys: ["personal_loan"],
+    patterns: [/\bpre[-\s]?approved\b/i]
+  },
+  {
+    key: "one_crore",
+    label: "One Crore",
+    profileKeys: ["personal_loan"],
+    patterns: [/\b1\s*crore\b/i, /\bone\s+crore\b/i, /\bup\s+to\s+1\b/i]
+  },
+  {
+    key: "maximum_savings",
+    label: "Maximum Savings",
+    profileKeys: ["everyday_plus"],
+    patterns: [/\bmaximi[sz]e\b/i, /\bmaximum\b/i, /\bmonthly\s+savings?\b/i]
+  },
+  {
+    key: "cashback",
+    label: "Cashback",
+    profileKeys: ["everyday_plus", "cashback"],
+    patterns: [/\b5\s*%\s*cashback\b/i, /\bcashback\b/i]
+  },
+  {
+    key: "offers",
+    label: "Offers",
+    profileKeys: ["everyday_plus"],
+    patterns: [/\boffers?\b/i, /\benjoy(?:ing)?\b/i]
+  }
+];
+
+const FUNNEL_STAGE_LOOKUP_ORDER: Record<FunnelStageKey, FunnelStageKey[]> = {
+  awareness: ["awareness", "generic"],
+  consideration: ["consideration", "awareness", "generic"],
+  conversion: ["conversion", "consideration", "awareness", "generic"],
+  retention: ["retention", "conversion", "consideration", "awareness", "generic"],
+  generic: ["generic"]
+};
+
 function compact(value: string | undefined): string {
   return (value ?? "").replace(/\s+/g, " ").trim();
 }
@@ -243,14 +539,7 @@ function extensionCandidates(stem: string): string[] {
 }
 
 function resolveBrandingProfile(input: SoraStudioResolvedInputRow): ProductBrandingProfile {
-  const haystack = [
-    input.product,
-    input.brief,
-    input.businessObjective,
-    input.creativeObjectiveFunnel
-  ]
-    .map(compact)
-    .join(" ");
+  const haystack = buildBrandingHaystack(input);
 
   return PRODUCT_BRANDING_PROFILES.find((profile) => profile.patterns.some((pattern) => pattern.test(haystack))) ?? {
     key: "generic",
@@ -268,6 +557,19 @@ function buildBrandingHaystack(input: SoraStudioResolvedInputRow): string {
   ]
     .map(compact)
     .join(" ");
+}
+
+function resolveEndSlateVariant(
+  profileKey: string,
+  input: SoraStudioResolvedInputRow
+): EndSlateVariantProfile | undefined {
+  const haystack = buildBrandingHaystack(input);
+  return END_SLATE_VARIANT_PROFILES.find((variant) => {
+    if (variant.profileKeys && !variant.profileKeys.includes(profileKey)) {
+      return false;
+    }
+    return variant.patterns.some((pattern) => pattern.test(haystack));
+  });
 }
 
 function resolveFunnelStage(input: SoraStudioResolvedInputRow): FunnelStageProfile {
@@ -295,11 +597,33 @@ function endSlatePathCandidates(params: {
   profileKey: string;
   funnelStage: FunnelStageKey;
   renderAspectRatio: SoraStudioResolvedInputRow["renderAspectRatio"];
+  variantKey?: string;
 }): string[] {
-  const { profileKey, funnelStage, renderAspectRatio } = params;
+  const { profileKey, funnelStage, renderAspectRatio, variantKey } = params;
   const ratioToken = renderAspectRatio.replace(":", "x");
-  const candidates = [
+  const candidates: string[] = [];
+
+  if (variantKey) {
+    candidates.push(
+      path.join("assets", "end-slates", profileKey, funnelStage, `${variantKey}-${ratioToken}.mp4`),
+      path.join("assets", "end-slates", profileKey, funnelStage, `${variantKey}_${ratioToken}.mp4`),
+      path.join("assets", "end-slates", profileKey, funnelStage, `${variantKey}.mp4`),
+      path.join("assets", "end-slates", profileKey, variantKey, funnelStage, `${ratioToken}.mp4`),
+      path.join("assets", "end-slates", profileKey, variantKey, funnelStage, "default.mp4"),
+      path.join("assets", "end-slates", `${profileKey}-${variantKey}-${funnelStage}-${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}_${variantKey}_${funnelStage}_${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}-${variantKey}-${funnelStage}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}_${variantKey}_${funnelStage}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}-${variantKey}-${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}_${variantKey}_${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}-${variantKey}.mp4`),
+      path.join("assets", "end-slates", `${profileKey}_${variantKey}.mp4`)
+    );
+  }
+
+  candidates.push(
     path.join("assets", "end-slates", profileKey, funnelStage, `${ratioToken}.mp4`),
+    path.join("assets", "end-slates", profileKey, funnelStage, `default-${ratioToken}.mp4`),
     path.join("assets", "end-slates", profileKey, funnelStage, "default.mp4"),
     path.join("assets", "end-slates", `${profileKey}-${funnelStage}-${ratioToken}.mp4`),
     path.join("assets", "end-slates", `${profileKey}_${funnelStage}_${ratioToken}.mp4`),
@@ -308,7 +632,7 @@ function endSlatePathCandidates(params: {
     path.join("assets", "end-slates", `${profileKey}-${ratioToken}.mp4`),
     path.join("assets", "end-slates", `${profileKey}_${ratioToken}.mp4`),
     path.join("assets", "end-slates", `${profileKey}.mp4`)
-  ];
+  );
 
   if (funnelStage !== "generic") {
     candidates.push(
@@ -326,11 +650,21 @@ function endSlatePathCandidates(params: {
 function resolveEndSlatePath(
   profileKey: string,
   funnelStage: FunnelStageKey,
-  renderAspectRatio: SoraStudioResolvedInputRow["renderAspectRatio"]
+  renderAspectRatio: SoraStudioResolvedInputRow["renderAspectRatio"],
+  variantKey?: string
 ): string | undefined {
   const envKey = normalizeEnvToken(profileKey);
   const funnelEnvKey = normalizeEnvToken(funnelStage);
+  const variantEnvKey = variantKey ? normalizeEnvToken(variantKey) : undefined;
   const ratioToken = renderAspectRatio.replace(":", "x");
+  const variantEnvCandidates = variantEnvKey
+    ? [
+        process.env[`SORA_STUDIO_${envKey}_${variantEnvKey}_${funnelEnvKey}_${ratioToken.toUpperCase()}_END_SLATE_PATH`],
+        process.env[`SORA_STUDIO_${envKey}_${variantEnvKey}_${funnelEnvKey}_END_SLATE_PATH`],
+        process.env[`SORA_STUDIO_${envKey}_${variantEnvKey}_${ratioToken.toUpperCase()}_END_SLATE_PATH`],
+        process.env[`SORA_STUDIO_${envKey}_${variantEnvKey}_END_SLATE_PATH`]
+      ]
+    : [];
   const aspectSpecificEnv =
     process.env[`SORA_STUDIO_${envKey}_${funnelEnvKey}_${ratioToken.toUpperCase()}_END_SLATE_PATH`] ||
     process.env[`SORA_STUDIO_${envKey}_${funnelEnvKey}_END_SLATE_PATH`] ||
@@ -349,9 +683,14 @@ function resolveEndSlatePath(
     generic: [path.join("assets", "end-slate.mp4")]
   };
 
+  const pathCandidates = FUNNEL_STAGE_LOOKUP_ORDER[funnelStage].flatMap((stage) =>
+    endSlatePathCandidates({ profileKey, funnelStage: stage, renderAspectRatio, variantKey })
+  );
+
   return firstExisting([
+    ...variantEnvCandidates,
     aspectSpecificEnv,
-    ...endSlatePathCandidates({ profileKey, funnelStage, renderAspectRatio }),
+    ...pathCandidates,
     ...(builtInByProfile[profileKey] ?? []),
     defaultEnv,
     ...(builtInByProfile.generic ?? [])
@@ -377,9 +716,10 @@ function resolveLogoPath(profileKey: string): string | undefined {
 
 function resolveBranding(input: SoraStudioResolvedInputRow): ResolvedBranding {
   const profile = resolveBrandingProfile(input);
+  const variant = resolveEndSlateVariant(profile.key, input);
   const funnel = resolveFunnelStage(input);
   const warnings: string[] = [];
-  const endSlatePath = resolveEndSlatePath(profile.key, funnel.key, input.renderAspectRatio);
+  const endSlatePath = resolveEndSlatePath(profile.key, funnel.key, input.renderAspectRatio, variant?.key);
   const logoPath = resolveLogoPath(profile.key);
 
   if (!endSlatePath) {
@@ -392,6 +732,8 @@ function resolveBranding(input: SoraStudioResolvedInputRow): ResolvedBranding {
   return {
     profileKey: profile.key,
     profileLabel: profile.label,
+    variantKey: variant?.key,
+    variantLabel: variant?.label,
     funnelStage: funnel.key,
     funnelLabel: funnel.label,
     logoPath,
@@ -619,6 +961,8 @@ export async function applySoraStudioProductBranding(params: {
     applied: false,
     profileKey: branding.profileKey,
     profileLabel: branding.profileLabel,
+    variantKey: branding.variantKey,
+    variantLabel: branding.variantLabel,
     funnelStage: branding.funnelStage,
     rawAssetFile: params.rawAssetFile,
     outputAssetFile: params.outputAssetFile,

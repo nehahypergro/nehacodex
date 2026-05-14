@@ -1,0 +1,1000 @@
+{
+  "sourceZip": "/Users/neha/Downloads/OneDrive_1_15-5-2026.zip",
+  "assetRoot": "assets/end-slates",
+  "count": 124,
+  "totalBytes": 155112378,
+  "entries": [
+    {
+      "profile": "home_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/home_loan/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Home Loan/home loan vertical   .mp4",
+      "label": "Home Loan",
+      "bytes": 1133697
+    },
+    {
+      "profile": "home_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/home_loan/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Home Loan/home loan.mp4",
+      "label": "Home Loan",
+      "bytes": 1200121
+    },
+    {
+      "profile": "home_loan",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/home_loan/consideration/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Home Loan/home loan vertical   .mp4",
+      "label": "Home Loan",
+      "bytes": 1133697
+    },
+    {
+      "profile": "home_loan",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/home_loan/consideration/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Home Loan/home loan.mp4",
+      "label": "Home Loan",
+      "bytes": 1200121
+    },
+    {
+      "profile": "home_loan",
+      "funnel": "conversion",
+      "asset": "assets/end-slates/home_loan/conversion/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Home Loan/home loan vertical   .mp4",
+      "label": "Home Loan",
+      "bytes": 1133697
+    },
+    {
+      "profile": "home_loan",
+      "funnel": "conversion",
+      "asset": "assets/end-slates/home_loan/conversion/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Home Loan/home loan.mp4",
+      "label": "Home Loan",
+      "bytes": 1200121
+    },
+    {
+      "profile": "personal_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/personal_loan/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Personal Loan/perosnal loan Get funds up to `1 Crore 9 16.mp4",
+      "label": "Personal Loan one crore",
+      "bytes": 657664
+    },
+    {
+      "profile": "personal_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/personal_loan/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Personal Loan/perosnal loan Get funds up to `1 Crore 16.9.mp4",
+      "label": "Personal Loan one crore",
+      "bytes": 969968
+    },
+    {
+      "profile": "personal_loan",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/personal_loan/consideration/one_crore-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Personal Loan/perosnal loan Get funds up to `1 Crore 9 16.mp4",
+      "label": "Personal Loan one crore",
+      "bytes": 657664
+    },
+    {
+      "profile": "personal_loan",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/personal_loan/consideration/one_crore-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Personal Loan/perosnal loan Get funds up to `1 Crore 16.9.mp4",
+      "label": "Personal Loan one crore",
+      "bytes": 969968
+    },
+    {
+      "profile": "personal_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/personal_loan/awareness/pre_approved-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Personal Loan/perosnal loan pre-approved funds 9.16.mp4",
+      "label": "Pre-approved Personal Loan",
+      "bytes": 688974
+    },
+    {
+      "profile": "personal_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/personal_loan/awareness/pre_approved-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Personal Loan/perosnal loan pre-approved funds 16.9.mp4",
+      "label": "Pre-approved Personal Loan",
+      "bytes": 1083691
+    },
+    {
+      "profile": "cashback",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/cashback/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/CC Cashback+/Kotak Cashback+  awareness 16.10.mp4",
+      "label": "Cashback+ awareness",
+      "bytes": 1341251
+    },
+    {
+      "profile": "cashback",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/cashback/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/CC Cashback+/Kotak Cashback+  9.16 awarness  2.mp4",
+      "label": "Cashback+ awareness",
+      "bytes": 1503223
+    },
+    {
+      "profile": "cashback",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/cashback/consideration/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/CC Cashback+/Kotak Cashback+  16.9.mp4",
+      "label": "Cashback+ consideration",
+      "bytes": 1657072
+    },
+    {
+      "profile": "cashback",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/cashback/consideration/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/CC Cashback+/Kotak Cashback+  9.16.mp4",
+      "label": "Cashback+ consideration",
+      "bytes": 1591372
+    },
+    {
+      "profile": "league_credit_card",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/league_credit_card/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/CC League/Kotak League Awareness End Frame 16x9.mp4",
+      "label": "League awareness",
+      "bytes": 2038308
+    },
+    {
+      "profile": "league_credit_card",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/league_credit_card/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/CC League/Kotak League Awareness End Frame 9x16.mp4",
+      "label": "League awareness",
+      "bytes": 2099928
+    },
+    {
+      "profile": "league_credit_card",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/league_credit_card/consideration/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/CC League/Kotak League conversion End Frame 16x10.mp4",
+      "label": "League consideration",
+      "bytes": 1969920
+    },
+    {
+      "profile": "league_credit_card",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/league_credit_card/consideration/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/CC League/Kotak League conversion End Frame 9x16.mp4",
+      "label": "League consideration",
+      "bytes": 1897929
+    },
+    {
+      "profile": "league_credit_card",
+      "funnel": "conversion",
+      "asset": "assets/end-slates/league_credit_card/conversion/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/CC League/Kotak League conversion End Frame 16x10.mp4",
+      "label": "League conversion",
+      "bytes": 1969920
+    },
+    {
+      "profile": "league_credit_card",
+      "funnel": "conversion",
+      "asset": "assets/end-slates/league_credit_card/conversion/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/CC League/Kotak League conversion End Frame 9x16.mp4",
+      "label": "League conversion",
+      "bytes": 1897929
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/everyday_plus/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + maximum 9x16.mp4",
+      "label": "Everyday+ maximum savings",
+      "bytes": 2135097
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/everyday_plus/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + maximum.mp4",
+      "label": "Everyday+ maximum savings",
+      "bytes": 1995579
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/everyday_plus/awareness/maximum_savings-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + maximum 9x16.mp4",
+      "label": "Everyday+ maximum savings",
+      "bytes": 2135097
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/everyday_plus/awareness/maximum_savings-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + maximum.mp4",
+      "label": "Everyday+ maximum savings",
+      "bytes": 1995579
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/everyday_plus/consideration/cashback-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + 5% cashback 9x16.mp4",
+      "label": "Everyday+ cashback",
+      "bytes": 1718826
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/everyday_plus/consideration/cashback-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + 5% cashback.mp4",
+      "label": "Everyday+ cashback",
+      "bytes": 1681355
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/everyday_plus/consideration/offers-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + enjoying 9x16.mp4",
+      "label": "Everyday+ offers",
+      "bytes": 2521079
+    },
+    {
+      "profile": "everyday_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/everyday_plus/consideration/offers-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Everyday+/kotak every day + enjoying.mp4",
+      "label": "Everyday+ offers",
+      "bytes": 2413447
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy hausla apka 9x16.mp4",
+      "label": "privy_plus programme",
+      "bytes": 2192287
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy hausla apka 16x9.mp4",
+      "label": "privy_plus programme",
+      "bytes": 1752770
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus/awareness/programme_led-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy hausla apka 9x16.mp4",
+      "label": "privy_plus programme",
+      "bytes": 2192287
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus/awareness/programme_led-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy hausla apka 16x9.mp4",
+      "label": "privy_plus programme",
+      "bytes": 1752770
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/locker-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy 40%off  9x16.mp4",
+      "label": "privy_plus locker",
+      "bytes": 865599
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/locker-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy 40%off  16x9.mp4",
+      "label": "privy_plus locker",
+      "bytes": 879540
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/health_insurance-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy 1 cr health  9x16.mp4",
+      "label": "privy_plus health insurance",
+      "bytes": 1113283
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/health_insurance-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy 1 cr health  16x9.mp4",
+      "label": "privy_plus health insurance",
+      "bytes": 1030400
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/home_loan-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy pre approved loan 9x16.mp4",
+      "label": "privy_plus home loan",
+      "bytes": 1157655
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/home_loan-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy pre approved loan 16x9.mp4",
+      "label": "privy_plus home loan",
+      "bytes": 1156005
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/air_plus-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy AIR +cc 9x16.mp4",
+      "label": "privy_plus Air+",
+      "bytes": 1098907
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/air_plus-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy AIR +cc 16x10.mp4",
+      "label": "privy_plus Air+",
+      "bytes": 1119636
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/fd_sip-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy 1investment fd  9x16.mp4",
+      "label": "privy_plus FD SIP",
+      "bytes": 1114013
+    },
+    {
+      "profile": "privy_plus",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy_plus/consideration/fd_sip-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy +12 videos aniamtion/privy investment FD   16x9.mp4",
+      "label": "privy_plus FD SIP",
+      "bytes": 1042455
+    },
+    {
+      "profile": "privy",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy hausla apka 9x16.mp4",
+      "label": "privy programme",
+      "bytes": 2188898
+    },
+    {
+      "profile": "privy",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy hausla apka 16x9.mp4",
+      "label": "privy programme",
+      "bytes": 1747308
+    },
+    {
+      "profile": "privy",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy/awareness/programme_led-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy hausla apka 9x16.mp4",
+      "label": "privy programme",
+      "bytes": 2188898
+    },
+    {
+      "profile": "privy",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy/awareness/programme_led-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy hausla apka 16x9.mp4",
+      "label": "privy programme",
+      "bytes": 1747308
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/locker-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy 40%off  9x16.mp4",
+      "label": "privy locker",
+      "bytes": 855270
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/locker-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy 40%off  16x9.mp4",
+      "label": "privy locker",
+      "bytes": 873140
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/health_insurance-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy 1 cr health  9x16.mp4",
+      "label": "privy health insurance",
+      "bytes": 1102673
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/health_insurance-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy 1 cr health  16x9.mp4",
+      "label": "privy health insurance",
+      "bytes": 1024033
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/home_loan-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy pre approved loan 9x16.mp4",
+      "label": "privy home loan",
+      "bytes": 1150971
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/home_loan-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy pre approved loan 16x9.mp4",
+      "label": "privy home loan",
+      "bytes": 1150148
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/air_plus-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy AIR +cc 9x16.mp4",
+      "label": "privy Air+",
+      "bytes": 1088558
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/air_plus-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy AIR +cc 16x10.mp4",
+      "label": "privy Air+",
+      "bytes": 1113548
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/fd_sip-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy 1investment fd  9x16.mp4",
+      "label": "privy FD SIP",
+      "bytes": 1103705
+    },
+    {
+      "profile": "privy",
+      "funnel": "consideration",
+      "asset": "assets/end-slates/privy/consideration/fd_sip-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy and Privy+/privy 12 videos ANIMATION/privy investment FD   16x9.mp4",
+      "label": "privy FD SIP",
+      "bytes": 1036096
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Working capital/working cap support 9x16.mp4",
+      "label": "Working capital support",
+      "bytes": 835822
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Working capital/wokring cap 16x9 support.mp4",
+      "label": "Working capital support",
+      "bytes": 781729
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/free_funding-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Working capital/working cap free funding  9x17.mp4",
+      "label": "Working capital free funding",
+      "bytes": 914131
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/free_funding-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Working capital/wokring cap 16x9 free fundig 2.mp4",
+      "label": "Working capital free funding",
+      "bytes": 843651
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/support-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Working capital/working cap support 9x16.mp4",
+      "label": "Working capital support",
+      "bytes": 835822
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/support-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Working capital/wokring cap 16x9 support.mp4",
+      "label": "Working capital support",
+      "bytes": 781729
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/solar_funding-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Solar Funding/solar funding 9x16.mp4",
+      "label": "Solar funding",
+      "bytes": 718658
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/solar_funding-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Solar Funding/solar funding 16x9.mp4",
+      "label": "Solar funding",
+      "bytes": 662404
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/healthcare_financing-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Healthcare/HEALTH CARE vertical.mp4",
+      "label": "Healthcare financing",
+      "bytes": 1930867
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/healthcare_financing-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/Healthcare/HEALTH CARE.mp4",
+      "label": "Healthcare financing",
+      "bytes": 1836471
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/machinery_financing-9x16.mp4",
+      "source": "Business Banking Assets/Machinery animation/Machinery  vertical.mp4",
+      "label": "Machinery financing",
+      "bytes": 1821498
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/machinery_financing-16x9.mp4",
+      "source": "Business Banking Assets/Machinery animation/Machinery  16x9.mp4",
+      "label": "Machinery financing",
+      "bytes": 1806993
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/bill_discounting-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/LER/bill dis vertical 2.mp4",
+      "label": "Bill discounting",
+      "bytes": 1731135
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/bill_discounting-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/LER/Bill discount 2.mp4",
+      "label": "Bill discounting",
+      "bytes": 1658583
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/ler_prime_plus-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/LER/bill dis vertical .mp4",
+      "label": "LER Prime Plus",
+      "bytes": 2231772
+    },
+    {
+      "profile": "working_capital",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/working_capital/awareness/ler_prime_plus-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/LER/Bill discount.mp4",
+      "label": "LER Prime Plus",
+      "bytes": 2131496
+    },
+    {
+      "profile": "business_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/business_loan/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/ETB and NTB/ETB 9x16.mp4",
+      "label": "Business loan ETB",
+      "bytes": 783021
+    },
+    {
+      "profile": "business_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/business_loan/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/ETB and NTB/ETB 16X9.mp4",
+      "label": "Business loan ETB",
+      "bytes": 729346
+    },
+    {
+      "profile": "business_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/business_loan/awareness/etb-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/ETB and NTB/ETB 9x16.mp4",
+      "label": "Business loan ETB",
+      "bytes": 783021
+    },
+    {
+      "profile": "business_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/business_loan/awareness/etb-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/ETB and NTB/ETB 16X9.mp4",
+      "label": "Business loan ETB",
+      "bytes": 729346
+    },
+    {
+      "profile": "business_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/business_loan/awareness/ntb-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/ETB and NTB/NTB 9x16_1.mp4",
+      "label": "Business loan NTB",
+      "bytes": 754453
+    },
+    {
+      "profile": "business_loan",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/business_loan/awareness/ntb-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Business Banking Assets/ETB and NTB/NTB 16X10.mp4",
+      "label": "Business loan NTB",
+      "bytes": 708405
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Generic End Frames/Kotax generic End Frames_9x16.mp4",
+      "label": "Kotax generic",
+      "bytes": 808981
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Generic End Frames/Kotax generic End Frames16x9.mp4",
+      "label": "Kotax generic",
+      "bytes": 747691
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/card_offer-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Card offer\u0393\u00f6\u00bca\u2560\u00fcEnd Frames/Kotax Offer card End Frames_9x16.mp4",
+      "label": "Kotax card offer",
+      "bytes": 1203571
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/card_offer-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Card offer\u0393\u00f6\u00bca\u2560\u00fcEnd Frames/Kotax Offer card End Frames_16x9.mp4",
+      "label": "Kotax card offer",
+      "bytes": 1043124
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/multiple_modes-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Multiple modes End Frames/Kotax Multiple modes End Frames_9x16.mp4",
+      "label": "Kotax multiple modes",
+      "bytes": 1128920
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/multiple_modes-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Multiple modes End Frames/Kotax Multiple modes End Frames_16x9.mp4",
+      "label": "Kotax multiple modes",
+      "bytes": 978730
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/gst-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax GST End Frames/Kotax GST Bulk Payment End Frames_9x16.mp4",
+      "label": "Kotax GST",
+      "bytes": 883593
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/gst-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax GST End Frames/Kotax GST Bulk Payment End Frames_16x9.mp4",
+      "label": "Kotax GST",
+      "bytes": 853166
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/tds_tcs-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Deadline centric-DT End Frames/Kotax Deadline centric-DT End Frames_9x16.mp4",
+      "label": "Kotax TDS TCS",
+      "bytes": 710569
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/tds_tcs-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Deadline centric-DT End Frames/Kotax Deadline centric-DT End Frames_16x9.mp4",
+      "label": "Kotax TDS TCS",
+      "bytes": 693662
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/direct_tax-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Deadline centric-DT End Frames/Kotax Deadline centric-DT End Frames_9x16.mp4",
+      "label": "Kotax direct tax",
+      "bytes": 710569
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/direct_tax-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Deadline centric-DT End Frames/Kotax Deadline centric-DT End Frames_16x9.mp4",
+      "label": "Kotax direct tax",
+      "bytes": 693662
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/advance_tax-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Advance Tax End Frames/Kotax Advance Tax End Frames_9x16.mp4",
+      "label": "Kotax advance tax",
+      "bytes": 757018
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/advance_tax-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax Advance Tax End Frames/Kotax Advance Tax End Frames_16x9.mp4",
+      "label": "Kotax advance tax",
+      "bytes": 732978
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/h2h_tax-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax H2H Tax End Frames/Kotax H2H End Frames_9x16.mp4",
+      "label": "Kotax H2H tax",
+      "bytes": 857776
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/h2h_tax-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax H2H Tax End Frames/Kotax H2H End Frames_16x9.mp4",
+      "label": "Kotax H2H tax",
+      "bytes": 844739
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/gst_lending-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax GST Lending End Frames/Kotax GST Lending End Frames_9x16.mp4",
+      "label": "Kotax GST lending",
+      "bytes": 1140132
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/gst_lending-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax GST Lending End Frames/Kotax GST Lending End Frames_16x9.mp4",
+      "label": "Kotax GST lending",
+      "bytes": 1000114
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/gst_bulk_payment-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax GST Bulk Payment Tax End Frames/Kotax GST Bulk Payment End Frames_9x16.mp4",
+      "label": "Kotax GST bulk payment",
+      "bytes": 883593
+    },
+    {
+      "profile": "tax_payment",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/tax_payment/awareness/gst_bulk_payment-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Taxes/Kotax GST Bulk Payment Tax End Frames/Kotax GST Bulk Payment End Frames_16x9.mp4",
+      "label": "Kotax GST bulk payment",
+      "bytes": 853166
+    },
+    {
+      "profile": "privy_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_business/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy Business/privy buiness 2 .ai hausla aapka_1.mp4",
+      "label": "Privy Business generic",
+      "bytes": 1288855
+    },
+    {
+      "profile": "privy_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_business/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy Business/privy buiness 2 .ai hausla aapka.mp4",
+      "label": "Privy Business generic",
+      "bytes": 884717
+    },
+    {
+      "profile": "privy_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_business/awareness/tax_payment-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy Business/privy buiness 2 .ai hausla aapka_1.mp4",
+      "label": "Privy Business tax",
+      "bytes": 1288855
+    },
+    {
+      "profile": "privy_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_business/awareness/tax_payment-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy Business/privy buiness 2 .ai hausla aapka.mp4",
+      "label": "Privy Business tax",
+      "bytes": 884717
+    },
+    {
+      "profile": "privy_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_business/awareness/trade_forex-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy Business/kotak privy bu8iness.mp4",
+      "label": "Privy Business trade forex",
+      "bytes": 1194485
+    },
+    {
+      "profile": "privy_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_business/awareness/trade_forex-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy Business/kotak privy buiness.mp4",
+      "label": "Privy Business trade forex",
+      "bytes": 1025866
+    },
+    {
+      "profile": "privy_plus_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus_business/awareness/bulk_payments-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy+ Business/Bulk Dis/kotak privy +9x16.mp4",
+      "label": "Privy+ Business bulk payments",
+      "bytes": 1056490
+    },
+    {
+      "profile": "privy_plus_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus_business/awareness/bulk_payments-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy+ Business/Bulk Dis/kotak privy +  16x9.mp4",
+      "label": "Privy+ Business bulk payments",
+      "bytes": 871557
+    },
+    {
+      "profile": "privy_plus_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus_business/awareness/9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy+ Business/Bulk Dis/kotak privy +9x16.mp4",
+      "label": "Privy+ Business",
+      "bytes": 1056490
+    },
+    {
+      "profile": "privy_plus_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/privy_plus_business/awareness/16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Privy+ Business/Bulk Dis/kotak privy +  16x9.mp4",
+      "label": "Privy+ Business",
+      "bytes": 871557
+    },
+    {
+      "profile": "solitaire",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire/awareness/investments-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire/Kotak League Investment Awareness End Frame-01/Kotak League Investment Awareness End Frame-9x16.mp4",
+      "label": "Solitaire investments",
+      "bytes": 1316042
+    },
+    {
+      "profile": "solitaire",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire/awareness/investments-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire/Kotak League Investment Awareness End Frame-01/Kotak League Investment Awareness End Frame-01 16x9.mp4",
+      "label": "Solitaire investments",
+      "bytes": 1740317
+    },
+    {
+      "profile": "solitaire",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire/awareness/home_loan-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire/Kotak League Home Loan Awareness End Frame/Kotak League Home Loan Awareness End Frame 9x 16.mp4",
+      "label": "Solitaire home loan",
+      "bytes": 1148547
+    },
+    {
+      "profile": "solitaire",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire/awareness/home_loan-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire/Kotak League Home Loan Awareness End Frame/Kotak League Home Loan Awareness End Frame 16x9.mp4",
+      "label": "Solitaire home loan",
+      "bytes": 1201542
+    },
+    {
+      "profile": "solitaire",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire/awareness/credit_card-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire/Kotak Solitaire Credit Card Awareness End Frame/Kotak Solitaire Credit Card Awareness End Frame 9x16.mp4",
+      "label": "Solitaire credit card",
+      "bytes": 1413823
+    },
+    {
+      "profile": "solitaire",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire/awareness/credit_card-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire/Kotak Solitaire Credit Card Awareness End Frame/Kotak Solitaire Credit Card Awareness End Frame 16x9.mp4",
+      "label": "Solitaire credit card",
+      "bytes": 1325806
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/forex-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB1/kotak solitaire buiness.ai RTB1 9x16.mp4",
+      "label": "Solitaire Business forex",
+      "bytes": 1142234
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/forex-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB1/kotak solitaire buiness.ai RTB1.mp4",
+      "label": "Solitaire Business forex",
+      "bytes": 1098709
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/working_capital-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB 2/kotak solitaire buiness.ai RTB1 9x17.mp4",
+      "label": "Solitaire Business working capital",
+      "bytes": 1242996
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/working_capital-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB 2/kotak solitaire buiness.ai RTB2.mp4",
+      "label": "Solitaire Business working capital",
+      "bytes": 1188901
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/ad_hoc_working_capital-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB 3/kotak solitaire buiness.ai RTB1 9x17.mp4",
+      "label": "Solitaire Business ad hoc working capital",
+      "bytes": 1246401
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/ad_hoc_working_capital-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB 3/kotak solitaire buiness.ai RTB2.mp4",
+      "label": "Solitaire Business ad hoc working capital",
+      "bytes": 1192314
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/import_export-9x16.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB 4/kotak solitaire buiness.ai RTB1 9x18_4.mp4",
+      "label": "Solitaire Business import/export",
+      "bytes": 1278571
+    },
+    {
+      "profile": "solitaire_business",
+      "funnel": "awareness",
+      "asset": "assets/end-slates/solitaire_business/awareness/import_export-16x9.mp4",
+      "source": "FINAL FOR HG TO REFER/Solitaire Business/RTB 4/kotak solitaire buiness.ai RTB 16x9 _4.mp4",
+      "label": "Solitaire Business import/export",
+      "bytes": 1186024
+    }
+  ]
+}

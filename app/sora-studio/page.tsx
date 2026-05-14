@@ -974,7 +974,14 @@ export default function SoraStudioPage() {
                         ) : null}
                         {card.render?.postProcess ? (
                           <p className="mt-2 text-[11px] text-slate-500">
-                            Branding: {card.render.postProcess.profileLabel} / {card.render.postProcess.funnelStage}
+                            Branding:{" "}
+                            {[
+                              card.render.postProcess.profileLabel,
+                              card.render.postProcess.variantLabel,
+                              card.render.postProcess.funnelStage
+                            ]
+                              .filter(Boolean)
+                              .join(" / ")}
                             {card.render.postProcess.applied ? " applied" : " not applied"}
                           </p>
                         ) : null}

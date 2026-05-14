@@ -11,6 +11,7 @@ import {
 } from "./types";
 
 type HeaderKey =
+  | "segment"
   | "product"
   | "brief"
   | "businessObjective"
@@ -21,6 +22,7 @@ type HeaderKey =
   | "notificationEmail";
 
 const HEADER_ALIASES: Record<HeaderKey, string[]> = {
+  segment: ["segment", "category", "vertical", "businesssegment"],
   product: ["product"],
   brief: ["brief", "campaignbrief"],
   businessObjective: ["businessobjective", "objective"],
@@ -146,6 +148,19 @@ function mapCellsToRows(table: string[][]): SoraStudioInputRow[] {
     return compact(String(cells[index] ?? ""));
   };
 
+  const mergeSegmentAndProduct = (segment: string, product: string): string => {
+    if (!segment) {
+      return product;
+    }
+    if (!product) {
+      return segment;
+    }
+    if (product.toLowerCase().includes(segment.toLowerCase())) {
+      return product;
+    }
+    return `${segment} ${product}`;
+  };
+
   const rows: SoraStudioInputRow[] = [];
   for (let rowIndex = headerRowIndex + 1; rowIndex < table.length; rowIndex += 1) {
     const cells = table[rowIndex] ?? [];
@@ -155,7 +170,7 @@ function mapCellsToRows(table: string[][]): SoraStudioInputRow[] {
 
     rows.push({
       rowNumber: rowIndex + 1,
-      product: getCell(cells, "product"),
+      product: mergeSegmentAndProduct(getCell(cells, "segment"), getCell(cells, "product")),
       brief: getCell(cells, "brief"),
       businessObjective: getCell(cells, "businessObjective"),
       creativeObjectiveFunnel: getCell(cells, "creativeObjectiveFunnel"),
