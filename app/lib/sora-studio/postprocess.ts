@@ -42,6 +42,8 @@ const CAPTION_TRANSCRIPTION_TIMEOUT_MS = Math.max(
 const CAPTION_AUDIO_MAX_BYTES = Math.max(1, Number(process.env.SORA_STUDIO_CAPTION_AUDIO_MAX_MB ?? 24)) * 1024 * 1024;
 const CAPTION_SCRIPT_FALLBACK =
   process.env.SORA_STUDIO_CAPTIONS_SCRIPT_FALLBACK?.trim().toLowerCase() === "true";
+const CAPTION_PORTRAIT_BOTTOM_MARGIN_PX = Number(process.env.SORA_STUDIO_CAPTION_PORTRAIT_BOTTOM_MARGIN_PX ?? NaN);
+const CAPTION_LANDSCAPE_BOTTOM_MARGIN_PX = Number(process.env.SORA_STUDIO_CAPTION_LANDSCAPE_BOTTOM_MARGIN_PX ?? NaN);
 
 interface ProductBrandingProfile {
   key: string;
@@ -505,8 +507,16 @@ const END_SLATE_VARIANT_PROFILES: EndSlateVariantProfile[] = [
   {
     key: "credit_card",
     label: "Credit Card",
-    profileKeys: ["solitaire", "solitaire_business"],
-    patterns: [/\bcredit\s+cards?\b/i, /\bcc\b/i, /\bsolitaire\s+cc\b/i]
+    profileKeys: ["solitaire"],
+    patterns: [
+      /\bcredit\s+cards?\b/i,
+      /\bcc\b/i,
+      /\bsolitaire\s+cc\b/i,
+      /\bdistrict\s+by\s+zomato\b/i,
+      /\bzomato\b/i,
+      /\bdining\b/i,
+      /\brestaurants?\b/i
+    ]
   },
   {
     key: "investments",
@@ -1198,10 +1208,23 @@ function wrapCaptionForAss(value: string): string {
   return `${escapeAssText(words.slice(0, midpoint).join(" "))}\\N${escapeAssText(words.slice(midpoint).join(" "))}`;
 }
 
+function captionBottomMargin(frame: { width: number; height: number }): number {
+  const portrait = frame.height >= frame.width;
+  const configured = portrait ? CAPTION_PORTRAIT_BOTTOM_MARGIN_PX : CAPTION_LANDSCAPE_BOTTOM_MARGIN_PX;
+  if (Number.isFinite(configured) && configured >= 0) {
+    return Math.round(configured);
+  }
+
+  if (portrait) {
+    return Math.round(Math.min(680, Math.max(560, frame.height * 0.323)));
+  }
+  return Math.round(Math.min(140, Math.max(90, frame.height * 0.11)));
+}
+
 function buildAssSubtitle(cues: CaptionCue[], frame: { width: number; height: number }): string {
   const portrait = frame.height >= frame.width;
   const fontSize = portrait ? 58 : 46;
-  const marginV = portrait ? 170 : 82;
+  const marginV = captionBottomMargin(frame);
   const outline = portrait ? 2 : 1.5;
   const events = cues
     .map(

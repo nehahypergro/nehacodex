@@ -188,9 +188,14 @@ SORA_STUDIO_CAPTION_TRANSCRIPTION_MODEL=whisper-1
 SORA_STUDIO_CAPTION_TRANSCRIPTION_TIMEOUT_MS=120000
 SORA_STUDIO_CAPTION_AUDIO_MAX_MB=24
 SORA_STUDIO_CAPTIONS_SCRIPT_FALLBACK=true
+SORA_STUDIO_CAPTION_PORTRAIT_BOTTOM_MARGIN_PX=620
+SORA_STUDIO_CAPTION_LANDSCAPE_BOTTOM_MARGIN_PX=120
+SORA_STUDIO_SEEDANCE_PRONUNCIATION_LOCK=true
 ```
 
-The current caption style is `boxed_bottom`: bold white text in a subtle dark box near the lower part of the generated video. The end slate itself is not captioned.
+The current caption style is `boxed_bottom`: bold white text in a subtle dark box near the lower part of the generated video, raised above short-form video UI safe space. The end slate itself is not captioned.
+
+Seedance renders also include a pronunciation lock for terms such as `forex`, `Solitaire`, `Kotak`, `lakh`, `EMI`, and Hindi/Devanagari words when they appear in the job. This is instruction-only audio guidance and does not change the locked Dialogue/VO wording.
 
 ## Controls
 

@@ -32,6 +32,8 @@ const FAL_PROMPT_OPTIMIZER_BASE_MAX_CHARS = Math.max(
   Number(process.env.SORA_PROMPT_OPTIMIZER_BASE_MAX_CHARS ?? 9000)
 );
 const PROMPT_OPTIMIZER_MODEL = process.env.SORA_PROMPT_OPTIMIZER_MODEL?.trim() || "anthropic/claude-opus-4.7";
+const SEEDANCE_PRONUNCIATION_LOCK =
+  process.env.SORA_STUDIO_SEEDANCE_PRONUNCIATION_LOCK?.trim().toLowerCase() !== "false";
 
 const DEBUG_LOG_FILE = "render-debug.log";
 const DEBUG_PROMPT_PREVIEW_CHARS = 220;
@@ -755,6 +757,109 @@ function ensureCriticalPromptGuardrailsAtTop(prompt: string): string {
   return `${section}\n\n${prompt}`.trim();
 }
 
+function collectSeedancePronunciationLocks(text: string): string[] {
+  const entries: Array<{ patterns: RegExp[]; line: string }> = [
+    {
+      patterns: [/\bforex\b/i, /\bforeign\s+exchange\b/i],
+      line: "- Pronounce forex as FOR-ex, like foreign exchange. Do not say for-rex or four-x."
+    },
+    {
+      patterns: [/\bsolitaire\b/i],
+      line: "- Pronounce Solitaire as SOL-ih-tair, smooth Indian English, not solitary."
+    },
+    {
+      patterns: [/\bkotak\b/i, /कोटक/u],
+      line: "- Pronounce Kotak as KOH-tuk / कोटक, not ko-tack."
+    },
+    {
+      patterns: [/\bmahindra\b/i],
+      line: "- Pronounce Mahindra as muh-HIN-dra."
+    },
+    {
+      patterns: [/\bprivy\b/i],
+      line: "- Pronounce Privy as PRI-vee."
+    },
+    {
+      patterns: [/\bzomato\b/i],
+      line: "- Pronounce Zomato as zoh-MAA-toh."
+    },
+    {
+      patterns: [/\blakhs?\b/i, /लाख/u],
+      line: "- Pronounce lakh as luhkh, not lake."
+    },
+    {
+      patterns: [/\bcrores?\b/i, /करोड़/u],
+      line: "- Pronounce crore as kroar."
+    },
+    {
+      patterns: [/\bemi\b/i],
+      line: "- Pronounce EMI as E-M-I, three letters."
+    },
+    {
+      patterns: [/\bgst\b/i],
+      line: "- Pronounce GST as G-S-T, three letters."
+    },
+    {
+      patterns: [/\bupi\b/i],
+      line: "- Pronounce UPI as U-P-I, three letters."
+    },
+    {
+      patterns: [/\bfd\b/i],
+      line: "- Pronounce FD as F-D, two letters."
+    },
+    {
+      patterns: [/\bsip\b/i],
+      line: "- Pronounce SIP as S-I-P, three letters."
+    },
+    {
+      patterns: [/\bhausla\b/i, /हौसला/u],
+      line: "- Pronounce Hausla / हौसला as HOWS-lah."
+    },
+    {
+      patterns: [/\bhauslo\b/i, /\bhauslon\b/i, /हौस्लो/u],
+      line: "- Pronounce Hauslo / हौस्लो as HOWS-loh."
+    }
+  ];
+
+  const locks = entries
+    .filter((entry) => entry.patterns.some((pattern) => pattern.test(text)))
+    .map((entry) => entry.line);
+
+  if (/[\u0900-\u097F]/u.test(text)) {
+    locks.push("- Any Devanagari or Hindi word must be spoken naturally by an Indian speaker; do not spell it out letter-by-letter.");
+  }
+
+  return Array.from(new Set(locks));
+}
+
+function withSeedancePronunciationLock(params: {
+  prompt: string;
+  product: string;
+  language: string;
+  brief: string;
+  script: string;
+  dialogueAnchors: string[];
+}): string {
+  if (!SEEDANCE_PRONUNCIATION_LOCK) {
+    return params.prompt;
+  }
+
+  const context = [params.product, params.language, params.brief, params.script, params.dialogueAnchors.join(" "), params.prompt].join("\n");
+  const locks = collectSeedancePronunciationLocks(context);
+  if (locks.length === 0) {
+    return params.prompt;
+  }
+
+  const section = [
+    "B.1) SEEDANCE AUDIO PRONUNCIATION LOCK",
+    "- Instruction only. Do not speak this section and do not add these words unless they already appear in locked Dialogue/VO.",
+    "- Keep the locked Dialogue/VO wording unchanged, but pronounce these terms exactly as guided:",
+    ...locks
+  ].join("\n");
+
+  return `${section}\n\n${params.prompt}`.trim();
+}
+
 function truncateFieldValue(value: string, maxChars: number): string {
   const compacted = value.replace(/\s+/g, " ").trim();
   if (compacted.length <= maxChars) {
@@ -1018,10 +1123,19 @@ async function buildPromptOptimizationPlan(
         renderAspectRatio: sharedAspectRatio
       });
 
-      const finalPrompt = fitPromptToMaxCharsWithSceneCoverage(
-        ensureCriticalPromptGuardrailsAtTop(optimized.optimizedPrompt),
-        FAL_SORA_MAX_PROMPT_CHARS
-      );
+      const guardedPrompt = ensureCriticalPromptGuardrailsAtTop(optimized.optimizedPrompt);
+      const pronunciationLockedPrompt =
+        config.key === "seedance2"
+          ? withSeedancePronunciationLock({
+              prompt: guardedPrompt,
+              product: job.input.product,
+              language: job.input.resolvedLanguage,
+              brief: job.input.brief,
+              script: job.script,
+              dialogueAnchors: dialogueAnchorsFromScript
+            })
+          : guardedPrompt;
+      const finalPrompt = fitPromptToMaxCharsWithSceneCoverage(pronunciationLockedPrompt, FAL_SORA_MAX_PROMPT_CHARS);
       modelSpecificPrompts[config.key] = finalPrompt;
       optimizedPromptMetadata[config.key] = {
         provider: optimized.provider,
@@ -1055,10 +1169,19 @@ async function buildPromptOptimizationPlan(
     } catch (error) {
       const fallbackWarning = `${config.label} prompt optimizer failed; using shared prompt. Reason: ${extractErrorChain(error)}`;
       const safeFallback = buildSafePromptFallbackFromBase(promptForOptimizer);
-      const safeFallbackPrompt = fitPromptToMaxCharsWithSceneCoverage(
-        ensureCriticalPromptGuardrailsAtTop(safeFallback.prompt),
-        FAL_SORA_MAX_PROMPT_CHARS
-      );
+      const guardedFallbackPrompt = ensureCriticalPromptGuardrailsAtTop(safeFallback.prompt);
+      const pronunciationLockedFallback =
+        config.key === "seedance2"
+          ? withSeedancePronunciationLock({
+              prompt: guardedFallbackPrompt,
+              product: job.input.product,
+              language: job.input.resolvedLanguage,
+              brief: job.input.brief,
+              script: job.script,
+              dialogueAnchors: dialogueAnchorsFromScript
+            })
+          : guardedFallbackPrompt;
+      const safeFallbackPrompt = fitPromptToMaxCharsWithSceneCoverage(pronunciationLockedFallback, FAL_SORA_MAX_PROMPT_CHARS);
       modelSpecificPrompts[config.key] = safeFallbackPrompt;
       optimizedPromptMetadata[config.key] = {
         provider: "fallback-shared-prompt",
