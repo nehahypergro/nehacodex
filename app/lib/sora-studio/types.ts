@@ -59,6 +59,7 @@ export interface SoraStudioRenderPostProcess {
   applied: boolean;
   profileKey: string;
   profileLabel: string;
+  funnelStage: string;
   rawAssetFile?: string;
   outputAssetFile?: string;
   logoFile?: string;

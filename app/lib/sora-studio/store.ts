@@ -153,6 +153,7 @@ function isValidRenderPostProcess(value: unknown): boolean {
     typeof value.applied === "boolean" &&
     isString(value.profileKey) &&
     isString(value.profileLabel) &&
+    isString(value.funnelStage) &&
     (typeof value.rawAssetFile === "undefined" || isString(value.rawAssetFile)) &&
     (typeof value.outputAssetFile === "undefined" || isString(value.outputAssetFile)) &&
     (typeof value.logoFile === "undefined" || isString(value.logoFile)) &&

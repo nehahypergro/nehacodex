@@ -38,6 +38,14 @@ interface ProductBrandingProfile {
   patterns: RegExp[];
 }
 
+type FunnelStageKey = "awareness" | "consideration" | "conversion" | "retention" | "generic";
+
+interface FunnelStageProfile {
+  key: FunnelStageKey;
+  label: string;
+  patterns: RegExp[];
+}
+
 interface MediaProbe {
   width: number;
   height: number;
@@ -48,6 +56,8 @@ interface MediaProbe {
 interface ResolvedBranding {
   profileKey: string;
   profileLabel: string;
+  funnelStage: FunnelStageKey;
+  funnelLabel: string;
   logoPath?: string;
   endSlatePath?: string;
   warnings: string[];
@@ -82,6 +92,11 @@ const PRODUCT_BRANDING_PROFILES: ProductBrandingProfile[] = [
     patterns: [/\bsolitaire\b/i]
   },
   {
+    key: "credit_card",
+    label: "Kotak Credit Card",
+    patterns: [/\bcredit\s+cards?\b/i, /\bcard\s+acquisition\b/i]
+  },
+  {
     key: "privy_business",
     label: "Privy Business",
     patterns: [/\bprivy\s+business\b/i]
@@ -95,6 +110,21 @@ const PRODUCT_BRANDING_PROFILES: ProductBrandingProfile[] = [
     key: "personal_loan",
     label: "Kotak Personal Loan",
     patterns: [/\bpersonal\s+loans?\b/i]
+  },
+  {
+    key: "savings_account",
+    label: "Kotak Savings Account",
+    patterns: [/\bsavings?\s+accounts?\b/i]
+  },
+  {
+    key: "business_account",
+    label: "Kotak Business Account",
+    patterns: [/\bbusiness\s+accounts?\b/i]
+  },
+  {
+    key: "current_account",
+    label: "Kotak Current Account",
+    patterns: [/\bcurrent\s+accounts?\b/i]
   },
   {
     key: "business_loan",
@@ -112,9 +142,72 @@ const PRODUCT_BRANDING_PROFILES: ProductBrandingProfile[] = [
     patterns: [/\btax\s+payments?\b/i, /\badvance\s+tax\b/i, /\bself[-\s]?assessment\s+tax\b/i]
   },
   {
+    key: "trade_services",
+    label: "Kotak Trade Services",
+    patterns: [/\btrade\s+services?\b/i, /\btrade\s+globally\b/i]
+  },
+  {
+    key: "cash_management",
+    label: "Kotak Cash Management",
+    patterns: [/\bcash\s+management\b/i, /\bcms\b/i]
+  },
+  {
     key: "pos",
     label: "Kotak POS",
     patterns: [/\bpos\b/i, /\bpoint\s+of\s+sale\b/i]
+  },
+  {
+    key: "locker",
+    label: "Kotak Locker",
+    patterns: [/\blockers?\b/i]
+  },
+  {
+    key: "insurance",
+    label: "Kotak Insurance",
+    patterns: [/\binsurance\b/i, /\bsenior\s+citizens?\b/i]
+  },
+  {
+    key: "mobile_banking",
+    label: "Kotak Mobile Banking",
+    patterns: [/\bmobile\s+banking\b/i, /\bmobile\s+app\b/i]
+  }
+];
+
+const FUNNEL_STAGE_PROFILES: FunnelStageProfile[] = [
+  {
+    key: "conversion",
+    label: "Conversion",
+    patterns: [
+      /\b(?:bofu|bottom[-\s]?funnel|bottom\s+funnel)\b/i,
+      /\b(?:conversion|conversions|convert|performance|retargeting|remarketing)\b/i,
+      /\b(?:lead\s*gen|lead\s*generation|leads?|acquisition|sales|apply|open\s+(?:an?\s+)?account)\b/i,
+      /\b(?:clicks?|cta|know\s+more|learn\s+more|sign\s*up|book\s+now)\b/i,
+      /\b(?:persuasion|high[-\s]?conversion|conversion[-\s]?focused|conversion[-\s]?led)\b/i
+    ]
+  },
+  {
+    key: "consideration",
+    label: "Consideration",
+    patterns: [
+      /\b(?:mofu|mid[-\s]?funnel|middle\s+funnel)\b/i,
+      /\b(?:consideration|consider|evaluate|evaluation|why\s+choose|comparison|compare)\b/i,
+      /\b(?:explainer|product\s+walkthrough|product\s+film|feature[-\s]?led|benefit[-\s]?led)\b/i,
+      /\b(?:educate|education|understand|showcase|pitch|introduce\s+features?)\b/i
+    ]
+  },
+  {
+    key: "awareness",
+    label: "Awareness",
+    patterns: [
+      /\b(?:tofu|top[-\s]?funnel|top\s+funnel)\b/i,
+      /\b(?:awareness|brand|recall|reach|impressions?|views?|discovery)\b/i,
+      /\b(?:introduce|launch|announcement|new\s+product|high[-\s]?recall)\b/i
+    ]
+  },
+  {
+    key: "retention",
+    label: "Retention",
+    patterns: [/\b(?:retention|loyalty|usage|activation|cross[-\s]?sell|upsell|existing\s+customers?)\b/i]
   }
 ];
 
@@ -166,12 +259,85 @@ function resolveBrandingProfile(input: SoraStudioResolvedInputRow): ProductBrand
   };
 }
 
-function resolveEndSlatePath(profileKey: string, renderAspectRatio: SoraStudioResolvedInputRow["renderAspectRatio"]): string | undefined {
+function buildBrandingHaystack(input: SoraStudioResolvedInputRow): string {
+  return [
+    input.product,
+    input.brief,
+    input.businessObjective,
+    input.creativeObjectiveFunnel
+  ]
+    .map(compact)
+    .join(" ");
+}
+
+function resolveFunnelStage(input: SoraStudioResolvedInputRow): FunnelStageProfile {
+  const explicitFunnel = compact(input.creativeObjectiveFunnel);
+  const broadContext = buildBrandingHaystack(input);
+  const conversion = FUNNEL_STAGE_PROFILES.find((profile) => profile.key === "conversion");
+  const consideration = FUNNEL_STAGE_PROFILES.find((profile) => profile.key === "consideration");
+  const awareness = FUNNEL_STAGE_PROFILES.find((profile) => profile.key === "awareness");
+  const retention = FUNNEL_STAGE_PROFILES.find((profile) => profile.key === "retention");
+
+  const ordered = [conversion, consideration, awareness, retention].filter((profile): profile is FunnelStageProfile => Boolean(profile));
+  const direct = ordered.find((profile) => profile.patterns.some((pattern) => pattern.test(explicitFunnel)));
+  if (direct) {
+    return direct;
+  }
+
+  return ordered.find((profile) => profile.patterns.some((pattern) => pattern.test(broadContext))) ?? {
+    key: "generic",
+    label: "Generic",
+    patterns: []
+  };
+}
+
+function endSlatePathCandidates(params: {
+  profileKey: string;
+  funnelStage: FunnelStageKey;
+  renderAspectRatio: SoraStudioResolvedInputRow["renderAspectRatio"];
+}): string[] {
+  const { profileKey, funnelStage, renderAspectRatio } = params;
+  const ratioToken = renderAspectRatio.replace(":", "x");
+  const candidates = [
+    path.join("assets", "end-slates", profileKey, funnelStage, `${ratioToken}.mp4`),
+    path.join("assets", "end-slates", profileKey, funnelStage, "default.mp4"),
+    path.join("assets", "end-slates", `${profileKey}-${funnelStage}-${ratioToken}.mp4`),
+    path.join("assets", "end-slates", `${profileKey}_${funnelStage}_${ratioToken}.mp4`),
+    path.join("assets", "end-slates", `${profileKey}-${funnelStage}.mp4`),
+    path.join("assets", "end-slates", `${profileKey}_${funnelStage}.mp4`),
+    path.join("assets", "end-slates", `${profileKey}-${ratioToken}.mp4`),
+    path.join("assets", "end-slates", `${profileKey}_${ratioToken}.mp4`),
+    path.join("assets", "end-slates", `${profileKey}.mp4`)
+  ];
+
+  if (funnelStage !== "generic") {
+    candidates.push(
+      path.join("assets", "end-slates", "generic", funnelStage, `${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `generic-${funnelStage}-${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `generic_${funnelStage}_${ratioToken}.mp4`),
+      path.join("assets", "end-slates", `generic-${funnelStage}.mp4`),
+      path.join("assets", "end-slates", `generic_${funnelStage}.mp4`)
+    );
+  }
+
+  return candidates;
+}
+
+function resolveEndSlatePath(
+  profileKey: string,
+  funnelStage: FunnelStageKey,
+  renderAspectRatio: SoraStudioResolvedInputRow["renderAspectRatio"]
+): string | undefined {
   const envKey = normalizeEnvToken(profileKey);
+  const funnelEnvKey = normalizeEnvToken(funnelStage);
   const ratioToken = renderAspectRatio.replace(":", "x");
   const aspectSpecificEnv =
+    process.env[`SORA_STUDIO_${envKey}_${funnelEnvKey}_${ratioToken.toUpperCase()}_END_SLATE_PATH`] ||
+    process.env[`SORA_STUDIO_${envKey}_${funnelEnvKey}_END_SLATE_PATH`] ||
     process.env[`SORA_STUDIO_${envKey}_${ratioToken.toUpperCase()}_END_SLATE_PATH`] ||
-    process.env[`SORA_STUDIO_${envKey}_END_SLATE_PATH`];
+    process.env[`SORA_STUDIO_${envKey}_END_SLATE_PATH`] ||
+    process.env[`SORA_STUDIO_${funnelEnvKey}_${ratioToken.toUpperCase()}_END_SLATE_PATH`] ||
+    process.env[`SORA_STUDIO_${funnelEnvKey}_END_SLATE_PATH`];
   const defaultEnv = process.env.SORA_STUDIO_DEFAULT_END_SLATE_PATH;
 
   const builtInByProfile: Record<string, string[]> = {
@@ -185,8 +351,7 @@ function resolveEndSlatePath(profileKey: string, renderAspectRatio: SoraStudioRe
 
   return firstExisting([
     aspectSpecificEnv,
-    path.join("assets", "end-slates", `${profileKey}-${ratioToken}.mp4`),
-    path.join("assets", "end-slates", `${profileKey}.mp4`),
+    ...endSlatePathCandidates({ profileKey, funnelStage, renderAspectRatio }),
     ...(builtInByProfile[profileKey] ?? []),
     defaultEnv,
     ...(builtInByProfile.generic ?? [])
@@ -212,12 +377,13 @@ function resolveLogoPath(profileKey: string): string | undefined {
 
 function resolveBranding(input: SoraStudioResolvedInputRow): ResolvedBranding {
   const profile = resolveBrandingProfile(input);
+  const funnel = resolveFunnelStage(input);
   const warnings: string[] = [];
-  const endSlatePath = resolveEndSlatePath(profile.key, input.renderAspectRatio);
+  const endSlatePath = resolveEndSlatePath(profile.key, funnel.key, input.renderAspectRatio);
   const logoPath = resolveLogoPath(profile.key);
 
   if (!endSlatePath) {
-    warnings.push(`No end slate found for ${profile.label}; kept generated video without a slate.`);
+    warnings.push(`No ${funnel.label.toLowerCase()} end slate found for ${profile.label}; kept generated video without a slate.`);
   }
   if (!logoPath && WARN_MISSING_LOGO) {
     warnings.push(`No logo found for ${profile.label}; skipped logo overlay.`);
@@ -226,6 +392,8 @@ function resolveBranding(input: SoraStudioResolvedInputRow): ResolvedBranding {
   return {
     profileKey: profile.key,
     profileLabel: profile.label,
+    funnelStage: funnel.key,
+    funnelLabel: funnel.label,
     logoPath,
     endSlatePath,
     warnings
@@ -451,6 +619,7 @@ export async function applySoraStudioProductBranding(params: {
     applied: false,
     profileKey: branding.profileKey,
     profileLabel: branding.profileLabel,
+    funnelStage: branding.funnelStage,
     rawAssetFile: params.rawAssetFile,
     outputAssetFile: params.outputAssetFile,
     logoFile: branding.logoPath ? path.basename(branding.logoPath) : undefined,
