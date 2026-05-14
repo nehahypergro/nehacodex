@@ -1,0 +1,285 @@
+[
+  {
+    "caseId": "AP01",
+    "title": "Unbox Performance",
+    "brief": "Need an 8s meta reel for Kotak Air Plus. Affluent metro traveller, premium trip-day vibe. Focus on earning more on travel via Unbox. Should feel polished and direct, not office-like.",
+    "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+    "supers": {
+      "enabled": true,
+      "timingMode": "accurate",
+      "template": "bottom_urgency",
+      "rules": [
+        {
+          "triggerWord": "five percent rewards",
+          "text": "Earn 5% on travel",
+          "holdSeconds": 1.5
+        }
+      ]
+    },
+    "jobId": "1774242606097-e7256878",
+    "attempts": 3,
+    "history": [
+      "1774242606097-e7256878",
+      "1774242606097-e7256878",
+      "1774242606097-e7256878"
+    ],
+    "status": "failed",
+    "assets": {
+      "inputJson": "input.json",
+      "backstoryJson": "backstory.json",
+      "inputUrl": "/api/jobs/1774242606097-e7256878/asset/input.json",
+      "backstoryUrl": "/api/jobs/1774242606097-e7256878/asset/backstory.json"
+    },
+    "steps": [
+      {
+        "id": "backstory",
+        "label": "Persona Agent",
+        "status": "completed",
+        "message": "Persona profile generated."
+      },
+      {
+        "id": "keyframe",
+        "label": "Visual Agent",
+        "status": "completed",
+        "message": "Concept frame skipped (direct motion flow)."
+      },
+      {
+        "id": "video",
+        "label": "Motion Agent",
+        "status": "failed",
+        "message": "Kling operation timed out after 24 polls."
+      },
+      {
+        "id": "finalize",
+        "label": "Delivery Agent",
+        "status": "pending"
+      }
+    ]
+  },
+  {
+    "caseId": "AP02",
+    "title": "Forex Utility",
+    "brief": "Need a short Air Plus film for people flying abroad often. Push the low forex markup angle. Premium and useful, not shouty. Keep it single-shot and natural.",
+    "script": "Flying abroad often? Kotak Air Plus has just two percent foreign exchange markup. Learn More.",
+    "supers": {
+      "enabled": true,
+      "timingMode": "accurate",
+      "template": "bottom_urgency",
+      "rules": [
+        {
+          "triggerWord": "two percent foreign exchange markup",
+          "text": "2% forex markup",
+          "holdSeconds": 1.4
+        }
+      ]
+    },
+    "jobId": "1774242774526-c2266d38",
+    "attempts": 2,
+    "history": [
+      "1774242774526-c2266d38",
+      "1774242774526-c2266d38"
+    ],
+    "status": "running",
+    "assets": {
+      "inputJson": "input.json",
+      "backstoryJson": "backstory.json",
+      "inputUrl": "/api/jobs/1774242774526-c2266d38/asset/input.json",
+      "backstoryUrl": "/api/jobs/1774242774526-c2266d38/asset/backstory.json"
+    },
+    "steps": [
+      {
+        "id": "backstory",
+        "label": "Persona Agent",
+        "status": "completed",
+        "message": "Persona profile generated."
+      },
+      {
+        "id": "keyframe",
+        "label": "Visual Agent",
+        "status": "completed",
+        "message": "Concept frame skipped (direct motion flow)."
+      },
+      {
+        "id": "video",
+        "label": "Motion Agent",
+        "status": "running",
+        "message": "Motion Agent operation running. Generation attempt 3/3, poll 132."
+      },
+      {
+        "id": "finalize",
+        "label": "Delivery Agent",
+        "status": "pending"
+      }
+    ]
+  },
+  {
+    "caseId": "AP03",
+    "title": "Complimentary Flight",
+    "brief": "8 second conversion-led Air Plus ad focused only on the complimentary flight milestone after quarterly spend. Premium, direct to camera, no office feel.",
+    "script": "Spend one and a half lakh on Kotak Air Plus and unlock your complimentary flight. Apply Now.",
+    "supers": {
+      "enabled": true,
+      "timingMode": "accurate",
+      "template": "bottom_urgency",
+      "rules": [
+        {
+          "triggerWord": "complimentary flight",
+          "text": "Free flight at Rs. 1.5L spent this quarter",
+          "holdSeconds": 1.7
+        }
+      ]
+    },
+    "jobId": "1774242774591-a9464867",
+    "attempts": 3,
+    "history": [
+      "1774242774591-a9464867",
+      "1774242774591-a9464867",
+      "1774242774591-a9464867"
+    ],
+    "status": "running",
+    "assets": {
+      "inputJson": "input.json",
+      "backstoryJson": "backstory.json",
+      "inputUrl": "/api/jobs/1774242774591-a9464867/asset/input.json",
+      "backstoryUrl": "/api/jobs/1774242774591-a9464867/asset/backstory.json"
+    },
+    "steps": [
+      {
+        "id": "backstory",
+        "label": "Persona Agent",
+        "status": "completed",
+        "message": "Persona profile generated."
+      },
+      {
+        "id": "keyframe",
+        "label": "Visual Agent",
+        "status": "completed",
+        "message": "Concept frame skipped (direct motion flow)."
+      },
+      {
+        "id": "video",
+        "label": "Motion Agent",
+        "status": "running",
+        "message": "Motion Agent operation queued. Generation attempt 2/2, poll 13."
+      },
+      {
+        "id": "finalize",
+        "label": "Delivery Agent",
+        "status": "pending"
+      }
+    ]
+  },
+  {
+    "caseId": "AP04",
+    "title": "Lounge Guest Pass",
+    "brief": "Need a quarterly-offer Air Plus reel for premium business travelers. Focus on lounge guest pass plus premium travel value, direct and polished.",
+    "script": "Elevate your travel. Enjoy a complimentary lounge guest pass and premium travel value. Apply Now.",
+    "supers": {
+      "enabled": true,
+      "timingMode": "accurate",
+      "template": "bottom_urgency",
+      "rules": [
+        {
+          "triggerWord": "lounge guest pass",
+          "text": "Complimentary lounge guest pass",
+          "holdSeconds": 1.7
+        }
+      ]
+    },
+    "jobId": "1774242774622-c06f17de",
+    "attempts": 2,
+    "history": [
+      "1774242774622-c06f17de",
+      "1774242774622-c06f17de"
+    ],
+    "status": "running",
+    "assets": {
+      "inputJson": "input.json",
+      "backstoryJson": "backstory.json",
+      "inputUrl": "/api/jobs/1774242774622-c06f17de/asset/input.json",
+      "backstoryUrl": "/api/jobs/1774242774622-c06f17de/asset/backstory.json"
+    },
+    "steps": [
+      {
+        "id": "backstory",
+        "label": "Persona Agent",
+        "status": "completed",
+        "message": "Persona profile generated."
+      },
+      {
+        "id": "keyframe",
+        "label": "Visual Agent",
+        "status": "completed",
+        "message": "Concept frame skipped (direct motion flow)."
+      },
+      {
+        "id": "video",
+        "label": "Motion Agent",
+        "status": "running",
+        "message": "Motion Agent operation running. Generation attempt 3/3, poll 141."
+      },
+      {
+        "id": "finalize",
+        "label": "Delivery Agent",
+        "status": "pending"
+      }
+    ]
+  },
+  {
+    "caseId": "AP05",
+    "title": "Travel Privileges 80K",
+    "brief": "Need an Air Plus acquisition reel built around travel privileges worth eighty thousand rupees annually. Make it feel elite, useful, and premium without overclaiming.",
+    "script": "Unlock travel privileges worth over eighty thousand rupees every year with Kotak Air Plus. Apply Now.",
+    "supers": {
+      "enabled": true,
+      "timingMode": "accurate",
+      "template": "bottom_urgency",
+      "rules": [
+        {
+          "triggerWord": "travel privileges",
+          "text": "Travel perks worth 80K",
+          "holdSeconds": 1.6
+        }
+      ]
+    },
+    "jobId": "1774242830276-848ef018",
+    "attempts": 3,
+    "history": [
+      "1774242830276-848ef018",
+      "1774242830276-848ef018",
+      "1774242830276-848ef018"
+    ],
+    "status": "running",
+    "assets": {
+      "inputJson": "input.json",
+      "backstoryJson": "backstory.json",
+      "inputUrl": "/api/jobs/1774242830276-848ef018/asset/input.json",
+      "backstoryUrl": "/api/jobs/1774242830276-848ef018/asset/backstory.json"
+    },
+    "steps": [
+      {
+        "id": "backstory",
+        "label": "Persona Agent",
+        "status": "completed",
+        "message": "Persona profile generated."
+      },
+      {
+        "id": "keyframe",
+        "label": "Visual Agent",
+        "status": "completed",
+        "message": "Concept frame skipped (direct motion flow)."
+      },
+      {
+        "id": "video",
+        "label": "Motion Agent",
+        "status": "running",
+        "message": "Motion generation hit a transient/safety issue. Retrying (2/2)."
+      },
+      {
+        "id": "finalize",
+        "label": "Delivery Agent",
+        "status": "pending"
+      }
+    ]
+  }
+]

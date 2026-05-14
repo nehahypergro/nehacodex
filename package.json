@@ -1,0 +1,38 @@
+{
+  "name": "kotak-bofu-8s-studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_DIST_DIR=.next-dev next dev -H 127.0.0.1 -p ${PORT:-3000}",
+    "dev:hypergro": "NEXT_DIST_DIR=.next-hypergro next dev -H 127.0.0.1 -p 4415",
+    "build": "NEXT_DIST_DIR=.next-prod next build",
+    "build:hypergro": "NEXT_DIST_DIR=.next-hypergro next build",
+    "start": "NEXT_DIST_DIR=.next-prod next start -H 127.0.0.1 -p ${PORT:-3000}",
+    "start:hypergro": "NEXT_DIST_DIR=.next-hypergro next start -H 127.0.0.1 -p 4415",
+    "lint": "next lint",
+    "test:supers": "bash scripts/test-supers.sh"
+  },
+  "dependencies": {
+    "@fal-ai/client": "^1.9.4",
+    "@fontsource/source-sans-3": "^5.2.9",
+    "@google/genai": "^1.16.0",
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0",
+    "googleapis": "^171.4.0",
+    "next": "15.2.2",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.2.2",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}

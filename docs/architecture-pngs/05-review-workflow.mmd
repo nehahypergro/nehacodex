@@ -1,0 +1,8 @@
+flowchart LR
+    A["Kotak Brief"] --> B["Generate Multiple Videos"]
+    B --> C["Review Scripts and Prompts"]
+    C --> D["Review Final Videos"]
+    D --> E{"Approve?"}
+    E -- "Yes" --> F["Use in campaign or stakeholder review"]
+    E -- "No" --> G["Adjust brief, offer, or guardrails"]
+    G --> A

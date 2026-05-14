@@ -1,0 +1,1682 @@
+# Air Plus Batch 20 Step By Step
+
+Date: March 24, 2026
+Server: `http://127.0.0.1:3000`
+
+## Summary
+- Cases run: `20`
+- `/api/script` passes: `19/20`
+- `/api/debug/video-prompt` passes: `19/20`
+- Script failures: `AP20-19`
+- Prompt failures: `none`
+
+## Table
+| Case | Focus | Script | Prompt source | Persona / Age / City | Status |
+|---|---|---|---|---|---|
+| AP20-01 Travel Rewards BOFU | 5% rewards via Kotak Unbox | Premium frequent flyers, get five percent rewards on travel with Kotak Air Plus. Apply Now. | deterministic_fallback | Devika Chauhan / 34 / Jaipur | passed |
+| AP20-02 Travel Rewards Awareness | 5% travel rewards awareness without office tone | Kotak Air Plus brings more value to planned travel with five percent rewards via Unbox. Know More. | gemini_prompt_writer | Rishabh Kapoor / 34 / Kolkata | passed |
+| AP20-03 Forex BOFU | Low 2% forex markup | Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now. | gemini_prompt_writer | Ananya Reddy / 34 / Pune | passed |
+| AP20-04 International Travel Value | Explicit 2% forex in broader international-travel value pitch | Traveling abroad? Your money works harder with Kotak Air Plus. Enjoy just two percent. Learn More. | gemini_prompt_writer | Varun Chatterjee / 34 / Ahmedabad | passed |
+| AP20-05 Free Flight Threshold | Complimentary flight after one and a half lakh quarterly spend | Unlock your complimentary flight this quarter. Just spend one lakh fifty thousand. Apply Now. | deterministic_fallback | Meera Nambiar / 34 / Bengaluru | passed |
+| AP20-06 Quarterly Spend Trigger | Complimentary flight with quarterly spend phrasing | Unlock a complimentary flight. Spend one point five lakhs this quarter. Kotak Air Plus. Apply Now. | gemini_prompt_writer | Aditya Rao / 34 / Delhi NCR | passed |
+| AP20-07 Travel Privileges 80K | Annual travel privileges worth over Rs. 80,000 | Unlock travel privileges worth over eighty thousand rupees with Kotak Air Plus. Apply Now. | gemini_prompt_writer | Kavya Sharma / 34 / Chandigarh | passed |
+| AP20-08 Zero Joining Fee | Limited-period zero joining fee | Elevate your travels. Kotak Air Plus offers zero joining fee for a limited time. Apply Now. | gemini_prompt_writer | Asha Joshi / 34 / Mumbai | passed |
+| AP20-09 Guest Pass Quarterly | Complimentary lounge guest pass every quarter | Premium frequent travellers, enjoy a complimentary lounge guest pass every quarter. Apply Now. | gemini_prompt_writer | Vikram Menon / 34 / Pune | passed |
+| AP20-10 Domestic Lounge Utility | Four domestic lounge visits annually | Tired of airport waits? Enjoy four complimentary domestic lounge visits every year. Learn More. | gemini_prompt_writer | Priya Bhatia / 34 / Bengaluru | passed |
+| AP20-11 International Lounge Priority Pass | Two international lounge visits with Priority Pass app support | International travel just got better. Enjoy two complimentary lounge visits annually. Learn More. | gemini_prompt_writer | Siddharth Varma / 34 / Hyderabad | passed |
+| AP20-12 Accelerated Air Miles | Five Air Miles per Rs. 100 on travel bookings via Kotak Unbox | Get five percent rewards on travel bookings through Kotak Unbox with Kotak Air Plus. Apply Now. | gemini_prompt_writer | Kabir Deshmukh / 34 / Delhi NCR | passed |
+| AP20-13 Base Rate Air Miles | Unlimited two Air Miles per Rs. 100 on regular spends | Tired of slow rewards? With Kotak Air Plus, earn two Air Miles per hundred rupees. Learn More. | gemini_prompt_writer | Rohan Sengupta / 34 / Ahmedabad | passed |
+| AP20-14 Redemption Value | One Air Mile equals one rupee on Kotak Unbox flight and hotel redemptions | Maximize your travel. One Air Mile on Kotak Air Plus equals one rupee on Unbox. Apply Now. | gemini_prompt_writer | Devika Nair / 34 / Chandigarh | passed |
+| AP20-15 Transfer Partners | Transfer Air Miles to airline and hotel loyalty partners | Tired of limited rewards? Kotak Air Plus lets you transfer Air Miles to KrisFlyer. Learn More. | gemini_prompt_writer | Neha Verma / 36 / Ahmedabad | passed |
+| AP20-16 Welcome Benefit | 2,500 Air Miles welcome benefit after issuance | Elevate your travel. Get two thousand five hundred Air Miles after Kotak Air Plus card. Apply Now. | gemini_prompt_writer | Nikhil Chatterjee / 34 / Pune | passed |
+| AP20-17 Renewal Benefit | 2,500 Air Miles on annual fee payment | Kotak Air Plus offers renewal benefit of 2,500 Air Miles on annual fee payment. Learn More. | gemini_prompt_writer | Arjun Krishnan / 34 / Chandigarh | passed |
+| AP20-18 Fuel Surcharge Waiver | 1% fuel surcharge waiver | Tired of fuel surcharges? Kotak Air Plus offers one percent waiver. Make your journeys. Learn More. | gemini_prompt_writer | Ananya Rao / 34 / Delhi NCR | passed |
+| AP20-19 Free Flight Validity Edge | Complimentary flight benefit as Rs. 5,000 voucher or equivalent miles, valid until December 31 2026 | script failed | - | - / - / - | failed_script |
+| AP20-20 Multi-RTB Conflict Edge | Keep 80K travel privileges primary even with forex in the same brief | Unlock annual travel privileges worth over eighty thousand rupees. Enjoy low two percent. Apply Now. | gemini_prompt_writer | Tara Sen / 34 / Hyderabad | passed |
+
+## Case Details
+### AP20-01 Travel Rewards BOFU
+- Focus: `5% rewards via Kotak Unbox`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push 5% rewards on travel bookings via Kotak Unbox for premium frequent flyers. Direct-to-camera, polished, conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Premium frequent flyers, get five percent rewards on travel with Kotak Air Plus. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "deterministic_fallback",
+  "fallbackReason": "Sora prompt writer returned an unusable prompt (missing_movement_quality_detail).",
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] INT. HILLSIDE RETREAT LOUNGE - DAY\n\nDEVIKA CHAUHAN (34, affluent art curator, wearing a fluid sage-green linen-silk overshirt over a crisp",
+      "normalizedSample": "[SCENE START] INT. LUXURY RESORT ARRIVAL PORTICO - DAY\nDEVIKA CHAUHAN (34, premium-minded, urban, tailored linen-silk blend overshirt in soft sage green) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nHillside retreat lounge with panoramic windows and quiet getaway travel calm\nDevika Chauhan has a strong, angular jawline, subtly asymmetrical almond-shaped eyes with thick, naturally arched brows.\nHair and grooming: Her thick, dark hair is styled in a loose, textured low bun with a few natural flyaways framing her face.\nWardrobe and build: a fluid, tailored linen-silk blend overshirt in soft sage green over a crisp white camisole.\nMovement quality: easy weight shifting through the stance, shoulders easing down naturally.\nThey catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer convict",
+      "rejectionReason": "missing_movement_quality_detail"
+    },
+    {
+      "model": "gemini-2.5-pro",
+      "rawSample": "",
+      "normalizedSample": "[SCENE START] INT. LUXURY RESORT ARRIVAL PORTICO - DAY\nDEVIKA CHAUHAN (34, premium-minded, urban, tailored linen-silk blend overshirt in soft sage green) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nHillside retreat lounge with panoramic windows and quiet getaway travel calm\nDevika Chauhan has a strong, angular jawline, subtly asymmetrical almond-shaped eyes with thick, naturally arched brows.\nHair and grooming: Her thick, dark hair is styled in a loose, textured low bun with a few natural flyaways framing her face.\nWardrobe and build: a fluid, tailored linen-silk blend overshirt in soft sage green over a crisp white camisole.\nMovement quality: easy weight shifting through the stance, shoulders easing down naturally.\nThey catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer convict",
+      "rejectionReason": "missing_movement_quality_detail"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Devika Chauhan",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Jaipur",
+  "profession": "Chief Curator for a heritage art foundation, frequently flying between international auctions and private gallery exhibitions.",
+  "why_they_care": "She treats travel as an extension of her curated lifestyle, valuing seamless premium experiences and smart rewards that compound effortlessly on her frequent high-value bookings.",
+  "facial_features": "She has a strong, angular jawline, subtly asymmetrical almond-shaped eyes with thick, naturally arched brows, a straight, prominent nose, and warm, olive skin that shows faint, real-world texture and mild sun-kissed freckles across the high points of her cheeks.",
+  "hairstyle_grooming": "Her thick, dark hair is styled in a loose, textured low bun with a few natural flyaways framing her face, complemented by a soft, breathable matte makeup look with a muted terracotta lip.",
+  "wardrobe_details": "She wears a fluid, tailored linen-silk blend overshirt in soft sage green over a crisp white camisole, paired with wide-leg ivory trousers—a climate-aware, wrinkle-free, premium leisure silhouette that feels perfectly suited for a relaxed yet polished resort arrival.",
+  "posture_body_language": "She stands with an effortless, grounded posture, her weight resting comfortably on one hip, using fluid, minimal hand gestures that convey relaxed authority rather than rehearsed stiffness.",
+  "expression_style": "Her expression is warmly engaged, her eyes crinkling slightly at the corners when emphasizing the rewards, with dynamic, subtle brow movements that track the conversational beats of the script naturally.",
+  "speaking_energy": "She speaks with a breezy, articulate pacing, delivering the lines with the conversational ease of someone recommending a premium hack to a peer, maintaining steady, inviting eye contact without feeling overly intense.",
+  "body_build": "She has a tall, lean, and naturally athletic frame with relaxed, unslouched shoulders that carry her tailored separates effortlessly.",
+  "speaking_style": [
+    "Warmly authoritative",
+    "Mid-register and smooth",
+    "Conversational and breezy"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Premium leather crossbody travel sling with subtle brass hardware"
+  ],
+  "setting": "Hillside retreat lounge with panoramic windows and quiet getaway travel calm",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, natural golden-hour ambient light filtering through foliage, raw cinematic photography, fine grain, subtle motion blur.",
+    "Authentic and grounded; avoid perfectly symmetrical stock-photo faces, mannequin-like stillness, and overly glossy marketing aesthetics."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. LUXURY RESORT ARRIVAL PORTICO - DAY
+DEVIKA CHAUHAN (34, premium-minded, urban, tailored linen-silk blend overshirt in soft sage green) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.
+Hillside retreat lounge with panoramic windows and quiet getaway travel calm
+Devika Chauhan has a strong, angular jawline, subtly asymmetrical almond-shaped eyes with thick, naturally arched brows.
+Hair and grooming: Her thick, dark hair is styled in a loose, textured low bun with a few natural flyaways framing her face.
+Wardrobe and build: a fluid, tailored linen-silk blend overshirt in soft sage green over a crisp white camisole.
+Movement quality: easy weight shifting through the stance, shoulders easing down naturally.
+They catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+DEVIKA CHAUHAN (Warmly authoritative, Mid-register and smooth, measured but varied pace; stress "Premium frequent flyers, get five") Premium frequent flyers, get five percent rewards on travel with Kotak Air Plus.
+A small visible reaction lands between the thoughts without breaking eye contact.
+DEVIKA CHAUHAN (CONT'D) (Warmly authoritative, Mid-register and smooth, slightly firmer pace; stress "Apply Now"; brief pause before the close) Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They let the last beat settle with direct eye contact, a faint smile, and a clean held
+[SCENE END]
+```
+
+### AP20-02 Travel Rewards Awareness
+- Focus: `5% travel rewards awareness without office tone`
+- Brief:
+```text
+Need an 8 second Meta awareness reel for Kotak Air Plus. Affluent metro traveller, premium trip-day energy. Focus on earning 5% rewards on travel through Kotak Unbox. Polished, direct, not office-like.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Kotak Air Plus brings more value to planned travel with five percent rewards via Unbox. Know More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. INTERCITY MOBILITY HUB FORECOURT - DAY\n\nRISHABH KAPOOR (34, affluent metro traveler, wearing a premium lightweight tailored trench coat over a fine-gauge knit sweater",
+      "normalizedSample": "[SCENE START] EXT. PREMIUM TRAVEL-DAY SETTING - DAY\nRISHABH KAPOOR (34, affluent, well-traveled, generic ad-world corporate dressing) is already caught mid-thought, completing a small posture reset in the environment.\nIntercity mobility hub forecourt with natural pre-journey urgency The space feels premium and lived-in.\nRishabh Kapoor has a softly angular jawline, naturally arched brows that aren't overly filled, a straight nose with a slight bridge bump, full.\nHair and grooming: His thick, dark brown hair is styled in a loose, lived-in blowout with slight flyaways at the crown.\nWardrobe and build: Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting.\nMovement quality: easy weight shifting through the stance, shoulders easing down naturally.\nThey notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.\nExpression and body language: emotionally specific and progressing from thoughtful interest to warm invitation. Begin observant and engaged, let the benefit warm the face and eyes, and finish with an inviting half-smile. Use at most one open conversational hand r"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Rishabh Kapoor",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Kolkata",
+  "profession": "Senior Partner at an international intellectual property law firm, frequently traveling for cross-border negotiations and tech summits.",
+  "why_they_care": "He values frictionless, high-yield rewards on his meticulously planned international itineraries, turning routine transit expenses into tangible lifestyle upgrades via Kotak Unbox.",
+  "facial_features": "He has a softly angular jawline, naturally arched brows that aren't overly filled, a straight nose with a slight bridge bump, full but asymmetrical lips, prominent cheekbones, and warm olive skin with visible pores and faint hyperpigmentation around the temples.",
+  "hairstyle_grooming": "His thick, dark brown hair is styled in a loose, lived-in blowout with slight flyaways at the crown, paired with a minimal makeup look featuring a tinted lip balm and brushed-up brows.",
+  "wardrobe_details": "Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting instead of defaulting to generic ad-world corporate dressing.",
+  "posture_body_language": "He stands with an effortless, asymmetrical weight shift, resting one hand lightly on a sleek carry-on handle, his shoulders relaxed but engaged, leaning slightly forward when making a point.",
+  "expression_style": "His face is highly responsive, starting with a thoughtful, focused gaze that opens up into a warm, genuine micro-smile at the corners of his eyes when he speaks about value, completely avoiding a static, plastered grin.",
+  "speaking_energy": "He speaks with a brisk, articulate rhythm, using subtle head nods for emphasis and taking natural, audible breaths between beats, projecting an understated, effortless authority.",
+  "body_build": "He has a tall, lean frame with naturally broad shoulders and a relaxed, elegant posture.",
+  "speaking_style": [
+    "Crisp articulation",
+    "Warm mid-register pitch",
+    "Direct and conversational tone"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Premium styling cues that feel grounded in the chosen environment rather than a default ad-model wardrobe."
+  ],
+  "setting": "Intercity mobility hub forecourt with natural pre-journey urgency",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, lived-in ambient lighting, raw cinematic photography, natural skin tones, fine grain, subtle motion blur",
+    "Authentic, grounded, non-generic human variation, absolutely no marketing-perfect imagery or overly idealized features"
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. PREMIUM TRAVEL-DAY SETTING - DAY
+RISHABH KAPOOR (34, affluent, well-traveled, generic ad-world corporate dressing) is already caught mid-thought, completing a small posture reset in the environment.
+Intercity mobility hub forecourt with natural pre-journey urgency The space feels premium and lived-in.
+Rishabh Kapoor has a softly angular jawline, naturally arched brows that aren't overly filled, a straight nose with a slight bridge bump, full.
+Hair and grooming: His thick, dark brown hair is styled in a loose, lived-in blowout with slight flyaways at the crown.
+Wardrobe and build: Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting.
+Movement quality: easy weight shifting through the stance, shoulders easing down naturally.
+They notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.
+Expression and body language: emotionally specific and progressing from thoughtful interest to warm invitation. Begin observant and engaged, let the benefit warm the face and eyes, and finish with an inviting half-smile. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+RISHABH KAPOOR (Crisp articulation, Warm mid-register pitch, measured but varied pace; stress "Kotak Air Plus brings more") Kotak Air Plus brings more value to planned travel with five percent rewards via Unbox.
+A small visible reaction lands between the thoughts without breaking eye contact.
+RISHABH KAPOOR (CONT'D) (Crisp articulation, Warm mid-register pitch, slightly tightened pace; stress "Know More"; brief pause before the close) Know More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-03 Forex BOFU
+- Focus: `Low 2% forex markup`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push the low 2% forex markup for frequent international travellers. Direct-to-camera, premium, polished, conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. PRIVATE TRANSFER BAY - DAY\n\nANANYA (34, tall, lean, athletic frame in a perfectly ironed camel-toned lightweight travel trench over a breathable charcoal silk-cashmere knit top",
+      "normalizedSample": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nANANYA REDDY (34, affluent, well-traveled, camel-toned lightweight travel trench over a fine-gauge) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nPrivate transfer bay outside a luxury stay with concierge-side movement\nAnanya Reddy has a strong, angular jawline with soft.\nHair and grooming: Her dark, shoulder-length hair is styled in a relaxed, lived-in blowout with subtle flyaways near the crown.\nWardrobe and build: a perfectly ironed, wrinkle-free, tailored camel-toned lightweight travel trench over a breathable fine-gauge.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod "
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Ananya Reddy",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Pune",
+  "profession": "Global Sourcing Director for a luxury ethical fashion label, frequently flying between European design houses and South American artisan hubs.",
+  "why_they_care": "She manages multiple currencies on the fly during her sourcing trips, and the low 2% forex markup saves her significant capital without compromising her premium travel experience.",
+  "facial_features": "She has a strong, angular jawline with soft, naturally asymmetrical cheekbones, distinctively arched brows framing deep-set almond eyes, a straight, refined nose, and a natural, un-retouched skin texture with faint sun-kissed freckles across the bridge of her nose.",
+  "hairstyle_grooming": "Her dark, shoulder-length hair is styled in a relaxed, lived-in blowout with subtle flyaways near the crown, paired with minimal, dewy travel makeup and a muted rose lip tint.",
+  "wardrobe_details": "She wears a perfectly ironed, wrinkle-free, tailored camel-toned lightweight travel trench over a breathable fine-gauge charcoal silk-cashmere knit top, accessorized with a minimalist gold pendant, perfectly suited for an elevated, climate-transitioning airport transit moment.",
+  "posture_body_language": "She holds a relaxed yet anchored stance, shifting her weight subtly onto one hip while engaging the camera, using small, precise hand gestures that convey seasoned travel confidence rather than stiff, rehearsed posing.",
+  "expression_style": "Her eyes maintain a sharp, engaging focus that softens with a knowing, subtle smile at the mention of the 2% markup, displaying micro-shifts in her brow that track the conversational beats naturally.",
+  "speaking_energy": "She speaks with an effortless, grounded pacing, using measured breaths and deliberate emphasis on the core benefit, projecting the quiet authority of someone who knows how to navigate international travel smartly.",
+  "body_build": "She has a tall, lean, and athletic frame with a natural, unforced elegance that suits long-haul travel.",
+  "speaking_style": [
+    "measured and articulate",
+    "warm mid-register pitch",
+    "conversational yet authoritative tone"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Minimalist gold pendant and a sleek leather passport sleeve"
+  ],
+  "setting": "Private transfer bay outside a luxury stay with concierge-side movement",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, raw cinematic photography with lived-in practical lounge lighting, natural skin tones, fine grain, and subtle motion blur.",
+    "Authentic, grounded execution with natural human variation, avoiding overly idealized influencer features or marketing-perfect stiffness."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY
+ANANYA REDDY (34, affluent, well-traveled, camel-toned lightweight travel trench over a fine-gauge) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+Private transfer bay outside a luxury stay with concierge-side movement
+Ananya Reddy has a strong, angular jawline with soft.
+Hair and grooming: Her dark, shoulder-length hair is styled in a relaxed, lived-in blowout with subtle flyaways near the crown.
+Wardrobe and build: a perfectly ironed, wrinkle-free, tailored camel-toned lightweight travel trench over a breathable fine-gauge.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+ANANYA REDDY (measured and articulate, warm mid-register pitch, measured but varied pace; stress "Get low 2% forex markup") Get low 2% forex markup for frequent international travellers with Kotak Air Plus.
+A small visible reaction lands between the thoughts without breaking eye contact.
+ANANYA REDDY (CONT'D) (measured and articulate, warm mid-register pitch, slightly firmer pace; stress "Apply Now") Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-04 International Travel Value
+- Focus: `Explicit 2% forex in broader international-travel value pitch`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Premium international traveller, upscale but natural. Keep the 2% forex markup explicit while framing the card as smarter global travel value.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Traveling abroad? Your money works harder with Kotak Air Plus. Enjoy just two percent. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[Your money works harder with Kotak Air Plus.]\n        *Beat:* A natural, asymmetrical smile reaches his eyes.\n        VARUN (warmly engaged, pacing the numbers clearly) [Enjoy just two percent.]\n        *",
+      "normalizedSample": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - MORNING\nVARUN CHATTERJEE (34, affluent, well-traveled, fine-gauge knit polo with tailored wool travel trousers) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAn upscale Aerocity transit club atrium bathed in soft morning light The space feels premium and lived-in.\nVarun Chatterjee has a strong, angular jawline with softly pronounced cheekbones, slightly asymmetric almond-shaped eyes.\nHair and grooming: His thick, dark hair is styled in a loose, low travel bun with a few natural flyaways framing his face.\nWardrobe and build: A fine-gauge knit polo.\nMovement quality: soft asymmetry through the stance, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value beat, then return "
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Varun Chatterjee",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Ahmedabad",
+  "profession": "Founder of a bespoke culinary export brand, frequently traveling to European food expos and Middle Eastern luxury markets.",
+  "why_they_care": "He constantly manages cross-border expenses and values smart, transparent financial tools that minimize forex leakage without compromising his premium travel experience.",
+  "facial_features": "He has a strong, angular jawline with softly pronounced cheekbones, slightly asymmetric almond-shaped eyes, naturally arched brows, a straight nose with a subtle dorsal bump, full lips, and warm olive skin showing faint freckles and natural under-eye shadows.",
+  "hairstyle_grooming": "His thick, dark hair is styled in a loose, low travel bun with a few natural flyaways framing his face, complemented by minimal, breathable makeup and a soft matte lip.",
+  "wardrobe_details": "A fine-gauge knit polo with tailored wool travel trousers and a softly structured overshirt, polished enough for lounge access without reading as a default navy-blazer business look.",
+  "posture_body_language": "He stands with a relaxed but grounded posture, weight shifted slightly to one hip, using fluid, open hand gestures that convey calm authority rather than rigid stillness.",
+  "expression_style": "His expression is warmly engaged, with subtle brow raises to emphasize key points and a natural, asymmetrical smile that reaches his eyes as he speaks.",
+  "speaking_energy": "He speaks with an effortless, conversational pacing, utilizing natural pauses for breath and leaning slightly forward on the financial hook to project quiet confidence.",
+  "body_build": "He has a tall, naturally lean frame with relaxed shoulders and an elegant, unforced physical presence.",
+  "speaking_style": [
+    "Warm conversational tone",
+    "Mid-register pitch",
+    "Confident and grounded"
+  ],
+  "wardrobe_props": [
+    "Elevated transit separates with premium knit texture, clean structure, and lounge-appropriate polish.",
+    "Travel-ready styling that feels affluent, comfortable in motion, and distinctly non-generic."
+  ],
+  "setting": "An upscale Aerocity transit club atrium bathed in soft morning light, featuring muted brass accents, plush seating, and the quiet, seamless flow of premium international travelers.",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, soft natural window light mixed with warm practicals, fine film grain, subtle motion blur.",
+    "Authentic and grounded, avoiding flawless marketing aesthetics, prioritizing real skin texture and natural human behavior."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - MORNING
+VARUN CHATTERJEE (34, affluent, well-traveled, fine-gauge knit polo with tailored wool travel trousers) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+An upscale Aerocity transit club atrium bathed in soft morning light The space feels premium and lived-in.
+Varun Chatterjee has a strong, angular jawline with softly pronounced cheekbones, slightly asymmetric almond-shaped eyes.
+Hair and grooming: His thick, dark hair is styled in a loose, low travel bun with a few natural flyaways framing his face.
+Wardrobe and build: A fine-gauge knit polo.
+Movement quality: soft asymmetry through the stance, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 direct-to-camera shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+VARUN CHATTERJEE (Warm conversational tone, Mid-register pitch, measured conversational pace; stress "Traveling abroad?") Traveling abroad?
+A small visible reaction lands between the thoughts without breaking eye contact.
+VARUN CHATTERJEE (CONT'D) (Warm conversational tone, Mid-register pitch, slightly tightened pace; stress "Learn More") Your money works harder with Kotak Air Plus. Enjoy just two percent. Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-05 Free Flight Threshold
+- Focus: `Complimentary flight after one and a half lakh quarterly spend`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Create urgency around the complimentary flight after one and a half lakh quarterly spend. Premium frequent traveller, direct-to-camera, polished, conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Unlock your complimentary flight this quarter. Just spend one lakh fifty thousand. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "deterministic_fallback",
+  "fallbackReason": "Sora prompt writer returned an unusable prompt (missing_wardrobe_body_frame_detail).",
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. AIRPORT PERIMETER PEDESTRIAN ZONE - DAY\n\nMeera Nambiar (34, tall, lean athletic build, premium travel styling) is already mid-stride along the bustling pedestrian",
+      "normalizedSample": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nMEERA NAMBIAR (34, polished metro professional, crisp, ivory silk-blend blouse tucked into tailored) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAirport perimeter pedestrian zone with travel-day flow\nMeera Nambiar has Warm olive skin with subtle hyperpigmentation around the mouth and faint freckles across the nose.\nHair and grooming: Shoulder-length dark brown hair styled in loose, lived-in waves with a few natural flyaways near the parting.\nWardrobe and build: A crisp, wrinkle-free ivory silk-blend blouse tucked into tailored high-waisted wide-leg trousers in soft taupe.\nMovement quality: easy weight shifting through one side, a slight lean-in on the key line.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-",
+      "rejectionReason": "missing_wardrobe_body_frame_detail"
+    },
+    {
+      "model": "gemini-2.5-pro",
+      "rawSample": "",
+      "normalizedSample": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nMEERA NAMBIAR (34, polished metro professional, crisp, ivory silk-blend blouse tucked into tailored) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAirport perimeter pedestrian zone with travel-day flow\nMeera Nambiar has Warm olive skin with subtle hyperpigmentation around the mouth and faint freckles across the nose.\nHair and grooming: Shoulder-length dark brown hair styled in loose, lived-in waves with a few natural flyaways near the parting.\nWardrobe and build: A crisp, wrinkle-free ivory silk-blend blouse tucked into tailored high-waisted wide-leg trousers in soft taupe.\nMovement quality: easy weight shifting through one side, a slight lean-in on the key line.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-",
+      "rejectionReason": "missing_wardrobe_body_frame_detail"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Meera Nambiar",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Bengaluru",
+  "profession": "Head of International Partnerships for a health-tech startup, constantly jetting between APAC medical hubs and investor meetings.",
+  "why_they_care": "She easily clears the 1.5 lakh quarterly spend on client dinners and software subscriptions, making the complimentary flight a seamless, highly valued perk for her personal weekend getaways.",
+  "facial_features": "Warm olive skin with subtle hyperpigmentation around the mouth and faint freckles across the nose, strong naturally arched brows, a straight nasal bridge, a full lower lip, and a defined jawline that gives her an observant, sharp character.",
+  "hairstyle_grooming": "Shoulder-length dark brown hair styled in loose, lived-in waves with a few natural flyaways near the parting, paired with minimal, dewy makeup and a soft coral lip tint.",
+  "wardrobe_details": "A crisp, wrinkle-free ivory silk-blend blouse tucked into tailored high-waisted wide-leg trousers in soft taupe, layered with a lightweight, beautifully draped camel travel trench coat, perfectly suited for the fluctuating temperatures of a premium airport terminal.",
+  "posture_body_language": "Stands with a dynamic, forward-leaning posture, shifting her weight slightly onto one hip while casually resting one hand on the handle of her sleek metallic rolling carry-on, exuding a sense of purposeful momentum.",
+  "expression_style": "Her expression transitions from a focused, mid-transit gaze to a sharp, knowing smile, with her eyebrows raising slightly to emphasize the exact moment she mentions the complimentary flight, keeping her eyes locked on the lens.",
+  "speaking_energy": "Delivers the lines with crisp, fast-paced articulation and an upbeat, assertive rhythm, using subtle head tilts to punctuate the financial threshold and the urgency of the offer.",
+  "body_build": "Tall and lean with an athletic, streamlined frame that carries tailored travel separates effortlessly.",
+  "speaking_style": [
+    "Crisp and articulate",
+    "Mid-register with an upbeat tempo",
+    "Assertive, polished, and conversion-driven"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Sleek metallic rolling carry-on luggage"
+  ],
+  "setting": "Airport perimeter pedestrian zone with travel-day flow",
+  "compliance_notes": [
+    "Shot on 35mm lens, medium close-up tracking shot, natural ambient sunlight mixed with terminal lighting, raw cinematic photography, fine film grain, subtle motion blur.",
+    "Authentic and grounded, avoiding marketing-perfect symmetry, showcasing real skin texture and natural transit momentum."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY
+MEERA NAMBIAR (34, polished metro professional, crisp, ivory silk-blend blouse tucked into tailored) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+Airport perimeter pedestrian zone with travel-day flow
+Meera Nambiar has Warm olive skin with subtle hyperpigmentation around the mouth and faint freckles across the nose.
+Hair and grooming: Shoulder-length dark brown hair styled in loose, lived-in waves with a few natural flyaways near the parting.
+Wardrobe and build: A crisp, wrinkle-free ivory silk-blend blouse tucked into tailored high-waisted wide-leg trousers in soft taupe.
+Movement quality: easy weight shifting through one side, a slight lean-in on the key line.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+MEERA NAMBIAR (Crisp and articulate, Mid-register with an upbeat tempo, measured but varied pace; stress "complimentary flight") Unlock your complimentary flight this quarter.
+A small visible reaction lands between the thoughts without breaking eye contact.
+MEERA NAMBIAR (CONT'D) (Crisp and articulate, Mid-register with an upbeat tempo, slightly firmer pace; stress "Apply Now") Just spend one lakh fifty thousand. Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-06 Quarterly Spend Trigger
+- Focus: `Complimentary flight with quarterly spend phrasing`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push the complimentary flight milestone through quarterly spend language. Keep the threshold clear, premium, direct-to-camera, and conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Unlock a complimentary flight. Spend one point five lakhs this quarter. Kotak Air Plus. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. BUSINESS DISTRICT PICKUP POINT - DAY\n\nADITYA (34, tall athletic frame with broad shoulders, wearing a premium soft charcoal travel jacket over a refined navy knit polo) is already mid-action",
+      "normalizedSample": "[SCENE START] EXT. PREMIUM TRAVEL-DAY SETTING - DAY\nADITYA RAO (34, affluent, well-traveled, generic ad-world corporate dressing) is already caught mid-thought, completing a small posture reset in the environment.\nBusiness district pickup point with carry-on luggage context\nAditya Rao has warm, olive-toned skin with visible pores around the T-zone, slightly asymmetrical arched eyebrows.\nHair and grooming: His thick, dark brown hair is styled in a sleek, low ponytail that looks polished but features a few natural flyaways near the temples.\nWardrobe and build: Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting.\nMovement quality: soft asymmetry through the stance, a slight lean-in on the key line.\nThey notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasi"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Aditya Rao",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Delhi NCR",
+  "profession": "VP of Client Strategy for a multinational cloud infrastructure firm, flying weekly for enterprise client renewals.",
+  "why_they_care": "He seamlessly integrates high-value business expenses with his personal travel goals, turning routine quarterly corporate spends into complimentary flights for his family vacations.",
+  "facial_features": "He has warm, olive-toned skin with visible pores around the T-zone, slightly asymmetrical arched eyebrows, a straight nose with a soft bridge, full, naturally pigmented lips, and high, defined cheekbones that give his a striking yet approachable lived-in character.",
+  "hairstyle_grooming": "His thick, dark brown hair is styled in a sleek, low ponytail that looks polished but features a few natural flyaways near the temples from the movement of the travel day.",
+  "wardrobe_details": "Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting instead of defaulting to generic ad-world corporate dressing.",
+  "posture_body_language": "He stands with dynamic, forward-leaning energy, resting one hand lightly on the handle of his sleek rolling suitcase, naturally shifting his weight as if briefly pausing his brisk walk to the check-in desk.",
+  "expression_style": "His eyes are bright and engaged, with subtle brow raises that emphasize the spend threshold, transitioning from a focused, direct gaze into an effortless, knowing smile as he delivers the final call to action.",
+  "speaking_energy": "His delivery is crisp, energetic, and conversational, using natural pauses for breath and slight head nods to punctuate the 'one point five lakhs' milestone without sounding overly rehearsed.",
+  "body_build": "He has a tall, athletic frame with naturally broad shoulders and a lean, upright posture that commands attention effortlessly.",
+  "speaking_style": [
+    "Crisp, articulate pacing",
+    "Warm, mid-register pitch",
+    "Confident, direct tone"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Premium styling cues that feel grounded in the chosen environment rather than a default ad-model wardrobe."
+  ],
+  "setting": "Business district pickup point with carry-on luggage context",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, lived-in natural daylight mixed with warm terminal ambient light, raw cinematic photography, fine grain, subtle motion blur.",
+    "Authentic, grounded portraiture; no marketing-perfect retouching, genuine skin texture, and natural human asymmetry."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. PREMIUM TRAVEL-DAY SETTING - DAY
+ADITYA RAO (34, affluent, well-traveled, generic ad-world corporate dressing) is already caught mid-thought, completing a small posture reset in the environment.
+Business district pickup point with carry-on luggage context
+Aditya Rao has warm, olive-toned skin with visible pores around the T-zone, slightly asymmetrical arched eyebrows.
+Hair and grooming: His thick, dark brown hair is styled in a sleek, low ponytail that looks polished but features a few natural flyaways near the temples.
+Wardrobe and build: Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting.
+Movement quality: soft asymmetry through the stance, a slight lean-in on the key line.
+They notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+ADITYA RAO (Crisp, articulate pacing, Warm, mid-register pitch, measured but varied pace; stress "complimentary flight") Unlock a complimentary flight.
+A small visible reaction lands between the thoughts without breaking eye contact.
+ADITYA RAO (CONT'D) (Crisp, articulate pacing, Warm, mid-register pitch, slightly firmer pace; stress "Apply Now") Spend one point five lakhs this quarter. Kotak Air Plus. Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-07 Travel Privileges 80K
+- Focus: `Annual travel privileges worth over Rs. 80,000`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push annual travel privileges worth over Rs. 80,000. Premium frequent traveller, direct-to-camera, polished, and conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Unlock travel privileges worth over eighty thousand rupees with Kotak Air Plus. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. WATERFRONT PROMENADE - LATE AFTERNOON\n\nKAVYA SHARMA (34, lean athletic build with broad shoulders, wearing a refined knit top under a polished lightweight linen layer)",
+      "normalizedSample": "[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY\nKAVYA SHARMA (34, affluent, well-traveled, softly tailored linen separates and a polished lightweight) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nWaterfront promenade outside a luxury stay with scenic getaway energy and refined luggage styling\nKavya Sharma has a strong, angular jawline, slightly asymmetrical cheekbones, thick, naturally arched eyebrows framing deep-set brown eyes.\nHair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.\nWardrobe and build: A refined knit top with softly tailored linen separates and a polished lightweight layer.\nMovement quality: soft asymmetry through the stance, shoulders easing down naturally.\nThey catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Kavya Sharma",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Chandigarh",
+  "profession": "Director of Global Operations for a boutique luxury architecture firm, frequently flying to oversee high-end residential projects across the Middle East and Southeast Asia.",
+  "why_they_care": "She views travel as a seamless extension of her premium lifestyle, demanding high-value privileges that upgrade her transit experience without administrative friction.",
+  "facial_features": "She has a strong, angular jawline, slightly asymmetrical cheekbones, thick, naturally arched eyebrows framing deep-set brown eyes, a straight, prominent nose, and warm, unevenly pigmented olive skin with faint sun-exposure texturing around the temples.",
+  "hairstyle_grooming": "Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.",
+  "wardrobe_details": "A refined knit top with softly tailored linen separates and a polished lightweight layer, giving the arrival moment an elevated vacation silhouette without feeling over-styled or office-coded.",
+  "posture_body_language": "She stands with a relaxed but grounded posture, weight shifted slightly to one leg, using small, fluid hand gestures that convey ease and authority while maintaining an open, engaging chest.",
+  "expression_style": "Her expression is alert and conversational, with micro-shifts in her brow to emphasize key numbers and a subtle, genuine tightening at the corners of her eyes when delivering the call to action.",
+  "speaking_energy": "She speaks with a crisp, forward-leaning momentum, using precise pauses before delivering the monetary value to ensure the conversion beat lands with clear, unforced authority.",
+  "body_build": "She has a lean, athletic build with broad shoulders and a proportionate frame that carries lightweight, unstructured clothing effortlessly.",
+  "speaking_style": [
+    "Crisp and articulate",
+    "Mid-mid-register pitch",
+    "Polished and persuasive"
+  ],
+  "wardrobe_props": [
+    "Breathable resort dressing with premium texture and climate-aware layering that reads affluent but relaxed.",
+    "Quiet luxury styling cues that feel native to a premium leisure arrival rather than generic ad-world wardrobe."
+  ],
+  "setting": "Waterfront promenade outside a luxury stay with scenic getaway energy and refined luggage styling",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, soft golden hour coastal sunlight, raw cinematic photography with fine grain and subtle motion blur.",
+    "Authentic and grounded character design, avoiding marketing-perfect symmetry, ensuring natural skin texture and lived-in premium travel context."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY
+KAVYA SHARMA (34, affluent, well-traveled, softly tailored linen separates and a polished lightweight) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.
+Waterfront promenade outside a luxury stay with scenic getaway energy and refined luggage styling
+Kavya Sharma has a strong, angular jawline, slightly asymmetrical cheekbones, thick, naturally arched eyebrows framing deep-set brown eyes.
+Hair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.
+Wardrobe and build: A refined knit top with softly tailored linen separates and a polished lightweight layer.
+Movement quality: soft asymmetry through the stance, shoulders easing down naturally.
+They catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+KAVYA SHARMA (Crisp and articulate, Mid-mid-register pitch, measured but varied pace; stress "Unlock travel privileges worth over") Unlock travel privileges worth over eighty thousand rupees with Kotak Air Plus.
+A small visible reaction lands between the thoughts without breaking eye contact.
+KAVYA SHARMA (CONT'D) (Crisp and articulate, Mid-mid-register pitch, slightly firmer pace; stress "Apply Now"; brief pause before the close) Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They let the last beat settle with dire
+[SCENE END]
+```
+
+### AP20-08 Zero Joining Fee
+- Focus: `Limited-period zero joining fee`
+- Brief:
+```text
+Need an 8 second Meta performance reel for Kotak Air Plus credit card. Highlight zero joining fee for a limited period. Keep it premium, polished, direct-to-camera, and acquisition-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Elevate your travels. Kotak Air Plus offers zero joining fee for a limited time. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. CHAUFFEUR PICKUP BAY, BUSINESS HOTEL - DAY\n\nASHA JOSHI (34, affluent principal architect, wearing a fluid ivory blouse tucked into tailored high-waisted",
+      "normalizedSample": "[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY\nASHA JOSHI (34, affluent, well-traveled, tailored high-waisted trousers and a refined lightweight coat) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nChauffeur pickup bay outside a business hotel with discreet premium transfer energy\nAsha Joshi has a strong, slightly asymmetrical jawline, prominent cheekbones with faint sun-induced freckling.\nHair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.\nWardrobe and build: A fluid ivory blouse with tailored high-waisted trousers and a refined lightweight coat or wrap.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer convict"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Asha Joshi",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Mumbai",
+  "profession": "Principal Architect at an urban design firm, frequently traveling to oversee luxury eco-resort projects across South India and Sri Lanka.",
+  "why_they_care": "She values seamless, elevated travel experiences that match her refined aesthetic, making a premium travel card with zero joining fee an irresistible, smart acquisition.",
+  "facial_features": "She has a strong, slightly asymmetrical jawline, prominent cheekbones with faint sun-induced freckling, thick, naturally arched eyebrows, a straight, defined nose, and warm, textured olive skin that shows fine laugh lines around the eyes.",
+  "hairstyle_grooming": "Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.",
+  "wardrobe_details": "A fluid ivory blouse with tailored high-waisted trousers and a refined lightweight coat or wrap, giving the transit moment a polished, affluent silhouette with calm authority.",
+  "posture_body_language": "She stands with a relaxed, grounded posture, weight shifted slightly to one leg, using subtle, open-handed gestures that convey approachability and effortless premium travel ease rather than rigid corporate stiffness.",
+  "expression_style": "Her expression is highly responsive, starting with a thoughtful, engaged gaze that transitions into a warm, crinkling smile at the eyes when delivering the offer, ensuring the face feels alive and connected beat by beat.",
+  "speaking_energy": "She speaks with a smooth, unhurried cadence, using natural pauses and a slight forward lean on the key 'zero joining fee' beat, projecting a quiet confidence that feels conversational rather than rehearsed.",
+  "body_build": "She has a lean, athletic build with broad, relaxed shoulders, reflecting an active lifestyle and looking naturally proportional in tailored, unstructured travel wear.",
+  "speaking_style": [
+    "Smooth and conversational",
+    "Mid-mid-register pitch",
+    "Refined and persuasive"
+  ],
+  "wardrobe_props": [
+    "Elevated lounge styling with believable drape, clean finishing, and premium travel realism.",
+    "Quiet luxury layering that supports motion and eye contact instead of stiff fashion posing."
+  ],
+  "setting": "Chauffeur pickup bay outside a business hotel with discreet premium transfer energy",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, natural lived-in sunlight with subtle bounce, raw cinematic photography, fine grain, subtle motion blur.",
+    "Authentic, grounded, non-generic human character, absolutely no marketing-perfect imagery or robotic stiffness."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY
+ASHA JOSHI (34, affluent, well-traveled, tailored high-waisted trousers and a refined lightweight coat) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+Chauffeur pickup bay outside a business hotel with discreet premium transfer energy
+Asha Joshi has a strong, slightly asymmetrical jawline, prominent cheekbones with faint sun-induced freckling.
+Hair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.
+Wardrobe and build: A fluid ivory blouse with tailored high-waisted trousers and a refined lightweight coat or wrap.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+ASHA JOSHI (Smooth and conversational, Mid-mid-register pitch, measured but varied pace; stress "Elevate your travels.") Elevate your travels.
+A small visible reaction lands between the thoughts without breaking eye contact.
+ASHA JOSHI (CONT'D) (Smooth and conversational, Mid-mid-register pitch, slightly firmer pace; stress "Apply Now") Kotak Air Plus offers zero joining fee for a limited time. Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-09 Guest Pass Quarterly
+- Focus: `Complimentary lounge guest pass every quarter`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on the complimentary lounge guest pass every quarter for premium frequent travellers. Direct-to-camera, polished, and human.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Premium frequent travellers, enjoy a complimentary lounge guest pass every quarter. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] \nINT. EXECUTIVE CLUB LOUNGE - DAY\n\nVIKRAM (34, lean athletic build with broad shoulders, wearing a wrinkle-free charcoal-grey merino wool polo shirt with a",
+      "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY\nVIKRAM MENON (34, affluent, well-traveled, charcoal-grey merino wool polo shirt paired with tailored) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nA quiet, warmly lit corner of an executive club lounge The space feels premium and lived-in.\nVikram Menon has a strong, slightly asymmetrical jawline, prominent cheekbones with subtle sun-induced freckling.\nHair and grooming: His thick, dark hair is styled in a relaxed side part with slight natural wave and a few flyaways.\nWardrobe and build: an elevated, travel-smart ensemble.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on th"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Vikram Menon",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Pune",
+  "profession": "Director of Supply Chain for a premium electric vehicle manufacturer, frequently flying to Asian tech hubs and European design centers.",
+  "why_they_care": "He values the ability to seamlessly host colleagues or clients during layovers without worrying about access restrictions, turning transit time into productive, comfortable downtime.",
+  "facial_features": "He has a strong, slightly asymmetrical jawline, prominent cheekbones with subtle sun-induced freckling, a straight nose with a slightly wider bridge, thick but naturally shaped eyebrows, and a warm, olive skin tone with visible pores and slight under-eye shadowing from frequent red-eye flights.",
+  "hairstyle_grooming": "His thick, dark hair is styled in a relaxed side part with slight natural wave and a few flyaways, complemented by a neatly trimmed, dense stubble beard that shows realistic daily growth.",
+  "wardrobe_details": "He wears an elevated, travel-smart ensemble featuring a wrinkle-free, charcoal-grey merino wool polo shirt paired with tailored navy travel trousers, offering a refined yet comfortable silhouette perfect for long-haul transit and lounge downtime.",
+  "posture_body_language": "He stands with a relaxed, grounded weight shift onto one leg, shoulders dropped naturally, occasionally using subtle, open-handed gestures that convey approachability and ease.",
+  "expression_style": "His expression shifts fluidly from a thoughtful, quiet focus to a warm, genuine smile that crinkles at the corners of his eyes, showing active listening and authentic engagement rather than a frozen grin.",
+  "speaking_energy": "He speaks with a measured, grounded rhythm, taking natural breaths between thoughts, using subtle head nods to emphasize key points, projecting a calm, conversational authority.",
+  "body_build": "He has a lean, athletic build with broad shoulders and a proportionate frame, reflecting an active lifestyle balanced with a demanding travel schedule.",
+  "speaking_style": [
+    "Warm and resonant",
+    "Mid-low pitch",
+    "Conversational yet authoritative"
+  ],
+  "wardrobe_props": [
+    "Charcoal-grey merino wool polo shirt with a clean, flat collar",
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+  ],
+  "setting": "A quiet, warmly lit corner of an executive club lounge, featuring mid-century modern armchairs, subtle boarding-time calm, and a neatly placed premium carry-on resting nearby.",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, soft ambient lounge lighting with practical warm lamps, raw cinematic photography, natural skin tones, fine grain, subtle motion blur.",
+    "Authentic and grounded, avoiding marketing-perfect imagery, ensuring visible skin texture and natural grooming variations."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY
+VIKRAM MENON (34, affluent, well-traveled, charcoal-grey merino wool polo shirt paired with tailored) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+A quiet, warmly lit corner of an executive club lounge The space feels premium and lived-in.
+Vikram Menon has a strong, slightly asymmetrical jawline, prominent cheekbones with subtle sun-induced freckling.
+Hair and grooming: His thick, dark hair is styled in a relaxed side part with slight natural wave and a few flyaways.
+Wardrobe and build: an elevated, travel-smart ensemble.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+VIKRAM MENON (Warm and resonant, Mid-low pitch, measured but varied pace; stress "Premium frequent travellers, enjoy a") Premium frequent travellers, enjoy a complimentary lounge guest pass every quarter.
+A small visible reaction lands between the thoughts without breaking eye contact.
+VIKRAM MENON (CONT'D) (Warm and resonant, Mid-low pitch, slightly firmer pace; stress "Apply Now"; brief pause before the close) Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-10 Domestic Lounge Utility
+- Focus: `Four domestic lounge visits annually`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Highlight four complimentary domestic lounge visits annually, with a maximum of two per quarter. Premium traveller, direct-to-camera, utility-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Tired of airport waits? Enjoy four complimentary domestic lounge visits every year. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] INT. TERMINAL SKYBRIDGE - DAY\n\nPRIYA (34, lean athletic build with broad shoulders, wearing a fluid silk-crepe trench over a crisp knit and tailored wide-leg trousers)",
+      "normalizedSample": "[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY\nPRIYA BHATIA (34, affluent, well-traveled, tailored wide-leg trousers, polished enough for lounge access) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nTerminal parking-to-departures skybridge with premium commuter flow and rolling luggage The space feels premium and lived-in.\nPriya Bhatia has a strong, slightly asymmetrical jawline with prominent cheekbones, a straight nose with a subtle dorsal bump.\nHair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.\nWardrobe and build: Elevated travel tailoring.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversati"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Priya Bhatia",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Bengaluru",
+  "profession": "Regional Director of Sales for a premium cybersecurity firm, managing enterprise accounts across Tier-1 and Tier-2 Indian cities.",
+  "why_they_care": "She practically lives in domestic terminals for client pitches, so having guaranteed, predictable lounge access gives her a quiet sanctuary to rehearse presentations and grab a decent coffee away from the gate chaos.",
+  "facial_features": "She has a strong, slightly asymmetrical jawline with prominent cheekbones, a straight nose with a subtle dorsal bump, thick, expressive eyebrows that naturally arch when she speaks, and textured, warm brown skin with faint shaving shadows and minor pores visible around the nose.",
+  "hairstyle_grooming": "Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.",
+  "wardrobe_details": "Elevated travel tailoring featuring a fluid silk-crepe trench over a crisp knit or blouse with tailored wide-leg trousers, polished enough for lounge access while still feeling natural in transit.",
+  "posture_body_language": "She stands with a relaxed, grounded posture, shifting her weight naturally onto one leg while resting a hand casually on the handle of her rolling cabin bag, using small, open-handed gestures to emphasize key points.",
+  "expression_style": "Her expression is alert and relatable, starting with a knowing, slightly exhausted micro-expression when mentioning airport waits, which quickly brightens into a genuine, relieved smile that reaches her eyes when discussing the lounge benefit.",
+  "speaking_energy": "She speaks with an engaging, conversational rhythm, taking natural breaths between sentences and using subtle head tilts to land the utility of the card, projecting a calm, experienced traveler's confidence.",
+  "body_build": "She has a lean, athletic build with broad shoulders and a naturally upright carriage shaped by years of navigating airports with heavy carry-on bags.",
+  "speaking_style": [
+    "Warm and resonant",
+    "Mid-pitch with a conversational cadence",
+    "Direct, reassuring, and practical"
+  ],
+  "wardrobe_props": [
+    "Climate-aware lounge dressing with refined layering, fluid movement, and a quietly expensive finish.",
+    "Polished transit-ready styling that feels powerful, premium, and free of generic corporate stiffness."
+  ],
+  "setting": "Terminal parking-to-departures skybridge with premium commuter flow and rolling luggage",
+  "compliance_notes": [
+    "Shot on 50mm lens, eye-level medium-close up, natural ambient terminal lighting with warm practicals, raw cinematic photography, fine grain, subtle motion blur in the background.",
+    "Authentic and grounded, avoiding flawless marketing-perfect imagery, emphasizing natural skin textures, lived-in grooming, and realistic human asymmetry."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY
+PRIYA BHATIA (34, affluent, well-traveled, tailored wide-leg trousers, polished enough for lounge access) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+Terminal parking-to-departures skybridge with premium commuter flow and rolling luggage The space feels premium and lived-in.
+Priya Bhatia has a strong, slightly asymmetrical jawline with prominent cheekbones, a straight nose with a subtle dorsal bump.
+Hair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.
+Wardrobe and build: Elevated travel tailoring.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 direct-to-camera shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+PRIYA BHATIA (Warm and resonant, Mid-pitch with a conversational cadence, measured conversational pace) Tired of airport waits?
+A small visible reaction lands between the thoughts without breaking eye contact.
+PRIYA BHATIA (CONT'D) (Warm and resonant, Mid-pitch with a conversational cadence, slightly tightened pace; stress "Learn More") Enjoy four complimentary domestic lounge visits every year. Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-11 International Lounge Priority Pass
+- Focus: `Two international lounge visits with Priority Pass app support`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Focus on two complimentary international lounge visits annually with Priority Pass app support. Premium international traveller, direct-to-camera, polished.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+International travel just got better. Enjoy two complimentary lounge visits annually. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] INT. ELEGANT AIRLINE LOUNGE RECEPTION - DAY\n\nSIDDHARTH (34, premium international traveler, wearing a crisp sage-green cotton overshirt layered over a fine-gauge",
+      "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY\nSIDDHARTH VARMA (34, premium-minded, urban, crisp, sage-green cotton overshirt layered over a fine-gauge) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAn elegant airline lounge reception threshold with a travel-ready pause before boarding, featuring a sleek marble concierge desk, warm ambient lighting, and the quiet, sophisticated.\nSiddharth Varma has a structured, angular jawline with high cheekbones, subtly uneven eyebrows that naturally arch when he speaks.\nHair and grooming: His thick, dark hair is styled in a relaxed side-part with a slight natural wave and a few stray flyaways.\nWardrobe and build: a crisp, perfectly ironed sage-green premium cotton overshirt layered over a fine-gauge charcoal merino wool t-shirt.\nMovement quality: soft asymmetry through the stance, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from thoughtful interest to warm invitation. Begin observant and engaged"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Siddharth Varma",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Hyderabad",
+  "profession": "Head of International Expansion for a high-growth SaaS startup, flying frequently to Dubai, Singapore, and London.",
+  "why_they_care": "He views airport layovers not as lost time, but as essential decompression windows, making guaranteed lounge access via Priority Pass a non-negotiable part of his seamless travel routine.",
+  "facial_features": "He has a structured, angular jawline with high cheekbones, subtly uneven eyebrows that naturally arch when he speaks, a straight nose with a slight bump on the bridge, and warm, textured olive skin showing faint smile lines and slight under-eye shadowing from frequent red-eye flights.",
+  "hairstyle_grooming": "His thick, dark hair is styled in a relaxed side-part with a slight natural wave and a few stray flyaways, complemented by a neatly trimmed, dense short beard that adds mature definition.",
+  "wardrobe_details": "He wears a crisp, perfectly ironed sage-green premium cotton overshirt layered over a fine-gauge charcoal merino wool t-shirt, paired with tailored travel trousers, offering a refined, comfortable transit silhouette that feels effortlessly polished for international boarding.",
+  "posture_body_language": "He stands with a relaxed, grounded stance, resting his weight slightly on one leg with a hand casually brushing the handle of his unseen carry-on, using precise, contained hand gestures that convey seasoned travel confidence.",
+  "expression_style": "His expression is engaged and conversational, characterized by a warm, knowing crinkle around the eyes and a subtle, asymmetrical smile that shifts naturally as he emphasizes the perks of his travel routine.",
+  "speaking_energy": "He speaks with an unhurried, magnetic rhythm, using deliberate pauses and a smooth, steady breath control that projects an air of calm authority amidst the bustle of transit.",
+  "body_build": "He has a lean, athletic build with broad, relaxed shoulders that carry his layered travel wear naturally without looking stiff.",
+  "speaking_style": [
+    "Smooth and unhurried",
+    "Mid-low baritone pitch",
+    "Conversational and assured tone"
+  ],
+  "wardrobe_props": [
+    "Impeccably ironed sage-green cotton overshirt over a charcoal merino t-shirt",
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+  ],
+  "setting": "An elegant airline lounge reception threshold with a travel-ready pause before boarding, featuring a sleek marble concierge desk, warm ambient lighting, and the quiet, sophisticated hum of international departures in the background.",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, soft lived-in ambient lighting mixing warm interior bulbs with cool terminal daylight, fine film grain, and subtle motion blur.",
+    "Authentic, grounded portrait with natural skin texture and realistic travel-day micro-expressions; strictly no marketing-perfect gloss or rigid poses."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY
+SIDDHARTH VARMA (34, premium-minded, urban, crisp, sage-green cotton overshirt layered over a fine-gauge) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+An elegant airline lounge reception threshold with a travel-ready pause before boarding, featuring a sleek marble concierge desk, warm ambient lighting, and the quiet, sophisticated.
+Siddharth Varma has a structured, angular jawline with high cheekbones, subtly uneven eyebrows that naturally arch when he speaks.
+Hair and grooming: His thick, dark hair is styled in a relaxed side-part with a slight natural wave and a few stray flyaways.
+Wardrobe and build: a crisp, perfectly ironed sage-green premium cotton overshirt layered over a fine-gauge charcoal merino wool t-shirt.
+Movement quality: soft asymmetry through the stance, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from thoughtful interest to warm invitation. Begin observant and engaged, let the benefit warm the face and eyes, and finish with an inviting half-smile. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+SIDDHARTH VARMA (Smooth and unhurried, Mid-low baritone pitch, measured but varied pace; stress "International travel just got better.") International travel just got better.
+A small visible reaction lands between the thoughts without breaking eye contact.
+SIDDHARTH VARMA (CONT'D) (Smooth and unhurried, Mid-low baritone pitch, slightly tightened pace; stress "Learn More") Enjoy two complimentary lounge visits annually. Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in th
+[SCENE END]
+```
+
+### AP20-12 Accelerated Air Miles
+- Focus: `Five Air Miles per Rs. 100 on travel bookings via Kotak Unbox`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Preserve the exact benefit of five Air Miles per Rs. 100 on travel bookings via Kotak Unbox. Premium traveller, direct-to-camera, conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Get five percent rewards on travel bookings through Kotak Unbox with Kotak Air Plus. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. HERITAGE BOUTIQUE HOTEL COURTYARD - DAY\n\nKABIR DESHMUKH (34, affluent creative director, slender athletic frame in soft travel tailoring featuring a premium open",
+      "normalizedSample": "[SCENE START] EXT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nKABIR DESHMUKH (34, affluent, well-traveled, open-neck knit and tapered trousers, delivering understated) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nThe sun-dappled open-air courtyard of a heritage boutique hotel during check-in, featuring intricately carved wooden pillars, lush tropical potted palms, and a discreet bellhop moving.\nKabir Deshmukh has Strong, angular jawline with high cheekbones, slightly asymmetrical almond-shaped eyes, thick naturally arched brows.\nHair and grooming: Collarbone-length dark wavy hair, parted down the middle and tucked behind one ear, with a few natural flyaways catching the light.\nWardrobe and build: Soft travel tailoring built around an open-neck knit and clean tapered trousers, delivering understated luxury.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposef"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Kabir Deshmukh",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Delhi NCR",
+  "profession": "Creative Director for a luxury hospitality branding agency, frequently flying to scout and pitch boutique heritage properties.",
+  "why_they_care": "He books multiple high-end domestic and international flights monthly for site visits, so a flat 5 percent reward on Unbox directly subsidizes his personal luxury upgrades.",
+  "facial_features": "Strong, angular jawline with high cheekbones, slightly asymmetrical almond-shaped eyes, thick naturally arched brows, a straight refined nose, full lips with a subtle natural tint, and warm olive skin showing faint freckles across the bridge of the nose and natural pores.",
+  "hairstyle_grooming": "Collarbone-length dark wavy hair, parted down the middle and tucked behind one ear, with a few natural flyaways catching the light, paired with minimal, breathable makeup and a soft matte lip.",
+  "wardrobe_details": "Soft travel tailoring built around an open-neck knit and clean tapered trousers, delivering understated luxury and arrival-ready structure without falling back to a repetitive navy-blazer formula.",
+  "posture_body_language": "Stands with a relaxed, grounded posture, shifting weight slightly onto one hip while subtly gesturing with one hand holding a sleek leather passport wallet, projecting an effortless, unhurried travel presence.",
+  "expression_style": "Eyes maintain a sharp, engaging focus on the lens, with a warm, knowing micro-smile that deepens at the corners of his mouth when mentioning the rewards, keeping the face dynamic and conversational.",
+  "speaking_energy": "Delivers the line with a crisp, breezy confidence, using subtle head tilts on key benefit beats to emphasize the value without feeling overly rehearsed or forceful.",
+  "body_build": "Slender but athletic frame with naturally squared shoulders, carrying clothes with an effortless, tailored drape.",
+  "speaking_style": [
+    "Crisp articulation",
+    "Mid-register warmth",
+    "Breezy confidence"
+  ],
+  "wardrobe_props": [
+    "Premium arrival dressing with texture, ease, and polished structure suited to a concierge or portico setting.",
+    "Refined travel styling that feels affluent, breathable, and distinct from the default ad-model wardrobe."
+  ],
+  "setting": "The sun-dappled open-air courtyard of a heritage boutique hotel during check-in, featuring intricately carved wooden pillars, lush tropical potted palms, and a discreet bellhop moving premium luggage in the softly blurred background.",
+  "compliance_notes": [
+    "Shot on 50mm lens at eye level, medium close-up, utilizing soft natural dappled sunlight, raw cinematic photography with fine grain and subtle motion blur.",
+    "Must feel authentic and grounded, avoiding overly idealized marketing perfection, ensuring lived-in skin texture and natural flyaways."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. HIGH-END HOTEL ARRIVAL ZONE - DAY
+KABIR DESHMUKH (34, affluent, well-traveled, open-neck knit and tapered trousers, delivering understated) is already in a lived-in arrival moment, finishing a small posture settle in the space.
+The sun-dappled open-air courtyard of a heritage boutique hotel during check-in, featuring intricately carved wooden pillars, lush tropical potted palms, and a discreet bellhop moving.
+Kabir Deshmukh has Strong, angular jawline with high cheekbones, slightly asymmetrical almond-shaped eyes, thick naturally arched brows.
+Hair and grooming: Collarbone-length dark wavy hair, parted down the middle and tucked behind one ear, with a few natural flyaways catching the light.
+Wardrobe and build: Soft travel tailoring built around an open-neck knit and clean tapered trousers, delivering understated luxury.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+KABIR DESHMUKH (Crisp articulation, Mid-register warmth, measured but varied pace; stress "Get five percent rewards on") Get five percent rewards on travel bookings through Kotak Unbox with Kotak Air Plus.
+A small visible reaction lands between the thoughts without breaking eye contact.
+KABIR DESHMUKH (CONT'D) (Crisp articulation, Mid-register warmth, slightly firmer pace; stress "Apply Now"; brief pause before the close) Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless
+[SCENE END]
+```
+
+### AP20-13 Base Rate Air Miles
+- Focus: `Unlimited two Air Miles per Rs. 100 on regular spends`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Highlight the base earn rate of unlimited two Air Miles per one hundred rupees on eligible regular spends. Premium but practical, direct-to-camera.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Tired of slow rewards? With Kotak Air Plus, earn two Air Miles per hundred rupees. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] INT. HIGH-END SERVICED APARTMENT LOBBY - DAY\n\nROHAN (34, lean and athletic build) is already mid-action in the bright, airy lobby, casually",
+      "normalizedSample": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nROHAN SENGUPTA (34, premium-minded, urban, open-neck knit and tapered trousers, delivering understated) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nHigh-end serviced apartment lobby with travel-day movement The space feels premium and lived-in.\nRohan Sengupta has A strong, slightly asymmetrical jawline with a prominent, straight nose,.\nHair and grooming: Thick, wavy black hair casually swept back with a matte styling paste showing a few natural flyaways.\nWardrobe and build: Soft travel tailoring built around an open-neck knit and clean tapered trousers, delivering understated luxury.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.\nExpression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value b"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Rohan Sengupta",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Ahmedabad",
+  "profession": "Chief Strategy Officer for a sports analytics firm, frequently traveling to international cricket and football leagues.",
+  "why_they_care": "He values maximum efficiency and hates leaving value on the table; a high base earn rate on everyday premium spends aligns perfectly with his practical but affluent lifestyle.",
+  "facial_features": "A strong, slightly asymmetrical jawline with a prominent, straight nose, thick but neatly groomed eyebrows that sit low over observant dark brown eyes, full lips with a subtle natural resting curve, and warm olive skin showing faint sun-spots and minor textural unevenness around the temples.",
+  "hairstyle_grooming": "Thick, wavy black hair casually swept back with a matte styling paste showing a few natural flyaways, paired with a meticulously trimmed, dense short beard that has a slightly softer, natural edge rather than a razor-sharp fade.",
+  "wardrobe_details": "Soft travel tailoring built around an open-neck knit and clean tapered trousers, delivering understated luxury and arrival-ready structure without falling back to a repetitive navy-blazer formula.",
+  "posture_body_language": "Stands with his weight comfortably shifted onto one leg, shoulders relaxed but squared, using small, precise hand gestures to punctuate his points, and subtly leaning in when delivering the core benefit to create an engaging, conversational dynamic.",
+  "expression_style": "His eyes crinkle slightly at the corners when he speaks, with his eyebrows raising naturally on the word 'two' to emphasize the value, maintaining a warm, knowing gaze that feels like he is sharing a smart travel hack with a peer rather than delivering a rehearsed pitch.",
+  "speaking_energy": "Delivers the line with a brisk, upbeat cadence, taking a natural, almost imperceptible breath before dropping the core offer, carrying a confident, unforced momentum that feels spontaneous and genuinely helpful.",
+  "body_build": "Lean and athletic build with broad shoulders and a relaxed, upright posture that suggests regular physical activity and a natural ease in his own skin.",
+  "speaking_style": [
+    "Conversational and brisk",
+    "Mid-range baritone",
+    "Confident and practical"
+  ],
+  "wardrobe_props": [
+    "Premium arrival dressing with texture, ease, and polished structure suited to a concierge or portico setting.",
+    "Refined travel styling that feels affluent, breathable, and distinct from the default ad-model wardrobe."
+  ],
+  "setting": "High-end serviced apartment lobby with travel-day movement",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, natural ambient daylight, raw cinematic photography, fine grain, subtle motion blur",
+    "Authentic and grounded, non-mannequin movement, no marketing-perfect imagery, natural skin textures and lived-in grooming"
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY
+ROHAN SENGUPTA (34, premium-minded, urban, open-neck knit and tapered trousers, delivering understated) is already in a lived-in arrival moment, finishing a small posture settle in the space.
+High-end serviced apartment lobby with travel-day movement The space feels premium and lived-in.
+Rohan Sengupta has A strong, slightly asymmetrical jawline with a prominent, straight nose,.
+Hair and grooming: Thick, wavy black hair casually swept back with a matte styling paste showing a few natural flyaways.
+Wardrobe and build: Soft travel tailoring built around an open-neck knit and clean tapered trousers, delivering understated luxury.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.
+Expression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 direct-to-camera shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+ROHAN SENGUPTA (Conversational and brisk, Mid-range baritone, measured conversational pace; stress "Tired of slow rewards?") Tired of slow rewards?
+A small visible reaction lands between the thoughts without breaking eye contact.
+ROHAN SENGUPTA (CONT'D) (Conversational and brisk, Mid-range baritone, slightly tightened pace; stress "Learn More") With Kotak Air Plus, earn two Air Miles per hundred rupees. Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-14 Redemption Value
+- Focus: `One Air Mile equals one rupee on Kotak Unbox flight and hotel redemptions`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Focus on the redemption value: one Air Mile equals one rupee on Kotak Unbox flight and hotel bookings. Premium traveller, direct-to-camera, utility-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `500`
+  - attempt `2` -> status `200`
+- Step 1 final script:
+```text
+Maximize your travel. One Air Mile on Kotak Air Plus equals one rupee on Unbox. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. PREMIUM HOTEL PORTE-COCHERE - DAY\n\nDEVIKA NAIR (34, tall, slender yet athletic frame, wearing a wrinkle-free draped silk midi dress in muted terracotta under a breathable",
+      "normalizedSample": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nDEVIKA NAIR (34, premium-minded, urban, draped silk midi dress in a muted terracotta shade) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nPremium hotel porte-cochere with arriving cabs and polished luggage flow\nDevika Nair has a softly angular jawline with prominent, high cheekbones, slightly asymmetric arched eyebrows.\nHair and grooming: Her thick, dark brown hair is styled in a loose, shoulder-length wavy lob that moves naturally, with a few stray flyaways catching.\nWardrobe and build: a wrinkle-free, impeccably ironed draped silk midi dress in a muted terracotta shade, layered under a lightweight.\nMovement quality: soft asymmetry through the stance, shoulders easing down naturally.\nThey notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. O"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Devika Nair",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Chandigarh",
+  "profession": "Head of Curation for a contemporary South Asian art gallery, frequently flying to international art fairs and private collector viewings.",
+  "why_they_care": "She sees travel as an essential extension of her work and lifestyle, valuing the transparent 1-to-1 redemption rate on Unbox to effortlessly upgrade her frequent transit experiences.",
+  "facial_features": "She has a softly angular jawline with prominent, high cheekbones, slightly asymmetric arched eyebrows, a straight nose with a subtle dorsal bump, full natural lips, and warm olive skin showing faint freckles and natural pores around the nose.",
+  "hairstyle_grooming": "Her thick, dark brown hair is styled in a loose, shoulder-length wavy lob that moves naturally, with a few stray flyaways catching the light and minimal, fresh-faced makeup featuring a soft matte lip.",
+  "wardrobe_details": "She wears a wrinkle-free, impeccably ironed draped silk midi dress in a muted terracotta shade, layered under a lightweight, breathable linen travel duster coat, offering a sophisticated, climate-aware arrival silhouette perfectly suited for a boutique hotel check-in.",
+  "posture_body_language": "She stands with an effortless, grounded elegance, resting her weight slightly on one hip, using fluid, open hand gestures that feel conversational and relaxed rather than rigidly rehearsed.",
+  "expression_style": "Her expression is actively engaged, with her eyes crinkling warmly at the corners during emphasis beats, and her subtle, knowing smile shifting naturally as she delivers the utility-focused message.",
+  "speaking_energy": "She speaks with a steady, articulate, and warm pacing, projecting an unhurried confidence that physically carries the line through relaxed shoulder movements and focused eye contact.",
+  "body_build": "She has a tall, slender yet athletic frame with a natural, unforced posture.",
+  "speaking_style": [
+    "Warm and articulate",
+    "Mid-register pitch with smooth pacing",
+    "Confident, conversational tone"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+  ],
+  "setting": "Premium hotel porte-cochere with arriving cabs and polished luggage flow",
+  "compliance_notes": [
+    "Shot on 50mm lens at eye level, medium close-up, utilizing natural ambient light spilling from a nearby window, capturing raw cinematic photography with natural skin tones, fine grain, and subtle motion blur.",
+    "Authentic and grounded portrayal featuring visible skin texture and natural flyaways, avoiding any over-polished, marketing-perfect influencer aesthetics or robotic stillness."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY
+DEVIKA NAIR (34, premium-minded, urban, draped silk midi dress in a muted terracotta shade) is already in a lived-in arrival moment, finishing a small posture settle in the space.
+Premium hotel porte-cochere with arriving cabs and polished luggage flow
+Devika Nair has a softly angular jawline with prominent, high cheekbones, slightly asymmetric arched eyebrows.
+Hair and grooming: Her thick, dark brown hair is styled in a loose, shoulder-length wavy lob that moves naturally, with a few stray flyaways catching.
+Wardrobe and build: a wrinkle-free, impeccably ironed draped silk midi dress in a muted terracotta shade, layered under a lightweight.
+Movement quality: soft asymmetry through the stance, shoulders easing down naturally.
+They notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+DEVIKA NAIR (Warm and articulate, Mid-register pitch with smooth pacing, measured but varied pace; stress "Maximize your travel.") Maximize your travel.
+A small visible reaction lands between the thoughts without breaking eye contact.
+DEVIKA NAIR (CONT'D) (Warm and articulate, Mid-register pitch with smooth pacing, slightly firmer pace; stress "Apply Now") One Air Mile on Kotak Air Plus equals one rupee on Unbox. Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-15 Transfer Partners
+- Focus: `Transfer Air Miles to airline and hotel loyalty partners`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Highlight the ability to transfer Air Miles to airline and hotel loyalty partners like KrisFlyer and Marriott Bonvoy. Premium frequent traveller, direct-to-camera.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Tired of limited rewards? Kotak Air Plus lets you transfer Air Miles to KrisFlyer. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. COASTAL RESORT ARRIVAL PATH - DAY\n\nNEHA VERMA (36, affluent maritime lawyer, wearing a softly structured open-collar shirt, tailored resort trousers, and a graceful premium",
+      "normalizedSample": "[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY\nNEHA VERMA (36, affluent, well-traveled, tailored resort trousers and a graceful wrap layer) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nCoastal resort arrival path with sea-breeze travel styling and premium luggage context\nNeha Verma has a strong, slightly asymmetrical jawline with prominent cheekbones, deep-set eyes beneath.\nHair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.\nWardrobe and build: A softly structured open-collar shirt with tailored resort trousers and a graceful premium wrap layer.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.\nExpression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at "
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Neha Verma",
+  "gender_presentation": "woman",
+  "age_range": "36",
+  "city": "Ahmedabad",
+  "profession": "Partner at a boutique maritime law firm, frequently flying to Singapore and London for international arbitration.",
+  "why_they_care": "She accumulates massive points on international business flights but hates being locked into a single airline's restrictive reward ecosystem, valuing the flexibility to transfer miles to KrisFlyer for her Singapore trips or Marriott for family leisure.",
+  "facial_features": "She has a strong, slightly asymmetrical jawline with prominent cheekbones, deep-set eyes beneath thick, straight brows, a Roman nose with a slight dorsal bump, and warm, textured olive skin showing fine expression lines around the eyes and a faint, lived-in shaving shadow.",
+  "hairstyle_grooming": "Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.",
+  "wardrobe_details": "A softly structured open-collar shirt with tailored resort trousers and a graceful premium wrap layer, creating a polished getaway look with believable movement and understated luxury.",
+  "posture_body_language": "She stands with a relaxed, grounded posture, shifting her weight naturally onto one leg while resting one hand lightly on the handle of her premium aluminum carry-on, using subtle, open palm gestures with her free hand to emphasize key points.",
+  "expression_style": "Her expression is engaged and conversational, starting with a knowing, slightly wry smile about restrictive rewards, then her brows lift and her eyes brighten with genuine appreciation as she explains the transfer flexibility.",
+  "speaking_energy": "She speaks with a measured, rhythmic cadence, leaning in slightly on the words 'transfer' and 'KrisFlyer' with a grounded, chest-resonant energy that feels like a trusted colleague giving a high-value travel tip.",
+  "body_build": "She has a lean, broad-shouldered athletic build developed from early morning swims, giving clothes a natural, structured drape without looking overly muscular.",
+  "speaking_style": [
+    "measured and resonant",
+    "conversational mid-register",
+    "persuasive and grounded"
+  ],
+  "wardrobe_props": [
+    "Polished leisure-travel separates with fluid drape, clean lines, and a premium finish suited to a scenic arrival moment.",
+    "Elegant accessory restraint that keeps the look premium, intimate, and lived-in."
+  ],
+  "setting": "Coastal resort arrival path with sea-breeze travel styling and premium luggage context",
+  "compliance_notes": [
+    "Shot on 35mm lens at eye level, medium close-up, using natural and warm ambient hotel lighting, capturing cinematic raw photography with fine grain, natural skin tones, and subtle motion blur.",
+    "Must feel authentic and grounded, showcasing real skin texture and natural human asymmetry; absolutely no marketing-perfect airbrushing, studio strobes, or generic stock-photo styling."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY
+NEHA VERMA (36, affluent, well-traveled, tailored resort trousers and a graceful wrap layer) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.
+Coastal resort arrival path with sea-breeze travel styling and premium luggage context
+Neha Verma has a strong, slightly asymmetrical jawline with prominent cheekbones, deep-set eyes beneath.
+Hair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.
+Wardrobe and build: A softly structured open-collar shirt with tailored resort trousers and a graceful premium wrap layer.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.
+Expression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+NEHA VERMA (measured and resonant, conversational mid-register, measured conversational pace; stress "Tired of limited rewards?") Tired of limited rewards?
+A small visible reaction lands between the thoughts without breaking eye contact.
+NEHA VERMA (CONT'D) (measured and resonant, conversational mid-register, slightly tightened pace; stress "Learn More") Kotak Air Plus lets you transfer Air Miles to KrisFlyer. Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They let the last beat settle with direct eye contact, a faint smile, and a clean held finish in the same shot.
+[SCENE END]
+```
+
+### AP20-16 Welcome Benefit
+- Focus: `2,500 Air Miles welcome benefit after issuance`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Push the welcome benefit of 2,500 Air Miles after card issuance, while staying polished, premium, and direct-to-camera.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Elevate your travel. Get two thousand five hundred Air Miles after Kotak Air Plus card. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] INT. TERMINAL SKYBRIDGE - MORNING\n\nNIKHIL (34, premium culinary founder, wearing a perfectly crisp, muted olive unstructured linen-silk overshirt over a clean white t-shirt)",
+      "normalizedSample": "[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY\nNIKHIL CHATTERJEE (34, affluent, well-traveled, lightweight, linen-silk blend overshirt in muted olive) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nTerminal parking-to-departures skybridge with premium commuter flow and rolling luggage\nNikhil Chatterjee has a strong, angular jawline with slightly asymmetrical cheekbones, thick, straight eyebrows that naturally dip in thought.\nHair and grooming: Thick, wavy black hair styled in a relaxed, swept-back flow with a few natural flyaways.\nWardrobe and build: a lightweight, unstructured linen-silk blend overshirt in muted olive over a crisp, high-thread-count white cotton t-shirt.\nMovement quality: easy weight shifting through the stance, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Nikhil Chatterjee",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Pune",
+  "profession": "Founder of a bespoke culinary export business, frequently traveling to source rare agricultural estates and attend global food expos.",
+  "why_they_care": "He views travel not as a disruption, but as an extension of his premium lifestyle, valuing immediate, tangible rewards that effortlessly upgrade his frequent transits.",
+  "facial_features": "He has a strong, angular jawline with slightly asymmetrical cheekbones, thick, straight eyebrows that naturally dip in thought, a prominent, straight nose, medium-full lips, and warm, olive skin with visible pores and faint sun-freckles across the upper cheeks from fieldwork.",
+  "hairstyle_grooming": "Thick, wavy black hair styled in a relaxed, swept-back flow with a few natural flyaways, paired with a meticulously trimmed, dense stubble that shows a hint of natural unevenness around the neck.",
+  "wardrobe_details": "He wears a lightweight, unstructured linen-silk blend overshirt in muted olive over a crisp, high-thread-count white cotton t-shirt, offering a relaxed yet elevated travel silhouette perfect for a private terminal morning, absolutely clean, well-ironed, and wrinkle-free.",
+  "posture_body_language": "He stands with a grounded, relaxed weight shifted slightly onto his right leg, shoulders dropped comfortably, occasionally gesturing with open, fluid hand movements that convey effortless authority rather than rigid stillness.",
+  "expression_style": "His expression shifts naturally from a thoughtful, observant gaze to an engaging, warm smile that crinkles the outer corners of his eyes, showing active listening and genuine enthusiasm as he speaks.",
+  "speaking_energy": "He speaks with a steady, resonant pacing, using subtle head nods on key benefit beats like 'two thousand five hundred', carrying the lines with a relaxed, conversational momentum rather than a rehearsed pitch.",
+  "body_build": "He has a lean, athletic build with broad shoulders and a naturally upright carriage, reflecting an active, on-the-go lifestyle.",
+  "speaking_style": [
+    "warm and resonant",
+    "mid-range pitch",
+    "conversational yet authoritative"
+  ],
+  "wardrobe_props": [
+    "Muted olive linen-silk overshirt over a crisp white tee",
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+  ],
+  "setting": "Terminal parking-to-departures skybridge with premium commuter flow and rolling luggage",
+  "compliance_notes": [
+    "Shot on 35mm lens, medium close-up, natural ambient morning light with soft architectural shadows, raw cinematic film stock with fine grain and subtle motion blur",
+    "Highly authentic, grounded travel aesthetic; strictly no marketing-perfect gloss, ensuring visible skin texture and natural human variations"
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY
+NIKHIL CHATTERJEE (34, affluent, well-traveled, lightweight, linen-silk blend overshirt in muted olive) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+Terminal parking-to-departures skybridge with premium commuter flow and rolling luggage
+Nikhil Chatterjee has a strong, angular jawline with slightly asymmetrical cheekbones, thick, straight eyebrows that naturally dip in thought.
+Hair and grooming: Thick, wavy black hair styled in a relaxed, swept-back flow with a few natural flyaways.
+Wardrobe and build: a lightweight, unstructured linen-silk blend overshirt in muted olive over a crisp, high-thread-count white cotton t-shirt.
+Movement quality: easy weight shifting through the stance, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+NIKHIL CHATTERJEE (warm and resonant, mid-range pitch, measured but varied pace; stress "Elevate your travel.") Elevate your travel.
+A small visible reaction lands between the thoughts without breaking eye contact.
+NIKHIL CHATTERJEE (CONT'D) (warm and resonant, mid-range pitch, slightly firmer pace; stress "Apply Now"; brief pause before the close) Get two thousand five hundred Air Miles after Kotak Air Plus card. Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending i
+[SCENE END]
+```
+
+### AP20-17 Renewal Benefit
+- Focus: `2,500 Air Miles on annual fee payment`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Highlight the renewal benefit of 2,500 Air Miles on annual fee payment. Premium frequent traveller, direct-to-camera, utility-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Kotak Air Plus offers renewal benefit of 2,500 Air Miles on annual fee payment. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. BUSINESS HOTEL CHAUFFEUR BAY - DAY\n\nArjun Krishnan (34, lean athletic build, wearing a sharply tailored sage green linen-blend overshirt left unbuttoned over",
+      "normalizedSample": "[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY\nARJUN KRISHNAN (34, affluent, well-traveled, sage green linen overshirt left unbuttoned over a crisp) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nChauffeur pickup bay outside a business hotel with discreet premium transfer energy\nArjun Krishnan has a strong, slightly asymmetrical jawline, deep-set warm brown eyes with faint laugh lines at the corners, a straight.\nHair and grooming: His thick, wavy black hair is swept back with a matte styling clay allowing a few natural flyaways.\nWardrobe and build: a sharply tailored, wrinkle-free sage green linen-blend overshirt left unbuttoned over a crisp, high-quality white cotton.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.\nExpression and body language: emotionally specific and progressing from thoughtful interest to warm invitation. Begin observant and engaged, let the benefit warm the face and eyes, and finish with an inviting half-smile. Use at most"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Arjun Krishnan",
+  "gender_presentation": "man",
+  "age_range": "34",
+  "city": "Chandigarh",
+  "profession": "Vice President of Acquisitions for a luxury boutique hotel group, constantly flying to scout heritage properties across India and Southeast Asia.",
+  "why_they_care": "He views travel perks not as bonuses, but as essential ROI on his lifestyle, appreciating a card that automatically rewards his loyalty and offsets the cost of his relentless travel schedule.",
+  "facial_features": "He has a strong, slightly asymmetrical jawline, deep-set warm brown eyes with faint laugh lines at the corners, a straight but slightly broad nose, and medium-thick, naturally arched brows over warm, subtly textured olive skin with visible pores.",
+  "hairstyle_grooming": "His thick, wavy black hair is swept back with a matte styling clay allowing a few natural flyaways, complemented by a closely trimmed, well-maintained stubble that highlights his jaw without looking overly manicured.",
+  "wardrobe_details": "He wears a sharply tailored, wrinkle-free sage green linen-blend overshirt left unbuttoned over a crisp, high-quality white cotton crewneck, offering a relaxed yet elevated transit-ready silhouette perfect for a climate-controlled layover.",
+  "posture_body_language": "He stands with a relaxed, grounded weight shift onto one leg, shoulders dropped naturally, occasionally using subtle, open-handed gestures that convey approachability and seasoned travel comfort.",
+  "expression_style": "His expression is engaged and conversational, with eyebrows that lift slightly on key utility points and a warm, easy half-smile that feels earned and authentic rather than plastered on.",
+  "speaking_energy": "He speaks with a steady, rhythmic pacing, using deliberate micro-pauses before emphasizing the renewal benefit, projecting a quiet, assured energy that cuts through the ambient noise.",
+  "body_build": "He has a lean, athletic build with broad shoulders and a naturally upright posture, developed from years of navigating expansive airport terminals and walking property grounds.",
+  "speaking_style": [
+    "Warm baritone",
+    "Measured and rhythmic pacing",
+    "Conversational yet authoritative tone"
+  ],
+  "wardrobe_props": [
+    "Sage green linen-blend overshirt over crisp white crewneck",
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+  ],
+  "setting": "Chauffeur pickup bay outside a business hotel with discreet premium transfer energy",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, soft ambient natural light filtering through architectural glass, raw cinematic photography with fine grain and subtle motion blur.",
+    "Authentic, grounded, non-marketing-perfect imagery with natural human variation and lived-in facial character."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. PREMIUM TRANSIT CORRIDOR - DAY
+ARJUN KRISHNAN (34, affluent, well-traveled, sage green linen overshirt left unbuttoned over a crisp) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.
+Chauffeur pickup bay outside a business hotel with discreet premium transfer energy
+Arjun Krishnan has a strong, slightly asymmetrical jawline, deep-set warm brown eyes with faint laugh lines at the corners, a straight.
+Hair and grooming: His thick, wavy black hair is swept back with a matte styling clay allowing a few natural flyaways.
+Wardrobe and build: a sharply tailored, wrinkle-free sage green linen-blend overshirt left unbuttoned over a crisp, high-quality white cotton.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera as they settle, lift into steady direct-to-camera eye contact, and let the first line land without breaking the moment.
+Expression and body language: emotionally specific and progressing from thoughtful interest to warm invitation. Begin observant and engaged, let the benefit warm the face and eyes, and finish with an inviting half-smile. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+ARJUN KRISHNAN (Warm baritone, Measured and rhythmic pacing, measured but varied pace; stress "Kotak Air Plus offers renewal") Kotak Air Plus offers renewal benefit of 2,500 Air Miles on annual fee payment.
+A small visible reaction lands between the thoughts without breaking eye contact.
+ARJUN KRISHNAN (CONT'D) (Warm baritone, Measured and rhythmic pacing, slightly tightened pace; stress "Learn More") Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```
+
+### AP20-18 Fuel Surcharge Waiver
+- Focus: `1% fuel surcharge waiver`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Focus on the one percent fuel surcharge waiver on fuel spends in the eligible range. Keep the tone premium, practical, and direct-to-camera.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Tired of fuel surcharges? Kotak Air Plus offers one percent waiver. Make your journeys. Learn More.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] EXT. VERANDA, GOLF AND COUNTRY CLUB - DAY\n\nAnanya Rao (34, tall, lean, athletic build with naturally broad shoulders, wearing an impeccably ironed olive green linen-silk",
+      "normalizedSample": "[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY\nANANYA RAO (34, affluent, well-traveled, linen-silk blend midi dress in a muted olive green) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nA shaded, breezy veranda of a high-end coastal golf and country club overlooking the greens, capturing a relaxed but polished post-meeting travel moment just before her drive back.\nAnanya Rao has a softly angular face with high, defined cheekbones, naturally arched.\nHair and grooming: Her thick, dark brown hair is styled in a loose, low, unstructured bun with a few natural flyaways framing her face.\nWardrobe and build: a breathable, premium linen-silk blend midi dress in a muted olive green.\nMovement quality: soft asymmetry through the stance, shoulders easing down naturally.\nThey catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.\nExpression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close "
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Ananya Rao",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Delhi NCR",
+  "profession": "Managing Director of a luxury destination event firm, frequently driving premium SUVs across state lines to scout palatial estates and coastal venues.",
+  "why_they_care": "She orchestrates high-budget logistics across vast distances, meaning frequent road travel in premium vehicles; eliminating the annoying 1% fuel surcharge feels like a smart, practical win that aligns with her efficiency-driven mindset.",
+  "facial_features": "She has a softly angular face with high, defined cheekbones, naturally arched but slightly asymmetrical eyebrows, a straight, narrow nose, full lips with a distinct Cupid's bow, a sharp jawline, and warm olive skin with visible, natural pores and faint sun-freckles across the bridge of her nose.",
+  "hairstyle_grooming": "Her thick, dark brown hair is styled in a loose, low, unstructured bun with a few natural flyaways framing her face, paired with understated, lived-in makeup featuring a soft matte lip and a hint of natural sheen on her cheekbones.",
+  "wardrobe_details": "She wears a breathable, premium linen-silk blend midi dress in a muted olive green, paired with a delicate gold pendant and a structured leather tote resting nearby, perfectly blending climate-aware comfort with polished, high-end travel readiness.",
+  "posture_body_language": "She sits with a relaxed, open posture, leaning slightly forward with one forearm resting comfortably on the table, using small, precise hand gestures that convey calm authority and practical experience.",
+  "expression_style": "Her expression is warm but direct, with her eyes crinkling slightly at the corners when emphasizing a practical benefit, transitioning smoothly from a thoughtful pause to a genuine, grounded half-smile of conviction.",
+  "speaking_energy": "Her delivery is crisp, grounded, and conversational, carrying a quiet confidence with deliberate pauses that make the financial advice feel both intimate and highly credible.",
+  "body_build": "She has a tall, lean, and athletic build with naturally broad shoulders that give her a commanding yet effortless physical presence.",
+  "speaking_style": [
+    "Warm and conversational",
+    "Mid-register pitch with clear enunciation",
+    "Direct, practical, and effortlessly authoritative"
+  ],
+  "wardrobe_props": [
+    "Impeccably ironed olive green linen-silk blend dress",
+    "Delicate gold pendant and structured leather tote"
+  ],
+  "setting": "A shaded, breezy veranda of a high-end coastal golf and country club overlooking the greens, capturing a relaxed but polished post-meeting travel moment just before her drive back to the city.",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium close-up, natural golden hour sidelight bouncing off the veranda floor, raw cinematic photography, fine grain, subtle motion blur.",
+    "Authentic and grounded, avoiding overly idealized marketing aesthetics, embracing natural skin texture and lived-in environmental lighting."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY
+ANANYA RAO (34, affluent, well-traveled, linen-silk blend midi dress in a muted olive green) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.
+A shaded, breezy veranda of a high-end coastal golf and country club overlooking the greens, capturing a relaxed but polished post-meeting travel moment just before her drive back.
+Ananya Rao has a softly angular face with high, defined cheekbones, naturally arched.
+Hair and grooming: Her thick, dark brown hair is styled in a loose, low, unstructured bun with a few natural flyaways framing her face.
+Wardrobe and build: a breathable, premium linen-silk blend midi dress in a muted olive green.
+Movement quality: soft asymmetry through the stance, shoulders easing down naturally.
+They catch the camera with a brief glance back into frame, settle into direct-to-camera engagement, let a soft knowing smile form, and start speaking.
+Expression and body language: emotionally specific and progressing from alert curiosity to clear assurance. Start with alert questioning focus, let the answer relax the eyes and mouth into clarity, and close with a small reassured nod. Use at most one open conversational hand release on the value beat, then return to a relaxed settled posture. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+ANANYA RAO (Warm and conversational, Mid-register pitch with clear enunciation, measured conversational pace) Tired of fuel surcharges?
+A small visible reaction lands between the thoughts without breaking eye contact.
+ANANYA RAO (CONT'D) (Warm and conversational, Mid-register pitch with clear enunciation, slightly tightened pace; stress "Learn More") Kotak Air Plus offers one percent waiver. Make your journeys. Learn More.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They let the last beat settle with direct eye contact, a faint smile, and a clean held finish in the same shot.
+[SCENE END]
+```
+
+### AP20-19 Free Flight Validity Edge
+- Focus: `Complimentary flight benefit as Rs. 5,000 voucher or equivalent miles, valid until December 31 2026`
+- Brief:
+```text
+Need an 8 second Meta reel for Kotak Air Plus. Focus on the complimentary flight milestone as a Rs. 5,000 travel voucher or equivalent Air Miles after the quarterly spend threshold, and preserve the benefit validity context. Premium, direct-to-camera.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `500`
+  - attempt `2` -> status `500`
+  - attempt `3` -> status `500`
+- Step 1 final script: `failed`
+```json
+{
+  "error": "Unable to generate a script that fits 8s spoken delivery. Tighten the brief or try again."
+}
+```
+
+### AP20-20 Multi-RTB Conflict Edge
+- Focus: `Keep 80K travel privileges primary even with forex in the same brief`
+- Brief:
+```text
+Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Keep annual travel privileges worth over Rs. 80,000 as the hero RTB, while also nodding to low 2% forex markup. Premium frequent traveller, direct-to-camera, conversion-led.
+```
+- Step 1 `/api/script` attempts:
+  - attempt `1` -> status `200`
+- Step 1 final script:
+```text
+Unlock annual travel privileges worth over eighty thousand rupees. Enjoy low two percent. Apply Now.
+```
+- Step 2 `/api/debug/video-prompt` attempts:
+  - attempt `1` -> status `200`
+- Step 2 prompt-writer metadata:
+```json
+{
+  "model": "gemini-3-pro-preview",
+  "fallbackModel": "gemini-2.5-pro",
+  "reasoningEffort": "high",
+  "sourceUsed": "gemini_prompt_writer",
+  "fallbackReason": null,
+  "attempts": [
+    {
+      "model": "gemini-3-pro-preview",
+      "rawSample": "[SCENE START] INT. BOUTIQUE HOTEL LOBBY - DAY\n\nTara Sen (34, lean athletic frame, elevated travel-smart attire) is already mid-action in a refined concierge alcove beside polished brass luggage",
+      "normalizedSample": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nTARA SEN (34, affluent, well-traveled, fluid crepe duster coat layered over a ivory silk-blend) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nConcierge alcove beside luggage carts in a refined boutique hotel lobby\nTara Sen has High, slightly asymmetrical cheekbones, distinct almond-shaped eyes with subtle under-eye shadows from frequent red-eye.\nHair and grooming: Shoulder-length, naturally wavy dark brown hair parted down the middle, tucked casually behind one ear with a few realistic flyaways.\nWardrobe and build: Elevated travel-smart attire.\nMovement quality: easy weight shifting through one side, shoulders easing down naturally.\nThey notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.\nExpression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the mai"
+    }
+  ]
+}
+```
+- Step 3 backstory:
+```json
+{
+  "persona_name": "Tara Sen",
+  "gender_presentation": "woman",
+  "age_range": "34",
+  "city": "Hyderabad",
+  "profession": "Founder of an independent luxury wellness retreat consultancy, traveling constantly to audit high-end spas across Asia.",
+  "why_they_care": "Taking over 15 international flights a year for site visits means maximizing travel perks and saving on forex directly impacts her lifestyle and business margins.",
+  "facial_features": "High, slightly asymmetrical cheekbones, distinct almond-shaped eyes with subtle under-eye shadows from frequent red-eye flights, a straight nose with a soft bridge, full natural lips, and warm olive skin with visible pores and faint sun freckles.",
+  "hairstyle_grooming": "Shoulder-length, naturally wavy dark brown hair parted down the middle, tucked casually behind one ear with a few realistic flyaways, sporting minimal, breathable makeup.",
+  "wardrobe_details": "Elevated travel-smart attire featuring a well-ironed, wrinkle-free sage green fluid crepe duster coat layered over a breathable ivory silk-blend camisole and tailored wide-leg trousers, perfectly suited for a seamless transition from flight to premium resort arrival.",
+  "posture_body_language": "Stands with an easy, grounded weight shift onto one hip, shoulders dropped and relaxed, using fluid, subtle hand gestures to emphasize the travel perks without looking rehearsed.",
+  "expression_style": "Her expression feels conversational and engaged, with her eyebrows lifting slightly on the eighty thousand rupees hook, maintaining a warm, knowing micro-smile that shifts naturally as she speaks.",
+  "speaking_energy": "Direct, bright, and effortlessly persuasive, delivering the lines with a brisk, travel-ready tempo, visible breath mechanics, and natural pauses.",
+  "body_build": "Lean and athletic frame with relaxed, comfortable proportions suited for constant movement.",
+  "speaking_style": [
+    "Warm conversational tone",
+    "Mid-register pitch",
+    "Brisk and persuasive delivery"
+  ],
+  "wardrobe_props": [
+    "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+    "Immaculately clean, well-ironed ivory silk-blend camisole"
+  ],
+  "setting": "Concierge alcove beside luggage carts in a refined boutique hotel lobby",
+  "compliance_notes": [
+    "Shot on 50mm lens, medium-close up, natural ambient sunlight bouncing off stone floors, raw cinematic photography, fine film grain, subtle motion blur.",
+    "Authentic and grounded, avoiding marketing-perfect symmetry, highlighting lived-in skin texture and natural conversational movement."
+  ]
+}
+```
+- Step 4 final prompt:
+```text
+[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY
+TARA SEN (34, affluent, well-traveled, fluid crepe duster coat layered over a ivory silk-blend) is already in a lived-in arrival moment, finishing a small posture settle in the space.
+Concierge alcove beside luggage carts in a refined boutique hotel lobby
+Tara Sen has High, slightly asymmetrical cheekbones, distinct almond-shaped eyes with subtle under-eye shadows from frequent red-eye.
+Hair and grooming: Shoulder-length, naturally wavy dark brown hair parted down the middle, tucked casually behind one ear with a few realistic flyaways.
+Wardrobe and build: Elevated travel-smart attire.
+Movement quality: easy weight shifting through one side, shoulders easing down naturally.
+They notice the camera, land into direct-to-camera eye contact, and let a small confident expression rise before speaking.
+Expression and body language: emotionally specific and progressing from composed confidence to decisive reassurance. Open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. One restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Keep the stance softly asymmetrical with hands relaxed and separated; avoid centered hand-clasped presenter blocking or a frozen front-on pose.
+Single continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.
+Lighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.
+TARA SEN (Warm conversational tone, Mid-register pitch, measured but varied pace; stress "Unlock annual travel privileges worth") Unlock annual travel privileges worth over eighty thousand rupees.
+A small visible reaction lands between the thoughts without breaking eye contact.
+TARA SEN (CONT'D) (Warm conversational tone, Mid-register pitch, slightly firmer pace; stress "Apply Now"; brief pause before the close) Enjoy low two percent. Apply Now.
+Spoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context.
+Do not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.
+They finish with steady eye contact, a small settled hold, and a clean ending in the same shot.
+[SCENE END]
+```

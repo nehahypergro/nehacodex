@@ -1,0 +1,2326 @@
+{
+  "generatedAt": "2026-03-23T05:08:22.401252",
+  "baseUrl": "http://127.0.0.1:3000",
+  "elapsedSeconds": 726.53,
+  "counts": {
+    "total": 20,
+    "scriptPassed": 20,
+    "promptPassed": 20,
+    "fullyPassed": 20
+  },
+  "results": [
+    {
+      "id": "AP01",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need an 8s meta reel for Kotak Air Plus. Affluent metro traveller, premium trip-day vibe. Focus on earning more on travel via Unbox. Should feel polished and direct, not office-like.",
+      "guidelines": "",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+          "wordCount": 17,
+          "characterCount": 99,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "meta",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Affluent metro traveller, premium trip-day vibe.",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks for an 8s Meta reel focusing on 'earning more on travel via Unbox' and mentions 'polished and direct' tone, which aligns with a performance-driven objective to drive conversions for the Kotak Air Plus card. The sho",
+            "matchedSignals": [
+              "8s meta reel",
+              "Focus on earning more on travel via Unbox",
+              "polished and direct",
+              "channel:meta",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+            "brief": "Need an 8s meta reel for Kotak Air Plus. Affluent metro traveller, premium trip-day vibe. Focus on earning more on travel via Unbox. Should feel polished and direct, not office-like.",
+            "guidelines": "",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Devika Nair",
+            "gender_presentation": "woman",
+            "age_range": "38",
+            "city": "Pune",
+            "profession": "Director of International Buying for a luxury sustainable fashion collective, frequently jetting to textile hubs and artisan workshops globally.",
+            "why_they_care": "She views travel as both a professional necessity and a lifestyle investment, where maximizing rewards on frequent flight and hotel bookings directly fuels her high-end personal getaways.",
+            "facial_features": "Strong, slightly asymmetrical jawline, prominent cheekbones with faint natural sunspots, naturally thick brows, a straight nose, and expressive lips set against warm, textured olive skin with visible pores.",
+            "hairstyle_grooming": "Collarbone-length, softly layered dark hair with a natural wave and a few realistic flyaways, styled in a relaxed half-up clip that suggests she has been in transit, paired with minimal, breathable makeup.",
+            "wardrobe_details": "A pristine, wrinkle-free ivory linen-blend duster coat worn over a soft olive silk camisole and tailored wide-leg trousers, offering a polished yet relaxed resort-arrival silhouette that breathes well in a warm climate.",
+            "posture_body_language": "Stands with a relaxed, grounded confidence, weight slightly shifted to one hip, shoulders dropped naturally, using smooth, unhurried hand gestures that convey seasoned travel ease.",
+            "expression_style": "Maintains a warm, direct gaze with slight crinkling around the eyes when she speaks, projecting an assured, conversational familiarity rather than a rehearsed pitch.",
+            "speaking_energy": "Projects a calm, effortless authority, carrying the lines with an unhurried, rhythmic cadence that feels intimate and highly engaging.",
+            "body_build": "Tall and naturally slender with a relaxed, elegant frame that carries draped, fluid fabrics effortlessly.",
+            "speaking_style": [
+              "Warm conversational tone",
+              "Mid-register pitch",
+              "Effortlessly articulate"
+            ],
+            "wardrobe_props": [
+              "Pristine ivory linen-blend duster coat",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Premium cafe inside a hotel district with travel-ready styling",
+            "compliance_notes": [
+              "Shot on 35mm lens, medium close-up, lived-in natural sunlight with dappled shadows, raw cinematic photography, fine grain, subtle motion blur.",
+              "Authentic and grounded human texture, absolutely no marketing-perfect imagery, non-generic styling, realistic skin and grooming imperfections."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START]\nEXT. PREMIUM CAFE TERRACE, HOTEL DISTRICT - DAY\n\nDEVIKA (38, tall, elegant frame in a pristine ivory linen-blend duster coat over a soft olive silk camisole",
+                "normalizedSample": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nDEVIKA NAIR (38, affluent, well-traveled, ivory linen duster coat worn over a soft olive silk camisole) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nPremium cafe inside a hotel district with travel-ready styling The space feels premium and lived-in.\nDevika Nair has Strong, slightly asymmetrical jawline, prominent cheekbones.\nHair and grooming: Collarbone-length, softly layered dark hair.\nWardrobe and build: A pristine, wrinkle-free ivory linen-blend duster coat worn over a soft olive silk camisole and tailored wide-leg trousers.\nMovement quality: Stands with a relaxed, grounded confidence, weight slightly shifted to one hip, shoulders.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nDEVIKA NAIR (Warm conversational tone, Mid-register pitch, natural I"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nDEVIKA NAIR (38, affluent, well-traveled, ivory linen duster coat worn over a soft olive silk camisole) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nPremium cafe inside a hotel district with travel-ready styling The space feels premium and lived-in.\nDevika Nair has Strong, slightly asymmetrical jawline, prominent cheekbones.\nHair and grooming: Collarbone-length, softly layered dark hair.\nWardrobe and build: A pristine, wrinkle-free ivory linen-blend duster coat worn over a soft olive silk camisole and tailored wide-leg trousers.\nMovement quality: Stands with a relaxed, grounded confidence, weight slightly shifted to one hip, shoulders.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nDEVIKA NAIR (Warm conversational tone, Mid-register pitch, natural Indian English) Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings.\nA small visible reaction lands between the thoughts without breaking eye contact.\nDEVIKA NAIR (CONT'D) (Warm conversational tone, Mid-register pitch, natural Indian English) Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP02",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need a short Air Plus film for people flying abroad often. Push the low forex markup angle. Premium and useful, not shouty. Keep it single-shot and natural.",
+      "guidelines": "Do not make it feel salesy or overly corporate.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Flying abroad often? Kotak Air Plus has just two percent foreign exchange markup. Learn More.",
+          "wordCount": 15,
+          "characterCount": 93,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "consideration",
+            "funnelStage": "mofu",
+            "channel": "shorts",
+            "placement": "shorts",
+            "genre": "product_explainer",
+            "audienceCue": "People flying abroad often, metro affluent and emerging HNI, high-intent travele",
+            "rtbPolicy": "optional",
+            "ctaStrength": "medium",
+            "scriptStyle": "problem-solution-proof",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks to 'push the low forex markup angle' for 'people flying abroad often,' indicating a focus on a specific product feature and its utility for a defined audience. This aligns with a consideration objective and a produ",
+            "matchedSignals": [
+              "Push the low forex markup angle",
+              "Premium and useful, not shouty",
+              "Short Air Plus film for people flying abroad often",
+              "channel:shorts",
+              "placement:shorts",
+              "funnel:mofu",
+              "rtb:supporting_fact_optional",
+              "cta:medium",
+              "style:problem-solution-proof"
+            ]
+          },
+          "rtbMode": "optional",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Flying abroad often? Kotak Air Plus has just two percent foreign exchange markup. Learn More.",
+            "brief": "Need a short Air Plus film for people flying abroad often. Push the low forex markup angle. Premium and useful, not shouty. Keep it single-shot and natural.",
+            "guidelines": "Do not make it feel salesy or overly corporate.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Meera Krishnan",
+            "gender_presentation": "woman",
+            "age_range": "41",
+            "city": "Mumbai",
+            "profession": "Global Head of Sourcing for a premium specialty coffee roastery, frequently traveling to estates in South America and Africa.",
+            "why_they_care": "She spends heavily on local estate logistics, international dining, and transit; a low 2 percent forex markup prevents accumulating hidden fees without the hassle of complex corporate expense claims.",
+            "facial_features": "Warm olive skin with faint sun-freckles across the bridge of her slightly aquiline nose, softly defined cheekbones, natural unarched brows, and a relaxed, expressive mouth that shows a hint of asymmetry when she smiles.",
+            "hairstyle_grooming": "Shoulder-length, wavy dark hair loosely tucked behind one ear, showing natural volume and slight flyaways from travel, paired with minimal, breathable makeup and a subtle tinted lip balm.",
+            "wardrobe_details": "A relaxed yet elevated travel ensemble featuring a crisp, well-ironed olive green linen overshirt layered over a soft cream silk camisole, paired with tailored wide-leg trousers, perfectly suited for transitioning from a long-haul flight to a tropical estate arrival.",
+            "posture_body_language": "Grounded and at ease, resting her weight slightly on one hip with relaxed shoulders, occasionally using subtle, open-handed gestures that convey quiet confidence.",
+            "expression_style": "Thoughtful and engaged, with warm, crinkling eyes that maintain steady, inviting contact, shifting naturally into a knowing, subtle smile as she delivers the core message.",
+            "speaking_energy": "Calm, conversational, and effortlessly authoritative, carrying the lines with a smooth, unhurried pacing that feels like a genuine recommendation to a peer.",
+            "body_build": "Lean and athletic frame with a natural, upright posture that suggests someone accustomed to walking long distances and carrying herself with effortless grace.",
+            "speaking_style": [
+              "Warm and resonant",
+              "Mid-register pitch",
+              "Conversational and assured"
+            ],
+            "wardrobe_props": [
+              "Crisp, well-ironed olive green linen overshirt over a cream silk camisole",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Private transfer bay outside a luxury stay with concierge-side movement",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, natural lived-in sunlight filtering through courtyard foliage, raw cinematic photography, fine grain, subtle motion blur.",
+              "Authentic and grounded, avoiding flawless marketing-perfect imagery, focusing on real skin texture and natural travel-day presence."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] EXT. PRIVATE TRANSFER BAY - DAY\nMEERA (41, lean and athletic global sourcing head, crisp olive green linen overshirt over a cream silk camisole) is already mid-action in",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nMEERA KRISHNAN (41, polished metro professional, olive green linen overshirt layered over a soft cream silk) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nPrivate transfer bay outside a luxury stay with concierge-side movement The space feels premium and lived-in.\nMeera Krishnan has Warm olive skin with faint sun-freckles across the bridge of her slightly aquiline nose, softly.\nHair and grooming: Shoulder-length, wavy dark hair loosely tucked behind one ear.\nWardrobe and build: A relaxed yet elevated travel ensemble.\nMovement quality: Grounded and at ease.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nMEERA KRISHNAN (Warm and resonant, Mid-register pitch, natural Indian English) Flying abroad often?\nA small visible reaction lands betwe"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nMEERA KRISHNAN (41, polished metro professional, olive green linen overshirt layered over a soft cream silk) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nPrivate transfer bay outside a luxury stay with concierge-side movement The space feels premium and lived-in.\nMeera Krishnan has Warm olive skin with faint sun-freckles across the bridge of her slightly aquiline nose, softly.\nHair and grooming: Shoulder-length, wavy dark hair loosely tucked behind one ear.\nWardrobe and build: A relaxed yet elevated travel ensemble.\nMovement quality: Grounded and at ease.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nMEERA KRISHNAN (Warm and resonant, Mid-register pitch, natural Indian English) Flying abroad often?\nA small visible reaction lands between the thoughts without breaking eye contact.\nMEERA KRISHNAN (CONT'D) (Warm and resonant, Mid-register pitch, natural Indian English) Kotak Air Plus has just two percent foreign exchange markup. Learn More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP03",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "8 second conversion-led Air Plus ad focused only on the complimentary flight milestone after quarterly spend. Premium, direct to camera, no office feel.",
+      "guidelines": "Keep the offer central and unmistakable.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Spend one and a half lakh on Kotak Air Plus and unlock your complimentary flight. Apply Now.",
+          "wordCount": 17,
+          "characterCount": 92,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "generic",
+            "genre": "performance_ad",
+            "audienceCue": "Age 28-55, metro affluent and emerging HNI, high-intent travelers in Delhi NCR,",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states '8 second conversion-led Air Plus ad focused only on the complimentary flight milestone after quarterly spend.' This clearly indicates a conversion objective and a performance ad genre, emphasizing a direct offer",
+            "matchedSignals": [
+              "conversion-led",
+              "complimentary flight milestone after quarterly spend",
+              "8 second",
+              "offer central and unmistakable",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Spend one and a half lakh on Kotak Air Plus and unlock your complimentary flight. Apply Now.",
+            "brief": "8 second conversion-led Air Plus ad focused only on the complimentary flight milestone after quarterly spend. Premium, direct to camera, no office feel.",
+            "guidelines": "Keep the offer central and unmistakable.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Priya Shenoy",
+            "gender_presentation": "woman",
+            "age_range": "39",
+            "city": "Ahmedabad",
+            "profession": "Chief Revenue Officer for a global health-tech scale-up, frequently jetting between international health summits and regional headquarters.",
+            "why_they_care": "She organically hits high quarterly spends through corporate and premium lifestyle expenses, so unlocking a complimentary flight feels like a smart, effortless reward for her usual fast-paced rhythm.",
+            "facial_features": "Strong, angular jawline with softly defined cheekbones, slightly asymmetrical arched brows, a straight, narrow nose, and full, naturally pigmented lips, set against warm olive skin with visible, natural micro-texture and faint sun-spots near the temples.",
+            "hairstyle_grooming": "Shoulder-length, rich brown hair styled in a practical, elegant blowout that shows slight natural movement and a few realistic flyaways from transit, paired with minimal, breathable makeup and a soft matte lip.",
+            "wardrobe_details": "A crisp, wrinkle-free ivory silk-blend blouse layered under a fluid, tailored camel duster coat, paired with tailored navy travel trousers, exuding a refined, climate-aware airport aesthetic that is effortlessly polished without feeling stiff.",
+            "posture_body_language": "Stands with an upright, grounded confidence, one hand resting naturally on the handle of a sleek rolling carry-on, shoulders relaxed but commanding, projecting the ease of a seasoned traveler.",
+            "expression_style": "Maintains a direct, engaging gaze with a subtle, knowing smile that reaches her eyes, showing a flash of genuine satisfaction when mentioning the flight reward.",
+            "speaking_energy": "Delivers the lines with crisp, upbeat efficiency and a warm, authoritative cadence that cuts through the ambient terminal energy.",
+            "body_build": "Tall and athletically slender, carrying her frame with a natural, fluid grace developed through years of navigating fast-paced environments.",
+            "speaking_style": [
+              "Crisp articulation",
+              "Warm mid-range pitch",
+              "Confident and direct tone"
+            ],
+            "wardrobe_props": [
+              "Impeccably ironed ivory silk-blend blouse and fluid camel duster coat",
+              "Sleek metallic carry-on suitcase handle"
+            ],
+            "setting": "Intercity mobility hub forecourt with natural pre-journey urgency",
+            "compliance_notes": [
+              "Shot on 50mm lens at eye level, medium close-up, utilizing warm, lived-in ambient terminal lighting, natural skin tones, fine film grain, and subtle motion blur in the background.",
+              "Authentic, grounded portrait showcasing real human texture and natural transit energy; absolutely no overly idealized marketing-perfect imagery or studio lighting."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] EXT. MOBILITY HUB FORECOURT - DAY\nPRIYA (39, tall and athletically slender, ivory silk-blend blouse under a fluid camel duster coat) is already mid-",
+                "normalizedSample": "[SCENE START] EXT. PREMIUM TRAVEL-DAY SETTING - DAY\nPRIYA SHENOY (39, polished metro professional, crisp, ivory silk-blend blouse layered under a fluid) is already caught mid-thought, completing a small posture reset in the environment.\nIntercity mobility hub forecourt with natural pre-journey urgency The space feels premium and lived-in.\nPriya Shenoy has Strong, angular jawline with softly defined cheekbones, slightly asymmetrical arched brows.\nHair and grooming: Shoulder-length, rich brown hair styled in a practical, elegant blowout that shows slight natural movement.\nWardrobe and build: A crisp, wrinkle-free ivory silk-blend blouse layered under a fluid, tailored camel duster coat.\nMovement quality: Stands with an upright, grounded confidence,.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nPRIYA SHENOY (Crisp articulation, Warm mid-range p"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] EXT. PREMIUM TRAVEL-DAY SETTING - DAY\nPRIYA SHENOY (39, polished metro professional, crisp, ivory silk-blend blouse layered under a fluid) is already caught mid-thought, completing a small posture reset in the environment.\nIntercity mobility hub forecourt with natural pre-journey urgency The space feels premium and lived-in.\nPriya Shenoy has Strong, angular jawline with softly defined cheekbones, slightly asymmetrical arched brows.\nHair and grooming: Shoulder-length, rich brown hair styled in a practical, elegant blowout that shows slight natural movement.\nWardrobe and build: A crisp, wrinkle-free ivory silk-blend blouse layered under a fluid, tailored camel duster coat.\nMovement quality: Stands with an upright, grounded confidence,.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nPRIYA SHENOY (Crisp articulation, Warm mid-range pitch, natural Indian English) Spend one and a half lakh on Kotak Air Plus and unlock your complimentary flight.\nA small visible reaction lands between the thoughts without breaking eye contact.\nPRIYA SHENOY (CONT'D) (Crisp articulation, Warm mid-range pitch, natural Indian English) Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP04",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need a quarterly-offer Air Plus reel for premium business travelers. Focus on lounge guest pass plus premium travel value, direct and polished.",
+      "guidelines": "Premium, useful, no clutter.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Elevate your travel. Enjoy a complimentary lounge guest pass and premium travel value. Apply Now.",
+          "wordCount": 15,
+          "characterCount": 97,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Premium business travelers, high-intent travelers in Delhi NCR, Mumbai, Bengalur",
+            "rtbPolicy": "optional",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks for a 'quarterly-offer Air Plus reel' and focuses on 'lounge guest pass plus premium travel value,' which are direct benefits and offers. The mention of 'direct and polished' further supports a performance-oriented",
+            "matchedSignals": [
+              "quarterly-offer",
+              "lounge guest pass plus premium travel value",
+              "direct and polished",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:freeform_offer_optional",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "optional",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Elevate your travel. Enjoy a complimentary lounge guest pass and premium travel value. Apply Now.",
+            "brief": "Need a quarterly-offer Air Plus reel for premium business travelers. Focus on lounge guest pass plus premium travel value, direct and polished.",
+            "guidelines": "Premium, useful, no clutter.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Ananya Vashistha",
+            "gender_presentation": "woman",
+            "age_range": "41",
+            "city": "Gurugram",
+            "profession": "Senior Partner at a multinational corporate law firm specializing in cross-border tech mergers.",
+            "why_they_care": "She values seamless, uncompromised travel experiences where she can effortlessly host junior partners or clients in the lounge using her guest pass, ensuring every transit moment is productive and polished.",
+            "facial_features": "She has a strong, angular jawline, slightly asymmetrical almond-shaped eyes with faint, natural under-eye shadows from frequent red-eye flights, a straight, prominent nose, and warm olive skin with visible pores and slight hyperpigmentation along the cheekbones that grounds her look in reality.",
+            "hairstyle_grooming": "Her thick, dark hair is styled in a sleek, low-maintenance blunt bob that falls just below the chin, with a few natural flyaways near the parting and a subtle, muted matte lip color.",
+            "wardrobe_details": "She wears a perfectly ironed, wrinkle-free fluid crepe trench coat in soft taupe over a crisp ivory silk blouse and tailored wide-leg trousers, striking the perfect balance between elevated business transit and comfortable, climate-aware lounge wear.",
+            "posture_body_language": "She stands with a relaxed but commanding upright posture, her shoulders squared naturally, holding her boarding pass with a light, confident grip while resting one hand lightly on the telescopic handle of her carry-on.",
+            "expression_style": "Her expression is composed and subtly authoritative, shifting into a warm, knowing micro-smile when she speaks, with steady eye contact that conveys quiet confidence.",
+            "speaking_energy": "She speaks with a measured, deliberate pacing, using minimal but precise hand gestures that carry a grounded, authoritative yet approachable energy.",
+            "body_build": "She has a tall, lean, and naturally athletic build with sharp, defined shoulders that give her a strong structural presence.",
+            "speaking_style": [
+              "measured and articulate",
+              "mid-low resonant pitch",
+              "authoritative yet warm tone"
+            ],
+            "wardrobe_props": [
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+              "Immaculately clean and well-ironed tailored wide-leg trousers"
+            ],
+            "setting": "An airline lounge reception threshold bathed in soft, diffused morning light, featuring a sleek marble check-in desk, frosted glass partitions, and a travel-ready pause before boarding with a neatly placed matte-black carry-on nearby.",
+            "compliance_notes": [
+              "Shot on 50mm lens at eye level, medium close-up, utilizing lived-in, practical airport lounge lighting, natural skin tones, fine film grain, and subtle motion blur.",
+              "Authentic, grounded portrait with visible skin texture and natural flyaways; absolutely no studio marketing perfection or overly idealized influencer aesthetics."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START]\nINT. AIRLINE LOUNGE RECEPTION - MORNING\n\nANANYA (41, affluent corporate law partner, taupe crepe trench over ivory silk blouse) is pausing at the threshold",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - MORNING\nANANYA VASHISTHA (41, affluent, well-traveled, fluid crepe trench coat in soft taupe over a crisp ivory silk) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAn airline lounge reception threshold bathed in soft, diffused morning light The space feels premium and lived-in.\nAnanya Vashistha has a strong, angular jawline, slightly asymmetrical almond-shaped eyes.\nHair and grooming: Her thick, dark hair is styled in a sleek, low-maintenance blunt bob that falls just below the chin.\nWardrobe and build: a perfectly ironed, wrinkle-free fluid crepe trench coat in soft taupe over a crisp ivory silk blouse.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nANANYA VASHISTH"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - MORNING\nANANYA VASHISTHA (41, affluent, well-traveled, fluid crepe trench coat in soft taupe over a crisp ivory silk) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAn airline lounge reception threshold bathed in soft, diffused morning light The space feels premium and lived-in.\nAnanya Vashistha has a strong, angular jawline, slightly asymmetrical almond-shaped eyes.\nHair and grooming: Her thick, dark hair is styled in a sleek, low-maintenance blunt bob that falls just below the chin.\nWardrobe and build: a perfectly ironed, wrinkle-free fluid crepe trench coat in soft taupe over a crisp ivory silk blouse.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nANANYA VASHISTHA (measured and articulate, mid-low resonant pitch, natural Indian.) Elevate your travel.\nA small visible reaction lands between the thoughts without breaking eye contact.\nANANYA VASHISTHA (CONT'D) (measured and articulate, mid-low resonant pitch, natural Indian.) Enjoy a complimentary lounge guest pass and premium travel value. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP05",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need an Air Plus acquisition reel built around travel privileges worth eighty thousand rupees annually. Make it feel elite, useful, and premium without overclaiming.",
+      "guidelines": "Keep it direct-to-camera and intimate.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+          "wordCount": 17,
+          "characterCount": 99,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Age 28-55, metro affluent and emerging HNI, high-intent travelers in Delhi NCR,",
+            "rtbPolicy": "optional",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'acquisition reel' and focuses on 'travel privileges worth eighty thousand rupees annually' which are strong conversion-oriented signals. The mention of 'elite, useful, and premium' aligns with a performance ad t",
+            "matchedSignals": [
+              "acquisition reel",
+              "travel privileges worth eighty thousand rupees annually",
+              "elite, useful, and premium",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:supporting_fact_optional",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "optional",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+            "brief": "Need an Air Plus acquisition reel built around travel privileges worth eighty thousand rupees annually. Make it feel elite, useful, and premium without overclaiming.",
+            "guidelines": "Keep it direct-to-camera and intimate.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Siddharth Varma",
+            "gender_presentation": "man",
+            "age_range": "41",
+            "city": "Delhi NCR",
+            "profession": "Principal Architect at an award-winning luxury hospitality design firm, frequently traveling to oversee premium resort projects.",
+            "why_they_care": "He travels constantly for site visits and client meetings; maximizing travel rewards on high-frequency, premium bookings is a pragmatic, non-negotiable part of his lifestyle, making the ₹80,000 annual value a smart, effortless utility.",
+            "facial_features": "A structured, slightly asymmetrical face with a strong, squared jawline, prominent cheekbones, a straight but slightly broad nose, medium-thick straight eyebrows, and warm, olive skin that shows faint sun-exposure texture and fine laugh lines around the eyes, avoiding any airbrushed perfection.",
+            "hairstyle_grooming": "Thick, salt-and-pepper hair styled in a relaxed, swept-back manner with a few natural flyaways, paired with a meticulously trimmed, dense stubble that adds rugged sophistication without looking overly manicured.",
+            "wardrobe_details": "Soft-shouldered travel tailoring paired with a dark olive knit top and clean tapered trousers, giving the lounge moment premium structure while avoiding the usual navy-blazer-and-tee formula.",
+            "posture_body_language": "Stands with a grounded, relaxed confidence, shoulders comfortably dropped, using subtle, open-handed gestures that feel inviting and authoritative without being overly theatrical.",
+            "expression_style": "Maintains steady, intimate eye contact with a warm, knowing micro-smile that activates the corners of his eyes, shifting naturally between thoughtful pauses and engaged, direct delivery.",
+            "speaking_energy": "Projects a calm, assured, and conversational energy, carrying the lines physically with subtle head nods that emphasize the practical value of the card without feeling salesy.",
+            "body_build": "Lean and athletic with a naturally broad-shouldered frame that carries unstructured tailoring exceptionally well.",
+            "speaking_style": [
+              "Warm and resonant baritone",
+              "Measured, conversational pacing",
+              "Quietly authoritative and intimate"
+            ],
+            "wardrobe_props": [
+              "Relaxed premium tailoring with visible texture, clean fit, and movement-friendly proportions.",
+              "Lounge-appropriate styling that feels expensive and composed without hard corporate coding."
+            ],
+            "setting": "Airline lounge reception threshold with a travel-ready pause before boarding",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, natural golden-hour lakeside lighting, raw cinematic photography with fine film grain and subtle background motion blur.",
+              "Strictly authentic and grounded; absolutely no marketing-perfect imagery, glossy studio lighting, or generic corporate aesthetics."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. PREMIUM AIRLINE LOUNGE - LATE AFTERNOON\nSIDDHARTH VARMA (41, affluent architect, soft-shouldered travel tailoring over a dark olive knit top) is pausing",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY\nSIDDHARTH VARMA (41, affluent, well-traveled, Soft-shouldered travel tailoring paired with a dark olive) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAirline lounge reception threshold with a travel-ready pause before boarding The space feels premium and lived-in.\nSiddharth Varma has A structured, slightly asymmetrical face.\nHair and grooming: Thick, salt-and-pepper hair styled in a relaxed, swept-back manner.\nWardrobe and build: Soft-shouldered travel tailoring.\nMovement quality: Stands with a grounded, relaxed confidence, shoulders comfortably dropped, using subtle.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSIDDHARTH VARMA (Warm and resonant baritone, Measured, conversational pacing, natural.) Earn more from travel with Ko"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY\nSIDDHARTH VARMA (41, affluent, well-traveled, Soft-shouldered travel tailoring paired with a dark olive) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nAirline lounge reception threshold with a travel-ready pause before boarding The space feels premium and lived-in.\nSiddharth Varma has A structured, slightly asymmetrical face.\nHair and grooming: Thick, salt-and-pepper hair styled in a relaxed, swept-back manner.\nWardrobe and build: Soft-shouldered travel tailoring.\nMovement quality: Stands with a grounded, relaxed confidence, shoulders comfortably dropped, using subtle.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSIDDHARTH VARMA (Warm and resonant baritone, Measured, conversational pacing, natural.) Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings.\nA small visible reaction lands between the thoughts without breaking eye contact.\nSIDDHARTH VARMA (CONT'D) (Warm and resonant baritone, Measured, conversational pacing, natural.) Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP06",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need an 8 second Air Plus ad for a limited-period zero joining fee message. Premium travel customer, polished conversion tone, simple and believable.",
+      "guidelines": "Keep it sharp and clear.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Elevate your journeys. Get Kotak Air Plus with zero joining fee for a limited time. Apply Now.",
+          "wordCount": 17,
+          "characterCount": 94,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "generic",
+            "genre": "performance_ad",
+            "audienceCue": "Premium travel customer, age 28-55, metro affluent and emerging HNI, high-intent",
+            "rtbPolicy": "optional",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'conversion tone' and focuses on a 'limited-period zero joining fee message' for an '8 second Air Plus ad'. This indicates a direct response, bottom-of-funnel objective, making 'conversion' and 'performance_ad' t",
+            "matchedSignals": [
+              "conversion tone",
+              "limited-period zero joining fee message",
+              "8 second ad",
+              "funnel:bofu",
+              "rtb:supporting_fact_optional",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "optional",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Elevate your journeys. Get Kotak Air Plus with zero joining fee for a limited time. Apply Now.",
+            "brief": "Need an 8 second Air Plus ad for a limited-period zero joining fee message. Premium travel customer, polished conversion tone, simple and believable.",
+            "guidelines": "Keep it sharp and clear.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Vikram Reddy",
+            "gender_presentation": "man",
+            "age_range": "46",
+            "city": "Hyderabad",
+            "profession": "Managing Partner at a boutique renewable energy investment fund, frequently traveling to evaluate international solar and wind infrastructure projects.",
+            "why_they_care": "He values seamless, elevated travel experiences that maximize his comfort and time, making a premium zero-fee entry into an elite travel tier a highly logical and rewarding decision.",
+            "facial_features": "He has a strong, angular jawline with subtle, lived-in laugh lines around his eyes, a straight, slightly prominent nose, medium-thick straight eyebrows, and warm olive skin with natural, uneven pores and faint sun-kissed texture on the cheekbones.",
+            "hairstyle_grooming": "His thick, salt-and-pepper hair is styled in a relaxed, swept-back manner with a few natural flyaways, complemented by a neatly trimmed, dense stubble that highlights his jaw structure.",
+            "wardrobe_details": "He wears a crisp, well-ironed sage green linen overshirt layered over a premium white cotton crewneck, paired with tailored navy travel trousers, offering a refined, climate-aware resort-arrival silhouette free of any wrinkles or damp patches.",
+            "posture_body_language": "He stands with a relaxed, grounded posture, shoulders naturally dropped, carrying a quiet confidence and an open, approachable physical presence that feels completely unforced.",
+            "expression_style": "His expression shifts with a subtle, knowing warmth, maintaining steady, engaged eye contact that conveys trust and effortless authority without feeling overly rehearsed.",
+            "speaking_energy": "He delivers his lines with a calm, assured pacing, using minimal but deliberate hand gestures that ground his speech with a polished, conversational weight.",
+            "body_build": "He has a broad-shouldered, athletic but natural build, reflecting an active lifestyle without looking overly sculpted.",
+            "speaking_style": [
+              "Warm and resonant",
+              "Mid-low conversational pitch",
+              "Polished and quietly authoritative"
+            ],
+            "wardrobe_props": [
+              "Crisp sage green linen overshirt with a premium white cotton crewneck",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Hillside retreat lounge with panoramic windows and quiet getaway travel calm",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, soft natural coastal sunlight with subtle bounce, raw cinematic photography, fine film grain, natural skin tones.",
+              "Authentic, grounded, non-marketing-perfect imagery with genuine skin texture and believable travel-day styling."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. HILLSIDE RETREAT LOUNGE - DAY\nVIKRAM (46, affluent investor, crisp sage green linen overshirt over a premium white crewneck) is already mid-action",
+                "normalizedSample": "[SCENE START] INT. LUXURY RESORT ARRIVAL PORTICO - DAY\nVIKRAM REDDY (46, affluent, well-traveled, sage green linen overshirt layered over a white cotton) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nHillside retreat lounge with panoramic windows and quiet getaway travel calm The space feels premium and lived-in.\nVikram Reddy has a strong, angular jawline.\nHair and grooming: His thick, salt-and-pepper hair is styled in a relaxed, swept-back manner with a few natural flyaways.\nWardrobe and build: a crisp, well-ironed sage green linen overshirt layered over a premium white cotton crewneck.\nMovement quality: a relaxed, grounded posture, shoulders naturally dropped, carrying a quiet confidence.\nThey catch the camera with a brief glance back into frame, let a soft knowing smile form, and start speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nVIKRAM REDDY (Warm and resonant, Mid-low conver"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. LUXURY RESORT ARRIVAL PORTICO - DAY\nVIKRAM REDDY (46, affluent, well-traveled, sage green linen overshirt layered over a white cotton) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nHillside retreat lounge with panoramic windows and quiet getaway travel calm The space feels premium and lived-in.\nVikram Reddy has a strong, angular jawline.\nHair and grooming: His thick, salt-and-pepper hair is styled in a relaxed, swept-back manner with a few natural flyaways.\nWardrobe and build: a crisp, well-ironed sage green linen overshirt layered over a premium white cotton crewneck.\nMovement quality: a relaxed, grounded posture, shoulders naturally dropped, carrying a quiet confidence.\nThey catch the camera with a brief glance back into frame, let a soft knowing smile form, and start speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nVIKRAM REDDY (Warm and resonant, Mid-low conversational pitch, natural Indian.) Elevate your journeys.\nA small visible reaction lands between the thoughts without breaking eye contact.\nVIKRAM REDDY (CONT'D) (Warm and resonant, Mid-low conversational pitch, natural Indian.) Get Kotak Air Plus with zero joining fee for a limited time. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey let the last beat settle with direct eye contact, a faint smile, and a clean held finish in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP07",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Awareness style 8s for Air Plus. Upscale holiday traveller, weekend getaway energy, scenic premium background, softer sell but still clear.",
+      "guidelines": "No hard presenter behavior.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Imagine: Every journey, every destination, bringing you more. Kotak Air Plus, elevating. Know More.",
+          "wordCount": 14,
+          "characterCount": 99,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "awareness",
+            "funnelStage": "tofu",
+            "channel": "generic",
+            "placement": "generic",
+            "genre": "brand_spot",
+            "audienceCue": "Upscale holiday traveller, weekend getaway energy, scenic premium background",
+            "rtbPolicy": "optional",
+            "ctaStrength": "soft",
+            "scriptStyle": "brand-memory",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'Awareness style 8s' and 'softer sell but still clear', indicating a primary objective of awareness and a brand-focused approach. The mention of 'upscale holiday traveller, weekend getaway energy, scenic premium",
+            "matchedSignals": [
+              "Awareness style 8s",
+              "Upscale holiday traveller",
+              "weekend getaway energy",
+              "scenic premium background",
+              "softer sell",
+              "No hard presenter behavior",
+              "funnel:tofu",
+              "rtb:optional",
+              "cta:soft",
+              "style:brand-memory"
+            ]
+          },
+          "rtbMode": "optional",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Imagine: Every journey, every destination, bringing you more. Kotak Air Plus, elevating. Know More.",
+            "brief": "Awareness style 8s for Air Plus. Upscale holiday traveller, weekend getaway energy, scenic premium background, softer sell but still clear.",
+            "guidelines": "No hard presenter behavior.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Rohan Mathur",
+            "gender_presentation": "man",
+            "age_range": "41",
+            "city": "Jaipur",
+            "profession": "Founder of a specialized culinary tourism company curating exclusive gastronomy tours across Asia and Europe.",
+            "why_they_care": "He values travel privileges that seamlessly elevate his frequent scouting trips, turning transit into a comfortable, rewarding extension of his premium leisure lifestyle.",
+            "facial_features": "A broad, slightly angular face with a strong, squared jawline, naturally thick but neatly shaped eyebrows, a prominent straight nose, medium-full lips, and warm olive skin showing faint sun-kissed freckling across the cheekbones and natural textural variation around the eyes.",
+            "hairstyle_grooming": "Thick, wavy black hair styled with a relaxed, swept-back flow that looks naturally wind-tousled but intentional, paired with a meticulously maintained short box beard.",
+            "wardrobe_details": "A relaxed-fit, breathable sage green linen overshirt layered over a crisp white premium cotton crewneck t-shirt, paired with tailored beige cotton-blend travel trousers, offering a climate-aware, effortlessly upscale resort-arrival silhouette that is perfectly ironed and pristine.",
+            "posture_body_language": "Stands with a grounded, relaxed confidence, shoulders comfortably dropped, occasionally shifting his weight naturally while keeping his hands loosely engaged as if taking in a scenic destination.",
+            "expression_style": "Carries a warm, appreciative micro-smile that reaches his eyes, reflecting the calm satisfaction of stepping into a premium getaway space, with engaged, observant eye contact.",
+            "speaking_energy": "Delivers lines with a relaxed, unhurried pacing and a warm, conversational resonance, projecting the quiet assurance of an experienced, upscale traveler without any hard-sell pushiness.",
+            "body_build": "An athletic but distinctly relaxed build with broad shoulders and a natural, comfortable proportion suited for an active, well-traveled lifestyle.",
+            "speaking_style": [
+              "Warm baritone",
+              "Unhurried and conversational",
+              "Quietly confident"
+            ],
+            "wardrobe_props": [
+              "Sage green breathable linen overshirt over a crisp white premium cotton crewneck",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Destination-side promenade with warm getaway energy and refined luggage styling",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium-wide arrival portrait, natural late-afternoon sunlight filtering through palms, raw cinematic photography with fine grain and subtle depth of field",
+              "Authentic and grounded real-person casting, natural skin texture with subtle sun-kissed details, absolutely no marketing-perfect or overly stylized influencer gloss"
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] EXT. SCENIC PROMENADE - LATE AFTERNOON\nROHAN (41, upscale culinary founder, pristine sage green linen overshirt over a crisp white crewneck) is already mid-",
+                "normalizedSample": "[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY\nROHAN MATHUR (41, affluent, well-traveled, sage green linen overshirt layered over a crisp white cotton) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nDestination-side promenade with warm getaway energy and refined luggage styling The space feels premium and lived-in.\nRohan Mathur has A broad, slightly angular face with a strong, squared jawline, naturally.\nHair and grooming: Thick, wavy black hair styled with a relaxed, swept-back flow that looks naturally wind-tousled.\nWardrobe and build: A relaxed-fit, breathable sage green linen overshirt layered over a crisp white premium cotton crewneck t-shirt.\nMovement quality: Stands with a grounded, relaxed confidence, shoulders comfortably dropped.\nThey catch the camera with a brief glance back into frame, let a soft knowing smile form, and start speaking.\nExpression stays warm and responsive and progresses from thoughtful interest to warm invitation.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot real"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] EXT. LUXURY RESORT ARRIVAL PORTICO - DAY\nROHAN MATHUR (41, affluent, well-traveled, sage green linen overshirt layered over a crisp white cotton) is already mid-settle in the arrival space, finishing a relaxed turn as the breeze moves through the portico.\nDestination-side promenade with warm getaway energy and refined luggage styling The space feels premium and lived-in.\nRohan Mathur has A broad, slightly angular face with a strong, squared jawline, naturally.\nHair and grooming: Thick, wavy black hair styled with a relaxed, swept-back flow that looks naturally wind-tousled.\nWardrobe and build: A relaxed-fit, breathable sage green linen overshirt layered over a crisp white premium cotton crewneck t-shirt.\nMovement quality: Stands with a grounded, relaxed confidence, shoulders comfortably dropped.\nThey catch the camera with a brief glance back into frame, let a soft knowing smile form, and start speaking.\nExpression stays warm and responsive and progresses from thoughtful interest to warm invitation.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nROHAN MATHUR (Warm baritone, Unhurried and conversational, natural Indian English) Imagine: Every journey, every destination, bringing you more.\nA small visible reaction lands between the thoughts without breaking eye contact.\nROHAN MATHUR (CONT'D) (Warm baritone, Unhurried and conversational, natural Indian English) Kotak Air Plus, elevating. Know More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey let the last beat settle with direct eye contact, a faint smile, and a clean held finish in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP08",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Internal comms style video for sales team. Simple explainer on who Air Plus is for and why travel-first users would care. Keep it clean, human, and premium.",
+      "guidelines": "Advisory and useful, not theatrical.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Hi team, Kotak Air Plus is perfect for our travel-first customers. It elevates every journey",
+          "wordCount": 15,
+          "characterCount": 92,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "internal",
+            "funnelStage": "internal",
+            "channel": "internal",
+            "placement": "internal",
+            "genre": "internal_update",
+            "audienceCue": "Sales team, high-intent travelers in Delhi NCR, Mumbai, Bengaluru, Hyderabad, Ch",
+            "rtbPolicy": "bypass",
+            "ctaStrength": "none",
+            "scriptStyle": "internal-update",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'Internal comms style video for sales team' and asks for a 'Simple explainer on who Air Plus is for and why travel-first users would care.' This clearly indicates an internal objective and an internal update genr",
+            "matchedSignals": [
+              "Internal comms style video",
+              "for sales team",
+              "Simple explainer",
+              "who Air Plus is for",
+              "why travel-first users would care",
+              "genre:internal_update",
+              "channel:internal",
+              "placement:internal",
+              "funnel:internal",
+              "rtb:bypass",
+              "cta:none",
+              "style:internal-update",
+              "stabilizer:internal"
+            ]
+          },
+          "rtbMode": "bypass",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Hi team, Kotak Air Plus is perfect for our travel-first customers. It elevates every journey",
+            "brief": "Internal comms style video for sales team. Simple explainer on who Air Plus is for and why travel-first users would care. Keep it clean, human, and premium.",
+            "guidelines": "Advisory and useful, not theatrical.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Kabir Menon",
+            "gender_presentation": "man",
+            "age_range": "46",
+            "city": "Kochi",
+            "profession": "CEO of a boutique luxury yacht charter network, frequently flying across coastal Asia and the Middle East to inspect vessels.",
+            "why_they_care": "He values seamless, elevated transit experiences that match the premium service he provides his own clients, making every airport layover feel like an extension of his own hospitality standards.",
+            "facial_features": "He has a structured, slightly weathered face from sun exposure, featuring thick, naturally arched brows, a prominent straight nose, a firm jawline with a faint, well-maintained shadow, and textured skin with visible crow's feet that crinkle deeply when he smiles.",
+            "hairstyle_grooming": "His thick, salt-and-pepper hair is swept back with a matte pomade, showing natural volume and a few stray windswept strands, paired with a meticulously trimmed short beard.",
+            "wardrobe_details": "He wears a crisp, wrinkle-free sage green linen-blend overshirt layered over a premium white cotton tee and tailored navy travel chinos, offering a relaxed yet highly polished coastal-transit aesthetic perfect for a warm-weather getaway arrival.",
+            "posture_body_language": "He stands with a relaxed, grounded confidence, shoulders naturally dropped, using slow, deliberate hand gestures that convey authority without aggression.",
+            "expression_style": "His expression is warm and observant, maintaining steady, engaged eye contact while his face subtly softens to project approachability and quiet expertise.",
+            "speaking_energy": "He speaks with a measured, advisory cadence, carrying the dialogue with a calm, reassuring weight that feels like a trusted peer sharing an insider tip.",
+            "body_build": "He has a broad-shouldered, athletic build that fills out his overshirt naturally, reflecting an active, outdoor-oriented lifestyle.",
+            "speaking_style": [
+              "Measured and advisory",
+              "Warm baritone pitch",
+              "Reassuring and authoritative tone"
+            ],
+            "wardrobe_props": [
+              "Crisp sage green linen-blend overshirt over a premium white tee",
+              "Well-ironed tailored navy travel chinos with zero creasing"
+            ],
+            "setting": "A sunlit, high-end marina clubhouse lobby overlooking docked vessels, featuring polished teak floors, floor-to-ceiling glass panes, and a sleek leather duffel bag resting beside a modern lounge chair.",
+            "compliance_notes": [
+              "Shot on 35mm lens, medium close-up, natural golden hour sidelight bouncing off water, fine film grain, subtle motion blur",
+              "Grounded and authentic, lived-in skin texture, avoiding overly polished marketing perfection or stiff corporate posing"
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START]\nINT. MARINA CLUBHOUSE LOBBY - LATE AFTERNOON\n\nKABIR MENON (46, luxury yacht CEO, wearing a crisp sage green linen-blend overshirt over a",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - LATE AFTERNOON\nKABIR MENON (46, design-world, upscale, sage green linen overshirt layered over a white cotton tee) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nA sunlit, high-end marina clubhouse lobby overlooking docked vessels The space feels premium and lived-in.\nKabir Menon has a structured, slightly weathered face from sun exposure.\nHair and grooming: His thick, salt-and-pepper hair is swept back with a matte pomade.\nWardrobe and build: a crisp, wrinkle-free sage green linen-blend overshirt layered over a premium white cotton tee and tailored navy travel.\nMovement quality: a relaxed, grounded confidence, shoulders naturally dropped.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed attention to warm confidence.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nKABIR MENON (Measured and advisory, Warm baritone pitch,"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - LATE AFTERNOON\nKABIR MENON (46, design-world, upscale, sage green linen overshirt layered over a white cotton tee) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nA sunlit, high-end marina clubhouse lobby overlooking docked vessels The space feels premium and lived-in.\nKabir Menon has a structured, slightly weathered face from sun exposure.\nHair and grooming: His thick, salt-and-pepper hair is swept back with a matte pomade.\nWardrobe and build: a crisp, wrinkle-free sage green linen-blend overshirt layered over a premium white cotton tee and tailored navy travel.\nMovement quality: a relaxed, grounded confidence, shoulders naturally dropped.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed attention to warm confidence.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nKABIR MENON (Measured and advisory, Warm baritone pitch, natural Indian English) Hi team, Kotak Air Plus is perfect for our travel-first customers.\nA small visible reaction lands between the thoughts without breaking eye contact.\nKABIR MENON (CONT'D) (Measured and advisory, Warm baritone pitch, natural Indian English) It elevates every journey\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP09",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need a premium lifestyle-led Air Plus reel for metro HNI travelers. Intimate, expensive, relaxed, direct to camera.",
+      "guidelines": "No office, no generic airport corridor.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Elevate your journey, effortlessly. Experience premium travel with Kotak Air Plus. Earn. Know More.",
+          "wordCount": 14,
+          "characterCount": 99,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "brand",
+            "funnelStage": "tofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "brand_spot",
+            "audienceCue": "metro HNI travelers, Age 28-55, high-intent travelers in Delhi NCR, Mumbai, Beng",
+            "rtbPolicy": "optional",
+            "ctaStrength": "soft",
+            "scriptStyle": "brand-memory",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks for a 'premium lifestyle-led Air Plus reel' and emphasizes 'Intimate, expensive, relaxed' tone, which aligns with brand building and awareness rather than direct conversion or detailed explanation. The target audie",
+            "matchedSignals": [
+              "premium lifestyle-led",
+              "Air Plus reel",
+              "metro HNI travelers",
+              "Intimate, expensive, relaxed",
+              "direct to camera",
+              "placement:reels",
+              "funnel:tofu",
+              "rtb:optional",
+              "cta:soft",
+              "style:brand-memory"
+            ]
+          },
+          "rtbMode": "optional",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Elevate your journey, effortlessly. Experience premium travel with Kotak Air Plus. Earn. Know More.",
+            "brief": "Need a premium lifestyle-led Air Plus reel for metro HNI travelers. Intimate, expensive, relaxed, direct to camera.",
+            "guidelines": "No office, no generic airport corridor.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Karthik Natarajan",
+            "gender_presentation": "man",
+            "age_range": "46",
+            "city": "Chennai",
+            "profession": "Founder of a bespoke classic automobile restoration and export house, frequently traveling to global automotive auctions and private estates.",
+            "why_they_care": "He views travel as an extension of his meticulously curated lifestyle, requiring a card that seamlessly translates his heavy international sourcing expenses into elevated, frictionless transit experiences.",
+            "facial_features": "A strong, slightly asymmetrical jawline with prominent cheekbones, deep-set warm brown eyes with faint laugh lines, a straight but slightly broad nose, and subtly textured olive skin that shows natural pores and a hint of sun exposure.",
+            "hairstyle_grooming": "Thick, salt-and-pepper hair swept back with natural volume and a few stray flyaways, paired with a meticulously trimmed, dense stubble that adds rugged sophistication.",
+            "wardrobe_details": "A crisp, well-ironed sage green linen overshirt layered over a soft ivory cotton-silk polo, paired with tailored navy travel trousers, offering a relaxed yet highly refined arrival silhouette perfectly suited for a warm-weather heritage property.",
+            "posture_body_language": "Relaxed but grounded, standing with an open, self-assured posture, shoulders naturally dropped, and using slow, deliberate hand gestures that convey quiet authority.",
+            "expression_style": "Maintains a steady, engaging gaze with a subtle, knowing half-smile that softens his features, his eyes lighting up with genuine warmth when emphasizing key points.",
+            "speaking_energy": "Projects a calm, unhurried, and intimate energy, speaking as if sharing a valuable piece of advice with a close peer over a private drink.",
+            "body_build": "Broad-shouldered and solidly built with a natural, unforced physical presence that suggests an active but comfortable lifestyle.",
+            "speaking_style": [
+              "Resonant and warm",
+              "Mid-low pitch",
+              "Measured and conversational"
+            ],
+            "wardrobe_props": [
+              "Impeccably ironed sage green linen overshirt and ivory polo",
+              "Matte-finish leather weekender bag with brass hardware"
+            ],
+            "setting": "A shaded, high-end heritage hotel courtyard during a late afternoon check-in, featuring lush tropical foliage, aged stone pillars, and a discreet luggage porter in the deep, softly blurred background.",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, natural golden-hour ambient light filtering through foliage, raw cinematic photography, fine grain, subtle motion blur.",
+              "Authentic, grounded portraiture; no marketing-perfect studio lighting, no generic corporate tailoring, absolutely no sweat or damp patches on clothing."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "Refining the text for flow and exact formatting:**\n    Ensure the spoken lines are formatted exactly as requested.\n    Check word count and character count (well under 2500).\n    Make sure the accent note isn",
+                "normalizedSample": "[SCENE START] EXT. HIGH-END HOTEL ARRIVAL ZONE - LATE AFTERNOON\nKARTHIK NATARAJAN (46, affluent, well-traveled, sage green linen overshirt layered over a soft ivory) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nA shaded, high-end heritage hotel courtyard during a late afternoon check-in The space feels premium and lived-in.\nKarthik Natarajan has A strong, slightly asymmetrical jawline.\nHair and grooming: Thick, salt-and-pepper hair swept back.\nWardrobe and build: A crisp, well-ironed sage green linen overshirt layered over a soft ivory cotton-silk polo.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from thoughtful interest to warm invitation.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nKARTHIK NATARAJAN (Resonant and warm, Mid-low pitch, natural Indian English) Elevate your journey, effortlessly.\nA small visible reaction la"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] EXT. HIGH-END HOTEL ARRIVAL ZONE - LATE AFTERNOON\nKARTHIK NATARAJAN (46, affluent, well-traveled, sage green linen overshirt layered over a soft ivory) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nA shaded, high-end heritage hotel courtyard during a late afternoon check-in The space feels premium and lived-in.\nKarthik Natarajan has A strong, slightly asymmetrical jawline.\nHair and grooming: Thick, salt-and-pepper hair swept back.\nWardrobe and build: A crisp, well-ironed sage green linen overshirt layered over a soft ivory cotton-silk polo.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from thoughtful interest to warm invitation.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nKARTHIK NATARAJAN (Resonant and warm, Mid-low pitch, natural Indian English) Elevate your journey, effortlessly.\nA small visible reaction lands between the thoughts without breaking eye contact.\nKARTHIK NATARAJAN (CONT'D) (Resonant and warm, Mid-low pitch, natural Indian English) Experience premium travel with Kotak Air Plus. Earn. Know More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "AP10",
+      "product": "kotak_air_plus",
+      "durationSeconds": 8,
+      "brief": "Need a sharper 8s performance reel around Unbox bookings specifically. Premium frequent flyer world, strong hook, direct and conversion-led.",
+      "guidelines": "Hook in the first beat.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+          "wordCount": 17,
+          "characterCount": 99,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Age 28-55, metro affluent and emerging HNI, high-intent travelers in Delhi NCR,",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'sharper 8s performance reel around Unbox bookings specifically' and 'direct and conversion-led', indicating a clear conversion objective and a performance ad genre. The mention of 'strong hook' aligns with perfo",
+            "matchedSignals": [
+              "conversion-led",
+              "performance reel",
+              "strong hook",
+              "direct",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_air_plus",
+            "script": "Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.",
+            "brief": "Need a sharper 8s performance reel around Unbox bookings specifically. Premium frequent flyer world, strong hook, direct and conversion-led.",
+            "guidelines": "Hook in the first beat.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Tara Deshpande",
+            "gender_presentation": "woman",
+            "age_range": "38",
+            "city": "Ahmedabad",
+            "profession": "VP of Global Partnerships for an AI-driven supply chain logistics firm, constantly flying between Asian tech hubs.",
+            "why_they_care": "She treats her frequent corporate transit as a secondary income stream, where maximizing rewards on every flight booking is just smart, uncompromising math.",
+            "facial_features": "She has a strong, angular jawline, slightly asymmetrical cheekbones, a straight but prominent nose, and warm olive skin with visible pores and faint hyperpigmentation around the temples, framed by naturally arched, slightly sparse eyebrows and a defined cupid's bow.",
+            "hairstyle_grooming": "Her dark, shoulder-length hair is styled in a practical, slightly tousled low ponytail with a few natural flyaways escaping near the nape, complemented by minimal, lived-in makeup and a subtle matte lip.",
+            "wardrobe_details": "She wears a fluid, wrinkle-free camel-colored travel trench coat over a crisp, lightweight ivory silk blouse and tailored wide-leg trousers, perfectly balancing executive authority with the practical comfort needed for an early morning airport transfer.",
+            "posture_body_language": "She stands with an upright, grounded posture, her shoulders relaxed but squared, using precise, minimal hand gestures that convey confidence and efficiency without wasted movement.",
+            "expression_style": "Her expression shifts from a focused, analytical gaze to a sharp, knowing half-smile as she speaks, maintaining intense, direct eye contact that commands immediate attention.",
+            "speaking_energy": "She delivers her lines with a crisp, forward-leaning momentum, carrying a brisk, authoritative energy that feels urgent yet entirely in control.",
+            "body_build": "She has a tall, lean, and athletic build, carrying herself with the functional grace of someone used to navigating busy transit hubs.",
+            "speaking_style": [
+              "Crisp articulation",
+              "Mid-register authoritative pitch",
+              "Direct and persuasive tone"
+            ],
+            "wardrobe_props": [
+              "Immaculately ironed camel travel trench coat over an ivory silk blouse",
+              "Matte silver minimalist wristwatch and a structured leather tote"
+            ],
+            "setting": "Business hotel lobby with checkout-ready luggage and polished metro styling",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, soft dawn practical lighting from streetlamps and car taillights, raw cinematic photography, natural skin tones, fine grain",
+              "Authentic and grounded, non-marketing-perfect, realistic skin texture, sharp corporate-travel aesthetic"
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. BUSINESS HOTEL LOBBY - DAWN\nTARA (38, affluent corporate VP, wearing a fluid camel travel trench coat over a crisp ivory silk blouse) is already mid-action, turning away",
+                "normalizedSample": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nTARA DESHPANDE (38, affluent, well-traveled, fluid, camel-colored travel trench coat over a crisp) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nBusiness hotel lobby with checkout-ready luggage and polished metro styling The space feels premium and lived-in.\nTara Deshpande has a strong, angular jawline, slightly asymmetrical cheekbones, a straight.\nHair and grooming: Her dark, shoulder-length hair is styled in a practical, slightly tousled low ponytail.\nWardrobe and build: a fluid, wrinkle-free camel-colored travel trench coat over a crisp, lightweight ivory silk blouse and tailored wide-leg.\nMovement quality: an upright, grounded posture, her shoulders relaxed.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nTARA DESHPANDE (Crisp articulation, Mid-re"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. HIGH-END HOTEL ARRIVAL ZONE - DAY\nTARA DESHPANDE (38, affluent, well-traveled, fluid, camel-colored travel trench coat over a crisp) is already in a lived-in arrival moment, finishing a small posture settle in the space.\nBusiness hotel lobby with checkout-ready luggage and polished metro styling The space feels premium and lived-in.\nTara Deshpande has a strong, angular jawline, slightly asymmetrical cheekbones, a straight.\nHair and grooming: Her dark, shoulder-length hair is styled in a practical, slightly tousled low ponytail.\nWardrobe and build: a fluid, wrinkle-free camel-colored travel trench coat over a crisp, lightweight ivory silk blouse and tailored wide-leg.\nMovement quality: an upright, grounded posture, her shoulders relaxed.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nTARA DESHPANDE (Crisp articulation, Mid-register authoritative pitch, natural Indian.) Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings.\nA small visible reaction lands between the thoughts without breaking eye contact.\nTARA DESHPANDE (CONT'D) (Crisp articulation, Mid-register authoritative pitch, natural Indian.) Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB01",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need an 8s Cashback+ reel for urban household decision-makers. Focus on five percent cashback on groceries and milk. Practical, useful, and warm.",
+      "guidelines": "Everyday setting, not premium travel.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Get five percent cashback on groceries and milk! Kotak Cashback+ helps your daily spends. Apply Now.",
+          "wordCount": 16,
+          "characterCount": 100,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "urban household decision-makers, aspirational and value-driven users age 21-45 w",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly mentions '5% cashback on groceries and milk' and targets 'urban household decision-makers' with a focus on 'practical, useful, and warm' benefits. This indicates a direct response and conversion-oriented objective, maki",
+            "matchedSignals": [
+              "5% cashback on groceries and milk",
+              "urban household decision-makers",
+              "practical, useful, and warm",
+              "8s reel",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Get five percent cashback on groceries and milk! Kotak Cashback+ helps your daily spends. Apply Now.",
+            "brief": "Need an 8s Cashback+ reel for urban household decision-makers. Focus on five percent cashback on groceries and milk. Practical, useful, and warm.",
+            "guidelines": "Everyday setting, not premium travel.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Ananya Rao",
+            "gender_presentation": "woman",
+            "age_range": "36",
+            "city": "Bangalore",
+            "profession": "Freelance UX Designer and primary manager of her household's daily logistics.",
+            "why_they_care": "She meticulously tracks household expenses and loves the tangible, immediate value of saving on unavoidable daily staples like milk and groceries without jumping through complex reward hoops.",
+            "facial_features": "Warm, expressive face with a slightly asymmetrical smile, soft almond-shaped eyes with subtle under-eye shadows from early mornings, a straight nose, full natural lips, and a defined jawline, featuring visible skin texture, mild freckles, and a healthy but unpolished matte finish.",
+            "hairstyle_grooming": "Wavy, shoulder-length dark brown hair tied back in a loose, practical half-clip, with a few natural flyaways framing her face, complemented by minimal everyday makeup consisting of tinted lip balm and lightly filled brows.",
+            "wardrobe_details": "A well-ironed, breathable cotton-linen block-printed kurta in soft indigo and white, paired with comfortable tailored ankle-length trousers, perfectly suited for a busy morning managing the home and local errands.",
+            "posture_body_language": "Relaxed but engaged posture, leaning slightly forward with a natural tilt of the head, using small, practical hand gestures that suggest efficiency and warmth.",
+            "expression_style": "Shifts naturally from a focused, thoughtful gaze to a bright, genuine smile of realization, with eyes that crinkle slightly at the corners when emphasizing the cashback benefit.",
+            "speaking_energy": "Crisp, conversational, and warmly authoritative, delivering the line with the casual confidence of someone sharing a genuinely helpful daily tip with a friend.",
+            "body_build": "Average, relatable build with a comfortable, natural physical presence that feels grounded and approachable.",
+            "speaking_style": [
+              "Warmly practical",
+              "Conversational mid-pitch",
+              "Reassuring tone"
+            ],
+            "wardrobe_props": [
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+              "Subtle silver oxidized everyday stud earrings"
+            ],
+            "setting": "Neighborhood market frontage with practical spend cues",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, natural morning window light spilling into the kitchen, raw cinematic photography, natural skin tones, fine grain, subtle motion blur.",
+              "Authentic, grounded daily-life aesthetic, avoiding overly manicured marketing perfection, embracing natural human textures and realistic morning routines."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] EXT. NEIGHBORHOOD GROCERY MARKET - MORNING\nANANYA (36, practical urban household manager, indigo block-printed kurta) is already mid-action, pausing mid-step",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nANANYA RAO (36, premium-minded, urban, cotton-linen block-printed kurta in soft indigo and white) is already caught mid-thought, completing a small posture reset in the environment.\nNeighborhood market frontage with practical spend cues The space feels premium and lived-in.\nAnanya Rao has Warm, expressive face with a slightly asymmetrical smile, soft almond-shaped eyes with subtle.\nHair and grooming: Wavy, shoulder-length dark brown hair tied back in a loose, practical half-clip.\nWardrobe and build: A well-ironed, breathable cotton-linen block-printed kurta in soft indigo and white.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nANANYA RAO (Warmly practical, Conversational mid-pitch, natural Indian English) Get five percent"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nANANYA RAO (36, premium-minded, urban, cotton-linen block-printed kurta in soft indigo and white) is already caught mid-thought, completing a small posture reset in the environment.\nNeighborhood market frontage with practical spend cues The space feels premium and lived-in.\nAnanya Rao has Warm, expressive face with a slightly asymmetrical smile, soft almond-shaped eyes with subtle.\nHair and grooming: Wavy, shoulder-length dark brown hair tied back in a loose, practical half-clip.\nWardrobe and build: A well-ironed, breathable cotton-linen block-printed kurta in soft indigo and white.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nANANYA RAO (Warmly practical, Conversational mid-pitch, natural Indian English) Get five percent cashback on groceries and milk!\nA small visible reaction lands between the thoughts without breaking eye contact.\nANANYA RAO (CONT'D) (Warmly practical, Conversational mid-pitch, natural Indian English) Kotak Cashback+ helps your daily spends. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB02",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a young salaried metro Cashback+ reel around entertainment spends. Make it energetic but still premium and not chaotic.",
+      "guidelines": "No nightclub chaos, keep it tasteful.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Love movies? Get five percent cashback on all your entertainment! for Kotak Cashback+. Apply Now.",
+          "wordCount": 15,
+          "characterCount": 97,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "young salaried metro users, age 21-45, aspirational and value-driven with practi",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks for a 'Cashback+ reel around entertainment spends' and mentions 'young salaried metro' audience, which points to a direct response or conversion objective. The 'energetic but still premium' tone suggests a performa",
+            "matchedSignals": [
+              "young salaried metro Cashback+ reel",
+              "entertainment spends",
+              "energetic but still premium",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Love movies? Get five percent cashback on all your entertainment! for Kotak Cashback+. Apply Now.",
+            "brief": "Need a young salaried metro Cashback+ reel around entertainment spends. Make it energetic but still premium and not chaotic.",
+            "guidelines": "No nightclub chaos, keep it tasteful.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Tara Sen",
+            "gender_presentation": "woman",
+            "age_range": "28",
+            "city": "Hyderabad",
+            "profession": "Brand Strategist at a boutique creative agency who unwinds with weekly indie and blockbuster cinema outings.",
+            "why_they_care": "She views movies and live gigs as essential weekend rituals to decompress, making a dedicated 5 percent cashback card a smart lifestyle hack that effortlessly funds her next outing.",
+            "facial_features": "Oval face with softly arched, slightly unkempt brows, a straight, slightly prominent nose, full natural lips, and warm olive skin with slight texture around the cheeks and a few natural freckles.",
+            "hairstyle_grooming": "Wavy, shoulder-length dark brown hair worn in a loose, effortless half-up style with a few natural flyaways framing her face and fresh, minimal makeup.",
+            "wardrobe_details": "A well-ironed, premium oversized linen overshirt in soft sage green over a crisp white ribbed tank top, paired with tailored high-waisted trousers, fitting a relaxed but elevated weekend cinema transition.",
+            "posture_body_language": "Leans forward slightly with engaged, open shoulders, using quick, expressive hand gestures that convey genuine enthusiasm.",
+            "expression_style": "Eyes widen slightly when emphasizing a point, lips breaking into an easy, asymmetrical smile that feels mid-conversation and highly approachable.",
+            "speaking_energy": "High-spirited and bouncy, carrying the dialogue with a rhythmic, upbeat tempo that feels like she is spilling a great secret to a close friend.",
+            "body_build": "Slender to average build, relaxed and comfortable in her own skin, with natural, unforced proportions.",
+            "speaking_style": [
+              "Upbeat and rhythmic",
+              "Mid-pitch with warm resonance",
+              "Conversational and enthusiastic"
+            ],
+            "wardrobe_props": [
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+              "Crisp, well-ironed white ribbed tank top"
+            ],
+            "setting": "Relaxing on a plush mustard-yellow armchair in the warmly lit lounge of a premium film club, bathed in soft, diffused light from a nearby frosted glass window with framed vintage posters softly out of focus behind her.",
+            "compliance_notes": [
+              "Shot on 35mm lens, medium close-up, soft directional ambient lighting, fine film grain, raw cinematic photography with natural skin tones.",
+              "Authentic and grounded, showcasing real human texture and lived-in expression, absolutely no marketing-perfect airbrushing."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. PREMIUM FILM CLUB LOUNGE - DAY\n\nTARA (28, relaxed but elevated weekend style, wearing a well-ironed oversized sage green linen overshirt over a crisp white ribbed tank top)",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY\nTARA SEN (28, design-world, upscale, oversized linen overshirt in soft sage green over a crisp) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nRelaxing on a plush mustard-yellow armchair in the warmly lit lounge of a premium film club The space feels premium and lived-in.\nTara Sen has Oval face with softly arched, slightly unkempt brows, a straight, slightly prominent nose, full.\nHair and grooming: Wavy, shoulder-length dark brown hair worn in a loose, effortless half-up style.\nWardrobe and build: A well-ironed, premium oversized linen overshirt in soft sage green over a crisp white ribbed tank top.\nMovement quality: Leans forward slightly with engaged, open shoulders, using quick, expressive hand gestures.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL LOUNGE - DAY\nTARA SEN (28, design-world, upscale, oversized linen overshirt in soft sage green over a crisp) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nRelaxing on a plush mustard-yellow armchair in the warmly lit lounge of a premium film club The space feels premium and lived-in.\nTara Sen has Oval face with softly arched, slightly unkempt brows, a straight, slightly prominent nose, full.\nHair and grooming: Wavy, shoulder-length dark brown hair worn in a loose, effortless half-up style.\nWardrobe and build: A well-ironed, premium oversized linen overshirt in soft sage green over a crisp white ribbed tank top.\nMovement quality: Leans forward slightly with engaged, open shoulders, using quick, expressive hand gestures.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nTARA SEN (Upbeat and rhythmic, Mid-pitch with warm resonance, natural Indian.) Love movies?\nA small visible reaction lands between the thoughts without breaking eye contact.\nTARA SEN (CONT'D) (Upbeat and rhythmic, Mid-pitch with warm resonance, natural Indian.) Get five percent cashback on all your entertainment! for Kotak Cashback+. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB03",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a short Cashback+ commuter film focused on fuel savings. Push up to four percent benefit on fuel. Useful, direct, and believable.",
+      "guidelines": "Do not overclaim or make it flashy.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Tired of rising fuel costs? Kotak Cashback+ helps you save up to four percent on fuel. Learn More.",
+          "wordCount": 18,
+          "characterCount": 98,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "consideration",
+            "funnelStage": "mofu",
+            "channel": "shorts",
+            "placement": "shorts",
+            "genre": "product_explainer",
+            "audienceCue": "aspirational and value-driven users age 21-45 with practical day-to-day spending",
+            "rtbPolicy": "required",
+            "ctaStrength": "medium",
+            "scriptStyle": "problem-solution-proof",
+            "decisionSource": "llm",
+            "rationale": "The brief emphasizes 'fuel savings' and 'up to four percent benefit on fuel,' which points to explaining a specific product feature and its utility. The tone requested ('useful, direct, and believable') aligns with a product explainer rathe",
+            "matchedSignals": [
+              "fuel savings",
+              "up to four percent benefit on fuel",
+              "commuter film",
+              "useful, direct, and believable",
+              "channel:shorts",
+              "placement:shorts",
+              "funnel:mofu",
+              "rtb:brief_targeted",
+              "cta:medium",
+              "style:problem-solution-proof"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Tired of rising fuel costs? Kotak Cashback+ helps you save up to four percent on fuel. Learn More.",
+            "brief": "Need a short Cashback+ commuter film focused on fuel savings. Push up to four percent benefit on fuel. Useful, direct, and believable.",
+            "guidelines": "Do not overclaim or make it flashy.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Meera Deshmukh",
+            "gender_presentation": "woman",
+            "age_range": "38",
+            "city": "Pune",
+            "profession": "Architect running a mid-sized firm, commuting daily between her suburban home and city construction sites.",
+            "why_they_care": "Fuel is a massive, unavoidable daily expense due to frequent site visits, making a reliable 4 percent cashback a highly practical and satisfying win against inflation.",
+            "facial_features": "Strong jawline, slightly asymmetrical eyebrows, a prominent straight nose, full lower lip, warm brown skin with natural texture, faint sunspots on the upper cheeks, and a lived-in, pragmatic character.",
+            "hairstyle_grooming": "Shoulder-length wavy black hair tied back in a practical low ponytail with a few natural flyaways framing the face, paired with minimal makeup and a matte, natural finish.",
+            "wardrobe_details": "Crisp, well-ironed olive green cotton tunic paired with tailored beige ankle-length trousers, breathable and completely wrinkle-free, styled with a functional cross-body leather satchel that fits her on-the-go professional life.",
+            "posture_body_language": "Grounded and self-assured, sitting comfortably with shoulders squared, resting one hand casually on the steering wheel, projecting the quiet confidence of someone who manages her resources well.",
+            "expression_style": "Direct and engaging, with a slight, knowing smile that reaches her dark eyes when discussing savings, shifting naturally between focused attention and approachable warmth.",
+            "speaking_energy": "Crisp, articulate, and no-nonsense, carrying the lines with the steady, believable rhythm of someone used to giving clear, practical instructions.",
+            "body_build": "Average height with a sturdy, active frame that reflects a lifestyle involving frequent movement and standing.",
+            "speaking_style": [
+              "Crisp and articulate articulation",
+              "Mid-range pitch with a steady cadence",
+              "Pragmatic, confident, and direct tone"
+            ],
+            "wardrobe_props": [
+              "Crisp olive green cotton tunic and tailored beige trousers",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Seated inside the driver's seat of her neatly kept mid-size SUV, parked momentarily under the dappled shade of a large tree just before starting her evening commute home.",
+            "compliance_notes": [
+              "Shot on a 50mm lens, medium close-up, utilizing natural dappled sunlight through the windshield, raw cinematic photography, fine grain, and subtle motion blur.",
+              "Authentic, grounded portrayal with natural skin texture and believable styling; absolutely no glossy marketing-perfect imagery or overclaimed brand presence."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. SUV - DAY\nMEERA DESHMUKH (38, practical architect, crisp olive green cotton tunic) is already mid-action in the driver's seat of her neatly kept",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - EVENING\nMEERA DESHMUKH (38, premium-minded, urban, tailored beige ankle-length trousers, and completely, styled) is already caught mid-thought, completing a small posture reset in the environment.\nSeated inside the driver's seat of her neatly kept mid-size SUV The space feels premium and lived-in.\nMeera Deshmukh has Strong jawline, slightly asymmetrical eyebrows, a prominent straight nose, full lower lip, warm brown.\nHair and grooming: Shoulder-length wavy black hair tied back in a practical low ponytail.\nWardrobe and build: Crisp, well-ironed olive green cotton tunic.\nMovement quality: Grounded and self-assured, sitting comfortably.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nMEERA DESHMUKH (Crisp and articulate articulation, Mid-range pitch with a steady.) Tired of rising fuel costs?\nA small visible "
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - EVENING\nMEERA DESHMUKH (38, premium-minded, urban, tailored beige ankle-length trousers, and completely, styled) is already caught mid-thought, completing a small posture reset in the environment.\nSeated inside the driver's seat of her neatly kept mid-size SUV The space feels premium and lived-in.\nMeera Deshmukh has Strong jawline, slightly asymmetrical eyebrows, a prominent straight nose, full lower lip, warm brown.\nHair and grooming: Shoulder-length wavy black hair tied back in a practical low ponytail.\nWardrobe and build: Crisp, well-ironed olive green cotton tunic.\nMovement quality: Grounded and self-assured, sitting comfortably.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nMEERA DESHMUKH (Crisp and articulate articulation, Mid-range pitch with a steady.) Tired of rising fuel costs?\nA small visible reaction lands between the thoughts without breaking eye contact.\nMEERA DESHMUKH (CONT'D) (Crisp and articulate articulation, Mid-range pitch with a steady.) Kotak Cashback+ helps you save up to four percent on fuel. Learn More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB04",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a switcher acquisition reel for Cashback+ built around limited-period zero joining fee. Value-conscious but polished.",
+      "guidelines": "Keep it simple and conversion-led.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Smart savings start now. Get Kotak Cashback+ with zero joining fee. Limited period offer. Apply Now.",
+          "wordCount": 16,
+          "characterCount": 100,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Value-conscious but polished users age 21-45 with practical day-to-day spending",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'switcher acquisition reel' and 'conversion-led' with a clear focus on a 'limited-period zero joining fee' as the primary incentive. This aligns directly with a conversion objective and a performance ad genre.",
+            "matchedSignals": [
+              "conversion-led",
+              "switcher acquisition",
+              "limited-period zero joining fee",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Smart savings start now. Get Kotak Cashback+ with zero joining fee. Limited period offer. Apply Now.",
+            "brief": "Need a switcher acquisition reel for Cashback+ built around limited-period zero joining fee. Value-conscious but polished.",
+            "guidelines": "Keep it simple and conversion-led.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Neha Desai",
+            "gender_presentation": "woman",
+            "age_range": "34",
+            "city": "Chennai",
+            "profession": "E-commerce Entrepreneur managing a growing direct-to-consumer apparel brand.",
+            "why_they_care": "He scales his business and personal life by optimizing every rupee; a zero joining fee cashback card is a highly practical, no-brainer addition for his daily high-frequency transactions.",
+            "facial_features": "Broad forehead with slightly uneven, thick eyebrows, a prominent straight nose, a strong but naturally rounded jawline, and warm, olive skin with visible pores, minor sun spots, and a faint shaving shadow around the chin.",
+            "hairstyle_grooming": "Short, neatly side-parted dark hair with natural, lived-in volume at the crown, paired with a meticulously trimmed but slightly coarse short beard.",
+            "wardrobe_details": "A crisp, well-ironed olive green overshirt worn open over a clean, wrinkle-free charcoal grey premium crew-neck t-shirt, offering a polished yet highly approachable smart-casual silhouette perfect for an active modern workspace.",
+            "posture_body_language": "Stands with an open, relaxed posture, shoulders comfortably dropped, occasionally using crisp, deliberate hand gestures to emphasize a logical point.",
+            "expression_style": "Maintains direct, engaging eye contact with a subtle, confident smirk that quickly shifts into an attentive, practical nod when discussing tangible value.",
+            "speaking_energy": "Delivers lines with a brisk, persuasive, and grounded energy, carrying the quiet authority of someone who instantly recognizes a smart financial deal.",
+            "body_build": "Solid, average build with a slightly broad-shouldered frame that fills out casual tailoring naturally without looking overly athletic.",
+            "speaking_style": [
+              "Brisk and persuasive",
+              "Mid-baritone pitch",
+              "Confident, practical tone"
+            ],
+            "wardrobe_props": [
+              "Crisp olive green overshirt over premium charcoal t-shirt",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Transit-adjacent sidewalk with practical lifestyle cues",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, natural window light mixing with warm practical studio lamps, raw cinematic photography, fine grain, subtle motion blur.",
+              "Authentic, grounded casting with natural skin texture and slight asymmetry; absolutely no marketing-perfect airbrushing, generic stock-photo styling, or studio strobes."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] EXT. TRANSIT-ADJACENT SIDEWALK - DAY\n\nNEHA DESAI (34, E-commerce Entrepreneur, crisp olive green overshirt over a premium charcoal crew-neck t-shirt",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nNEHA DESAI (34, affluent, well-traveled, crisp, olive green overshirt worn open over a charcoal grey) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nTransit-adjacent sidewalk with practical lifestyle cues The space feels premium and lived-in.\nNeha Desai has Broad forehead with slightly uneven, thick eyebrows, a prominent straight nose, a strong.\nHair and grooming: Short, neatly side-parted dark hair.\nWardrobe and build: A crisp, well-ironed olive green overshirt worn open over a clean, wrinkle-free charcoal grey premium crew-neck t-shirt.\nMovement quality: Stands with an open, relaxed posture, shoulders comfortably dropped,.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nNEHA DESAI (Brisk and persuasive, Mid-baritone pitch, natu"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRANSIT CORRIDOR - DAY\nNEHA DESAI (34, affluent, well-traveled, crisp, olive green overshirt worn open over a charcoal grey) is already caught in a poised travel pause, shoulders easing into place during a small stance reset.\nTransit-adjacent sidewalk with practical lifestyle cues The space feels premium and lived-in.\nNeha Desai has Broad forehead with slightly uneven, thick eyebrows, a prominent straight nose, a strong.\nHair and grooming: Short, neatly side-parted dark hair.\nWardrobe and build: A crisp, well-ironed olive green overshirt worn open over a clean, wrinkle-free charcoal grey premium crew-neck t-shirt.\nMovement quality: Stands with an open, relaxed posture, shoulders comfortably dropped,.\nThey notice the camera as they settle, lift into steady eye contact, and let the first line land without breaking the moment.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nNEHA DESAI (Brisk and persuasive, Mid-baritone pitch, natural Indian English) Smart savings start now.\nA small visible reaction lands between the thoughts without breaking eye contact.\nNEHA DESAI (CONT'D) (Brisk and persuasive, Mid-baritone pitch, natural Indian English) Get Kotak Cashback+ with zero joining fee. Limited period offer. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB05",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a practical metro spender reel for Cashback+ mixing everyday value and essentials. Keep it useful, clean, and not shouty.",
+      "guidelines": "Ground it in real daily spending.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Tired of everyday spends not giving back? Kotak Cashback+ makes groceries and milk. Learn More.",
+          "wordCount": 15,
+          "characterCount": 95,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "consideration",
+            "funnelStage": "mofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "product_explainer",
+            "audienceCue": "practical metro spender, everyday value and essentials, NCCS A/B metros, aspirat",
+            "rtbPolicy": "required",
+            "ctaStrength": "medium",
+            "scriptStyle": "problem-solution-proof",
+            "decisionSource": "llm",
+            "rationale": "The brief emphasizes 'everyday value and essentials' and 'useful, clean, and not shouty,' which aligns with a consideration objective and a product explainer genre. The focus on 'real daily spending' further supports explaining the practica",
+            "matchedSignals": [
+              "practical metro spender reel",
+              "everyday value and essentials",
+              "useful, clean, and not shouty",
+              "Ground it in real daily spending",
+              "5% cashback on daily essentials like groceries and milk",
+              "placement:reels",
+              "funnel:mofu",
+              "rtb:brief_targeted",
+              "cta:medium",
+              "style:problem-solution-proof"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Tired of everyday spends not giving back? Kotak Cashback+ makes groceries and milk. Learn More.",
+            "brief": "Need a practical metro spender reel for Cashback+ mixing everyday value and essentials. Keep it useful, clean, and not shouty.",
+            "guidelines": "Ground it in real daily spending.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Rohan Banerjee",
+            "gender_presentation": "man",
+            "age_range": "36",
+            "city": "Kolkata",
+            "profession": "High School Physics Teacher managing the family's monthly provisions and daily utility spends.",
+            "why_they_care": "He handles the repetitive, inescapable household expenses—like milk subscriptions and daily groceries—and wants a straightforward card that turns these mundane transactions into smart, automatic savings without complex reward structures.",
+            "facial_features": "Broad forehead, slightly asymmetrical eyebrows, an aquiline nose, thin lips, a soft but defined jawline, and uneven skin texture with faint sunspots around the cheekbones.",
+            "hairstyle_grooming": "Short, practical side-parted hair with a few premature grey strands at the temples, paired with a neatly trimmed but slightly patchy everyday stubble.",
+            "wardrobe_details": "A crisp, well-ironed olive green cotton-linen blend button-down shirt with rolled-up sleeves, worn over dark chinos, perfectly suited for a relaxed but put-together weekend morning at home.",
+            "posture_body_language": "Relaxed but engaged stance, occasionally using small, precise hand gestures like he is explaining a simple concept, carrying an air of quiet competence.",
+            "expression_style": "Warm, slightly wry smile that reaches his eyes, crinkling at the corners, showing genuine satisfaction when talking about practical everyday value.",
+            "speaking_energy": "Calm, measured, and reassuring, delivering lines with the steady, unhurried pace of someone who values clarity over hype.",
+            "body_build": "Average, relatable build with slightly rounded shoulders but a comfortable, grounded physical presence.",
+            "speaking_style": [
+              "measured and clear",
+              "mid-range baritone",
+              "warmly pragmatic"
+            ],
+            "wardrobe_props": [
+              "Crisp, well-ironed olive green cotton-linen shirt",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Standing at the polished granite breakfast counter of his contemporary apartment kitchen, casually unpacking a brown paper bag of fresh vegetables and morning dairy deliveries, illuminated by soft morning light filtering through a slatted window blind.",
+            "compliance_notes": [
+              "Shot on 35mm lens, medium close-up, natural window lighting with soft bounce, raw cinematic photography, fine grain, subtle motion blur.",
+              "Authentic and grounded portrayal, emphasizing lived-in reality over marketing perfection, with natural skin texture and relatable everyday context."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START]\nINT. CONTEMPORARY KITCHEN - MORNING\n\nROHAN (36, practical household manager, crisp olive green cotton-linen shirt with rolled-up sleeves) is already mid-",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - MORNING\nROHAN BANERJEE (36, affluent, well-traveled, cotton-linen blend button-down shirt with rolled-up sleeves) is already caught mid-thought, completing a small posture reset in the environment.\nStanding at the polished granite breakfast counter of his contemporary apartment kitchen The space feels premium and lived-in.\nRohan Banerjee has Broad forehead, slightly asymmetrical eyebrows, an aquiline nose, thin lips.\nHair and grooming: Short, practical side-parted hair with a few premature grey strands at the temples, paired with a neatly trimmed.\nWardrobe and build: A crisp, well-ironed olive green cotton-linen blend button-down shirt.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nROHAN BANERJEE (measured and clear, mid-range baritone"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - MORNING\nROHAN BANERJEE (36, affluent, well-traveled, cotton-linen blend button-down shirt with rolled-up sleeves) is already caught mid-thought, completing a small posture reset in the environment.\nStanding at the polished granite breakfast counter of his contemporary apartment kitchen The space feels premium and lived-in.\nRohan Banerjee has Broad forehead, slightly asymmetrical eyebrows, an aquiline nose, thin lips.\nHair and grooming: Short, practical side-parted hair with a few premature grey strands at the temples, paired with a neatly trimmed.\nWardrobe and build: A crisp, well-ironed olive green cotton-linen blend button-down shirt.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nROHAN BANERJEE (measured and clear, mid-range baritone, natural Indian English) Tired of everyday spends not giving back?\nA small visible reaction lands between the thoughts without breaking eye contact.\nROHAN BANERJEE (CONT'D) (measured and clear, mid-range baritone, natural Indian English) Kotak Cashback+ makes groceries and milk. Learn More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB06",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a Cashback+ reel for young couples managing weekend plans and grocery runs. Keep it smart, warm, and efficient.",
+      "guidelines": "No luxury travel cues.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Weekend plans or daily groceries? Kotak Cashback+ gives you five percent back. Learn More.",
+          "wordCount": 14,
+          "characterCount": 90,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "consideration",
+            "funnelStage": "mofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "product_explainer",
+            "audienceCue": "young couples managing weekend plans and grocery runs",
+            "rtbPolicy": "required",
+            "ctaStrength": "medium",
+            "scriptStyle": "problem-solution-proof",
+            "decisionSource": "llm",
+            "rationale": "The brief focuses on young couples and their practical spending (weekend plans, grocery runs), aligning with the product's cashback on daily essentials. The tone 'smart, warm, and efficient' suggests explaining how the product fits into the",
+            "matchedSignals": [
+              "young couples",
+              "weekend plans",
+              "grocery runs",
+              "smart, warm, efficient",
+              "placement:reels",
+              "funnel:mofu",
+              "rtb:brief_targeted",
+              "cta:medium",
+              "style:problem-solution-proof"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Weekend plans or daily groceries? Kotak Cashback+ gives you five percent back. Learn More.",
+            "brief": "Need a Cashback+ reel for young couples managing weekend plans and grocery runs. Keep it smart, warm, and efficient.",
+            "guidelines": "No luxury travel cues.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Shruti Varma",
+            "gender_presentation": "woman",
+            "age_range": "31",
+            "city": "Chandigarh",
+            "profession": "Urban Planner at a municipal consultancy firm balancing a busy dual-income household.",
+            "why_they_care": "She views household management as a shared, optimized project with her partner, where earning 5% back on mundane grocery runs feels like a smart, tangible victory that funds their weekend cafe dates.",
+            "facial_features": "Softly squared jawline, naturally arched but slightly uneven brows, a straight nose with a rounded tip, full lips, and warm olive skin with slight hyperpigmentation around the mouth and faint freckles across the nose bridge.",
+            "hairstyle_grooming": "Shoulder-length, dark wavy hair tied back in a loose, practical low bun with a few stray wisps framing her face, looking freshly washed but casually styled.",
+            "wardrobe_details": "Crisp, well-ironed olive green linen-blend button-down shirt with the sleeves rolled up to the elbows, paired with high-waisted dark denim, offering a smart-casual, weekend-ready look that is completely wrinkle-free and spotless.",
+            "posture_body_language": "Relaxed but alert posture, leaning slightly forward with relaxed shoulders, using small, precise hand gestures when explaining something.",
+            "expression_style": "Warm, engaged eye contact that shifts naturally to her surroundings, with a subtle smile that reaches her eyes when she talks about her weekend plans.",
+            "speaking_energy": "Brisk, efficient, yet highly approachable, carrying the lines with a conversational, 'let me share a quick tip' momentum.",
+            "body_build": "Average, athletic-leaning build, suggesting someone who stays active but maintains a natural, unexaggerated silhouette.",
+            "speaking_style": [
+              "Warm conversational tone",
+              "Mid-pitch",
+              "Brisk and efficient pacing"
+            ],
+            "wardrobe_props": [
+              "Crisp olive green linen-blend shirt",
+              "Minimalist silver wristwatch"
+            ],
+            "setting": "Standing at a high wooden community table inside a bustling neighborhood artisanal bakery and deli, casually organizing a few freshly bought pantry items into a canvas tote bag while soft, natural afternoon light streams through a large front window.",
+            "compliance_notes": [
+              "Shot on 35mm lens, medium close-up, lived-in natural window light, raw cinematic photography, fine film grain, subtle motion blur, no studio lighting.",
+              "Authentic and grounded portrayal, non-generic, completely avoiding marketing-perfect airbrushed imagery, retaining natural human textures and subtle imperfections."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "deterministic_fallback",
+            "fallbackReason": "Sora prompt writer returned an unusable prompt (missing_wardrobe_body_frame_detail).",
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. ARTISANAL BAKERY AND DELI - AFTERNOON\nShruti Varma (31, practical urban planner, crisp olive green linen-blend shirt with rolled sleeves and high-waisted",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nSHRUTI VARMA (31, affluent, well-traveled, green linen button-down shirt with the sleeves rolled up) is already caught mid-thought, completing a small posture reset in the environment.\nStanding at a high wooden community table inside a bustling neighborhood artisanal bakery and deli The space feels premium and lived-in.\nShruti Varma has Softly squared jawline, naturally arched.\nHair and grooming: Shoulder-length, dark wavy hair tied back in a loose, practical low bun.\nWardrobe and build: Crisp, well-ironed olive green linen-blend button-down shirt with the sleeves rolled up to the elbows.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSHRUTI VARMA (Warm conversational tone, Mid-pitch, natural Indian English) Weekend plans or daily g",
+                "rejectionReason": "missing_wardrobe_body_frame_detail"
+              },
+              {
+                "model": "gemini-2.5-pro",
+                "rawSample": "",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nSHRUTI VARMA (31, affluent, well-traveled, green linen button-down shirt with the sleeves rolled up) is already caught mid-thought, completing a small posture reset in the environment.\nStanding at a high wooden community table inside a bustling neighborhood artisanal bakery and deli The space feels premium and lived-in.\nShruti Varma has Softly squared jawline, naturally arched.\nHair and grooming: Shoulder-length, dark wavy hair tied back in a loose, practical low bun.\nWardrobe and build: Crisp, well-ironed olive green linen-blend button-down shirt with the sleeves rolled up to the elbows.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSHRUTI VARMA (Warm conversational tone, Mid-pitch, natural Indian English) Weekend plans or daily g",
+                "rejectionReason": "missing_wardrobe_body_frame_detail"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nSHRUTI VARMA (31, affluent, well-traveled, green linen button-down shirt with the sleeves rolled up) is already caught mid-thought, completing a small posture reset in the environment.\nStanding at a high wooden community table inside a bustling neighborhood artisanal bakery and deli The space feels premium and lived-in.\nShruti Varma has Softly squared jawline, naturally arched.\nHair and grooming: Shoulder-length, dark wavy hair tied back in a loose, practical low bun.\nWardrobe and build: Crisp, well-ironed olive green linen-blend button-down shirt with the sleeves rolled up to the elbows.\nMovement quality: relaxed, grounded posture with restrained gestures.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSHRUTI VARMA (Warm conversational tone, Mid-pitch, natural Indian English) Weekend plans or daily groceries?\nA small visible reaction lands between the thoughts without breaking eye contact.\nSHRUTI VARMA (CONT'D) (Warm conversational tone, Mid-pitch, natural Indian English) Kotak Cashback+ gives you five percent back. Learn More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB07",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a female-first Cashback+ reel for salaried urban professionals juggling daily essentials and entertainment. Practical confidence, not influencer energy.",
+      "guidelines": "Direct-to-camera, human, no fluff.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Get five percent cashback on groceries, milk, and entertainment. Kotak Cashback+ makes. Apply Now.",
+          "wordCount": 14,
+          "characterCount": 98,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Female salaried urban professionals juggling daily essentials and entertainment,",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks for a 'Cashback+ reel' and targets 'salaried urban professionals juggling daily essentials and entertainment,' aligning with a direct response and conversion objective. The mention of 'practical confidence' over 'i",
+            "matchedSignals": [
+              "conversion",
+              "performance_ad",
+              "female-first",
+              "salaried urban professionals",
+              "daily essentials",
+              "entertainment",
+              "practical confidence",
+              "reel",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:brief_targeted",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Get five percent cashback on groceries, milk, and entertainment. Kotak Cashback+ makes. Apply Now.",
+            "brief": "Need a female-first Cashback+ reel for salaried urban professionals juggling daily essentials and entertainment. Practical confidence, not influencer energy.",
+            "guidelines": "Direct-to-camera, human, no fluff.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Kavita Nair",
+            "gender_presentation": "woman",
+            "age_range": "36",
+            "city": "Delhi NCR",
+            "profession": "Supply Chain Analyst at a regional FMCG distributor",
+            "why_they_care": "She meticulously tracks her household's high-frequency spending on groceries and daily milk subscriptions, appreciating how a flat 5% return effortlessly offsets her monthly movie outings without jumping through reward-point hoops.",
+            "facial_features": "Slightly asymmetrical almond eyes with faint dark circles from early mornings, a strong, straight nose, softly contoured cheekbones with natural hyperpigmentation spots, and a warm, olive skin texture that feels lived-in and real.",
+            "hairstyle_grooming": "Shoulder-length, wavy black hair tied back in a practical, slightly loose low ponytail with a few natural flyaways framing her face, minimal makeup featuring just a tinted lip balm and defined brows.",
+            "wardrobe_details": "A crisp, well-ironed olive green cotton-linen tunic paired with tailored navy trousers, offering a breathable, practical, and polished silhouette that transitions perfectly from her office desk to her evening routine.",
+            "posture_body_language": "Stands with grounded, relaxed confidence, shoulders slightly dropped but engaged, using small, precise hand gestures that convey a no-nonsense, practical mindset.",
+            "expression_style": "Her expression is attentive and subtly amused, with micro-shifts in her brow and eyes that suggest she is sharing a smart, practical secret rather than delivering a sales pitch.",
+            "speaking_energy": "Calm, rhythmic, and assured, carrying the lines with an effortless, conversational cadence that feels like advice from a financially savvy peer.",
+            "body_build": "Average, relatable build with a sturdy, functional frame characteristic of a busy working professional who is constantly on the move.",
+            "speaking_style": [
+              "Conversational and assured",
+              "Mid-register pitch",
+              "Practical and confident tone"
+            ],
+            "wardrobe_props": [
+              "Crisp olive green cotton-linen tunic",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Neighborhood store checkout zone with practical basket props",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, practical ambient lighting mixed with warm indoor lamps, raw cinematic photography, natural skin tones, fine grain, subtle motion blur.",
+              "Authentic and grounded, absolutely no marketing-perfect imagery, showing natural human variation, practical confidence, and lived-in textures."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. NEIGHBORHOOD GROCERY STORE - DAY\n\nKAVITA (36, practical urban professional in a crisp olive green cotton-linen tunic and tailored navy trousers) is already",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nKAVITA NAIR (36, premium-minded, urban, with tailored navy trousers) is already caught mid-thought, completing a small posture reset in the environment.\nNeighborhood store checkout zone with practical basket props The space feels premium and lived-in.\nKavita Nair has Slightly asymmetrical almond eyes.\nHair and grooming: Shoulder-length, wavy black hair tied back in a practical, slightly loose low ponytail.\nWardrobe and build: A crisp, well-ironed olive green cotton-linen tunic.\nMovement quality: Stands with grounded, relaxed confidence, shoulders slightly dropped.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nKAVITA NAIR (Conversational and assured, Mid-register pitch, natural Indian English) Get five percent cashback on groceries, milk, and entertainment.\nA small visible reaction lands betw"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nKAVITA NAIR (36, premium-minded, urban, with tailored navy trousers) is already caught mid-thought, completing a small posture reset in the environment.\nNeighborhood store checkout zone with practical basket props The space feels premium and lived-in.\nKavita Nair has Slightly asymmetrical almond eyes.\nHair and grooming: Shoulder-length, wavy black hair tied back in a practical, slightly loose low ponytail.\nWardrobe and build: A crisp, well-ironed olive green cotton-linen tunic.\nMovement quality: Stands with grounded, relaxed confidence, shoulders slightly dropped.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nKAVITA NAIR (Conversational and assured, Mid-register pitch, natural Indian English) Get five percent cashback on groceries, milk, and entertainment.\nA small visible reaction lands between the thoughts without breaking eye contact.\nKAVITA NAIR (CONT'D) (Conversational and assured, Mid-register pitch, natural Indian English) Kotak Cashback+ makes. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB08",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a tier-1 city commuter Cashback+ film where fuel is the primary reason to care, but it still feels premium and trustworthy.",
+      "guidelines": "Keep the category claim disciplined.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Tired of fuel expenses? Kotak Cashback+ gives up to four percent benefit on fuel!. Learn More.",
+          "wordCount": 16,
+          "characterCount": 94,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "consideration",
+            "funnelStage": "mofu",
+            "channel": "generic",
+            "placement": "generic",
+            "genre": "product_explainer",
+            "audienceCue": "Tier-1 city commuters, aspirational and value-driven users age 21-45 with practi",
+            "rtbPolicy": "required",
+            "ctaStrength": "medium",
+            "scriptStyle": "problem-solution-proof",
+            "decisionSource": "llm",
+            "rationale": "The brief emphasizes 'fuel is the primary reason to care' for the 'Cashback+' product, indicating a focus on explaining a key product benefit to drive consideration. While it mentions 'premium and trustworthy' (brand elements), the core int",
+            "matchedSignals": [
+              "fuel is the primary reason to care",
+              "Cashback+ film",
+              "tier-1 city commuter",
+              "funnel:mofu",
+              "rtb:brief_targeted",
+              "cta:medium",
+              "style:problem-solution-proof"
+            ]
+          },
+          "rtbMode": "brief_targeted",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Tired of fuel expenses? Kotak Cashback+ gives up to four percent benefit on fuel!. Learn More.",
+            "brief": "Need a tier-1 city commuter Cashback+ film where fuel is the primary reason to care, but it still feels premium and trustworthy.",
+            "guidelines": "Keep the category claim disciplined.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Vikram Mathur",
+            "gender_presentation": "man",
+            "age_range": "42",
+            "city": "Delhi NCR",
+            "profession": "Regional Director of Sales for a luxury real estate developer.",
+            "why_they_care": "He clocks hundreds of kilometers weekly commuting between premium project sites and the corporate office, making fuel a massive, unavoidable expense where a four percent cashback feels like a smart, tangible return.",
+            "facial_features": "Features a strong, slightly asymmetrical jawline with prominent cheekbones, a straight but slightly broad nose, medium-thick expressive eyebrows, and warm olive skin showing faint sun-weathering around the temples and fine laugh lines, avoiding overly airbrushed perfection.",
+            "hairstyle_grooming": "Sports a short, textured side-part with subtle salt-and-pepper strands at the sideburns, paired with a meticulously trimmed short box beard that looks sharp but naturally lived-in.",
+            "wardrobe_details": "Wears a well-ironed, wrinkle-free sage green premium cotton overshirt layered over a crisp white crew-neck t-shirt and tailored charcoal trousers, offering a refined, climate-aware smart-casual silhouette perfect for transitioning between office and site visits without looking like a generic corporate suit.",
+            "posture_body_language": "Stands with a grounded, relaxed but authoritative stance, shoulders rolled back, casually holding a leather portfolio under one arm while gesturing naturally with the other hand.",
+            "expression_style": "Maintains steady, engaging eye contact with a knowing, pragmatic half-smile that shifts into a reassuring nod, conveying financial savviness and quiet confidence.",
+            "speaking_energy": "Delivers lines with a measured, deliberate pacing and a grounded resonance, projecting the calm authority of someone who understands the value of smart daily savings.",
+            "body_build": "Broad-shouldered and lean, reflecting an active lifestyle with a natural, unforced physical presence.",
+            "speaking_style": [
+              "Grounded baritone texture",
+              "Measured and deliberate pacing",
+              "Pragmatic and reassuring tone"
+            ],
+            "wardrobe_props": [
+              "Premium sage green cotton overshirt layered over a crisp white t-shirt",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Roadside fuel stop lane with realistic urban traffic cues",
+            "compliance_notes": [
+              "Shot on a 50mm lens at eye level, medium-close up, utilizing lived-in natural light bouncing off architectural glass, raw cinematic photography with fine grain and subtle motion blur.",
+              "Authentic, grounded casting with visible skin texture and natural grooming; absolutely no marketing-perfect airbrushing, sweat spots, or generic corporate styling."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] EXT. URBAN FUEL STATION LANE - DAY\n\nVIKRAM (42, broad-shouldered luxury real estate director in a well-ironed, premium sage green cotton overshirt layered over a crisp white crew",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nVIKRAM MATHUR (42, affluent, well-traveled, sage green cotton overshirt layered over a crisp white) is already caught mid-thought, completing a small posture reset in the environment.\nRoadside fuel stop lane with realistic urban traffic cues The space feels premium and lived-in.\nVikram Mathur has Features a strong, slightly asymmetrical jawline with prominent cheekbones, a straight.\nHair and grooming: Sports a short, textured side-part.\nWardrobe and build: Wears a well-ironed, wrinkle-free sage green premium cotton overshirt layered over a crisp white crew-neck t-shirt.\nMovement quality: Stands with a grounded, relaxed.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nVIKRAM MATHUR (Grounded baritone texture, Measured and deliberate pacing, natural.) Tired of fuel expenses?\nA small visible reaction land"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nVIKRAM MATHUR (42, affluent, well-traveled, sage green cotton overshirt layered over a crisp white) is already caught mid-thought, completing a small posture reset in the environment.\nRoadside fuel stop lane with realistic urban traffic cues The space feels premium and lived-in.\nVikram Mathur has Features a strong, slightly asymmetrical jawline with prominent cheekbones, a straight.\nHair and grooming: Sports a short, textured side-part.\nWardrobe and build: Wears a well-ironed, wrinkle-free sage green premium cotton overshirt layered over a crisp white crew-neck t-shirt.\nMovement quality: Stands with a grounded, relaxed.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from alert curiosity to clear assurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nVIKRAM MATHUR (Grounded baritone texture, Measured and deliberate pacing, natural.) Tired of fuel expenses?\nA small visible reaction lands between the thoughts without breaking eye contact.\nVIKRAM MATHUR (CONT'D) (Grounded baritone texture, Measured and deliberate pacing, natural.) Kotak Cashback+ gives up to four percent benefit on fuel!. Learn More.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB09",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Need a festive-season Cashback+ reel focused on getting more out of regular household spend, not luxury shopping. Value-led, family-safe, and clear.",
+      "guidelines": "Do not drift into travel or aspirational luxury.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Get five percent cashback on your everyday groceries and milk. Kotak Cashback+ makes. Apply Now.",
+          "wordCount": 15,
+          "characterCount": 96,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "conversion",
+            "funnelStage": "bofu",
+            "channel": "generic",
+            "placement": "reels",
+            "genre": "performance_ad",
+            "audienceCue": "Value-led, family-safe, and clear users focused on regular household spending, n",
+            "rtbPolicy": "required",
+            "ctaStrength": "hard",
+            "scriptStyle": "hook-proof-cta",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly asks for a 'festive-season Cashback+ reel focused on getting more out of regular household spend' and emphasizes 'Value-led, family-safe, and clear' communication. This points directly to a conversion objective, leverag",
+            "matchedSignals": [
+              "festive-season Cashback+ reel",
+              "getting more out of regular household spend",
+              "Value-led",
+              "family-safe",
+              "clear",
+              "placement:reels",
+              "funnel:bofu",
+              "rtb:required",
+              "cta:hard",
+              "style:hook-proof-cta"
+            ]
+          },
+          "rtbMode": "default_strongest",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Get five percent cashback on your everyday groceries and milk. Kotak Cashback+ makes. Apply Now.",
+            "brief": "Need a festive-season Cashback+ reel focused on getting more out of regular household spend, not luxury shopping. Value-led, family-safe, and clear.",
+            "guidelines": "Do not drift into travel or aspirational luxury.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Amit Patel",
+            "gender_presentation": "man",
+            "age_range": "38",
+            "city": "Chennai",
+            "profession": "Operations Lead at a mid-sized manufacturing firm who actively manages the household grocery runs.",
+            "why_they_care": "He wants to maximize savings on non-negotiable daily household expenses like milk and groceries, especially during the festive season when household consumption naturally spikes.",
+            "facial_features": "He has a broad, approachable face with a slightly rounded jawline, thick straight eyebrows, a prominent but straight nose, and warm, crinkling eyes set against medium-brown skin with visible pores and slight unevenness around the cheeks.",
+            "hairstyle_grooming": "His thick, dark hair is neatly parted to the side with a few natural flyaways, complemented by a well-trimmed, short boxed beard that shows the earliest hints of grey.",
+            "wardrobe_details": "He wears a crisp, well-ironed, short-sleeve cotton shirt in a muted festive maroon, paired with comfortable dark chinos, perfectly suited for a practical evening grocery run during the festive week without feeling overdressed.",
+            "posture_body_language": "He stands with a relaxed, grounded posture, shoulders slightly dropped in a comfortable, familiar stance, using gentle, open-handed gestures that convey practical financial sense.",
+            "expression_style": "His expression is earnest and reassuring, with his eyes widening slightly when emphasizing the cashback, projecting the quiet satisfaction of a smart family man.",
+            "speaking_energy": "He speaks with a steady, grounded energy, delivering his lines like a helpful neighbor sharing a genuinely useful everyday savings tip.",
+            "body_build": "He has an average, relatable build with a slight dad-bod, solid but not athletic, reflecting the realistic physique of a busy working parent.",
+            "speaking_style": [
+              "Reassuring and practical",
+              "Mid-pitch with a warm resonance",
+              "Conversational and value-focused"
+            ],
+            "wardrobe_props": [
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Standing near the warmly lit, festive-decorated entryway of his middle-class urban apartment, casually holding a reusable cloth bag containing fresh groceries and milk packets.",
+            "compliance_notes": [
+              "Shot on 35mm lens, medium close-up, practical warm interior lighting with soft festive background bokeh, natural skin tones, fine film grain.",
+              "Authentic, grounded everyday family-man aesthetic, absolutely no marketing-perfect gloss or aspirational luxury styling."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "[SCENE START] INT. APARTMENT ENTRYWAY - EVENING\n\nAMIT (38, practical family man, muted festive maroon short-sleeve cotton shirt, dark chinos) is already mid-action in the cleanly",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nAMIT PATEL (38, premium-minded, urban, short-sleeve cotton shirt in a muted festive maroon) is already caught mid-thought, completing a small posture reset in the environment.\nStanding near the warmly lit, festive-decorated entryway of his middle-class urban apartment The space feels premium and lived-in.\nAmit Patel has a broad, approachable face with a slightly rounded jawline, thick straight eyebrows.\nHair and grooming: His thick, dark hair is neatly parted to the side with a few natural flyaways.\nWardrobe and build: a crisp, well-ironed, short-sleeve cotton shirt in a muted festive maroon.\nMovement quality: a relaxed, grounded posture, shoulders slightly dropped in a comfortable, familiar stance.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nAMIT PATEL (Reassuring and practical, Mid-pitch"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nAMIT PATEL (38, premium-minded, urban, short-sleeve cotton shirt in a muted festive maroon) is already caught mid-thought, completing a small posture reset in the environment.\nStanding near the warmly lit, festive-decorated entryway of his middle-class urban apartment The space feels premium and lived-in.\nAmit Patel has a broad, approachable face with a slightly rounded jawline, thick straight eyebrows.\nHair and grooming: His thick, dark hair is neatly parted to the side with a few natural flyaways.\nWardrobe and build: a crisp, well-ironed, short-sleeve cotton shirt in a muted festive maroon.\nMovement quality: a relaxed, grounded posture, shoulders slightly dropped in a comfortable, familiar stance.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed confidence to decisive reassurance.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nAMIT PATEL (Reassuring and practical, Mid-pitch with a warm resonance, natural.) Get five percent cashback on your everyday groceries and milk.\nA small visible reaction lands between the thoughts without breaking eye contact.\nAMIT PATEL (CONT'D) (Reassuring and practical, Mid-pitch with a warm resonance, natural.) Kotak Cashback+ makes. Apply Now.\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    },
+    {
+      "id": "CB10",
+      "product": "kotak_cashback",
+      "durationSeconds": 8,
+      "brief": "Internal advisory style Cashback+ explainer for sales teams: who it is for, where it wins, and why everyday users care. Clean and clear.",
+      "guidelines": "Advisory tone, simple language.",
+      "script": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "script": "Kotak Cashback+ is built to make everyday spending feel simpler and more useful for practical",
+          "wordCount": 15,
+          "characterCount": 93,
+          "durationFitOk": true,
+          "durationFitMode": "character_limit",
+          "strategy": {
+            "objective": "internal",
+            "funnelStage": "internal",
+            "channel": "internal",
+            "placement": "internal",
+            "genre": "internal_update",
+            "audienceCue": "sales teams",
+            "rtbPolicy": "bypass",
+            "ctaStrength": "none",
+            "scriptStyle": "internal-update",
+            "decisionSource": "llm",
+            "rationale": "The brief explicitly states 'Internal advisory style Cashback+ explainer for sales teams' and focuses on explaining the product's benefits and target audience. This clearly indicates an internal communication objective and an internal updat",
+            "matchedSignals": [
+              "internal advisory style",
+              "Cashback+ explainer for sales teams",
+              "who it is for",
+              "where it wins",
+              "why everyday users care",
+              "genre:internal_update",
+              "funnel:internal",
+              "rtb:bypass",
+              "cta:none",
+              "style:internal-update",
+              "stabilizer:internal"
+            ]
+          },
+          "rtbMode": "bypass",
+          "rtbCoverageOk": true,
+          "rtbMissing": [],
+          "rtbExtra": []
+        }
+      },
+      "prompt": {
+        "status": "passed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "ok": true
+          }
+        ],
+        "response": {
+          "input": {
+            "product": "kotak_cashback",
+            "script": "Kotak Cashback+ is built to make everyday spending feel simpler and more useful for practical",
+            "brief": "Internal advisory style Cashback+ explainer for sales teams: who it is for, where it wins, and why everyday users care. Clean and clear.",
+            "guidelines": "Advisory tone, simple language.",
+            "videoType": "point_to_camera",
+            "durationSeconds": 8,
+            "aspectRatio": "9:16"
+          },
+          "step1_backstory": {
+            "persona_name": "Siddharth Joshi",
+            "gender_presentation": "man",
+            "age_range": "38",
+            "city": "Bengaluru",
+            "profession": "Financial Controller at a mid-sized regional retail chain.",
+            "why_they_care": "He values straightforward math over confusing reward points, appreciating direct cashback that genuinely offsets the cost of daily household and utility expenses.",
+            "facial_features": "Broad forehead, slightly asymmetrical eyebrows, a prominent straight nose, thin lips, a soft but defined jawline, and warm, textured skin with faint laugh lines around the eyes and visible pores.",
+            "hairstyle_grooming": "Neatly parted dark hair with a few early silver strands at the temples, paired with a meticulously trimmed, short boxed beard that feels lived-in but well-maintained.",
+            "wardrobe_details": "Crisp, well-ironed light blue Oxford cotton shirt with sleeves rolled up to the forearms, paired with wrinkle-free flat-front navy trousers, projecting an approachable yet authoritative advisory presence.",
+            "posture_body_language": "Stands squarely with relaxed shoulders, using open, measured hand gestures that convey transparency and simple, undeniable logic.",
+            "expression_style": "Maintains steady, reassuring eye contact, with a calm, understated smile that naturally appears when breaking down a straightforward benefit.",
+            "speaking_energy": "Measured, articulate, and grounded, carrying the lines with the quiet confidence of someone who understands the practical value of money and wants to help others see it.",
+            "body_build": "Average height with a solid, everyday build, carrying a slight softness around the midsection typical of a desk-bound professional.",
+            "speaking_style": [
+              "Measured and articulate",
+              "Mid-range, reassuring pitch",
+              "Clear, advisory tone"
+            ],
+            "wardrobe_props": [
+              "Crisp, well-ironed light blue Oxford cotton shirt",
+              "Well-ironed, wrinkle-free, clean attire aligned to persona and setting."
+            ],
+            "setting": "Standing in a bright, modern glass-paneled meeting room overlooking a bustling open-plan office, leaning slightly against a clean wooden credenza with a few neatly stacked training folders nearby.",
+            "compliance_notes": [
+              "Shot on 50mm lens, medium close-up, natural window light mixed with soft practical office lighting, Kodak Vision3 500T film stock with fine grain and subtle depth of field.",
+              "Grounded, non-generic human presence with visible skin texture, absolutely no glossy marketing perfection or artificial studio rim lighting."
+            ]
+          },
+          "step2_promptWriter": {
+            "model": "gemini-3-pro-preview",
+            "fallbackModel": "gemini-2.5-pro",
+            "reasoningEffort": "high",
+            "sourceUsed": "gemini_prompt_writer",
+            "fallbackReason": null,
+            "attempts": [
+              {
+                "model": "gemini-3-pro-preview",
+                "rawSample": "Check against constraints:\n    - 9:16 aspect ratio? Yes, noted in camera.\n    - 8 seconds? Yes, short action and one line.\n    - No screens, text, cards? Checked",
+                "normalizedSample": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nSIDDHARTH JOSHI (38, premium-minded, urban, blue Oxford cotton shirt with sleeves rolled up) is already caught mid-thought, completing a small posture reset in the environment.\nStanding in a bright, modern glass-paneled meeting room overlooking a bustling open-plan office The space feels premium and lived-in.\nSiddharth Joshi has Broad forehead, slightly asymmetrical eyebrows, a prominent straight nose, thin lips.\nHair and grooming: Neatly parted dark hair.\nWardrobe and build: Crisp, well-ironed light blue Oxford cotton shirt with sleeves rolled up to the forearms.\nMovement quality: Stands squarely with relaxed shoulders, using open, measured hand gestures that convey.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed attention to warm confidence.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSIDDHARTH JOSHI (Measured and articulate, Mid-range, reassuring pitch, natural Indian"
+              }
+            ]
+          },
+          "step3_finalSoraPrompt": "[SCENE START] INT. PREMIUM TRAVEL-DAY SETTING - DAY\nSIDDHARTH JOSHI (38, premium-minded, urban, blue Oxford cotton shirt with sleeves rolled up) is already caught mid-thought, completing a small posture reset in the environment.\nStanding in a bright, modern glass-paneled meeting room overlooking a bustling open-plan office The space feels premium and lived-in.\nSiddharth Joshi has Broad forehead, slightly asymmetrical eyebrows, a prominent straight nose, thin lips.\nHair and grooming: Neatly parted dark hair.\nWardrobe and build: Crisp, well-ironed light blue Oxford cotton shirt with sleeves rolled up to the forearms.\nMovement quality: Stands squarely with relaxed shoulders, using open, measured hand gestures that convey.\nThey notice the camera, land into direct eye contact, and let a small confident expression rise before speaking.\nExpression stays warm and responsive and progresses from composed attention to warm confidence.\nSingle continuous 9:16 shot with stable framing or very slight naturalistic drift, no cuts.\nLighting stays white-balanced with no yellow cast and a premium iPhone-shot realism.\nSIDDHARTH JOSHI (Measured and articulate, Mid-range, reassuring pitch, natural Indian.) Kotak Cashback+ is built to make everyday spending feel simpler and more useful for practical\nSpoken delivery is natural Indian English with a clear Indian accent suited to the persona and city context, not American, British, or neutralized global-ad delivery unless explicitly requested.\nDo not include text, subtitles, captions, logos, readable signs, phones, laptops, tablets, monitors, or background music unless explicitly allowed.\nThey finish with steady eye contact, a small settled hold, and a clean ending in the same shot.\n[SCENE END]"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# Air Plus Backstories (20 Runs)
+Date: March 22, 2026
+Source route: `/api/debug/video-prompt`
+Brief used: `Need an 8s Meta reel for Kotak Air Plus. Affluent metro traveller, premium trip-day vibe. Focus on earning more on travel via Unbox. Should feel polished and direct, not office-like.`
+Script used: `Earn more from travel with Kotak Air Plus, with five percent rewards via Unbox bookings. Apply Now.`
+## Distribution
+- men: 12
+- women: 8
+
+## Runs
+| Run | Name | Gender | City | Profession | Setting | Source |
+|---|---|---|---|---|---|---|
+| 1 | Kabir Desai | man | Mumbai | Managing Partner at a boutique architecture firm specializing in luxury coastal properties, constantly flying for site visits. | Business hotel lobby with checkout-ready luggage and polished metro styling | gemini_prompt_writer |
+| 2 | Siddharth Menon | man | Mumbai | Founder of a bespoke estate-to-cup coffee export business, frequently traveling to international expos and premium estate retreats. | A sleek, sun-dappled courtyard café at an Aerocity luxury transit hotel, with a sleek aluminum cabin trolley resting unobtrusively by a minimalist concrete planter in the soft-focus background. | gemini_prompt_writer |
+| 3 | Rohan Nambiar | man | Ahmedabad | Founder of a high-end acoustic design firm, frequently traveling to international audio expos and premium residential projects. | Concierge alcove beside luggage carts in a refined boutique hotel lobby | gemini_prompt_writer |
+| 4 | Tarun Raghavan | man | Mumbai | Partner at a boutique venture capital firm focusing on clean-tech startups, managing cross-border investments and frequent site visits. | Airline lounge reception threshold with a travel-ready pause before boarding | gemini_prompt_writer |
+| 5 | Vikram Sethi | man | Bengaluru | Managing Director of a premium horology import network, frequently flying to Swiss watch fairs and regional luxury boutiques. | Boutique resort lobby with relaxed getaway mood and premium travel cues | gemini_prompt_writer |
+| 6 | Nandita Krishnan | man | Chennai | Creative Director for a high-end sustainable fashion label, frequently traveling to textile hubs and international fashion weeks. | A sunlit, breezy waterfront promenade of a luxury coastal retreat, featuring the soft blur of a private marina and a sleek leather weekender bag resting quietly on the polished stone pathway. | gemini_prompt_writer |
+| 7 | Devika Chhabra | woman | Ahmedabad | Founder of a premium botanical wellness brand, frequently traveling to international wellness summits and organic farm estates. | A tranquil, sunlit open-air observation deck of a luxury hillside wellness retreat, featuring panoramic mountain views in the soft-focus background and a sleek polycarbonate cabin bag resting beside a minimalist wooden bench. | gemini_prompt_writer |
+| 8 | Rhea Chatterjee | woman | Ahmedabad | Founder of a boutique art advisory firm, frequently flying to international art fairs and private gallery previews. | A sun-dappled, arched veranda of a luxury heritage palace hotel, featuring intricate sandstone pillars in the soft-focus background and a sleek leather weekender bag resting quietly on a mosaic-tiled bench. | gemini_prompt_writer |
+| 9 | Ishita Sen | woman | Bengaluru | Founder of an artisanal fragrance house, frequently traveling to international scent symposiums and rare ingredient sourcing locales. | Travel-day hotel lobby near checkout with packed luggage context | gemini_prompt_writer |
+| 10 | Meera Kapoor | woman | Gurugram | Global Head of Partnerships for a luxury hospitality tech platform, constantly evaluating premium properties and cross-border travel integrations. | Premium cafe inside a hotel district with travel-ready styling | gemini_prompt_writer |
+| 11 | Priya Deshmukh | woman | Pune | Director of a high-end culinary consulting firm specializing in luxury resort menus, constantly flying for tastings and property launches. | Hillside retreat lounge with panoramic windows and quiet getaway travel calm | gemini_prompt_writer |
+| 12 | Varun Rao | man | Mumbai | Principal Architect of a luxury residential design studio, frequently flying for site visits and sourcing premium materials. | Private lounge check-in foyer with polished luggage, warm brass details, and calm travel energy | gemini_prompt_writer |
+| 13 | Neha Verma | woman | Chandigarh | Chief Curator for a bespoke luxury travel and experiences agency, constantly scouting exclusive global itineraries. | Premium hotel concierge zone with departure preparation context | gemini_prompt_writer |
+| 14 | Siddharth Gupta | man | Bengaluru | Founder of a high-end acoustic engineering consultancy, frequently traveling for premium auditorium and private theater installations. | Travel-day hotel lobby near checkout with packed luggage context | gemini_prompt_writer |
+| 15 | Rohan Mathur | man | Delhi NCR | Partner at a specialized venture capital firm focusing on clean energy startups, frequently flying for site visits and investor summits. | Transit hub interior walkway with realistic departure energy | deterministic_fallback |
+| 16 | Kabir Desai | man | Hyderabad | Managing Director of a bespoke marine and yacht chartering service, frequently traveling to coastal hubs for client handovers. | Premium transit gallery with glass, stone, and warm ambient departure lighting | gemini_prompt_writer |
+| 17 | Arjun Menon | man | Chandigarh | Director of an international sports management agency, frequently flying for tournament logistics and athlete endorsements. | Travel-day hotel lobby near checkout with packed luggage context | gemini_prompt_writer |
+| 18 | Vikram Prasad | man | Ahmedabad | Founder of an elite coffee estate and specialty roastery, frequently traveling to international barista championships and boutique cafe partnerships. | Lounge-adjacent seating corner with natural travel-day downtime | gemini_prompt_writer |
+| 19 | Ananya Krishnan | woman | Mumbai | Creative Director of a boutique heritage textile brand, frequently traveling to international fashion weeks and artisan clusters. | Sea-facing resort reception lounge with warm daylight and departure-ready luggage | gemini_prompt_writer |
+| 20 | Tara Sen | woman | Kolkata | Founder of an international contemporary art advisory, frequently flying to global biennales and private gallery viewings. | Business hotel lobby with checkout-ready luggage and polished metro styling | gemini_prompt_writer |

@@ -1,0 +1,11 @@
+flowchart TD
+    A["Input<br/>Product, brief, duration, guidelines"] --> B["Script Generation"]
+    B --> C["Backstory Generation"]
+    C --> D["Scene Prompt Generation"]
+    D --> E["Video Generation"]
+    E --> F["Automated Quality Check"]
+    F --> G{"Passes quality checks?"}
+    G -- "Yes" --> H["Finalize Video"]
+    H --> I["Final Link"]
+    G -- "No" --> J["Repair or Regenerate"]
+    J --> D

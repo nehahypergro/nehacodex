@@ -1,0 +1,2812 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PTC Veo 3 Prompt Studio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg-1: #0f172a;
+      --bg-2: #1e293b;
+      --bg-3: #334155;
+      --panel: rgba(248, 250, 252, 0.9);
+      --text: #0f172a;
+      --muted: #334155;
+      --accent: #ea580c;
+      --accent-2: #0284c7;
+      --line: rgba(15, 23, 42, 0.12);
+      --ok: #166534;
+      --warn: #b45309;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Sora', 'Avenir Next', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(234, 88, 12, 0.35), transparent 35%),
+        radial-gradient(circle at 85% 90%, rgba(2, 132, 199, 0.35), transparent 40%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(420px, 1fr) minmax(420px, 1fr);
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 24px 60px rgba(2, 6, 23, 0.25);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 16px 18px;
+      background: linear-gradient(90deg, rgba(234, 88, 12, 0.12), rgba(2, 132, 199, 0.12));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-header h1,
+    .panel-header h2 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .panel-body {
+      padding: 16px 18px 18px;
+    }
+
+    .subtext {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    textarea {
+      min-height: 84px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid rgba(2, 132, 199, 0.35);
+      border-color: rgba(2, 132, 199, 0.55);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'IBM Plex Mono', Menlo, Consolas, monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .status {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(22, 101, 52, 0.12);
+      color: var(--ok);
+      border: 1px solid rgba(22, 101, 52, 0.2);
+    }
+
+    .status.warn {
+      background: rgba(180, 83, 9, 0.12);
+      color: var(--warn);
+      border-color: rgba(180, 83, 9, 0.2);
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .series-progress {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .series-progress[hidden] {
+      display: none;
+    }
+
+    .series-progress-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .series-progress-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.14);
+      overflow: hidden;
+    }
+
+    .series-progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 420ms ease;
+    }
+
+    .series-progress.is-error .series-progress-fill {
+      background: linear-gradient(90deg, #dc2626, #f97316);
+    }
+
+    .series-progress.is-done .series-progress-fill {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+    }
+
+    .history-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .history-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 0;
+    }
+
+    .history-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .history-list {
+      display: grid;
+      gap: 10px;
+      max-height: calc(100vh - 180px);
+      overflow: auto;
+      padding-right: 2px;
+    }
+
+    .history-item {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: 12px;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .history-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .history-title {
+      margin: 0;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .history-chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid rgba(15, 23, 42, 0.14);
+      background: rgba(15, 23, 42, 0.07);
+      color: #1f2937;
+      white-space: nowrap;
+    }
+
+    .history-chip.done {
+      color: var(--ok);
+      background: rgba(22, 101, 52, 0.12);
+      border-color: rgba(22, 101, 52, 0.2);
+    }
+
+    .history-chip.failed {
+      color: #b91c1c;
+      background: rgba(220, 38, 38, 0.11);
+      border-color: rgba(185, 28, 28, 0.22);
+    }
+
+    .history-chip.running {
+      color: #0c4a6e;
+      background: rgba(2, 132, 199, 0.13);
+      border-color: rgba(2, 132, 199, 0.22);
+    }
+
+    .history-meta-line {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .history-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .history-actions button,
+    .history-actions a {
+      border-radius: 8px;
+      padding: 6px 8px;
+      border: 1px solid var(--line);
+      background: white;
+      color: #0f172a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), #f97316);
+      color: white;
+      box-shadow: 0 12px 24px rgba(234, 88, 12, 0.25);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .output {
+      display: grid;
+      gap: 12px;
+    }
+
+    .output-section {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      animation: rise 260ms ease;
+    }
+
+    .output-section h3 {
+      margin: 0 0 6px;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #1e293b;
+    }
+
+    .output-section p,
+    .output-section pre {
+      margin: 0;
+      color: #0f172a;
+      line-height: 1.45;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    pre {
+      font-family: 'IBM Plex Mono', Menlo, Consolas, monospace;
+      background: rgba(248, 250, 252, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .video-wrap {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      background: #020617;
+    }
+
+    .image-wrap {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #cbd5e1;
+    }
+
+    details.prompt-details {
+      border-top: 1px dashed var(--line);
+      margin-top: 8px;
+      padding-top: 8px;
+    }
+
+    details.prompt-details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #1e293b;
+      user-select: none;
+    }
+
+    .detail-block {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .detail-block h4 {
+      margin: 0 0 6px;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #334155;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .container {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .history-panel {
+        grid-column: 1 / -1;
+      }
+
+      .history-list {
+        max-height: 320px;
+      }
+    }
+
+    @media (max-width: 980px) {
+      body {
+        padding: 14px;
+      }
+
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .history-panel {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="panel history-panel">
+      <header class="panel-header">
+        <h2>Series History</h2>
+        <p class="subtext">Previous runs are stored locally on this browser.</p>
+      </header>
+      <div class="panel-body history-body">
+        <div class="history-controls">
+          <button class="btn-secondary" type="button" id="refreshHistoryButton">Refresh</button>
+          <button class="btn-secondary" type="button" id="clearHistoryButton">Clear History</button>
+        </div>
+        <div class="history-list" id="historyList">
+          <div class="output-section">
+            <p>No series jobs yet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <header class="panel-header">
+        <h1>MFD Shaala Series Studio</h1>
+        <p class="subtext">Paste the script and optional constraints. Duration is auto-estimated from script length (60-90s).</p>
+      </header>
+      <div class="panel-body">
+        <form id="prompt-form">
+          <input id="brandProduct" type="hidden" value="MFD Shaala" />
+          <textarea id="brandGuidelines" hidden></textarea>
+          <textarea id="targetAudience" hidden></textarea>
+          <select id="funnelStage" hidden>
+            <option value="BoFu" selected>BoFu</option>
+          </select>
+          <select id="aspectRatio" hidden>
+            <option value="9:16" selected>9:16</option>
+          </select>
+
+          <label>
+            Locked Script (15-220 words)
+            <textarea id="lockedScript" placeholder="Exact spoken line. Keep this unchanged in generation." required></textarea>
+            <div class="meta">
+              <span id="wordCount">0 words</span>
+              <span class="status warn" id="wordStatus">Needs 15-220 words</span>
+            </div>
+          </label>
+
+          <label>
+            Specific Inputs To Follow (optional)
+            <textarea id="seriesSpecificInputs" placeholder="Example: Keep tone simple Hindi-English mix, use SIP and inflation examples, avoid jargon, emphasize retirement goal planning."></textarea>
+          </label>
+
+          <label>
+            Insert Infographics
+            <select id="includeInfographics">
+              <option value="true" selected>Yes (Only when concept needs explanation)</option>
+              <option value="false">No (Host-only clips)</option>
+            </select>
+          </label>
+
+          <div class="actions">
+            <button class="btn-primary" type="button" id="generateSeriesButton">Generate</button>
+            <button class="btn-secondary" type="button" id="downloadButton">Download Video</button>
+            <button class="btn-secondary" type="button" id="resetButton">Reset</button>
+          </div>
+
+          <div class="series-progress" id="seriesProgress" hidden>
+            <div class="series-progress-meta">
+              <span id="seriesProgressLabel">Preparing generation...</span>
+              <span id="seriesProgressPercent">0%</span>
+            </div>
+            <div class="series-progress-track">
+              <div class="series-progress-fill" id="seriesProgressFill"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="panel">
+      <header class="panel-header">
+        <h2>Series Output</h2>
+        <p class="subtext">Generates stitched 60-90s output from 8-second clips with relevant infographic inserts.</p>
+      </header>
+      <div class="panel-body output" id="output">
+        <div class="output-section">
+          <h3>Ready</h3>
+          <p>Fill the form and click <strong>Generate</strong>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('prompt-form');
+    const output = document.getElementById('output');
+    const scriptInput = document.getElementById('lockedScript');
+    const wordCountLabel = document.getElementById('wordCount');
+    const wordStatusLabel = document.getElementById('wordStatus');
+    const seriesSpecificInputs = document.getElementById('seriesSpecificInputs');
+    const includeInfographicsSelect = document.getElementById('includeInfographics');
+    const generateCharacterButton = document.getElementById('generateCharacterButton');
+    const approveCharacterButton = document.getElementById('approveCharacterButton');
+    const generateVideoButton = document.getElementById('generateVideoButton');
+    const generateSeriesButton = document.getElementById('generateSeriesButton');
+    const downloadButton = document.getElementById('downloadButton');
+    const resetButton = document.getElementById('resetButton');
+    const historyList = document.getElementById('historyList');
+    const clearHistoryButton = document.getElementById('clearHistoryButton');
+    const refreshHistoryButton = document.getElementById('refreshHistoryButton');
+    const seriesProgress = document.getElementById('seriesProgress');
+    const seriesProgressLabel = document.getElementById('seriesProgressLabel');
+    const seriesProgressPercent = document.getElementById('seriesProgressPercent');
+    const seriesProgressFill = document.getElementById('seriesProgressFill');
+
+    let latestPrompt = '';
+    let latestVideoUrl = '';
+    let latestVideoObjectUrl = '';
+    let latestSeriesVideoUrl = '';
+    let latestSeriesVideoObjectUrl = '';
+    let latestSeriesPlanUrl = '';
+    let latestCharacterImageUrl = '';
+    let latestCharacterImageObjectUrl = '';
+    let latestCharacterImagePromptUsed = '';
+    let latestCharacterImageBase64 = '';
+    let latestCharacterImageMimeType = '';
+    let latestGenerated = null;
+    let characterApproved = false;
+    const SIMPLE_SERIES_MODE = true;
+    const SERIES_HISTORY_STORAGE_KEY = 'mfd-shaala-series-history-v1';
+    const SERIES_HISTORY_LIMIT = 40;
+    let seriesHistory = [];
+    let seriesProgressTimer = null;
+    let seriesProgressValue = 0;
+
+    function countWords(text) {
+      return text
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean).length;
+    }
+
+    function estimateSeriesDurationSeconds(scriptText, includeInfographics) {
+      const words = Math.max(1, countWords(scriptText || ''));
+      const hostClips = Math.max(1, Math.ceil(words / 18));
+      const infographicClips = includeInfographics
+        ? Math.min(Math.max(hostClips - 1, 0), Math.floor(hostClips / 3))
+        : 0;
+      const totalClips = hostClips + infographicClips;
+      const estimated = totalClips * 8;
+      return Math.max(60, Math.min(90, estimated));
+    }
+
+    function updateWordStatus() {
+      const words = countWords(scriptInput.value);
+      wordCountLabel.textContent = `${words} word${words === 1 ? '' : 's'}`;
+      const valid = words >= 15 && words <= 220;
+      wordStatusLabel.textContent = valid ? 'Script length valid' : 'Needs 15-220 words';
+      wordStatusLabel.classList.toggle('warn', !valid);
+      return valid;
+    }
+
+    function setImageGeneratingState(active) {
+      if (!generateCharacterButton) {
+        return;
+      }
+      generateCharacterButton.disabled = active;
+      generateCharacterButton.textContent = active ? 'Generating Image...' : '1) Generate Character Image';
+    }
+
+    function setVideoGeneratingState(active) {
+      if (!generateVideoButton) {
+        return;
+      }
+      generateVideoButton.disabled = active || !characterApproved;
+      generateVideoButton.textContent = active ? 'Generating Video...' : '3) Generate Video';
+    }
+
+    function setSeriesGeneratingState(active) {
+      if (!generateSeriesButton) {
+        return;
+      }
+      generateSeriesButton.disabled = active;
+      generateSeriesButton.textContent = active ? 'Generating...' : 'Generate';
+    }
+
+    function updateWorkflowButtons() {
+      if (approveCharacterButton) {
+        approveCharacterButton.disabled = true;
+      }
+      if (generateVideoButton) {
+        generateVideoButton.disabled = true;
+      }
+      if (generateSeriesButton) {
+        generateSeriesButton.disabled = false;
+      }
+      setVideoGeneratingState(false);
+      setSeriesGeneratingState(false);
+    }
+
+    function clipText(text, maxLength = 120) {
+      const normalized = `${text || ''}`.replace(/\s+/g, ' ').trim();
+      if (!normalized) {
+        return '';
+      }
+      if (normalized.length <= maxLength) {
+        return normalized;
+      }
+      return `${normalized.slice(0, maxLength - 1)}...`;
+    }
+
+    function formatHistoryTimestamp(value) {
+      const parsed = value ? new Date(value) : new Date();
+      if (Number.isNaN(parsed.getTime())) {
+        return '';
+      }
+      return parsed.toLocaleString([], {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    function loadSeriesHistoryFromStorage() {
+      try {
+        const raw = localStorage.getItem(SERIES_HISTORY_STORAGE_KEY);
+        if (!raw) {
+          return [];
+        }
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) {
+          return [];
+        }
+        return parsed.filter((item) => item && typeof item === 'object');
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function persistSeriesHistory() {
+      try {
+        localStorage.setItem(SERIES_HISTORY_STORAGE_KEY, JSON.stringify(seriesHistory.slice(0, SERIES_HISTORY_LIMIT)));
+      } catch (error) {
+        // no-op if local storage is unavailable
+      }
+    }
+
+    function jobStatusLabel(status) {
+      if (status === 'completed') {
+        return 'Completed';
+      }
+      if (status === 'failed') {
+        return 'Failed';
+      }
+      return 'Running';
+    }
+
+    function buildHistoryActionButton(label, action, id) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.action = action;
+      button.dataset.id = id;
+      button.textContent = label;
+      return button;
+    }
+
+    function renderSeriesHistory() {
+      if (!historyList) {
+        return;
+      }
+
+      historyList.innerHTML = '';
+      if (!Array.isArray(seriesHistory) || seriesHistory.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'output-section';
+        const paragraph = document.createElement('p');
+        paragraph.textContent = 'No series jobs yet.';
+        empty.appendChild(paragraph);
+        historyList.appendChild(empty);
+        return;
+      }
+
+      seriesHistory.forEach((item) => {
+        const card = document.createElement('div');
+        card.className = 'history-item';
+
+        const head = document.createElement('div');
+        head.className = 'history-item-head';
+        const title = document.createElement('p');
+        title.className = 'history-title';
+        title.textContent = clipText(item.title || 'MFD Shaala', 52);
+        const statusChip = document.createElement('span');
+        statusChip.className = `history-chip ${item.status === 'completed' ? 'done' : item.status === 'failed' ? 'failed' : 'running'}`;
+        statusChip.textContent = jobStatusLabel(item.status);
+        head.appendChild(title);
+        head.appendChild(statusChip);
+        card.appendChild(head);
+
+        const when = document.createElement('p');
+        when.className = 'history-meta-line';
+        when.textContent = formatHistoryTimestamp(item.createdAt);
+        card.appendChild(when);
+
+        if (item.scriptPreview) {
+          const script = document.createElement('p');
+          script.className = 'history-meta-line';
+          script.textContent = clipText(item.scriptPreview, 100);
+          card.appendChild(script);
+        }
+
+        const stats = document.createElement('p');
+        stats.className = 'history-meta-line';
+        const durationLabel = item.targetDurationSeconds ? `${item.targetDurationSeconds}s` : '';
+        const clipLabel = item.clipCount ? `${item.clipCount} clips` : '';
+        const hostLabel = item.hostAngleCount ? `${item.hostAngleCount} angles` : '';
+        const bits = [durationLabel, clipLabel, hostLabel].filter(Boolean);
+        stats.textContent = bits.join(' • ');
+        if (bits.length > 0) {
+          card.appendChild(stats);
+        }
+
+        if (item.status === 'failed' && item.error) {
+          const error = document.createElement('p');
+          error.className = 'history-meta-line';
+          error.textContent = `Error: ${clipText(item.error, 150)}`;
+          card.appendChild(error);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'history-actions';
+        actions.appendChild(buildHistoryActionButton('Load', 'load', item.id));
+        actions.appendChild(buildHistoryActionButton('Delete', 'delete', item.id));
+
+        if (item.finalVideoUrl) {
+          const openVideo = document.createElement('a');
+          openVideo.href = item.finalVideoUrl;
+          openVideo.target = '_blank';
+          openVideo.rel = 'noopener';
+          openVideo.textContent = 'Video';
+          actions.appendChild(openVideo);
+        }
+
+        if (item.planUrl) {
+          const openPlan = document.createElement('a');
+          openPlan.href = item.planUrl;
+          openPlan.target = '_blank';
+          openPlan.rel = 'noopener';
+          openPlan.textContent = 'Plan';
+          actions.appendChild(openPlan);
+        }
+
+        card.appendChild(actions);
+        historyList.appendChild(card);
+      });
+    }
+
+    function addSeriesHistoryEntry(entry) {
+      const id = `${Date.now()}-${Math.random().toString(16).slice(2, 10)}`;
+      const next = {
+        id,
+        status: 'running',
+        createdAt: new Date().toISOString(),
+        title: entry.title || 'MFD Shaala',
+        scriptPreview: clipText(entry.scriptPreview || '', 160),
+        targetDurationSeconds: entry.targetDurationSeconds || 72,
+        includeInfographics: entry.includeInfographics !== false
+      };
+      seriesHistory = [next, ...seriesHistory].slice(0, SERIES_HISTORY_LIMIT);
+      persistSeriesHistory();
+      renderSeriesHistory();
+      return id;
+    }
+
+    function updateSeriesHistoryEntry(id, patch) {
+      if (!id) {
+        return;
+      }
+      seriesHistory = seriesHistory.map((item) => {
+        if (item.id !== id) {
+          return item;
+        }
+        return { ...item, ...patch };
+      });
+      persistSeriesHistory();
+      renderSeriesHistory();
+    }
+
+    function removeSeriesHistoryEntry(id) {
+      seriesHistory = seriesHistory.filter((item) => item.id !== id);
+      persistSeriesHistory();
+      renderSeriesHistory();
+    }
+
+    function clearSeriesProgressTicker() {
+      if (seriesProgressTimer) {
+        clearInterval(seriesProgressTimer);
+        seriesProgressTimer = null;
+      }
+    }
+
+    function setSeriesProgress(value, label, mode = 'running') {
+      if (!seriesProgress || !seriesProgressFill || !seriesProgressPercent || !seriesProgressLabel) {
+        return;
+      }
+      const clamped = Math.max(0, Math.min(100, Number(value) || 0));
+      seriesProgressValue = clamped;
+      seriesProgress.hidden = false;
+      seriesProgress.classList.toggle('is-error', mode === 'error');
+      seriesProgress.classList.toggle('is-done', mode === 'done');
+      seriesProgressFill.style.width = `${clamped}%`;
+      seriesProgressPercent.textContent = `${Math.round(clamped)}%`;
+      if (label) {
+        seriesProgressLabel.textContent = label;
+      }
+    }
+
+    function progressLabelFor(value, totalClips) {
+      if (value < 14) {
+        return 'Validating script and planning clip flow...';
+      }
+      if (value < 30) {
+        return 'Preparing host angles and prompt constraints...';
+      }
+      if (value < 90) {
+        const phase = (value - 30) / 60;
+        const clipNumber = Math.min(totalClips, Math.max(1, Math.floor(phase * totalClips) + 1));
+        return `Generating clip ${clipNumber}/${totalClips}...`;
+      }
+      return 'Stitching clips and finalizing output...';
+    }
+
+    function startSeriesProgress(totalClips) {
+      clearSeriesProgressTicker();
+      const safeClipCount = Math.max(1, Number(totalClips) || 1);
+      const estimatedSeconds = Math.max(95, safeClipCount * 22);
+      const startTime = Date.now();
+      setSeriesProgress(3, 'Queued request...', 'running');
+      seriesProgressTimer = setInterval(() => {
+        const elapsedSeconds = (Date.now() - startTime) / 1000;
+        const projected = 3 + (elapsedSeconds / estimatedSeconds) * 91;
+        const nextValue = Math.min(94, Math.max(seriesProgressValue + 0.4, projected));
+        setSeriesProgress(nextValue, progressLabelFor(nextValue, safeClipCount), 'running');
+      }, 1200);
+    }
+
+    function completeSeriesProgress(success, message) {
+      clearSeriesProgressTicker();
+      if (success) {
+        setSeriesProgress(100, message || 'Series completed.', 'done');
+      } else {
+        const frozen = Math.max(seriesProgressValue, 8);
+        setSeriesProgress(frozen, message || 'Series failed.', 'error');
+      }
+    }
+
+    function resetSeriesProgress() {
+      clearSeriesProgressTicker();
+      seriesProgressValue = 0;
+      if (!seriesProgress || !seriesProgressFill || !seriesProgressPercent || !seriesProgressLabel) {
+        return;
+      }
+      seriesProgress.classList.remove('is-error', 'is-done');
+      seriesProgressFill.style.width = '0%';
+      seriesProgressPercent.textContent = '0%';
+      seriesProgressLabel.textContent = 'Preparing generation...';
+      seriesProgress.hidden = true;
+    }
+
+    function stageEnergy(stage) {
+      if (stage === 'ToFu') {
+        return {
+          mood: 'discovery-driven and relatable',
+          objective: 'broad lifestyle realization that this pain is solvable',
+          cadence: 'lightly curious, conversational pace',
+          actionAngle: 'small "aha" moment',
+          urgencyLevel: 'low'
+        };
+      }
+      if (stage === 'MoFu') {
+        return {
+          mood: 'problem-aware and comparative',
+          objective: 'confidence-building through practical proof',
+          cadence: 'clear, informed pace with grounded confidence',
+          actionAngle: 'hands-on demonstration cue',
+          urgencyLevel: 'medium'
+        };
+      }
+      return {
+        mood: 'high-intent and decisive',
+        objective: 'immediate transactional satisfaction and clarity',
+        cadence: 'brisk and certainty-led',
+        actionAngle: 'direct conversion cue',
+        urgencyLevel: 'high'
+      };
+    }
+
+    function inferVoice(vibe, stage) {
+      const lower = vibe.toLowerCase();
+      const stageMap = stageEnergy(stage);
+
+      let gender = 'gender-neutral';
+      let texture = 'clear with natural breath';
+      let tone = 'confident but human';
+
+      if (lower.includes('gen-z') || lower.includes('playful') || lower.includes('chaotic')) {
+        tone = 'energetic, witty, socially fluent';
+        texture = 'slightly raspy-lively with quick inflections';
+      }
+
+      if (lower.includes('b2b') || lower.includes('authoritative') || lower.includes('minimalist')) {
+        tone = 'authoritative, calm, and approachable';
+        texture = 'clean and grounded with minimal affectation';
+      }
+
+      if (lower.includes('luxury') || lower.includes('premium')) {
+        tone = 'composed, warm, premium';
+        texture = 'smooth with measured emphasis';
+      }
+
+      return `${gender} voice, ${tone}, ${stageMap.cadence}, vocal texture: ${texture}`;
+    }
+
+    function inferWardrobe(vibe, audience) {
+      const lower = `${vibe} ${audience}`.toLowerCase();
+      if (lower.includes('b2b') || lower.includes('executive') || lower.includes('saas')) {
+        return 'smart-casual layers: textured overshirt or blazer over a solid crew neck, neutral palette, natural fabric creases';
+      }
+      if (lower.includes('gen-z') || lower.includes('creator') || lower.includes('street')) {
+        return 'trend-forward casual: relaxed-fit tee/jacket combo, tonal accessories, real fabric folds and slight wear';
+      }
+      if (lower.includes('fitness') || lower.includes('wellness')) {
+        return 'athleisure-smart: breathable performance top with subtle layering, lived-in seams and realistic stretch creases';
+      }
+      return 'contemporary everyday style aligned to brand palette, tactile fabrics, organic folds, no overly perfect styling';
+    }
+
+    function inferEnvironment(vibe, audience) {
+      const lower = `${vibe} ${audience}`.toLowerCase();
+      if (lower.includes('b2b') || lower.includes('saas') || lower.includes('operations')) {
+        return {
+          place: 'lived-in startup office corner with glass board notes, printed docs, and practical desk clutter',
+          secondary: 'a colleague passing behind frosted glass with soft motion blur',
+          ambient: 'quiet HVAC hum, distant keyboard taps, faint hallway footsteps'
+        };
+      }
+      if (lower.includes('gen-z') || lower.includes('creator') || lower.includes('d2c')) {
+        return {
+          place: 'creator apartment studio with mood lighting, open gear shelf, textured wall art, and a tidy prep table',
+          secondary: 'roommate crossing frame in soft bokeh carrying a drink',
+          ambient: 'subtle room tone, far-off city traffic, light fabric movement'
+        };
+      }
+      if (lower.includes('family') || lower.includes('parent')) {
+        return {
+          place: 'warm kitchen-living space with genuine daily-use objects and soft window light',
+          secondary: 'child drawing quietly at a table in the background blur',
+          ambient: 'distant dish clink, refrigerator hum, light floor creaks'
+        };
+      }
+      return {
+        place: 'authentic real-world set matching the brand category, with lived-in props and non-staged spatial depth',
+        secondary: 'one softly blurred background action adding human presence without stealing focus',
+        ambient: 'natural interior room tone and context-true low-level sounds'
+      };
+    }
+
+    function inferMicroAction(stage, vibe) {
+      const lower = vibe.toLowerCase();
+      if (stage === 'BoFu') {
+        return 'second 0-1.5: straightens a paper checklist, then locks direct eye contact';
+      }
+      if (stage === 'MoFu') {
+        return 'second 0-1.5: underlines one line on a printed note, nods once, then turns to camera';
+      }
+      if (lower.includes('gen-z') || lower.includes('creator')) {
+        return 'second 0-1.5: adjusts headphone cup and half-smiles before leaning toward camera';
+      }
+      return 'second 0-1.5: lifts coffee cup, sets it down naturally, then meets lens with intent';
+    }
+
+    function hashString(text) {
+      let hash = 0;
+      for (let i = 0; i < text.length; i += 1) {
+        hash = ((hash << 5) - hash) + text.charCodeAt(i);
+        hash |= 0;
+      }
+      return Math.abs(hash);
+    }
+
+    function pickFromList(list, seed) {
+      return list[seed % list.length];
+    }
+
+    function cleanInlineValue(value) {
+      return `${value || ''}`
+        .split(/[.;\n]/)[0]
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function personaSignalLower(inputs) {
+      return `${inputs.targetAudience} ${inputs.brandGuidelines} ${inputs.lockedScript} ${inputs.brandProduct}`.toLowerCase();
+    }
+
+    function estimateNameFromSignals(inputs) {
+      const seed = hashString(`${inputs.targetAudience}|${inputs.brandGuidelines}|${inputs.lockedScript}|${inputs.brandProduct}`);
+      return `Lead Character ${100 + (seed % 900)}`;
+    }
+
+    function extractNameFromInputs(inputs) {
+      const source = `${inputs.brandGuidelines}\n${inputs.targetAudience}\n${inputs.lockedScript}\n${inputs.brandProduct}`;
+      const match = source.match(/(?:name|persona|archetype)\s*[:\-]\s*([A-Za-z][A-Za-z\s.'-]{1,40})/i);
+      const value = match ? cleanInlineValue(match[1]) : '';
+      return value || estimateNameFromSignals(inputs);
+    }
+
+    function estimateAgeRangeFromSignals(inputs) {
+      const lower = personaSignalLower(inputs);
+      if (lower.includes('gen-z') || lower.includes('student') || lower.includes('college')) {
+        return [18, 26];
+      }
+      if (lower.includes('young professional') || lower.includes('early career')) {
+        return [24, 32];
+      }
+      if (lower.includes('parent') || lower.includes('family')) {
+        return [30, 45];
+      }
+      if (lower.includes('executive') || lower.includes('leadership') || lower.includes('senior')) {
+        return [30, 50];
+      }
+      return [25, 40];
+    }
+
+    function extractAgeDetailsFromInputs(inputs) {
+      const source = `${inputs.brandGuidelines}\n${inputs.targetAudience}\n${inputs.lockedScript}\n${inputs.brandProduct}`;
+      const exactMatch = source.match(/(?:age|aged)\s*[:\-]?\s*(\d{2})\b/i);
+      const rangeMatch = source.match(/\b(\d{2})\s*[-–]\s*(\d{2})\b/);
+      const seed = hashString(`${inputs.targetAudience}|${inputs.brandGuidelines}|${inputs.lockedScript}`);
+
+      let age = exactMatch ? parseInt(exactMatch[1], 10) : null;
+      let ageRange = '';
+      if (rangeMatch) {
+        ageRange = `${rangeMatch[1]}-${rangeMatch[2]}`;
+      } else if (age) {
+        ageRange = `${age}-${age}`;
+      } else {
+        const [minAge, maxAge] = estimateAgeRangeFromSignals(inputs);
+        age = minAge + (seed % (maxAge - minAge + 1));
+        ageRange = `${minAge}-${maxAge}`;
+      }
+      return { age, ageRange };
+    }
+
+    function estimateCityFromSignals(inputs) {
+      const lower = personaSignalLower(inputs);
+      const explicitCities = [
+        'mumbai', 'bengaluru', 'bangalore', 'delhi', 'pune', 'hyderabad', 'chennai',
+        'kolkata', 'ahmedabad', 'jaipur', 'lucknow', 'kochi', 'indore', 'guwahati',
+        'bhubaneswar', 'chandigarh', 'nagpur', 'surat', 'kanpur', 'patna'
+      ];
+      for (const city of explicitCities) {
+        if (lower.includes(city)) {
+          return city === 'bangalore' ? 'Bengaluru' : city.replace(/\b\w/g, (ch) => ch.toUpperCase());
+        }
+      }
+      const pool = ['Mumbai', 'Bengaluru', 'Delhi', 'Pune', 'Hyderabad', 'Chennai', 'Kolkata', 'Ahmedabad', 'Jaipur', 'Lucknow', 'Kochi', 'Indore', 'Guwahati', 'Bhubaneswar', 'Chandigarh', 'Nagpur'];
+      const seed = hashString(`${inputs.targetAudience}|${inputs.brandGuidelines}|${inputs.lockedScript}|city`);
+      return pickFromList(pool, seed);
+    }
+
+    function extractCityFromInputs(inputs) {
+      const source = `${inputs.brandGuidelines}\n${inputs.targetAudience}\n${inputs.lockedScript}`;
+      const match = source.match(/(?:based in|from|in)\s+([A-Za-z][A-Za-z\s.'-]{1,40})/i);
+      const value = match ? cleanInlineValue(match[1]) : '';
+      return value || estimateCityFromSignals(inputs);
+    }
+
+    function estimateProfessionFromSignals(inputs) {
+      const lower = personaSignalLower(inputs);
+      if (lower.includes('operations') || lower.includes('ops')) {
+        return 'operations lead';
+      }
+      if (lower.includes('creator') || lower.includes('content')) {
+        return 'content strategist';
+      }
+      if (lower.includes('fitness') || lower.includes('wellness')) {
+        return 'wellness consultant';
+      }
+      if (lower.includes('travel') || lower.includes('trip') || lower.includes('flight')) {
+        return 'project consultant';
+      }
+      if (lower.includes('dating') || lower.includes('relationship')) {
+        return 'product designer';
+      }
+      if (lower.includes('saas') || lower.includes('b2b') || lower.includes('software')) {
+        return 'client success manager';
+      }
+      return 'working professional';
+    }
+
+    function extractProfessionFromInputs(inputs) {
+      const source = `${inputs.brandGuidelines}\n${inputs.targetAudience}\n${inputs.lockedScript}\n${inputs.brandProduct}`;
+      const roleMatch = source.match(/(?:occupation|profession|role|job|daily grind)\s*[:\-]\s*([A-Za-z][A-Za-z\s&/'-]{2,80})/i);
+      const value = roleMatch ? cleanInlineValue(roleMatch[1]) : '';
+      return value || estimateProfessionFromSignals(inputs);
+    }
+
+    function estimateLifestyleFromSignals(inputs) {
+      const lower = personaSignalLower(inputs);
+      if (lower.includes('parent') || lower.includes('family')) {
+        return 'balances work with household planning and shared responsibilities';
+      }
+      if (lower.includes('creator') || lower.includes('content')) {
+        return 'juggles planning, production, and daily audience engagement';
+      }
+      if (lower.includes('travel') || lower.includes('trip') || lower.includes('flight')) {
+        return 'balances work commitments with ongoing travel coordination';
+      }
+      return 'balances work and personal responsibilities with limited time';
+    }
+
+    function extractLifestyleFromInputs(inputs) {
+      const source = `${inputs.brandGuidelines}\n${inputs.targetAudience}\n${inputs.lockedScript}`;
+      const match = source.match(/(?:lifestyle|daily routine)\s*[:\-]\s*([^.]+)\.?/i);
+      const value = match ? cleanInlineValue(match[1]) : '';
+      return value || estimateLifestyleFromSignals(inputs);
+    }
+
+    function inferPainPointDesireFromScript(scriptText) {
+      const script = cleanInlineValue(scriptText || '');
+      const lower = script.toLowerCase();
+
+      let painPoint = 'current options feel inconsistent and effort-heavy for the promised outcome';
+      let desire = 'a reliable and clear path to the desired outcome';
+
+      const skipMatch = lower.match(/\bskip\s+([^,.!?]+)/);
+      const avoidMatch = lower.match(/\b(?:avoid|stop)\s+([^,.!?]+)/);
+      const withoutMatch = lower.match(/\bwithout\s+([^,.!?]+)/);
+      const actionMatch = lower.match(/\b(?:meet|get|earn|unlock|build|save|book|plan|find|achieve|reduce)\s+([^,.!?]+)/);
+
+      if (skipMatch && skipMatch[1]) {
+        painPoint = `the journey is weighed down by ${skipMatch[1].trim()}`;
+      } else if (avoidMatch && avoidMatch[1]) {
+        painPoint = `the journey is weighed down by ${avoidMatch[1].trim()}`;
+      } else if (withoutMatch && withoutMatch[1]) {
+        painPoint = `the journey still carries ${withoutMatch[1].trim()}`;
+      }
+
+      if (actionMatch && actionMatch[0]) {
+        desire = `a dependable way to ${actionMatch[0].trim()}`;
+      }
+
+      if (/(friction|hassle|confusion|hidden|unclear|messy)/.test(lower)) {
+        painPoint = 'hidden friction and unclear steps create avoidable stress';
+      }
+      if (/(slow|delay|stuck|waiting|backlog|manual)/.test(lower)) {
+        painPoint = 'slow, multi-step execution creates delays and missed opportunities';
+      }
+      if (/(serious|real|genuine|meaningful|intent)/.test(lower)) {
+        desire = 'a dependable path to genuine, high-intent outcomes';
+      }
+      if (/(reward|rewards|points|miles|upgrade|benefits)/.test(lower)) {
+        desire = 'clear rewards value with predictable, transparent benefits';
+      }
+      if (/(confidence|trust|reliable|dependable|transparent|clarity)/.test(lower)) {
+        desire = 'transparent, reliable outcomes with fewer surprises';
+      }
+
+      return {
+        painPoint: cleanInlineValue(painPoint),
+        desire: cleanInlineValue(desire)
+      };
+    }
+
+    function distillBrandDirection(vibe, stage) {
+      const lower = vibe.toLowerCase();
+      let visual = 'human and grounded';
+      let palette = 'balanced neutrals with one accent color';
+      let pacing = 'controlled and natural';
+      let tonality = 'clear and approachable';
+
+      if (lower.includes('gen-z') || lower.includes('hyper-colorful') || lower.includes('chaotic')) {
+        visual = 'kinetic, youthful, culture-native';
+        palette = 'high-contrast saturated accents';
+        pacing = 'fast and expressive';
+        tonality = 'witty and energetic';
+      }
+
+      if (lower.includes('b2b') || lower.includes('saas') || lower.includes('minimalist')) {
+        visual = 'clean, practical, modern';
+        palette = 'muted cool tones and neutrals';
+        pacing = 'steady and efficient';
+        tonality = 'authoritative but warm';
+      }
+
+      if (lower.includes('luxury') || lower.includes('premium')) {
+        visual = 'elegant and restrained';
+        palette = 'rich neutrals with warm highlights';
+        pacing = 'measured and deliberate';
+        tonality = 'composed and premium';
+      }
+
+      if (stage === 'BoFu') {
+        pacing = 'brisk, decision-forward';
+      }
+
+      return {
+        visual,
+        palette,
+        pacing,
+        tonality,
+        summary: `visual: ${visual}; palette: ${palette}; pacing: ${pacing}; tone: ${tonality}`
+      };
+    }
+
+    function distillAudience(targetAudience) {
+      const lower = targetAudience.toLowerCase();
+      if (lower.includes('operations') || lower.includes('startup')) {
+        return 'time-constrained operators managing cross-functional tasks and accountability';
+      }
+      if (lower.includes('creator') || lower.includes('gen-z')) {
+        return 'social-first creators who value speed, identity, and visual impact';
+      }
+      if (lower.includes('parent') || lower.includes('family')) {
+        return 'busy household decision-makers balancing convenience and trust';
+      }
+      return 'practical, time-sensitive buyers seeking simpler outcomes';
+    }
+
+    function isTravelContext(inputs) {
+      const lower = `${inputs.brandProduct} ${inputs.brandGuidelines} ${inputs.targetAudience}`.toLowerCase();
+      const travelSignals = [
+        'travel', 'flight', 'air', 'air+', 'airplus', 'hotel', 'lounge',
+        'miles', 'points', 'vacation', 'holiday', 'trip', 'resort', 'airport'
+      ];
+      return travelSignals.some((signal) => lower.includes(signal));
+    }
+
+    function isDatingContext(inputs) {
+      const lower = `${inputs.brandProduct} ${inputs.brandGuidelines} ${inputs.targetAudience}`.toLowerCase();
+      const datingSignals = [
+        'dating', 'match', 'relationship', 'single', 'partner', 'romance',
+        'love', 'chat', 'conversation', 'ghosting', 'talking stage',
+        'hinge', 'bumble', 'tinder', 'shaadi', 'matrimony', 'matrimonial'
+      ];
+      return datingSignals.some((signal) => lower.includes(signal));
+    }
+
+    function inferCharacterBackstory(inputs, stage) {
+      const lower = `${inputs.brandGuidelines} ${inputs.targetAudience} ${inputs.brandProduct} ${inputs.lockedScript}`.toLowerCase();
+      const name = extractNameFromInputs(inputs);
+      const travelContext = isTravelContext(inputs);
+      const datingContext = isDatingContext(inputs);
+      const city = extractCityFromInputs(inputs);
+      const { age, ageRange } = extractAgeDetailsFromInputs(inputs);
+      const profession = extractProfessionFromInputs(inputs);
+      const lifestyle = extractLifestyleFromInputs(inputs);
+      const scriptInference = inferPainPointDesireFromScript(inputs.lockedScript);
+      let painPoint = scriptInference.painPoint;
+      let desire = scriptInference.desire;
+      const personality = 'practical, thoughtful, and outcome-focused';
+      const relationshipGoal = 'seeks aligned and dependable outcomes';
+
+      return {
+        name,
+        age,
+        city,
+        nationality: 'Indian',
+        ageRange,
+        profession,
+        lifestyle,
+        painPoint,
+        desire,
+        personality,
+        relationshipGoal,
+        travelContext,
+        datingContext
+      };
+    }
+
+    function buildPersonaContext(character, audiencePulse) {
+      const ageText = Number.isFinite(character.age) ? `${character.age}` : character.ageRange;
+      return `Character Profile: ${character.name}${ageText ? ` (${ageText})` : ''}. Nationality: Indian. Occupation: ${character.profession} in ${character.city}, India. Daily context: ${character.lifestyle}. Core motivation: ${character.desire}. Audience pulse: ${audiencePulse}.`;
+    }
+
+    function buildBackstoryNarrative(character, productName) {
+      return `${character.name} is an Indian ${character.profession} based in ${character.city}, India, balancing a demanding routine with personal priorities. Recently, ${character.painPoint}, which made everyday decisions feel heavier than they should. This pushed ${character.name} to evaluate ${productName} as a simpler and more dependable way to move forward. ${character.name} now prioritizes options that reduce friction and respect their time.`;
+    }
+
+    function buildWardrobeProfile(character) {
+      if (character.datingContext) {
+        return {
+          full: 'At-home/frustrated look: oversized breathable linen shirt (half-tucked), high-waisted wide-leg trousers, messy claw-clip hair. First-date/success look: sleek monochrome co-ord or slip dress with oversized blazer, minimalist geometric jewelry, clean elevated silhouette.',
+          selected: 'oversized linen shirt with wide-leg trousers and claw-clip hair'
+        };
+      }
+
+      if (character.travelContext) {
+        return {
+          full: 'Functional travel layers with breathable fabrics, practical textures, and natural movement creasing.',
+          selected: 'breathable functional travel layer with natural movement creases'
+        };
+      }
+
+      return {
+        full: 'Contemporary functional wardrobe with clean fit, neutral palette, and realistic fabric behavior.',
+        selected: 'clean functional wardrobe with realistic fabric creases'
+      };
+    }
+
+    function buildVisualCharacteristics(character, wardrobe) {
+      const details = character.travelContext
+        ? [
+            'subtle laugh lines near the eyes that appear naturally while speaking',
+            'visible skin pores with realistic texture and gentle under-eye softness',
+            'a slightly asymmetrical warm smile where one corner lifts first',
+            'organic creases on a high-quality linen-blend travel shirt or blazer',
+            'one small flyaway hair near the temple during movement'
+          ]
+        : [
+            'natural skin texture with visible pores and mild tonal variation',
+            'faint expression lines around eyes and mouth when emphasizing key words',
+            'slight facial asymmetry that keeps expressions human and unpolished',
+            `realistic fabric folds and pressure creases in ${wardrobe}`,
+            'a minor flyaway strand and natural blink cadence'
+          ];
+
+      return `${details.map((item, index) => `${index + 1}. ${item}`).join(' ')} Avoid perfect symmetry, heavy airbrushing, and harsh blemishes.`;
+    }
+
+    function buildVoiceAndAmbientProfile(character, voice, environment, funnelStage) {
+      let pace = '130-145 wpm';
+      let modulation = 'gentle dynamic range, conversational lift in the middle, soft downward cadence at the end';
+
+      if (funnelStage === 'MoFu') {
+        pace = '140-155 wpm';
+        modulation = 'clear mid-range energy, deliberate emphasis on proof words, clean clause-level pauses';
+      }
+      if (funnelStage === 'BoFu') {
+        pace = '150-165 wpm';
+        modulation = 'firm but natural urgency, stronger stress on action words, decisive downward ending';
+      }
+
+      if (character.datingContext) {
+        return `Voice modulation for Veo: female Indian-English urban voice, warm alto, witty-but-grounded tone, pace ${pace}, modulation arc ${modulation}, micro-pauses 150-220ms between clauses, subtle smile in voice, no announcer delivery. Ambient audio: soft apartment room tone, distant city hush, ceramic cup tap, and quiet fabric movement.`;
+      }
+
+      if (character.travelContext) {
+        return `Voice modulation for Veo: tone warm and grounded, vocal texture smooth baritone/alto with crisp diction, pace ${pace}, modulation arc ${modulation}, pause rule 150-250ms at phrase boundaries, no announcer voice. Ambient audio: subtle ceramic mug clink, soft rustle of a travel document, and a low home room hum with distant city tone.`;
+      }
+
+      return `Voice modulation for Veo: ${voice}; pace ${pace}; modulation arc ${modulation}; pause rule 150-250ms at phrase boundaries; articulation crisp and human. Ambient audio: ${environment.ambient}.`;
+    }
+
+    function buildPrimaryActivity(character, environment) {
+      if (character.datingContext) {
+        return `${character.name} reviews a handwritten shortlist card at the desk and circles one key line without switching tasks`;
+      }
+      if (character.travelContext) {
+        return `${character.name} checks a printed itinerary sheet while one hand rests on a half-packed carry-on`;
+      }
+
+      if (environment.place.includes('office')) {
+        return `${character.name} reviews one printed KPI sheet with a marker without switching tasks`;
+      }
+      return `${character.name} updates one key task on a paper checklist while staying in the same physical position`;
+    }
+
+    function buildDynamicSetting(character, environment, primaryActivity) {
+      if (character.datingContext) {
+        return `Modern urban apartment sanctuary with warm ambient lamps, no harsh overhead light. Visible cues: thriving Monstera/Pothos plant, design books, half-drunk artisanal coffee, ergonomic chair, and sticky notes on a wooden board. Palette: muted earth tones, terracotta, warm greys. Primary activity only: ${primaryActivity}. Secondary element: roommate/friend passes softly out of focus in the background.`;
+      }
+      if (character.travelContext) {
+        return `Sunlit lived-in kitchen-lounge during trip prep. Primary activity only: ${primaryActivity}. Secondary element: partner moving softly in background bokeh near the doorway. Keep background life subtle and non-distracting.`;
+      }
+      return `Lifestyle scene: ${environment.place}. Primary activity only: ${primaryActivity}. Secondary element: ${environment.secondary}.`;
+    }
+
+    function buildSliceOfLifeDirection(character, primaryActivity, funnelStage) {
+      const urgencyCue = character.travelContext
+        ? 'a printed departure-time note nearing deadline'
+        : 'a handwritten deadline note nearing cutoff';
+
+      const boFuTail = funnelStage === 'BoFu'
+        ? ` Final 2 seconds include ${urgencyCue} while the same activity continues; no extra action is introduced.`
+        : '';
+
+      return `One-activity beat plan for 8 seconds: 0.0-1.5s begin silently on ${primaryActivity}. 1.5-8.0s character delivers the script while continuing exactly the same activity, with brief natural eye-contact checks to camera and no task switching.${boFuTail}`;
+    }
+
+    function buildFunnelCreativeMandate(stage) {
+      if (stage === 'ToFu') {
+        return 'ToFu mandate: optimize for relatability and discovery. Prioritize emotional recognition and curiosity; avoid hard-sell urgency.';
+      }
+      if (stage === 'MoFu') {
+        return 'MoFu mandate: optimize for consideration. Show practical proof-in-action, credibility, and friction reduction with moderate urgency.';
+      }
+      return 'BoFu mandate: optimize for conversion now. Inject clear urgency and decisive momentum with a time-sensitive cue, strong consequence awareness, and an immediate next-step feeling.';
+    }
+
+    function buildVerticalVideoMandate() {
+      return 'Vertical-first framing: 9:16 vertical-native composition, subject anchored in center safe zone, eyes in upper third, hands/product kept within middle 60% of frame, readable at handheld viewing distance.';
+    }
+
+    function buildDistilledPromptSpec(input) {
+      return [
+        `Format: 8s, vertical 9:16, slice-of-life, single continuous activity.`,
+        `Character: ${input.characterSummary}.`,
+        `Persona: ${input.personaShort}.`,
+        `Activity: ${input.primaryActivity}.`,
+        `Wardrobe: ${input.wardrobeShort}.`,
+        `Scene: ${input.settingShort}.`,
+        `Voice: ${input.voiceShort}.`,
+        `Funnel: ${input.funnelMandate}.`,
+        `Visual realism: ${input.visualShort}.`,
+        `Script (exact): "${input.script}".`,
+        'Rules: no paraphrasing, no extra words, no task switching, perfect lip-sync, intermittent eye contact only, no digital-device interaction, no UI/supers/on-screen text.'
+      ].join(' ');
+    }
+
+    function buildVoiceShortDirective(funnelStage, travelContext) {
+      if (!travelContext && funnelStage === 'BoFu') {
+        return 'warm urban tone, crisp diction, 150-165 wpm, urgency stress on action words, 150-220ms micro-pauses, decisive down-ending';
+      }
+      if (travelContext && funnelStage === 'BoFu') {
+        return 'warm grounded tone, crisp diction, 150-165 wpm, firm urgency, 150-250ms phrase pauses, decisive end cadence';
+      }
+      if (travelContext) {
+        return 'warm grounded tone, crisp diction, controlled pace, natural modulation, short phrase pauses';
+      }
+      if (funnelStage === 'MoFu') {
+        return 'grounded confident tone, 140-155 wpm, proof-led emphasis, clean clause pauses';
+      }
+      return 'conversational tone, 130-145 wpm, gentle modulation, soft down-ending';
+    }
+
+    function buildOutput(inputs) {
+      const stage = stageEnergy(inputs.funnelStage);
+      const finalAspectRatio = '9:16';
+      const environment = inferEnvironment(inputs.brandGuidelines, inputs.targetAudience);
+      const voice = inferVoice(inputs.brandGuidelines, inputs.funnelStage);
+      const wardrobe = inferWardrobe(inputs.brandGuidelines, inputs.targetAudience);
+      const direction = distillBrandDirection(inputs.brandGuidelines, inputs.funnelStage);
+      const audiencePulse = distillAudience(inputs.targetAudience);
+      const character = inferCharacterBackstory(inputs, inputs.funnelStage);
+      const primaryActivity = buildPrimaryActivity(character, environment);
+      const wardrobeProfile = buildWardrobeProfile(character);
+
+      const personaContext = buildPersonaContext(character, audiencePulse);
+      const backstory = buildBackstoryNarrative(character, inputs.brandProduct);
+      const visualProfile = buildVisualCharacteristics(character, wardrobe);
+      const voiceProfile = buildVoiceAndAmbientProfile(character, voice, environment, inputs.funnelStage);
+      const settingProfile = buildDynamicSetting(character, environment, primaryActivity);
+      const sliceOfLifeDirection = buildSliceOfLifeDirection(character, primaryActivity, inputs.funnelStage);
+      const funnelMandate = buildFunnelCreativeMandate(inputs.funnelStage);
+      const verticalMandate = buildVerticalVideoMandate();
+      const directionSnapshot = `Brand direction is distilled, not copied verbatim: ${direction.summary}. Funnel focus: ${stage.objective}. Urgency level: ${stage.urgencyLevel}. Vertical lock: ${finalAspectRatio}.`;
+
+      const characterSummary = `${character.name}, ${character.ageRange}, ${character.profession}, based in ${character.city}`;
+      const personaShort = character.datingContext
+        ? 'practical, independent, intent-first decision-maker'
+        : (character.travelContext ? 'travel convenience-first planner' : 'practical quality-first decision maker');
+      const settingShort = character.datingContext
+        ? 'warm urban apartment + curated desk + muted earth palette + one soft background passerby'
+        : (character.travelContext ? 'lived-in kitchen-lounge with one soft secondary background motion' : 'lived-in real-world environment with one soft secondary background motion');
+      const visualShort = 'natural pores, faint expression lines, slight asymmetry, organic fabric creases, one flyaway hair';
+      const voiceShort = buildVoiceShortDirective(inputs.funnelStage, character.travelContext);
+      const wardrobeShort = wardrobeProfile.selected;
+
+      const distilledSpec = buildDistilledPromptSpec({
+        characterSummary,
+        personaShort,
+        primaryActivity,
+        wardrobeShort,
+        settingShort,
+        voiceShort,
+        funnelMandate,
+        visualShort,
+        script: inputs.lockedScript
+      });
+
+      const characterImagePrompt = [
+        `Photoreal vertical 9:16 character still of Indian subject ${character.name}, ${character.ageRange}, ${character.profession}, in ${character.city}, India.`,
+        `Look and styling: ${wardrobeProfile.selected}.`,
+        `Setting: ${settingShort}.`,
+        `Human realism details: ${visualShort}.`,
+        'Expression: calm, confident, slightly warm, not exaggerated.',
+        'No text overlay, no watermark, no stylized illustration.'
+      ].join(' ');
+
+      const finalPrompt = [
+        `Veo 3 production brief for ${inputs.brandProduct}.`,
+        verticalMandate,
+        `Single-activity rule: ${primaryActivity}.`,
+        `Wardrobe lock: ${wardrobeProfile.selected}.`,
+        `Beat plan: ${sliceOfLifeDirection}`,
+        `Voice modulation: ${voiceShort}.`,
+        'Video guardrails: no digital-device interaction and no visible digital interface elements; no UI, overlays, supers, captions, subtitles, or on-screen text.',
+        `Distilled creative summary: ${distilledSpec}`,
+        `Hard lock: ${character.name} speaks the exact script once while continuing that same activity: "${inputs.lockedScript}"`
+      ].join(' ');
+
+      return {
+        resolvedAspectRatio: finalAspectRatio,
+        personaContext,
+        backstory,
+        visualProfile,
+        voiceProfile,
+        wardrobeProfile: wardrobeProfile.full,
+        characterImagePrompt,
+        primaryActivity,
+        settingProfile,
+        sliceOfLifeDirection,
+        funnelMandate,
+        verticalMandate,
+        distilledSpec,
+        directionSnapshot,
+        finalPrompt
+      };
+    }
+
+    function getValueByPath(source, path) {
+      let cursor = source;
+      for (const part of path) {
+        if (cursor === null || cursor === undefined) {
+          return undefined;
+        }
+        cursor = cursor[part];
+      }
+      return cursor;
+    }
+
+    function firstValueByPath(source, paths) {
+      for (const path of paths) {
+        const value = getValueByPath(source, path);
+        if (value !== undefined && value !== null && value !== '') {
+          return value;
+        }
+      }
+      return undefined;
+    }
+
+    function looksLikeUrl(value) {
+      return /^(https?:\/\/|blob:|data:video\/)/i.test(value);
+    }
+
+    function resolveUrl(baseUrl, value) {
+      try {
+        return new URL(value, baseUrl).toString();
+      } catch (error) {
+        return value;
+      }
+    }
+
+    function normalizeUrl(value, baseUrl) {
+      if (typeof value !== 'string') {
+        return '';
+      }
+      const trimmed = value.trim();
+      if (!trimmed) {
+        return '';
+      }
+      if (looksLikeUrl(trimmed)) {
+        return trimmed;
+      }
+      if (trimmed.startsWith('/') || trimmed.startsWith('./') || trimmed.startsWith('../')) {
+        return resolveUrl(baseUrl, trimmed);
+      }
+      return '';
+    }
+
+    function normalizeBase64ToBlobUrl(base64String, mimeType) {
+      let base64 = base64String.trim();
+      let mime = mimeType || 'video/mp4';
+      const dataUrlMatch = base64.match(/^data:(.+?);base64,(.+)$/);
+
+      if (dataUrlMatch) {
+        mime = dataUrlMatch[1] || mime;
+        base64 = dataUrlMatch[2];
+      }
+
+      const raw = atob(base64);
+      const bytes = new Uint8Array(raw.length);
+
+      for (let i = 0; i < raw.length; i += 1) {
+        bytes[i] = raw.charCodeAt(i);
+      }
+
+      return URL.createObjectURL(new Blob([bytes], { type: mime }));
+    }
+
+    async function blobToBase64Parts(blob) {
+      const dataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+        reader.onerror = () => reject(reader.error || new Error('Failed to read image blob.'));
+        reader.readAsDataURL(blob);
+      });
+
+      const match = dataUrl.match(/^data:(.+?);base64,(.+)$/);
+      if (!match) {
+        return {
+          base64: '',
+          mimeType: blob.type || 'image/png'
+        };
+      }
+
+      return {
+        base64: match[2],
+        mimeType: match[1] || blob.type || 'image/png'
+      };
+    }
+
+    function extractStatus(data) {
+      if (!data || typeof data !== 'object') {
+        return '';
+      }
+      const status = firstValueByPath(data, [
+        ['status'],
+        ['state'],
+        ['job', 'status'],
+        ['data', 'status'],
+        ['result', 'status']
+      ]);
+      return typeof status === 'string' ? status.trim() : '';
+    }
+
+    function extractErrorMessage(data) {
+      if (!data || typeof data !== 'object') {
+        return '';
+      }
+      const errorValue = firstValueByPath(data, [
+        ['error', 'message'],
+        ['error'],
+        ['message'],
+        ['detail'],
+        ['details']
+      ]);
+
+      if (typeof errorValue === 'string') {
+        return errorValue;
+      }
+      if (errorValue && typeof errorValue === 'object' && typeof errorValue.message === 'string') {
+        return errorValue.message;
+      }
+      return '';
+    }
+
+    function extractVideoResult(data, baseUrl) {
+      if (typeof data === 'string') {
+        const url = normalizeUrl(data, baseUrl);
+        if (url) {
+          return { videoUrl: url, status: 'completed' };
+        }
+        return { rawText: data };
+      }
+
+      if (!data || typeof data !== 'object') {
+        return {};
+      }
+
+      const videoUrlCandidate = firstValueByPath(data, [
+        ['videoUrl'],
+        ['video_url'],
+        ['url'],
+        ['result', 'videoUrl'],
+        ['result', 'video_url'],
+        ['result', 'url'],
+        ['data', 'videoUrl'],
+        ['data', 'video_url'],
+        ['data', 'url'],
+        ['output', 0, 'url'],
+        ['artifacts', 0, 'url'],
+        ['video', 'url']
+      ]);
+
+      const normalizedVideoUrl = normalizeUrl(videoUrlCandidate, baseUrl);
+      if (normalizedVideoUrl) {
+        return { videoUrl: normalizedVideoUrl, status: extractStatus(data) || 'completed' };
+      }
+
+      const base64Candidate = firstValueByPath(data, [
+        ['videoBase64'],
+        ['video_base64'],
+        ['base64'],
+        ['result', 'videoBase64'],
+        ['result', 'video_base64'],
+        ['data', 'videoBase64'],
+        ['data', 'video_base64'],
+        ['output', 0, 'base64']
+      ]);
+
+      if (typeof base64Candidate === 'string' && base64Candidate.length > 100) {
+        const mimeType = firstValueByPath(data, [
+          ['mimeType'],
+          ['mime_type'],
+          ['contentType'],
+          ['content_type']
+        ]);
+        return {
+          videoUrl: normalizeBase64ToBlobUrl(base64Candidate, typeof mimeType === 'string' ? mimeType : 'video/mp4'),
+          objectUrl: true,
+          status: 'completed'
+        };
+      }
+
+      const pollUrlCandidate = firstValueByPath(data, [
+        ['pollUrl'],
+        ['poll_url'],
+        ['statusUrl'],
+        ['status_url'],
+        ['urls', 'status'],
+        ['result', 'poll_url']
+      ]);
+
+      const jobId = firstValueByPath(data, [
+        ['jobId'],
+        ['job_id'],
+        ['taskId'],
+        ['task_id'],
+        ['id'],
+        ['request_id'],
+        ['requestId']
+      ]);
+
+      const pollUrl = normalizeUrl(pollUrlCandidate, baseUrl);
+
+      return {
+        pollUrl,
+        jobId: typeof jobId === 'string' || typeof jobId === 'number' ? `${jobId}` : '',
+        status: extractStatus(data),
+        errorMessage: extractErrorMessage(data),
+        raw: data
+      };
+    }
+
+    function extractImageResult(data, baseUrl) {
+      if (typeof data === 'string') {
+        const url = normalizeUrl(data, baseUrl);
+        if (url) {
+          return { imageUrl: url, status: 'completed' };
+        }
+        return { rawText: data };
+      }
+
+      if (!data || typeof data !== 'object') {
+        return {};
+      }
+
+      const imageUrlCandidate = firstValueByPath(data, [
+        ['imageUrl'],
+        ['image_url'],
+        ['url'],
+        ['result', 'imageUrl'],
+        ['result', 'image_url'],
+        ['data', 'imageUrl'],
+        ['data', 'image_url']
+      ]);
+
+      const normalizedImageUrl = normalizeUrl(imageUrlCandidate, baseUrl);
+      if (normalizedImageUrl) {
+        return { imageUrl: normalizedImageUrl, status: extractStatus(data) || 'completed' };
+      }
+
+      const base64Candidate = firstValueByPath(data, [
+        ['imageBase64'],
+        ['image_base64'],
+        ['base64'],
+        ['result', 'imageBase64'],
+        ['result', 'image_base64'],
+        ['data', 'imageBase64'],
+        ['data', 'image_base64']
+      ]);
+
+      if (typeof base64Candidate === 'string' && base64Candidate.length > 100) {
+        const mimeType = firstValueByPath(data, [
+          ['mimeType'],
+          ['mime_type'],
+          ['contentType'],
+          ['content_type']
+        ]);
+        const normalizedMimeType = typeof mimeType === 'string' ? mimeType : 'image/png';
+        return {
+          imageUrl: normalizeBase64ToBlobUrl(base64Candidate, normalizedMimeType),
+          objectUrl: true,
+          status: extractStatus(data) || 'completed',
+          imageBase64: base64Candidate,
+          imageMimeType: normalizedMimeType
+        };
+      }
+
+      return {
+        status: extractStatus(data),
+        errorMessage: extractErrorMessage(data),
+        raw: data
+      };
+    }
+
+    async function parseImageHttpResponse(response, baseUrl) {
+      const contentType = (response.headers.get('content-type') || '').toLowerCase();
+
+      if (contentType.startsWith('image/')) {
+        const blob = await response.blob();
+        const encoded = await blobToBase64Parts(blob);
+        return {
+          imageUrl: URL.createObjectURL(blob),
+          objectUrl: true,
+          status: 'completed',
+          imageBase64: encoded.base64,
+          imageMimeType: encoded.mimeType
+        };
+      }
+
+      const rawText = await response.text();
+      if (!rawText) {
+        return {};
+      }
+
+      try {
+        const json = JSON.parse(rawText);
+        return extractImageResult(json, baseUrl);
+      } catch (error) {
+        const maybeUrl = normalizeUrl(rawText.trim(), baseUrl);
+        if (maybeUrl) {
+          return { imageUrl: maybeUrl, status: 'completed' };
+        }
+        return { rawText };
+      }
+    }
+
+    async function requestCharacterImageFromApi(apiUrl, payload) {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json, image/*'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const parsed = await parseImageHttpResponse(response, apiUrl);
+      if (!response.ok) {
+        const details = parsed.errorMessage || parsed.rawText || `HTTP ${response.status}`;
+        throw new Error(details);
+      }
+      return parsed;
+    }
+
+    function sanitizeVideoNoUIScreenText(text) {
+      const raw = `${text || ''}`.trim();
+      if (!raw) {
+        return '';
+      }
+
+      const parts = raw.split(/(?<=[.!?])\s+/).filter(Boolean);
+      const filtered = parts.filter((sentence) => !imageScreenGuardrailRegex().test(sentence));
+      const candidate = filtered.join(' ').trim();
+      if (candidate) {
+        return candidate;
+      }
+      return raw.replace(imageScreenGuardrailRegex(), '').replace(/\s+/g, ' ').trim();
+    }
+
+    function enforceVideoNoUIScreenOnGenerated(generated) {
+      const next = { ...generated };
+      const keys = ['primaryActivity', 'settingProfile', 'sliceOfLifeDirection', 'distilledSpec'];
+      for (const key of keys) {
+        next[key] = sanitizeVideoNoUIScreenText(next[key]);
+      }
+
+      const guardrail = 'Video guardrails: no digital-device interaction and no visible digital interface elements; no UI, overlays, supers, captions, subtitles, or on-screen text.';
+      const baseFinalPrompt = `${next.finalPrompt || ''}`.trim();
+      const strippedFinalPrompt = sanitizeVideoNoUIScreenText(baseFinalPrompt);
+      next.finalPrompt = `${strippedFinalPrompt} ${guardrail}`.trim();
+
+      return next;
+    }
+
+    async function requestCreativeLogicFromApi(apiUrl, payload) {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const rawText = await response.text();
+      let parsed;
+      try {
+        parsed = rawText ? JSON.parse(rawText) : {};
+      } catch (error) {
+        throw new Error(rawText || `HTTP ${response.status}`);
+      }
+
+      if (!response.ok) {
+        throw new Error(parsed.error || rawText || `HTTP ${response.status}`);
+      }
+
+      // Gemini can occasionally omit some descriptive fields; backfill those from local deterministic logic.
+      const fallback = buildOutput({
+        brandProduct: payload.brandProduct || '',
+        brandGuidelines: payload.brandGuidelines || '',
+        targetAudience: payload.targetAudience || '',
+        funnelStage: payload.funnelStage || 'ToFu',
+        lockedScript: payload.lockedScript || '',
+        aspectRatio: '9:16'
+      });
+
+      const merged = {
+        ...fallback,
+        ...parsed,
+        resolvedAspectRatio: '9:16'
+      };
+      const cleaned = enforceVideoNoUIScreenOnGenerated(merged);
+
+      const critical = [
+        'characterImagePrompt',
+        'finalPrompt',
+        'backstory',
+        'primaryActivity',
+        'distilledSpec'
+      ];
+      const missingCritical = critical.filter((key) => !cleaned[key] || !`${cleaned[key]}`.trim());
+      if (missingCritical.length > 0) {
+        throw new Error(`AI logic missing critical fields: ${missingCritical.join(', ')}`);
+      }
+
+      return cleaned;
+    }
+
+    async function parseHttpResponse(response, baseUrl) {
+      const contentType = (response.headers.get('content-type') || '').toLowerCase();
+
+      if (contentType.startsWith('video/')) {
+        const blob = await response.blob();
+        return { videoUrl: URL.createObjectURL(blob), objectUrl: true, status: 'completed' };
+      }
+
+      const rawText = await response.text();
+
+      if (!rawText) {
+        return {};
+      }
+
+      try {
+        const json = JSON.parse(rawText);
+        return extractVideoResult(json, baseUrl);
+      } catch (error) {
+        const maybeUrl = normalizeUrl(rawText.trim(), baseUrl);
+        if (maybeUrl) {
+          return { videoUrl: maybeUrl, status: 'completed' };
+        }
+        return { rawText };
+      }
+    }
+
+    async function requestVideo(apiUrl, apiToken, payload, method) {
+      const headers = {
+        Accept: 'application/json, video/*'
+      };
+
+      if (apiToken) {
+        headers.Authorization = `Bearer ${apiToken}`;
+      }
+
+      const options = {
+        method,
+        headers
+      };
+
+      if (method !== 'GET' && payload !== null) {
+        headers['Content-Type'] = 'application/json';
+        options.body = JSON.stringify(payload);
+      }
+
+      const response = await fetch(apiUrl, options);
+      const parsed = await parseHttpResponse(response, apiUrl);
+
+      if (!response.ok) {
+        const details = parsed.errorMessage || parsed.rawText || `HTTP ${response.status}`;
+        throw new Error(details);
+      }
+
+      return parsed;
+    }
+
+    function statusIsFailed(status) {
+      const lowered = status.toLowerCase();
+      return lowered === 'failed' || lowered === 'error' || lowered === 'cancelled' || lowered === 'canceled';
+    }
+
+    function statusIsPending(status) {
+      const lowered = status.toLowerCase();
+      return lowered === 'queued' || lowered === 'pending' || lowered === 'processing' || lowered === 'running' || lowered === 'in_progress' || lowered === 'submitted' || lowered === 'starting' || lowered === 'generating';
+    }
+
+    function sleep(ms) {
+      return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+      });
+    }
+
+    async function pollForVideo(pollUrl, apiToken) {
+      const maxAttempts = 60;
+
+      for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+        await sleep(2500);
+        const pollResult = await requestVideo(pollUrl, apiToken, null, 'GET');
+
+        if (pollResult.videoUrl) {
+          return pollResult;
+        }
+
+        if (pollResult.status && statusIsFailed(pollResult.status)) {
+          throw new Error(pollResult.errorMessage || `Video job failed with status: ${pollResult.status}`);
+        }
+      }
+
+      throw new Error('Timed out while waiting for video generation to finish.');
+    }
+
+    function buildPayloadVariants(inputs, generated, referenceImage) {
+      const ratio = generated.resolvedAspectRatio || '9:16';
+      const referenceFields = (referenceImage && referenceImage.base64)
+        ? {
+            reference_image_base64: referenceImage.base64,
+            reference_image_mime_type: referenceImage.mimeType || 'image/png'
+          }
+        : {};
+
+      return [
+        {
+          model: 'veo-3',
+          prompt: generated.finalPrompt,
+          duration_seconds: 8,
+          aspect_ratio: ratio,
+          ...referenceFields
+        },
+        {
+          model: 'veo-3',
+          input: generated.finalPrompt,
+          duration_seconds: 8,
+          aspect_ratio: ratio,
+          ...referenceFields
+        },
+        {
+          model: 'veo-3',
+          prompt: {
+            text: generated.finalPrompt
+          },
+          duration_seconds: 8,
+          aspect_ratio: ratio,
+          ...referenceFields
+        }
+      ];
+    }
+
+    async function generateVideoFromApi(apiUrl, apiToken, inputs, generated, referenceImage) {
+      const payloadVariants = buildPayloadVariants(inputs, generated, referenceImage);
+      let lastError = null;
+
+      for (const payload of payloadVariants) {
+        try {
+          const initial = await requestVideo(apiUrl, apiToken, payload, 'POST');
+
+          if (initial.videoUrl) {
+            return initial;
+          }
+
+          if (initial.status && statusIsFailed(initial.status)) {
+            throw new Error(initial.errorMessage || `Video job failed with status: ${initial.status}`);
+          }
+
+          if (initial.pollUrl) {
+            return await pollForVideo(initial.pollUrl, apiToken);
+          }
+
+          if (initial.jobId) {
+            const inferredPollUrl = `${apiUrl.replace(/\/$/, '')}/${encodeURIComponent(initial.jobId)}`;
+            return await pollForVideo(inferredPollUrl, apiToken);
+          }
+
+          if (initial.status && statusIsPending(initial.status)) {
+            throw new Error('Job was accepted but no poll URL or job ID was returned by the endpoint.');
+          }
+
+          throw new Error('Endpoint response did not include a video, poll URL, or recognizable job status.');
+        } catch (error) {
+          lastError = error;
+        }
+      }
+
+      throw lastError || new Error('Video generation failed.');
+    }
+
+    async function requestEducationalSeriesFromApi(apiUrl, payload) {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const rawText = await response.text();
+      let parsed = {};
+      try {
+        parsed = rawText ? JSON.parse(rawText) : {};
+      } catch (error) {
+        throw new Error(rawText || `HTTP ${response.status}`);
+      }
+
+      if (!response.ok) {
+        const detail = parsed.error || rawText || `HTTP ${response.status}`;
+        throw new Error(detail);
+      }
+
+      const finalVideoUrl = normalizeUrl(parsed.final_video_url || parsed.finalVideoUrl || '', apiUrl);
+      const planUrl = normalizeUrl(parsed.plan_url || parsed.planUrl || '', apiUrl);
+
+      return {
+        ...parsed,
+        finalVideoUrl: finalVideoUrl || parsed.final_video_url || parsed.finalVideoUrl || '',
+        planUrl: planUrl || parsed.plan_url || parsed.planUrl || ''
+      };
+    }
+
+    function clearLatestVideoObjectUrl() {
+      if (latestVideoObjectUrl) {
+        URL.revokeObjectURL(latestVideoObjectUrl);
+        latestVideoObjectUrl = '';
+      }
+    }
+
+    function clearLatestSeriesVideoObjectUrl() {
+      if (latestSeriesVideoObjectUrl) {
+        URL.revokeObjectURL(latestSeriesVideoObjectUrl);
+        latestSeriesVideoObjectUrl = '';
+      }
+    }
+
+    function clearLatestCharacterImageObjectUrl() {
+      if (latestCharacterImageObjectUrl) {
+        URL.revokeObjectURL(latestCharacterImageObjectUrl);
+        latestCharacterImageObjectUrl = '';
+      }
+    }
+
+    function collectInputs() {
+      return {
+        brandProduct: document.getElementById('brandProduct').value.trim(),
+        brandGuidelines: document.getElementById('brandGuidelines').value.trim(),
+        targetAudience: document.getElementById('targetAudience').value.trim(),
+        funnelStage: document.getElementById('funnelStage').value,
+        lockedScript: scriptInput.value.trim(),
+        seriesSpecificInputs: (seriesSpecificInputs ? seriesSpecificInputs.value : '').trim(),
+        aspectRatio: '9:16'
+      };
+    }
+
+    async function collectUploadedHostAngles() {
+      return [];
+    }
+
+    function firstSentences(text, count = 2) {
+      const raw = `${text || ''}`.trim();
+      if (!raw) {
+        return '';
+      }
+
+      const parts = raw.split(/(?<=[.!?])\s+/).filter(Boolean);
+      if (parts.length === 0) {
+        return raw;
+      }
+      return parts.slice(0, count).join(' ');
+    }
+
+    function imageScreenGuardrailRegex() {
+      return /\b(phone|smartphone|mobile|laptop|tablet|screen|monitor|display|ui|user interface|app interface|notification|overlay|supers?|caption|subtitle)\b/i;
+    }
+
+    function removeScreenSentences(text, maxSentences = 2) {
+      const raw = `${text || ''}`.trim();
+      if (!raw) {
+        return '';
+      }
+
+      const parts = raw.split(/(?<=[.!?])\s+/).filter(Boolean);
+      const filtered = parts.filter((sentence) => !imageScreenGuardrailRegex().test(sentence));
+      if (filtered.length === 0) {
+        return '';
+      }
+      return filtered.slice(0, maxSentences).join(' ');
+    }
+
+    function buildCharacterImagePromptForGeneration(generated) {
+      const base = `${generated?.characterImagePrompt || ''}`.trim();
+      if (!base) {
+        return '';
+      }
+
+      const backstoryAnchor = removeScreenSentences(generated?.backstory, 2);
+      const personaAnchor = removeScreenSentences(generated?.personaContext, 1);
+      const settingAnchor = removeScreenSentences(generated?.settingProfile, 2);
+      const activityAnchor = removeScreenSentences(generated?.primaryActivity, 1);
+      const anchors = [backstoryAnchor, personaAnchor].filter(Boolean).join(' ');
+      const lifestyleAnchors = [settingAnchor, activityAnchor].filter(Boolean).join(' ');
+      const hardGuardrails = 'Hard image guardrails: subject is not holding or using phone/laptop/tablet and no visible screen UI, app interface, overlays, supers, captions, subtitles, or text.';
+      const indianIdentityLock = 'Indian identity lock: subject is Indian and based in India with authentic India-grounded lifestyle context.';
+      if (!anchors) {
+        if (!lifestyleAnchors) {
+          return `${base} ${indianIdentityLock} ${hardGuardrails}`;
+        }
+        return `${base} ${indianIdentityLock} Lifestyle environment lock: ${lifestyleAnchors} Include layered depth: foreground subject, lived-in mid-ground props, and one softly blurred secondary background element. ${hardGuardrails}`;
+      }
+
+      const continuitySegment = `Character continuity lock from backstory and persona: ${anchors} Keep exact identity, age cues, profession cues, and lifestyle context consistent.`;
+      const lifestyleSegment = lifestyleAnchors
+        ? `Lifestyle environment lock: ${lifestyleAnchors} Include layered depth: foreground subject, lived-in mid-ground props, and one softly blurred secondary background element.`
+        : 'Lifestyle environment lock: include a concrete real-world setting with lived-in props and one softly blurred secondary background element.';
+
+      return `${base} ${indianIdentityLock} ${continuitySegment} ${lifestyleSegment} ${hardGuardrails}`;
+    }
+
+    function renderResult(data, state = {}) {
+      output.innerHTML = '';
+
+      if (!SIMPLE_SERIES_MODE) {
+      const characterCard = document.createElement('div');
+      characterCard.className = 'output-section';
+      const characterTitle = document.createElement('h3');
+      characterTitle.textContent = 'Character Preview (Step 1)';
+      characterCard.appendChild(characterTitle);
+
+      const imageUrl = state.characterImageUrl || '';
+      if (imageUrl) {
+        const wrap = document.createElement('div');
+        wrap.className = 'image-wrap';
+        const image = document.createElement('img');
+        image.src = imageUrl;
+        image.alt = 'Generated character preview';
+        wrap.appendChild(image);
+        characterCard.appendChild(wrap);
+      } else {
+        const emptyText = document.createElement('p');
+        emptyText.textContent = 'Generate character image to preview identity and styling before video.';
+        characterCard.appendChild(emptyText);
+      }
+
+      const characterStatus = document.createElement('p');
+      characterStatus.style.marginTop = '8px';
+      if (state.characterImageError) {
+        characterStatus.textContent = `Error: ${state.characterImageError}`;
+      } else if (state.characterImageStatusText) {
+        characterStatus.textContent = state.characterImageStatusText;
+      } else if (characterApproved && imageUrl) {
+        characterStatus.textContent = 'Character approved. Proceed to video generation.';
+      } else if (imageUrl) {
+        characterStatus.textContent = 'Review this image. If approved, click 2) Approve Character.';
+      } else {
+        characterStatus.textContent = 'Step 1 pending.';
+      }
+      characterCard.appendChild(characterStatus);
+      output.appendChild(characterCard);
+
+      const videoCard = document.createElement('div');
+      videoCard.className = 'output-section';
+      const videoTitle = document.createElement('h3');
+      videoTitle.textContent = 'Generated Video (Step 3)';
+      videoCard.appendChild(videoTitle);
+
+      if (state.videoUrl) {
+        const wrap = document.createElement('div');
+        wrap.className = 'video-wrap';
+        const video = document.createElement('video');
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.src = state.videoUrl;
+        wrap.appendChild(video);
+        videoCard.appendChild(wrap);
+      } else {
+        const emptyText = document.createElement('p');
+        if (!characterApproved) {
+          emptyText.textContent = 'Approve the character image first to unlock video generation.';
+        } else {
+          emptyText.textContent = 'Character approved. Click 3) Generate Video.';
+        }
+        videoCard.appendChild(emptyText);
+      }
+
+      const videoStatus = document.createElement('p');
+      videoStatus.style.marginTop = '8px';
+      if (state.videoError) {
+        videoStatus.textContent = `Error: ${state.videoError}`;
+      } else if (state.videoStatusText) {
+        videoStatus.textContent = state.videoStatusText;
+      } else {
+        videoStatus.textContent = 'Step 3 pending.';
+      }
+      videoCard.appendChild(videoStatus);
+      output.appendChild(videoCard);
+      }
+
+      const seriesCard = document.createElement('div');
+      seriesCard.className = 'output-section';
+      const seriesTitle = document.createElement('h3');
+      seriesTitle.textContent = 'Educational Series';
+      seriesCard.appendChild(seriesTitle);
+      const seriesVideoUrl = state.seriesVideoUrl || latestSeriesVideoUrl || '';
+      const seriesPlanUrl = state.seriesPlanUrl || latestSeriesPlanUrl || '';
+
+      if (seriesVideoUrl) {
+        const wrap = document.createElement('div');
+        wrap.className = 'video-wrap';
+        const seriesVideo = document.createElement('video');
+        seriesVideo.controls = true;
+        seriesVideo.src = seriesVideoUrl;
+        wrap.appendChild(seriesVideo);
+        seriesCard.appendChild(wrap);
+      } else {
+        const emptyText = document.createElement('p');
+        emptyText.textContent = 'Ready to generate. Infographics are inserted only where the script has explainable concepts.';
+        seriesCard.appendChild(emptyText);
+      }
+
+      const seriesStatus = document.createElement('p');
+      seriesStatus.style.marginTop = '8px';
+      if (state.seriesError) {
+        seriesStatus.textContent = `Error: ${state.seriesError}`;
+      } else if (state.seriesStatusText) {
+        seriesStatus.textContent = state.seriesStatusText;
+      } else if (seriesVideoUrl) {
+        seriesStatus.textContent = 'Series ready.';
+      } else {
+        seriesStatus.textContent = 'Step 4 pending.';
+      }
+      seriesCard.appendChild(seriesStatus);
+
+      if (seriesPlanUrl) {
+        const planLink = document.createElement('a');
+        planLink.href = seriesPlanUrl;
+        planLink.target = '_blank';
+        planLink.rel = 'noopener';
+        planLink.textContent = 'Open series-plan.json';
+        planLink.style.display = 'inline-block';
+        planLink.style.marginTop = '6px';
+        seriesCard.appendChild(planLink);
+      }
+
+      output.appendChild(seriesCard);
+
+      if (!data) {
+        return;
+      }
+
+      const detailsCard = document.createElement('div');
+      detailsCard.className = 'output-section';
+      const details = document.createElement('details');
+      details.className = 'prompt-details';
+
+      const summary = document.createElement('summary');
+      summary.textContent = 'View prompt breakdown';
+      details.appendChild(summary);
+
+      const sections = [
+        { title: 'Target Persona Guardrails', content: data.personaContext },
+        { title: 'Unique Character Backstory', content: data.backstory },
+        { title: 'Wardrobe Direction', content: data.wardrobeProfile },
+        { title: 'Voice & Ambient Audio Profile', content: data.voiceProfile },
+        { title: 'Primary Activity (Locked)', content: data.primaryActivity },
+        { title: 'Character Image Prompt', content: state.characterImagePromptUsed || data.characterImagePrompt, pre: true },
+        { title: 'Distilled Veo Brief', content: data.distilledSpec },
+        { title: 'Final Veo 3 Prompt', content: data.finalPrompt, pre: true }
+      ];
+
+      for (const section of sections) {
+        const block = document.createElement('div');
+        block.className = 'detail-block';
+        const heading = document.createElement('h4');
+        heading.textContent = section.title;
+        const body = section.pre ? document.createElement('pre') : document.createElement('p');
+        body.textContent = section.content;
+        block.appendChild(heading);
+        block.appendChild(body);
+        details.appendChild(block);
+      }
+
+      detailsCard.appendChild(details);
+      output.appendChild(detailsCard);
+    }
+
+    async function generateCharacterStep() {
+      if (!updateWordStatus()) {
+        scriptInput.focus();
+        return;
+      }
+
+      const inputs = collectInputs();
+      latestGenerated = null;
+      latestPrompt = '';
+      latestVideoUrl = '';
+      latestSeriesVideoUrl = '';
+      latestSeriesPlanUrl = '';
+      characterApproved = false;
+      clearLatestVideoObjectUrl();
+      clearLatestSeriesVideoObjectUrl();
+      clearLatestCharacterImageObjectUrl();
+      latestCharacterImageUrl = '';
+      latestCharacterImagePromptUsed = '';
+      latestCharacterImageBase64 = '';
+      latestCharacterImageMimeType = '';
+      updateWorkflowButtons();
+
+      renderResult(null, { characterImageStatusText: 'Generating creative logic...' });
+      setImageGeneratingState(true);
+
+      try {
+        let logicStatusNote = '';
+        try {
+          latestGenerated = await requestCreativeLogicFromApi('/api/generate-ai-logic', {
+            brandProduct: inputs.brandProduct,
+            brandGuidelines: inputs.brandGuidelines,
+            targetAudience: inputs.targetAudience,
+            funnelStage: inputs.funnelStage,
+            lockedScript: inputs.lockedScript,
+            aspectRatio: '9:16'
+          });
+        } catch (logicError) {
+          latestGenerated = enforceVideoNoUIScreenOnGenerated(buildOutput(inputs));
+          const reason = logicError instanceof Error ? logicError.message : 'AI logic unavailable';
+          logicStatusNote = `AI logic fallback used: ${reason}`;
+        }
+        latestPrompt = latestGenerated.finalPrompt;
+        latestCharacterImagePromptUsed = buildCharacterImagePromptForGeneration(latestGenerated);
+
+        renderResult(latestGenerated, {
+          characterImageStatusText: logicStatusNote ? `${logicStatusNote}. Generating character image...` : 'Generating character image...',
+          characterImagePromptUsed: latestCharacterImagePromptUsed
+        });
+
+        const imageResult = await requestCharacterImageFromApi('/api/generate-character-image', {
+          prompt: latestCharacterImagePromptUsed || latestGenerated.characterImagePrompt,
+          backstory: latestGenerated.backstory,
+          setting_profile: latestGenerated.settingProfile,
+          primary_activity: latestGenerated.primaryActivity,
+          aspect_ratio: '9:16'
+        });
+
+        latestCharacterImageUrl = imageResult.imageUrl || '';
+        latestCharacterImageBase64 = imageResult.imageBase64 || '';
+        latestCharacterImageMimeType = imageResult.imageMimeType || 'image/png';
+        if (imageResult.objectUrl && latestCharacterImageUrl.startsWith('blob:')) {
+          latestCharacterImageObjectUrl = latestCharacterImageUrl;
+        }
+
+        if (!latestCharacterImageBase64) {
+          throw new Error('Character image response did not include image bytes needed for image-to-video.');
+        }
+
+        renderResult(latestGenerated, {
+          characterImageUrl: latestCharacterImageUrl,
+          characterImagePromptUsed: latestCharacterImagePromptUsed,
+          characterImageStatusText: imageResult.status ? `Image status: ${imageResult.status}` : 'Character image ready for approval.'
+        });
+      } catch (error) {
+        renderResult(latestGenerated, {
+          characterImagePromptUsed: latestCharacterImagePromptUsed,
+          characterImageError: error instanceof Error ? error.message : 'Character image generation failed.'
+        });
+      } finally {
+        setImageGeneratingState(false);
+        updateWorkflowButtons();
+      }
+    }
+
+    async function generateVideoStep() {
+      if (!latestGenerated || !characterApproved) {
+        return;
+      }
+      if (!latestCharacterImageBase64) {
+        renderResult(latestGenerated, {
+          characterImageUrl: latestCharacterImageUrl,
+          characterImageStatusText: 'Character approved.',
+          videoError: 'Missing reference image bytes. Regenerate and approve the character image again.'
+        });
+        return;
+      }
+
+      const inputs = collectInputs();
+      latestPrompt = latestGenerated.finalPrompt;
+      latestVideoUrl = '';
+      clearLatestVideoObjectUrl();
+      renderResult(latestGenerated, {
+        characterImageUrl: latestCharacterImageUrl,
+        characterImagePromptUsed: latestCharacterImagePromptUsed,
+        characterImageStatusText: 'Character approved.',
+        videoStatusText: 'Submitting video request...'
+      });
+
+      setVideoGeneratingState(true);
+
+      try {
+        const result = await generateVideoFromApi('/api/generate-video', '', inputs, latestGenerated, {
+          base64: latestCharacterImageBase64,
+          mimeType: latestCharacterImageMimeType || 'image/png'
+        });
+        latestVideoUrl = result.videoUrl || '';
+
+        if (result.objectUrl && latestVideoUrl.startsWith('blob:')) {
+          latestVideoObjectUrl = latestVideoUrl;
+        }
+
+        renderResult(latestGenerated, {
+          characterImageUrl: latestCharacterImageUrl,
+          characterImagePromptUsed: latestCharacterImagePromptUsed,
+          characterImageStatusText: 'Character approved.',
+          videoUrl: latestVideoUrl,
+          videoStatusText: result.status ? `Video status: ${result.status}` : 'Video ready.'
+        });
+      } catch (error) {
+        renderResult(latestGenerated, {
+          characterImageUrl: latestCharacterImageUrl,
+          characterImagePromptUsed: latestCharacterImagePromptUsed,
+          characterImageStatusText: 'Character approved.',
+          videoError: error instanceof Error ? error.message : 'Video generation failed.'
+        });
+      } finally {
+        setVideoGeneratingState(false);
+      }
+    }
+
+    async function generateSeriesStep() {
+      if (!updateWordStatus()) {
+        scriptInput.focus();
+        return;
+      }
+
+      const inputs = collectInputs();
+      const includeInfographics = includeInfographicsSelect.value !== 'false';
+      const targetDurationSeconds = estimateSeriesDurationSeconds(inputs.lockedScript, includeInfographics);
+      const specificInputs = inputs.seriesSpecificInputs || '';
+      const effectiveTitle = inputs.brandProduct || 'MFD Shaala';
+      const estimatedClipCount = Math.max(1, Math.round(targetDurationSeconds / 8));
+
+      latestSeriesVideoUrl = '';
+      latestSeriesPlanUrl = '';
+      clearLatestSeriesVideoObjectUrl();
+      startSeriesProgress(estimatedClipCount);
+      const historyId = addSeriesHistoryEntry({
+        title: effectiveTitle,
+        scriptPreview: inputs.lockedScript,
+        targetDurationSeconds,
+        includeInfographics
+      });
+
+      renderResult(null, {
+        seriesStatusText: 'Generating clips with default host images and relevant infographic inserts. This may take several minutes...'
+      });
+
+      setSeriesGeneratingState(true);
+
+      try {
+        const result = await requestEducationalSeriesFromApi('/api/generate-educational-series', {
+          seriesTitle: effectiveTitle,
+          lockedScript: inputs.lockedScript,
+          seriesInstructions: specificInputs,
+          clipDurationSeconds: 8,
+          includeInfographics,
+          aspectRatio: '9:16',
+          infographicStyle: specificInputs || 'Nano Banana Pro educational infographic style',
+          shuffleHostAngles: true,
+          maxWordsPerHostClip: 18
+        });
+
+        latestSeriesVideoUrl = result.finalVideoUrl || '';
+        latestSeriesPlanUrl = result.planUrl || '';
+        const clipCount = result.clip_count || result.clipCount || 'n/a';
+        const hostAngleCount = result.host_angle_count || result.hostAngleCount || 'default';
+        const successText = `Series ready (${clipCount} clips stitched, host angles: ${hostAngleCount}).`;
+        completeSeriesProgress(true, 'Series completed.');
+        updateSeriesHistoryEntry(historyId, {
+          status: 'completed',
+          completedAt: new Date().toISOString(),
+          clipCount: Number.isFinite(Number(clipCount)) ? Number(clipCount) : estimatedClipCount,
+          hostAngleCount: Number.isFinite(Number(hostAngleCount)) ? Number(hostAngleCount) : hostAngleCount,
+          finalVideoUrl: latestSeriesVideoUrl,
+          planUrl: latestSeriesPlanUrl
+        });
+
+        renderResult(null, {
+          seriesVideoUrl: latestSeriesVideoUrl,
+          seriesPlanUrl: latestSeriesPlanUrl,
+          seriesStatusText: successText
+        });
+      } catch (error) {
+        const message = error instanceof Error ? error.message : 'Series generation failed.';
+        completeSeriesProgress(false, 'Series failed. Review error below.');
+        updateSeriesHistoryEntry(historyId, {
+          status: 'failed',
+          completedAt: new Date().toISOString(),
+          error: message
+        });
+        renderResult(null, {
+          seriesError: message
+        });
+      } finally {
+        setSeriesGeneratingState(false);
+      }
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      await generateSeriesStep();
+    });
+
+    if (generateSeriesButton) {
+      generateSeriesButton.addEventListener('click', async () => {
+        await generateSeriesStep();
+      });
+    }
+
+    if (downloadButton) {
+      downloadButton.addEventListener('click', () => {
+      const activeUrl = latestSeriesVideoUrl || latestVideoUrl;
+      if (!activeUrl) {
+        return;
+      }
+
+      const link = document.createElement('a');
+      link.href = activeUrl;
+      link.download = latestSeriesVideoUrl ? 'mfd-shaala-series.mp4' : 'ptc-veo-output.mp4';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      });
+    }
+
+    if (resetButton) {
+      resetButton.addEventListener('click', () => {
+      form.reset();
+      latestPrompt = '';
+      latestVideoUrl = '';
+      latestSeriesVideoUrl = '';
+      latestSeriesPlanUrl = '';
+      latestCharacterImageUrl = '';
+      latestCharacterImagePromptUsed = '';
+      latestCharacterImageBase64 = '';
+      latestCharacterImageMimeType = '';
+      latestGenerated = null;
+      characterApproved = false;
+      clearLatestVideoObjectUrl();
+      clearLatestSeriesVideoObjectUrl();
+      clearLatestCharacterImageObjectUrl();
+      output.innerHTML = '<div class="output-section"><h3>Ready</h3><p>Fill the form and click <strong>Generate</strong>.</p></div>';
+      setImageGeneratingState(false);
+      setVideoGeneratingState(false);
+      setSeriesGeneratingState(false);
+      resetSeriesProgress();
+      updateWorkflowButtons();
+      updateWordStatus();
+      });
+    }
+
+    if (historyList) {
+      historyList.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
+        const actionButton = target.closest('button[data-action]');
+        if (!actionButton) {
+          return;
+        }
+        const action = actionButton.dataset.action;
+        const id = actionButton.dataset.id;
+        if (!action || !id) {
+          return;
+        }
+        const item = seriesHistory.find((entry) => entry.id === id);
+        if (!item) {
+          return;
+        }
+
+        if (action === 'delete') {
+          removeSeriesHistoryEntry(id);
+          return;
+        }
+
+        if (action === 'load') {
+          latestSeriesVideoUrl = item.finalVideoUrl || '';
+          latestSeriesPlanUrl = item.planUrl || '';
+          renderResult(null, {
+            seriesVideoUrl: latestSeriesVideoUrl,
+            seriesPlanUrl: latestSeriesPlanUrl,
+            seriesStatusText: `Loaded from history (${jobStatusLabel(item.status)}).`
+          });
+        }
+      });
+    }
+
+    if (clearHistoryButton) {
+      clearHistoryButton.addEventListener('click', () => {
+        seriesHistory = [];
+        persistSeriesHistory();
+        renderSeriesHistory();
+      });
+    }
+
+    if (refreshHistoryButton) {
+      refreshHistoryButton.addEventListener('click', () => {
+        seriesHistory = loadSeriesHistoryFromStorage();
+        renderSeriesHistory();
+      });
+    }
+
+    scriptInput.addEventListener('input', updateWordStatus);
+    seriesHistory = loadSeriesHistoryFromStorage();
+    renderSeriesHistory();
+    resetSeriesProgress();
+    updateWordStatus();
+    updateWorkflowButtons();
+  </script>
+</body>
+</html>

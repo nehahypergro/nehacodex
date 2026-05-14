@@ -1,0 +1,321 @@
+[
+  {
+    "caseId": "AP-01",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push 5% rewards on travel bookings via Kotak Unbox. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+    "script": "Get five percent rewards on travel bookings through Kotak Unbox with Kotak Air Plus. Apply Now.",
+    "runId": "imgbatch-1774739884252755000-AP-01",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Hillside retreat lounge with panoramic windows and quiet getaway travel calm. Background stays in that same place: Hillside retreat lounge with panoramic windows and quiet getaway travel calm. Subject: Siddharth Menon, 34, Co-founder of a deep-tech logistics startup, frequently flying across Southeast Asia to pitch to regional e-commerce giants., Pune. Appearance: A strong, angular jawline with a slightly asymmetrical nose, thick straight eyebrows framing deep-set brown eyes, and warm olive skin showing faint sun-spots. Hair and grooming: Thick, wavy black hair styled with a relaxed side part that allows a few natural flyaways, complemented by a neatly.. Concrete physical action: resting one hand on a cabin bag handle before heading out. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Get five percent rewards on travel bookings through Kotak Unbox with Kotak Air Plus. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "status": "failed",
+    "stage": "keyframe",
+    "error": "Image generation did not return image bytes."
+  },
+  {
+    "caseId": "AP-02",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+    "script": "Frequent international traveller? Enjoy a low two percent forex markup with Kotak Air Plus. Apply Now.",
+    "runId": "imgbatch-1774739947749019000-AP-02",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774739947749019000-AP-02/debug-veo31_standard-1774739947814/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774739947749019000-AP-02/debug-veo31_standard-1774739947814/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Private transfer bay outside a luxury stay with concierge-side movement. Background stays in that same place: Private transfer bay outside a luxury stay with concierge-side movement. Subject: Siddharth Menon, 34, Head of Global Supply Chain for a premium organic wellness brand, frequently flying to botanical estates in France, Morocco, and Japan., Pune. Appearance: A slightly angular face with a prominent, straight nose, thick but naturally uneven eyebrows, warm medium-brown skin with visible pores and faint shaving. Hair and grooming: Short, textured hair styled with a matte clay that leaves a few natural flyaways at the crown.. Concrete physical action: pausing beside a rolling cabin bag after stepping out of a car. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Frequent international traveller? Enjoy a low two percent forex markup with Kotak Air Plus. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Private transfer bay outside a luxury stay with concierge-side movement",
+      "activity": "pausing beside a rolling cabin bag after stepping out of a car",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-03",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Create urgency around unlocking a complimentary flight after Rs. 1.5 lakh quarterly spend. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+    "script": "Unlock a complimentary flight! Spend one point five lakhs this quarter with Kotak Air Plus. Apply Now.",
+    "runId": "imgbatch-1774740020858581000-AP-03",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740020858581000-AP-03/debug-veo31_standard-1774740020886/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740020858581000-AP-03/debug-veo31_standard-1774740020886/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Private transfer bay outside a luxury stay with subtle concierge activity and luggage flow. Background stays in that same place: Private transfer bay outside a luxury stay with subtle concierge activity and luggage flow. Subject: Kabir Sengupta, 34, Regional Director of a luxury hospitality tech platform, frequently flying to onboard premium resort properties., Pune. Appearance: He has a strong, angular jawline with slightly asymmetrical cheekbones, thick, naturally arched eyebrows over alert brown eyes, a straight nose with a subtle. Hair and grooming: His thick, dark hair is styled in a relaxed, textured push-back that maintains its shape while in transit.. Concrete physical action: pausing beside a rolling cabin bag after stepping out of a car. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Unlock a complimentary flight! Spend one point five lakhs this quarter with Kotak Air Plus. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Private transfer bay outside a luxury stay with subtle concierge activity and luggage flow",
+      "activity": "pausing beside a rolling cabin bag after stepping out of a car",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-04",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Highlight travel privileges worth over Rs. 80000 annually. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+    "script": "Unlock travel privileges worth over eighty thousand rupees with Kotak Air Plus. Apply Now.",
+    "runId": "imgbatch-1774740083114357000-AP-04",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740083114357000-AP-04/debug-veo31_standard-1774740083144/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740083114357000-AP-04/debug-veo31_standard-1774740083144/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Premium hotel porte-cochere with arriving cabs, polished luggage flow, and quiet travel-day urgency. Background stays in that same place: Premium hotel porte-cochere with arriving cabs, polished luggage flow, and quiet travel-day urgency. Subject: Siddharth Menon, 34, Chief Strategy Officer for a heritage luxury brand, frequently flying between international flagship stores and regional craft hubs., Jaipur. Appearance: A strong, angular jawline with a slightly asymmetrical smile, thick, naturally arched eyebrows over deep-set brown eyes, a straight, prominent nose. Hair and grooming: Thick, wavy black hair styled back with a matte pomade allowing a few natural flyaways, paired with a meticulously.. Wardrobe cues: Crisp sage green overshirt layered over a fine-gauge charcoal polo. Concrete physical action: pausing beside a rolling cabin bag after stepping out of a car. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Unlock travel privileges worth over eighty thousand rupees with Kotak Air Plus. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Premium hotel porte-cochere with arriving cabs, polished luggage flow, and quiet travel-day urgency",
+      "activity": "pausing beside a rolling cabin bag after stepping out of a car",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-05",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push the limited-period zero joining fee for premium travellers. Direct-to-camera and BOFU.",
+    "script": "Limited period: enjoy zero joining fee on Kotak Air Plus. Perfect for premium travellers. Apply Now.",
+    "runId": "imgbatch-1774740147239501000-AP-05",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740147239501000-AP-05/debug-veo31_standard-1774740147272/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740147239501000-AP-05/debug-veo31_standard-1774740147272/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Private transfer bay outside a luxury stay with concierge-side movement. Background stays in that same place: Private transfer bay outside a luxury stay with concierge-side movement. Subject: Ananya Varghese, 34, Head of Global Sourcing for a premium organic skincare brand, frequently traveling to botanical estates and wellness summits., Kochi. Appearance: She has a warm, olive complexion with visible, faint freckles across the bridge of her slightly rounded nose, soft almond-shaped eyes framed by naturally. Hair and grooming: Her dark, collarbone-length hair is styled in loose, natural waves with a few realistic flyaways catching the light.. Concrete physical action: pausing beside a rolling cabin bag after stepping out of a car. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Limited period: enjoy zero joining fee on Kotak Air Plus. Perfect for premium travellers. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Private transfer bay outside a luxury stay with concierge-side movement",
+      "activity": "pausing beside a rolling cabin bag after stepping out of a car",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-06",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Highlight 4 complimentary domestic lounge visits every year for frequent travellers. Direct-to-camera and premium.",
+    "script": "Frequent traveller? Enjoy four complimentary domestic lounge visits every year. Apply Now.",
+    "runId": "imgbatch-1774740212408899000-AP-06",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740212408899000-AP-06/debug-veo31_standard-1774740212448/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740212408899000-AP-06/debug-veo31_standard-1774740212448/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: An executive airline club lounge reception threshold, featuring warm slatted wood accents, soft ambient lighting, and the quiet, blurred presence of a neatly placed premium carry-on in the background during a calm pre-boarding pause.. Background stays in that same place: An executive airline club lounge reception threshold, featuring warm slatted wood accents, soft ambient lighting, and the quiet, blurred presence of a neatly placed premium carry-on in the background during a calm pre-boarding pause.. Subject: Aditi Sharma, 34, Founder of a high-end artisanal fragrance brand, frequently flying across India to source rare ingredients and meet retail partners., Mumbai. Appearance: She has a strong, angular jawline with slightly asymmetrical cheekbones, thick naturally arched eyebrows, a straight prominent nose, full lips with a subtle. Hair and grooming: Her thick, dark brown hair is styled in a relaxed, shoulder-length blowout that shows natural flyaways and lived-in.. Wardrobe cues: Premium, understated travel styling featuring a delicate gold pendant and a sleek leather tote.. Concrete physical action: resting one hand on a cabin bag handle before heading out. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Frequent traveller? Enjoy four complimentary domestic lounge visits every year. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "An executive airline club lounge reception threshold, featuring warm slatted wood accents, soft ambient lighting, and the quiet, blurred presence of a neatly placed premium carry-on in the background during a calm pre-boarding pause.",
+      "activity": "resting one hand on a cabin bag handle before heading out",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-07",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push 2 complimentary international lounge visits with Priority Pass access. Direct-to-camera, premium frequent traveller.",
+    "script": "Elevate your travel. Enjoy two complimentary international lounge visits with Priority Pass. Apply Now.",
+    "runId": "imgbatch-1774740336511946000-AP-07",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740336511946000-AP-07/debug-veo31_standard-1774740336545/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740336511946000-AP-07/debug-veo31_standard-1774740336545/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Contemporary hotel lounge with affluent Indian travel lifestyle cues. Background stays in that same place: Contemporary hotel lounge with affluent Indian travel lifestyle cues. Subject: Meera Shenoy, 34, VP of Global Partnerships for an AI-driven supply chain firm, frequently flying to tech hubs in Singapore and Frankfurt., Delhi NCR. Appearance: Heart-shaped face with high cheekbones, naturally arched brows, a straight narrow nose, full lower lip, and a defined jawline, featuring warm olive skin. Hair and grooming: Shoulder-length dark brown hair styled in soft, lived-in waves that show slight flyaways near the parting.. Concrete physical action: walking with a cabin bag and pausing mid-step near the lobby entrance. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Elevate your travel. Enjoy two complimentary international lounge visits with Priority Pass. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "Contemporary hotel lounge with affluent Indian travel lifestyle cues",
+      "activity": "walking with a cabin bag and pausing mid-step near the lobby entrance",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-08",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Highlight 2500 welcome Air Miles as a strong first benefit. Direct-to-camera and premium.",
+    "script": "Get 2500 welcome Air Miles with Kotak Air Plus! Start your travel rewards today. Apply Now.",
+    "runId": "imgbatch-1774740400168198000-AP-08",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740400168198000-AP-08/debug-veo31_standard-1774740400205/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740400168198000-AP-08/debug-veo31_standard-1774740400205/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Premium cafe inside a hotel district with travel-ready styling. Background stays in that same place: Premium cafe inside a hotel district with travel-ready styling. Subject: Kavya Verma, 34, Lead Architect for a boutique sustainable design firm, frequently traveling to eco-resort project sites across South Asia., Hyderabad. Appearance: Angular jawline with a slightly asymmetrical nose, thick straight eyebrows, warm brown eyes with faint laugh lines, and a textured, slightly uneven olive skin. Hair and grooming: Short, textured crop pushed slightly off the forehead with matte clay, paired with a neatly trimmed but dense.. Wardrobe cues: Arrival-ready premium separates with fluid movement, clean tailoring, and believable fabric texture.; Quiet luxury styling that feels natural at a high-end concierge or check-in moment.. Concrete physical action: walking with a cabin bag and pausing mid-step near the lobby entrance. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Get 2500 welcome Air Miles with Kotak Air Plus! Start your travel rewards today. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "Premium cafe inside a hotel district with travel-ready styling",
+      "activity": "walking with a cabin bag and pausing mid-step near the lobby entrance",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-09",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on earning 5 Air Miles per Rs 100 spent on travel. Direct-to-camera and conversion-led.",
+    "script": "Ready to fly? Earn five percent rewards on all your travel bookings with Kotak Air Plus. Apply Now.",
+    "runId": "imgbatch-1774740474024996000-AP-09",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740474024996000-AP-09/debug-veo31_standard-1774740474057/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740474024996000-AP-09/debug-veo31_standard-1774740474057/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Boutique hotel forecourt with luggage-ready arrival or departure energy. Background stays in that same place: Boutique hotel forecourt with luggage-ready arrival or departure energy. Subject: Vikram Chhetri, 34, Head of Operations for a boutique coffee roastery, frequently flying to high-altitude estates and international barista championships., Hyderabad. Appearance: Strong, slightly asymmetrical jawline with prominent cheekbones, straight thick eyebrows that taper at the ends, a slightly broad nose bridge, warm brown eyes. Hair and grooming: Short, textured crop with a slight natural wave pushed back, paired with a neatly trimmed but dense 5 o'clock shadow.. Wardrobe cues: Soft luxury layering with believable fabric texture and a calm lounge-ready silhouette.; Premium travel styling that favors ease, warmth, and confidence over rigid office polish.. Concrete physical action: pausing beside a rolling cabin bag after stepping out of a car. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Ready to fly? Earn five percent rewards on all your travel bookings with Kotak Air Plus. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Boutique hotel forecourt with luggage-ready arrival or departure energy",
+      "activity": "pausing beside a rolling cabin bag after stepping out of a car",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "AP-10",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push 1 Air Mile equals Rs 1 on Kotak Unbox travel redemptions. Direct-to-camera, premium frequent traveller.",
+    "script": "Maximize your travel. One Air Mile on Kotak Air Plus equals one rupee on Kotak Unbox. Apply Now.",
+    "runId": "imgbatch-1774740549277477000-AP-10",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Business hotel lobby with checkout-ready luggage and polished metro styling. Background stays in that same place: Business hotel lobby with checkout-ready luggage and polished metro styling. Subject: Arjun Gupta, 34, Founder of a specialized sports analytics startup, frequently flying between international cricket leagues and tech conferences., Delhi NCR. Appearance: He has a strong, slightly asymmetrical jawline with prominent cheekbones, straight thick eyebrows that naturally furrow slightly when focused, a straight. Hair and grooming: His thick black hair is styled in a relaxed side-part with a few natural flyaways catching the light.. Wardrobe cues: Crisp, well-ironed sage green tailored overshirt over a premium white t-shirt. Concrete physical action: walking with a cabin bag and pausing mid-step near the lobby entrance. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable travel-day or mobility context from the backstory, not a glossy campaign version of travel. Script context: Maximize your travel. One Air Mile on Kotak Air Plus equals one rupee on Kotak Unbox. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "status": "failed",
+    "stage": "keyframe",
+    "error": "Image generation did not return image bytes."
+  },
+  {
+    "caseId": "CB-01",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on 5% cashback on online grocery for practical metro professionals. Direct-to-camera, polished, conversion-led.",
+    "script": "Get five percent cashback on online grocery orders spends. Perfect for your practical metro life. Apply Now.",
+    "runId": "imgbatch-1774740608039941000-CB-01",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740608039941000-CB-01/debug-veo31_standard-1774740608069/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740608039941000-CB-01/debug-veo31_standard-1774740608069/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Dining nook at home with unopened quick-commerce bags and app-native convenience cues. Background stays in that same place: Dining nook at home with unopened quick-commerce bags and app-native convenience cues. Subject: Meera Reddy, 34, Senior Data Analyst at a fintech consultancy who meticulously tracks her household expenses and relies on quick commerce for weekly staples., Hyderabad. Appearance: She has a strong, slightly angular jawline, naturally arched brows that frame expressive almond-shaped eyes, a straight nose, slightly asymmetrical lips. Hair and grooming: Her thick, dark brown hair is styled in a neat, practical low bun with a few natural flyaways framing her face.. Wardrobe cues: Minimalist gold stud earrings adding a touch of polished, practical metro styling. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Get five percent cashback on online grocery orders spends. Perfect for your practical metro life. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "Dining nook at home with unopened quick-commerce bags and app-native convenience cues",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-02",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on 5% cashback on food delivery for value-driven young professionals. Direct-to-camera and BOFU.",
+    "script": "Tired of paying full price for takeaways? Get five percent cashback on food delivery. Apply Now.",
+    "runId": "imgbatch-1774740760093641000-CB-02",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740760093641000-CB-02/debug-veo31_standard-1774740760128/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740760093641000-CB-02/debug-veo31_standard-1774740760128/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Home dining table with a fresh delivery bag and polished everyday-night styling. Background stays in that same place: Home dining table with a fresh delivery bag and polished everyday-night styling. Subject: Aditi Khanna, 28, Brand Strategist at a digital marketing agency who regularly orders late-night dinners during pitch preparations., Delhi NCR. Appearance: She has a soft, slightly asymmetrical jawline, naturally arched but unthreaded eyebrows, a straight nose with a subtle dorsal hump, full lips with a defined. Hair and grooming: Her shoulder-length, dark brown hair is styled in a messy half-up top knot with natural flyaways framing her face.. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Tired of paying full price for takeaways? Get five percent cashback on food delivery. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "Home dining table with a fresh delivery bag and polished everyday-night styling",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-03",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on 5% cashback on online entertainment and OTT subscriptions. Direct-to-camera and conversion-led.",
+    "script": "Get five percent cashback on your online entertainment and OTT subscriptions. Kotak Cashback+ makes. Apply Now.",
+    "runId": "imgbatch-1774740855081974000-CB-03",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740855081974000-CB-03/debug-veo31_standard-1774740855111/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740855081974000-CB-03/debug-veo31_standard-1774740855111/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Apartment lounge corner with takeaway arrival context and relaxed after-work energy. Background stays in that same place: Apartment lounge corner with takeaway arrival context and relaxed after-work energy. Subject: Shruti Desai, 29, Content Producer at a boutique media agency who binges global series for both work research and weekend wind-downs., Kolkata. Appearance: She has a softly angular jawline with naturally asymmetrical, expressive eyebrows, a straight, slightly prominent nose, full lips with a defined cupid's bow. Hair and grooming: Her shoulder-length, dark brown wavy hair is casually tucked behind one ear with a few natural flyaways.. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Get five percent cashback on your online entertainment and OTT subscriptions. Kotak Cashback+ makes. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "Apartment lounge corner with takeaway arrival context and relaxed after-work energy",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-04",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Combine 5% cashback on online grocery and food delivery. Practical, direct-to-camera, BOFU.",
+    "script": "Get five percent cashback on online groceries and food delivery with Kotak Cashback+. Apply Now.",
+    "runId": "imgbatch-1774740963005228000-CB-04",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740963005228000-CB-04/debug-veo31_standard-1774740963038/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774740963005228000-CB-04/debug-veo31_standard-1774740963038/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Urban home entryway with a fresh delivery drop and practical everyday-life styling. Background stays in that same place: Urban home entryway with a fresh delivery drop and practical everyday-life styling. Subject: Radhika Bhatia, 31, Product Manager at a fast-growing health-tech startup who practically lives on food delivery and quick commerce apps during sprint weeks., Delhi NCR. Appearance: She has a slightly asymmetrical jawline, prominent cheekbones, straight but thick eyebrows, a slightly broad nose bridge, and natural skin texture with mild. Hair and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer.. Wardrobe cues: Crisp olive green premium cotton overshirt layered over a white crew neck t-shirt. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Get five percent cashback on online groceries and food delivery with Kotak Cashback+. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "Urban home entryway with a fresh delivery drop and practical everyday-life styling",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-05",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Highlight up to 4% fuel benefits for everyday spenders. Direct-to-camera and practical.",
+    "script": "Drive more, save more. Get up to four percent fuel benefit with Kotak Cashback+. Apply Now.",
+    "runId": "imgbatch-1774741031780194000-CB-05",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741031780194000-CB-05/debug-veo31_standard-1774741031814/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741031780194000-CB-05/debug-veo31_standard-1774741031814/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Inside the driver's seat of a modern parked sedan with the window rolled down, showing a softly blurred, brightly lit premium petrol station canopy in the background during early evening twilight.. Background stays in that same place: Inside the driver's seat of a modern parked sedan with the window rolled down, showing a softly blurred, brightly lit premium petrol station canopy in the background during early evening twilight.. Subject: Rohan Kapoor, 34, Regional Sales Head for a consumer durables brand who clocks significant mileage visiting distributors across the state., Kolkata. Appearance: Strong, slightly squared jawline with a prominent chin, straight nose with a slight bump on the bridge, medium-thick expressive eyebrows, warm brown eyes. Hair and grooming: Short, neatly tapered haircut with slightly longer textured hair on top swept to the side, paired with a meticulously.. Wardrobe cues: Crisp olive green premium cotton polo with a structured collar. Concrete physical action: pausing beside a rolling cabin bag after stepping out of a car. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Drive more, save more. Get up to four percent fuel benefit with Kotak Cashback+. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Inside the driver's seat of a modern parked sedan with the window rolled down, showing a softly blurred, brightly lit premium petrol station canopy in the background during early evening twilight.",
+      "activity": "pausing beside a rolling cabin bag after stepping out of a car",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-06",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Push the zero joining fee limited-period offer with a practical savings angle. Direct-to-camera.",
+    "status": "failed",
+    "stage": "script",
+    "error": "Unable to generate a script that fits 8s spoken delivery. Tighten the brief or try again."
+  },
+  {
+    "caseId": "CB-07",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Highlight unlimited 0.5% cashback on all other spends. Direct-to-camera and value-led.",
+    "script": "Get unlimited half a percent cashback on all other spends with Kotak Cashback+. Apply Now.",
+    "runId": "imgbatch-1774741108485574000-CB-07",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741108485574000-CB-07/debug-veo31_standard-1774741108515/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741108485574000-CB-07/debug-veo31_standard-1774741108515/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: A vibrant, sunlit modern co-working space coffee bar with blurred espresso machines, hanging indoor plants, and soft background movement of professionals in the depth of field.. Background stays in that same place: A vibrant, sunlit modern co-working space coffee bar with blurred espresso machines, hanging indoor plants, and soft background movement of professionals in the depth of field.. Subject: Varun Joshi, 32, Supply Chain Manager at a national retail brand who handles vendor relationships and personal daily expenses with equal precision., Hyderabad. Appearance: He has a slightly asymmetrical jawline, warm brown eyes with faint laugh lines, a straight nose with a slightly wider bridge, naturally thick eyebrows that. Hair and grooming: Short, textured crop hair parted to one side with a few natural flyaways, paired with a neatly trimmed but slightly.. Wardrobe cues: Premium olive-green overshirt over a crisp white t-shirt. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Get unlimited half a percent cashback on all other spends with Kotak Cashback+. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "A vibrant, sunlit modern co-working space coffee bar with blurred espresso machines, hanging indoor plants, and soft background movement of professionals in the depth of field.",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-08",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Highlight annual fee waiver on Rs 2 lakh annual spends. Direct-to-camera and practical.",
+    "script": "Stop paying annual fees! Spend two lakh annually and get your Kotak Cashback+ fee waived. Apply Now.",
+    "runId": "imgbatch-1774741188283750000-CB-08",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741188283750000-CB-08/debug-veo31_standard-1774741188312/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741188283750000-CB-08/debug-veo31_standard-1774741188312/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: Transit-adjacent sidewalk with practical lifestyle cues. Background stays in that same place: Transit-adjacent sidewalk with practical lifestyle cues. Subject: Nikhil Kadam, 34, Senior IT Solutions Architect who manages substantial software subscriptions and household electronics upgrades annually., Mumbai. Appearance: He has a square jawline with a slight asymmetry, medium-thick straight eyebrows, a prominent straight nose, slightly uneven skin tone with mild sun-exposure. Hair and grooming: Short, neatly faded sides with slightly textured, matte-styled hair on top, paired with a meticulously trimmed, dense.. Wardrobe cues: Crisp olive green premium cotton polo with a structured collar. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Stop paying annual fees! Spend two lakh annually and get your Kotak Cashback+ fee waived. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "Transit-adjacent sidewalk with practical lifestyle cues",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-09",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Explain that 1 point equals Rs 1 statement cashback. Direct-to-camera and clear.",
+    "script": "Get five percent cashback on daily essentials with Kotak Cashback+. One point equals one rupee. Apply Now.",
+    "runId": "imgbatch-1774741287578409000-CB-09",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741287578409000-CB-09/debug-veo31_standard-1774741287608/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741287578409000-CB-09/debug-veo31_standard-1774741287608/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: A brightly lit, modern apartment balcony at golden hour, featuring a small metallic cafe table with a steaming mug of tea, overlooking a softly blurred urban skyline.. Background stays in that same place: A brightly lit, modern apartment balcony at golden hour, featuring a small metallic cafe table with a steaming mug of tea, overlooking a softly blurred urban skyline.. Subject: Rishabh Shenoy, 31, Regional Operations Manager for a boutique cafe chain who personally oversees daily vendor supplies and household grocery runs., Delhi NCR. Appearance: He has a slightly asymmetrical jawline with prominent cheekbones, thick, straight eyebrows that sit low over warm brown eyes, a straight nose with a slightly. Hair and grooming: His thick, dark hair is styled in a casual, slightly grown-out side part with natural wave and minor flyaways.. Wardrobe cues: Olive green premium cotton overshirt layered casually over a crisp white crew-neck t-shirt. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Get five percent cashback on daily essentials with Kotak Cashback+. One point equals one rupee. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "indoor",
+      "chosen_setting": "A brightly lit, modern apartment balcony at golden hour, featuring a small metallic cafe table with a steaming mug of tea, overlooking a softly blurred urban skyline.",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  },
+  {
+    "caseId": "CB-10",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Highlight 0.5% cashback on RuPay UPI spends for digitally active salaried professionals. Direct-to-camera and practical.",
+    "script": "Get unlimited half a percent cashback on all your UPI spends with Kotak Cashback+. Apply Now.",
+    "runId": "imgbatch-1774741364044006000-CB-10",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741364044006000-CB-10/debug-veo31_standard-1774741364073/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgbatch-1774741364044006000-CB-10/debug-veo31_standard-1774741364073/shared-keyframe-source.png",
+    "imagePrompt": "Vertical 9:16 iPhone-camera frame. Shot on iPhone with available light, casual handheld realism, and no professional studio finish. Natural exposure, natural color, real skin texture, crisp eyes, realistic fabric detail, and believable micro-imperfections. Do not make it look like a professionally lit campaign shoot, fashion editorial, CGI render, or stock-ad image. Use one single coherent location from the backstory only: A sun-dappled outdoor seating area of an upscale tech-park cafeteria, featuring blurred architectural lines, modern wooden slats, and soft bokeh of passing professionals in the background.. Background stays in that same place: A sun-dappled outdoor seating area of an upscale tech-park cafeteria, featuring blurred architectural lines, modern wooden slats, and soft bokeh of passing professionals in the background.. Subject: Siddharth Nair, 31, Senior UX Researcher at a tech firm who makes dozens of daily micro-transactions for cabs, coffees, and software subscriptions., Chennai. Appearance: Oval face structure with a slightly prominent, straight nose, medium-thick straight eyebrows, a defined but softened jawline, warm brown eyes with faint. Hair and grooming: Short, neat side-parted dark hair with a very slight natural wave at the crown, paired with a meticulously trimmed.. Wardrobe cues: Crisp, well-ironed olive green premium cotton overshirt over a charcoal t-shirt.. Concrete physical action: setting a delivery bag on the counter and turning to camera. Subject looks directly at the camera with a natural conversational gaze, not a mannequin pose and not a front-on studio headshot. Tight chest-up framing with full face visibility and slight natural asymmetry. Keep the head, hairline, chin, and shoulder line fully in frame with minimal empty headroom. Keep the world grounded in believable everyday spend context from the backstory, not a polished retail campaign scene. Script context: Get unlimited half a percent cashback on all your UPI spends with Kotak Cashback+. Apply Now.. Essential exclusions only: no readable text, no screens or devices, no cards or card-like objects, no celebrity or public-figure likeness.",
+    "sceneDirection": {
+      "location_type": "outdoor",
+      "chosen_setting": "A sun-dappled outdoor seating area of an upscale tech-park cafeteria, featuring blurred architectural lines, modern wooden slats, and soft bokeh of passing professionals in the background.",
+      "activity": "setting a delivery bag on the counter and turning to camera",
+      "framing": "Portrait 9:16, chest-up framing, direct eye contact, slight natural asymmetry, minimal empty headroom."
+    },
+    "status": "completed"
+  }
+]

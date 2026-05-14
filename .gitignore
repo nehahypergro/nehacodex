@@ -1,0 +1,26 @@
+.env
+.env.local
+.DS_Store
+.next
+.next-*
+.next.broken.*
+node_modules
+.node
+/.cache
+/.local
+generated-decks/*
+generated-runs/*
+generated-trials/*
+reviews/*
+snapshots/*
+storage/*
+generated/*
+!generated/.gitkeep
+npm-debug.log*
+tsconfig.tsbuildinfo
+
+# Sora Studio generated outputs
+generated-sora-studio/*
+!generated-sora-studio/.gitkeep
+generated-sora-studio-deliverables/*
+generated-sora-studio-model-comparison/*

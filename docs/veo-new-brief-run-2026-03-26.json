@@ -1,0 +1,235 @@
+{
+  "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, single shot, no transitions.",
+  "script_response": {
+    "script": "Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now.",
+    "wordCount": 15,
+    "characterCount": 93,
+    "durationFitOk": true,
+    "durationFitMode": "character_limit",
+    "strategy": {
+      "objective": "conversion",
+      "funnelStage": "bofu",
+      "channel": "meta",
+      "placement": "reels",
+      "genre": "performance_ad",
+      "audienceCue": "Premium frequent traveller, direct-to-camera, polished, single shot, no transiti",
+      "rtbPolicy": "optional",
+      "ctaStrength": "hard",
+      "scriptStyle": "hook-proof-cta",
+      "decisionSource": "llm",
+      "rationale": "The brief explicitly states 'BOFU Meta reel' and 'Focus on low 2% forex markup for frequent international travellers,' indicating a direct response and conversion-oriented objective. The genre is performance_ad due to the BOFU nature, short",
+      "matchedSignals": [
+        "BOFU Meta reel",
+        "Focus on low 2% forex markup for frequent international trav",
+        "8 second",
+        "Meta reel",
+        "channel:meta",
+        "placement:reels",
+        "funnel:bofu",
+        "rtb:supporting_fact_optional",
+        "cta:hard",
+        "style:hook-proof-cta"
+      ]
+    },
+    "rtbMode": "optional",
+    "rtbCoverageOk": true,
+    "rtbMissing": [],
+    "rtbExtra": []
+  },
+  "prompt_response": {
+    "input": {
+      "product": "kotak_air_plus",
+      "script": "Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now.",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, single shot, no transitions.",
+      "videoType": "point_to_camera_multi_scene",
+      "provider": "veo31_standard",
+      "durationSeconds": 8,
+      "aspectRatio": "9:16"
+    },
+    "step1_backstory": {
+      "persona_name": "Neha Iyer",
+      "gender_presentation": "woman",
+      "age_range": "35",
+      "city": "Ahmedabad",
+      "profession": "Global Procurement Lead for a high-end horology distributor, frequently flying to Geneva and Dubai to secure exclusive luxury watch allocations.",
+      "why_they_care": "She practically lives in transit and deals extensively in foreign currencies, so a transparent, low 2% forex markup directly protects her personal travel margins without the frustration of hidden fees.",
+      "facial_features": "She has a structured, angular jawline with slightly asymmetrical, expressive eyebrows, a straight prominent nose, medium-full lips, and warm, textured olive skin that shows faint, natural laugh lines around the eyes.",
+      "hairstyle_grooming": "Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.",
+      "wardrobe_details": "Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting instead of defaulting to generic ad-world corporate dressing.",
+      "posture_body_language": "She stands with an easy, grounded posture, naturally shifting her weight slightly to one side while using subtle, relaxed hand gestures that convey calm authority without feeling rehearsed or rigid.",
+      "expression_style": "Her expression is engaged and conversational, with her eyes naturally crinkling at the corners when emphasizing a point, maintaining a warm, direct gaze that feels genuinely communicative rather than a fixed, static smile.",
+      "speaking_energy": "She speaks with a steady, reassuring cadence, using natural breath pauses and subtle head tilts to land the key financial benefits with effortless, unforced confidence.",
+      "body_build": "She has a lean, athletic build with broad shoulders that carry her knitwear naturally, suggesting a disciplined lifestyle maintained despite a demanding international travel schedule.",
+      "speaking_style": [
+        "Warm and conversational",
+        "Mid-register mid-register",
+        "Effortlessly authoritative"
+      ],
+      "wardrobe_props": [
+        "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+        "Premium styling cues that feel grounded in the chosen environment rather than a default ad-model wardrobe."
+      ],
+      "setting": "Travel-day street-side pickup point with trip context",
+      "compliance_notes": [
+        "Shot on 50mm lens, medium close-up, soft practical ambient lighting mixed with natural window spill, raw cinematic photography with fine grain and subtle motion blur.",
+        "Authentic, grounded portrayal with lived-in facial texture and natural movement, strictly avoiding flawless marketing-perfect imagery or stiff, looped behavior."
+      ]
+    },
+    "step2_promptWriter": {
+      "model": "fal-ai/veo3.1",
+      "fallbackModel": null,
+      "reasoningEffort": "n/a",
+      "sourceUsed": "veo_prompt_builder",
+      "fallbackReason": null,
+      "attempts": []
+    },
+    "step3_finalVeoPrompt": "Single-shot portrait video, 8 seconds, aspect ratio 9:16, 1080p. Compose natively for 9:16; do not crop from portrait staging. Script lock: spoken dialogue must match the provided script verbatim. Do not add filler, opener words, paraphrases, rewritten phrasing, reordered lines, or substitute wording. Brand-name lock: if the script contains product or brand terms, speak them exactly as written and do not drop, soften, or replace them. Speech-start rule: the first spoken words must begin from the script itself with no preamble or invented lead-in. BOFU urgency cinematography: deliver a strong hook in the first second with direct eye contact and immediate action. Character must stay front-facing toward the camera through the full shot. Do not use profile view, side gaze, or off-camera delivery. Use stable, restrained camera movement with a simple point-to-camera feel. Cinematic style: premium editorial travel-film realism, rich but believable contrast, shallow depth separation, elegant lens compression, tasteful city/travel bokeh, and polished natural light. Keep it aspirational, affluent, and filmic without becoming glossy or artificial. Frame as a medium close-up with the subject dominating the frame and minimal dead space. Do not crop the top of the head, forehead, chin, or shoulders at any point. Maintain clear headroom and side room with stable composition through the full shot. Use crisp natural light and clear facial detail; keep background softly separated but believable. Single-shot hard rule: one camera setup, one location, one continuous take. No cuts, no montage, no inserts, no transition, no fade, no dissolve, no whip, no camera reset, and no scene change. Effects rule: do not use dreamy overlays, speed ramps, motion trails, artificial lens flare, abstract glow, excessive bloom, ghosting, or any stylized editorial treatment. Character profile: Neha Iyer, 35, Global Procurement Lead for a high-end horology distributor, frequently flying to Geneva and Dubai to secure exclusive luxury watch allocations., She has a structured, angular jawline with slightly asymmetrical, expressive eyebrows, a straight prominent nose, medium-full lips, and warm, textured olive skin that shows faint, natural laugh lines around the eyes., Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish., She has a lean, athletic build with broad shoulders that carry her knitwear naturally, suggesting a disciplined lifestyle maintained despite a demanding international travel schedule., Her expression is engaged and conversational, with her eyes naturally crinkling at the corners when emphasizing a point, maintaining a warm, direct gaze that feels genuinely communicative rather than a fixed, static smile., Well-ironed, wrinkle-free, clean attire aligned to persona and setting.. Facial features: She has a structured, angular jawline with slightly asymmetrical, expressive eyebrows, a straight prominent nose, medium-full lips, and warm, textured olive skin that shows faint, natural laugh lines around the eyes.. Hairstyle and grooming: Natural, well-kept hairstyle with believable grooming, slight real-world texture, and no overly polished influencer finish.. Wardrobe details: Premium, well-fitted wardrobe with realistic fabric texture and polished styling that feels natural to the setting instead of defaulting to generic ad-world corporate dressing.. Posture and body language: She stands with an easy, grounded posture, naturally shifting her weight slightly to one side while using subtle, relaxed hand gestures that convey calm authority without feeling rehearsed or rigid.. Expression style: Her expression is engaged and conversational, with her eyes naturally crinkling at the corners when emphasizing a point, maintaining a warm, direct gaze that feels genuinely communicative rather than a fixed, static smile.. Speaking energy: She speaks with a steady, reassuring cadence, using natural breath pauses and subtle head tilts to land the key financial benefits with effortless, unforced confidence.. Body build: She has a lean, athletic build with broad shoulders that carry her knitwear naturally, suggesting a disciplined lifestyle maintained despite a demanding international travel schedule.. Background setting: Travel-day street-side pickup point with trip context. Performance pacing should escalate across 8 seconds with one clear emphasis beat and a decisive close. Opening behavior: He is already alive in frame, finishing a small posture shift and lifting into direct eye contact with a responsive expression before speaking. Performance behavior: Keep natural blinking, breathing, micro-expressions, slight posture shifts, and small script-led emphasis visible throughout. Facial behavior should progress from composed confidence to decisive reassurance. Let the performance evolve beat by beat: open with purposeful attention, sharpen slightly on the core benefit with a brief brow-and-eye lift, then land the close with firmer conviction and a settled half-smile. Use one restrained emphasis gesture or tiny nod on the main benefit or CTA, then let the hands settle naturally rather than repeating the motion. Expression style: Her expression is engaged and conversational, with her eyes naturally crinkling at the corners when emphasizing a point, maintaining a warm, direct gaze that feels genuinely communicative rather than a fixed, static smile. Posture and body language: She stands with an easy, grounded posture, naturally shifting her weight slightly to one side while using subtle, relaxed hand gestures that convey calm authority without feeling rehearsed or rigid. Speaking energy: She speaks with a steady, reassuring cadence, using natural breath pauses and subtle head tilts to land the key financial benefits with effortless, unforced confidence. Avoid fixed smiles, robotic nodding, looping gestures, pinned elbows, and locked shoulders. The delivery should feel premium, intimate, and behavior-first rather than staged or over-rehearsed. Expression progression: from composed confidence to decisive reassurance. Staging behavior: block the character naturally within the setting so the shot feels lived-in and behavior-first rather than planted and presentational. Keep the body softly asymmetrical, not front-on and perfectly centered, and avoid locked hand-clasp presenter poses. Keep the subject focused on speaking directly to camera with restrained natural body language. Use one single believable setting that supports the brief, backstory, and product context. For Kotak Air Plus, use one premium travel-related setting that fits the brief and backstory. Keep one continuous scene with no location transition. Keep background stable with no scene change or cut. Keep movement restrained but behavior-first, with a clear opening hook, visible emotional progression, and natural physical engagement while speaking. Motion validity rule: this must be a genuinely moving live-action shot, not a still portrait, freeze frame, static postcard composition, or near-motionless loop. The person must visibly blink, breathe, shift, and speak through the shot. Performance realism rule: avoid mannequin-still blocking, frozen shoulders, pinned elbows, dead eyes, pasted-on smiles, robotic nod loops, repeated hand loops, centered hand-clasped presenter poses, or over-controlled gesture patterns. Expression and body response should visibly track the meaning of the spoken line beat by beat. Maintain one consistent character identity throughout the shot. Wardrobe must look clean, well-ironed, and wrinkle-free with no sweat spots or perspiration marks. Voice delivery must match this backstory character: texture, pitch, pace, and tone should feel authentic to the persona. On-camera speech rule: the character must visibly speak every scripted line on camera. Do not use off-camera narrator delivery, voiceover-only delivery, hidden speaker treatment, or disembodied speech. Accent rule: spoken delivery must sound like natural Indian English with a clear Indian accent suited to the persona and city context. Do not use American, British, or neutralized global-ad accents. Audio rule: voice only, clean and dry. Do not add background music, score, jingle, singing, chant, rhythmic music bed, ambient sound bed, crowd bed, transit noise bed, room-tone build, or stylized sound design. If clean voice-only audio cannot be maintained, prefer silence over any non-speech bed. Photographic realism rule: render a fully photographic live-action person and environment. Do not make the image painterly, watercolor-like, oil-paint-like, smeared, dreamy-soft, hazy, plastic, doll-like, CGI-like, or over-stylized. Human realism rule: do not render the person as cartoonish, animated, illustrated, painterly, plastic, doll-like, CGI-like, beauty-filtered, over-smoothed, or uncanny. Avoid exaggerated jawlines, inflated hair volume, overly sharp beard edges, waxy skin, hyper-perfect symmetry, glamour-retouched skin, and influencer-style gloss. Keep pores, skin texture, facial asymmetry, and natural human imperfection believable. Do not include any screens or screen-like devices: no phones, laptops, tablets, TVs, monitors, or UI surfaces. Do not show any physical payment cards, card mockups, or card close-up shots. Absolute safety rule: if a frame introduces any card or screen element, reject that composition and keep the scene card-free and screen-free. Do not add supers, captions, subtitles, or any on-screen text. Do not introduce new on-screen text. Do not generate title cards, opening text, lower-thirds, signage text, wall text, labels, or any readable lettering in frame. Campaign brief context: Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, single shot, no transitions.. Maintain this image treatment in motion: Image treatment should reflect aspirational affluent Indians with premium travel lifestyle cues, polished yet realistic styling, and contemporary metro aesthetics.. Final 0.6 to 0.8 seconds must be a stable hold on the same shot and same pose. After speech ends, keep direct eye contact and hold a subtle confident smile to camera for the remaining duration. Do not add a last-second cut, turn, zoom, gesture, expression change, scene change, or extra action after dialogue completion. Do not introduce any new action after dialogue completion. End in the same shot and same composition with no scene change, no cut, and no transition. Ending constraint: do not use fade-out, dissolve, or stylized transition. Final beat should hold on the last frame momentarily before ending. Pace should feel BOFU urgency: energetic but not chaotic. Product mood: premium travel lifestyle energy with varied travel-day, business-trip, and casual getaway contexts; use airport or departure cues only when the script specifically demands them. Target audience context: Age 28-55, metro affluent and emerging HNI, high-intent travelers in Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chandigarh, Pune, Ahmedabad.. Air Plus setting rule: the setting must visibly belong to a premium travel or trip-day world, not a generic corporate explainer backdrop. Persona voice: Warm and conversational; Mid-register mid-register; Effortlessly authoritative. Exact spoken script, word for word: Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now."
+  },
+  "job_create_response": {
+    "job": {
+      "id": "1774525434172-0d03085b",
+      "runToken": "570403c2-48ce-4b6c-85e0-f4d95e0fc236",
+      "product": "kotak_air_plus",
+      "script": "Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now.",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, single shot, no transitions.",
+      "supers": {
+        "enabled": true,
+        "timingMode": "accurate",
+        "template": "bottom_urgency",
+        "rules": [
+          {
+            "triggerWord": "2 percent forex",
+            "text": "2% forex markup",
+            "holdSeconds": 1.3
+          }
+        ]
+      },
+      "video": {
+        "type": "point_to_camera_multi_scene",
+        "durationSeconds": 8,
+        "provider": "veo31_standard"
+      },
+      "status": "queued",
+      "createdAt": "2026-03-26T11:43:54.172Z",
+      "updatedAt": "2026-03-26T11:43:54.172Z",
+      "steps": [
+        {
+          "id": "backstory",
+          "label": "Persona Agent",
+          "status": "pending"
+        },
+        {
+          "id": "keyframe",
+          "label": "Visual Agent",
+          "status": "pending"
+        },
+        {
+          "id": "video",
+          "label": "Motion Agent",
+          "status": "pending"
+        },
+        {
+          "id": "finalize",
+          "label": "Delivery Agent",
+          "status": "pending"
+        }
+      ],
+      "assets": {
+        "inputJson": "input.json",
+        "backstoryJson": "backstory.json",
+        "inputUrl": "/api/jobs/1774525434172-0d03085b/asset/input.json",
+        "backstoryUrl": "/api/jobs/1774525434172-0d03085b/asset/backstory.json"
+      }
+    }
+  },
+  "job_final_response": {
+    "job": {
+      "id": "1774525434172-0d03085b",
+      "runToken": "570403c2-48ce-4b6c-85e0-f4d95e0fc236",
+      "product": "kotak_air_plus",
+      "script": "Get low 2% forex markup for frequent international travellers with Kotak Air Plus. Apply Now.",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, single shot, no transitions.",
+      "supers": {
+        "enabled": true,
+        "timingMode": "accurate",
+        "template": "bottom_urgency",
+        "rules": [
+          {
+            "triggerWord": "2 percent forex",
+            "text": "2% forex markup",
+            "holdSeconds": 1.3
+          }
+        ]
+      },
+      "video": {
+        "type": "point_to_camera_multi_scene",
+        "durationSeconds": 8,
+        "provider": "veo31_standard"
+      },
+      "status": "running",
+      "createdAt": "2026-03-26T11:43:54.172Z",
+      "updatedAt": "2026-03-26T12:03:53.940Z",
+      "steps": [
+        {
+          "id": "backstory",
+          "label": "Persona Agent",
+          "status": "completed",
+          "message": "Persona profile generated."
+        },
+        {
+          "id": "keyframe",
+          "label": "Visual Agent",
+          "status": "completed",
+          "message": "Concept frame skipped (direct motion flow)."
+        },
+        {
+          "id": "video",
+          "label": "Motion Agent",
+          "status": "running",
+          "message": "Veo 3.1 Standard operation running. Generation attempt 1/2, poll 514."
+        },
+        {
+          "id": "finalize",
+          "label": "Delivery Agent",
+          "status": "pending"
+        }
+      ],
+      "assets": {
+        "inputJson": "input.json",
+        "backstoryJson": "backstory.json",
+        "inputUrl": "/api/jobs/1774525434172-0d03085b/asset/input.json",
+        "backstoryUrl": "/api/jobs/1774525434172-0d03085b/asset/backstory.json"
+      },
+      "backstory": {
+        "persona_name": "Rohan Desai",
+        "gender_presentation": "man",
+        "age_range": "34",
+        "city": "Hyderabad",
+        "profession": "Global Supply Chain Consultant for luxury automotive brands, regularly flying to manufacturing hubs in Germany and Japan.",
+        "why_they_care": "He handles constant international expenses for premium ground transport, client dining, and short-notice hotel bookings, making the low 2% forex markup a smart, high-yield advantage for his high-frequency travel lifestyle.",
+        "facial_features": "Warm olive skin with slight travel fatigue under the eyes, a strong, slightly asymmetrical jawline, straight thick eyebrows, a prominent Roman nose, and a relaxed, natural lip shape showing subtle laugh lines.",
+        "hairstyle_grooming": "Thick, wavy dark hair swept back with a matte styling clay, featuring a neatly trimmed but lived-in short beard that adds mature texture without looking overly manicured.",
+        "wardrobe_details": "A crisp, wrinkle-free olive green premium cotton overshirt worn open over a high-quality white crew-neck tee, paired with tailored charcoal travel trousers, offering a relaxed yet highly polished transit look perfect for a premium layover.",
+        "posture_body_language": "Stands with a grounded, relaxed weight shift on one leg, shoulders dropped comfortably, occasionally using a subtle, open-handed gesture that feels conversational and unforced.",
+        "expression_style": "Eyes maintain steady, engaging contact with subtle brow raises on key value points, transitioning from a focused gaze to an easy, genuine micro-smile that tracks the script naturally.",
+        "speaking_energy": "Delivers lines with a calm, assured cadence, using natural breath pauses and a grounded physical presence that conveys seasoned travel experience without feeling robotic.",
+        "body_build": "Lean and athletic with broad shoulders, reflecting a disciplined routine maintained even while managing a demanding international travel schedule.",
+        "speaking_style": [
+          "Resonant and steady",
+          "Mid-low pitch",
+          "Conversational and authoritative"
+        ],
+        "wardrobe_props": [
+          "Well-ironed, wrinkle-free, clean attire aligned to persona and setting.",
+          "Immaculately clean and well-ironed white crew-neck tee"
+        ],
+        "setting": "Chauffeur pickup bay outside a business hotel with discreet premium transfer energy",
+        "compliance_notes": [
+          "Shot on 50mm lens, medium close-up, practical ambient lighting with warm practicals, raw cinematic photography, fine grain, natural skin tones.",
+          "Authentic and grounded performance, strictly avoiding marketing-perfect imagery, mannequin-still posture, or generic corporate aesthetics."
+        ]
+      },
+      "operationName": "019d2a03-7e5a-75c1-ab00-d1f2da0f7eaf"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-03-28",
+  "product": "kotak_air_plus",
+  "paths": ["sora", "veo31_standard", "sora_i2v"],
+  "summary": {
+    "full_three_path_completions": 0,
+    "total_cases": 5,
+    "sora_running": 5,
+    "veo_failed": 5,
+    "sora_i2v_failed": 5,
+    "common_failure": "fetch failed"
+  },
+  "cases": [
+    {"id":"AP3-01","rtb":"5% travel via Unbox","runId":"1774716312474-ca094aac","sora":"running","veo":"failed","sora_i2v":"failed"},
+    {"id":"AP3-02","rtb":"2% forex markup","runId":"1774716312504-d14b6576","sora":"running","veo":"failed","sora_i2v":"failed"},
+    {"id":"AP3-03","rtb":"Complimentary flight at 1.5L quarterly spend","runId":"1774716312527-2accfad0","sora":"running","veo":"failed","sora_i2v":"failed"},
+    {"id":"AP3-04","rtb":"Travel privileges worth 80K","runId":"1774716312549-52e7281d","sora":"running","veo":"failed","sora_i2v":"failed"},
+    {"id":"AP3-05","rtb":"Zero joining fee","runId":"1774716312572-c6da9234","sora":"running","veo":"failed","sora_i2v":"failed"}
+  ]
+}

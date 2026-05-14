@@ -1,0 +1,14 @@
+flowchart LR
+    A["Kotak Team<br/>Product brief, offer, audience, guardrails"] --> B["Ad Intelligence Studio"]
+
+    subgraph B ["Kotak Ad Intelligence Studio"]
+      B1["Script Engine<br/>Creates short conversion-ready dialogue"]
+      B2["Persona Engine<br/>Builds a believable traveler backstory"]
+      B3["Prompt Engine<br/>Turns the brief into a generation-ready scene"]
+      B4["Video Generation<br/>Creates the draft video"]
+      B5["Quality Control<br/>Checks lip sync, setting, ending, brand fit"]
+      B6["Delivery Layer<br/>Final video links and assets"]
+      B1 --> B2 --> B3 --> B4 --> B5 --> B6
+    end
+
+    B6 --> C["Kotak Review Team<br/>Review, compare, approve, rerun"]

@@ -1,0 +1,70 @@
+[
+  {
+    "caseId": "AP4-01",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus focused on low 2% forex markup for frequent international travellers. Premium mobility, direct-to-camera, iPhone-shot.",
+    "script": "Traveling internationally often? Get a low two percent forex markup with Kotak Air Plus. Apply Now.",
+    "status": "failed",
+    "error": "keyframe_http_500: {\"error\":\"Image generation did not return image bytes.\"}"
+  },
+  {
+    "caseId": "AP4-02",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus focused on complimentary flight after Rs. 1.5 lakh quarterly spend. Real travel-day utility, direct-to-camera, iPhone-shot.",
+    "script": "Unlock a complimentary flight by spending one point five lakhs this quarter. Get Kotak Air Plus now. Apply Now.",
+    "status": "completed",
+    "runId": "imgdebug-1774770362457",
+    "outputDir": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770362457/debug-veo31_standard-1774770383965",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770362457/debug-veo31_standard-1774770383965/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770362457/debug-veo31_standard-1774770383965/shared-keyframe-source.png",
+    "persona": "Ananya Varghese",
+    "setting": "Hotel-district sidewalk near a transfer pickup point with baggage movement",
+    "city": "Kochi",
+    "profession": "Regional Director of a sustainable spice export collective, frequently flying between Kerala and European buyer markets."
+  },
+  {
+    "caseId": "AP4-03",
+    "product": "kotak_air_plus",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus focused on limited-period zero joining fee. Real metro travel context, not polished campaign travel.",
+    "script": "Start travel smarter with Kotak Air Plus and get zero joining fee for a limited period. Apply Now.",
+    "status": "completed",
+    "runId": "imgdebug-1774770441101",
+    "outputDir": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770441101/debug-veo31_standard-1774770465167",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770441101/debug-veo31_standard-1774770465167/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770441101/debug-veo31_standard-1774770465167/shared-keyframe-source.png",
+    "persona": "Akash Sen",
+    "setting": "Hotel-district sidewalk near a transfer pickup point with baggage movement",
+    "city": "Mumbai",
+    "profession": "Senior Event Director for a corporate conferencing agency, managing large-scale offsites across the country."
+  },
+  {
+    "caseId": "CB4-01",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ focused on 5% cashback on online grocery for salaried metro users. Direct-to-camera, home-delivery context, iPhone-shot.",
+    "script": "Get five percent cashback on all online grocery orders spends with Kotak Cashback+. today. Apply Now.",
+    "status": "completed",
+    "runId": "imgdebug-1774770522918",
+    "outputDir": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770522918/debug-veo31_standard-1774770554555",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770522918/debug-veo31_standard-1774770554555/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770522918/debug-veo31_standard-1774770554555/shared-keyframe-source.png",
+    "persona": "Neha Kapoor",
+    "setting": "A softly lit apartment entryway hallway with a partially opened wooden front door in the background, capturing a quick, plausible moment right after receiving a morning grocery delivery.",
+    "city": "Delhi",
+    "profession": "Senior Marketing Manager at an ed-tech firm who relies on quick grocery deliveries to manage her hectic weekly meal-prep."
+  },
+  {
+    "caseId": "CB4-02",
+    "product": "kotak_cashback",
+    "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ focused on 5% cashback on OTT and online entertainment. Direct-to-camera, home setup, everyday realistic, iPhone-shot.",
+    "script": "Five percent cashback on OTT and online entertainment. Get Kotak Cashback+ today. Apply Now.",
+    "status": "completed",
+    "runId": "imgdebug-1774770635352",
+    "outputDir": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770635352/debug-veo31_standard-1774770655981",
+    "keyframePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770635352/debug-veo31_standard-1774770655981/keyframe.png",
+    "sourcePath": "/Users/neha/Documents/Codex/generated-runs/imgdebug-1774770635352/debug-veo31_standard-1774770655981/shared-keyframe-source.png",
+    "persona": "Shruti Desai",
+    "setting": "Home dining table with a fresh delivery bag and polished everyday-night styling",
+    "city": "Kolkata",
+    "profession": "Freelance Content Strategist who unwinds by binge-watching international dramas and indie films."
+  }
+]

@@ -1,0 +1,11 @@
+flowchart LR
+    A["Generation Output"] --> B["Validation Layer"]
+    B --> C{"Valid and complete?"}
+    C -- "Yes" --> D["Video Generation"]
+    C -- "No" --> E["Repair Layer"]
+    E --> F["Fallback Prompt Builder"]
+    F --> D
+    D --> G["Quality Control"]
+    G --> H{"Pass?"}
+    H -- "Yes" --> I["Final Delivery"]
+    H -- "No" --> J["Retry or Promote Best Attempt"]

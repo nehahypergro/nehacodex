@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --surface-1: #f6f4ef;
+  --surface-2: #fffdf8;
+  --ink-1: #11121a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 10%, #d8f0ff 0%, transparent 35%),
+    radial-gradient(circle at 86% 12%, #ffe5c9 0%, transparent 30%),
+    linear-gradient(180deg, var(--surface-1) 0%, var(--surface-2) 45%, #ffffff 100%);
+  color: var(--ink-1);
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}

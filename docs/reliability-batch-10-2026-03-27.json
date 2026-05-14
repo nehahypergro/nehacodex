@@ -1,0 +1,505 @@
+{
+  "createdAt": "2026-03-27T10:36:50.955175Z",
+  "cases": [
+    {
+      "caseId": "AP-R1",
+      "product": "kotak_air_plus",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on low 2% forex markup for frequent international travellers. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012065-4a5d3db5",
+      "launchError": null,
+      "status": "completed",
+      "script": "Frequent international traveller? Enjoy just two percent forex markup with Kotak Air Plus. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607036831-c9b71437",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036831-c9b71437/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036831-c9b71437/asset/raw.mp4",
+          "assessment": {
+            "score": 8,
+            "whatWillWork": "The ad's direct-to-camera approach, combined with a highly specific qualifying question as the hook ('Frequent international traveller?'), will be effective. The setting, a clean and modern airport terminal, and the speaker's polished, professional appearance perfectly align with the target audience. The message is simple, singular, and focuses on a clear benefit (low 2% forex markup), making it easy to understand in a fast-paced social feed.",
+            "whyItWillWork": "This structure works because it immediately captures the attention of the intended viewer while filtering out irrelevant audiences, increasing ad efficiency. The alignment of the visual aesthetic with the target demographic's lifestyle builds aspiration and brand trust. By presenting a single, compelling value proposition without clutter, the ad respects the viewer's time and cognitive load, making the call-to-action more likely to be considered.",
+            "concerns": [
+              "The speaker's mouth movements are slightly out of sync with the audio, which can be distracting and reveal the AI generation.",
+              "The vocal delivery is clear but lacks natural intonation and energy, sounding somewhat robotic and reducing persuasiveness.",
+              "The body language and hand gestures are minimal and appear slightly stiff and unnatural, contributing to a subtle 'uncanny valley' effect."
+            ],
+            "assessedAt": "2026-03-27T10:33:38.151Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607036831-6804e539",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036831-6804e539/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036831-6804e539/asset/raw.mp4",
+          "assessment": {
+            "score": 7,
+            "whatWillWork": "The ad's directness and clarity are its greatest strengths. It opens with a strong qualifying question that immediately hooks the target audience. The core message\u2014the 2% forex markup\u2014is delivered concisely, and the premium, travel-oriented setting visually reinforces the product's use case. The direct-to-camera delivery feels personal and is well-suited for social media feeds.",
+            "whyItWillWork": "This approach works because it respects the viewer's time and attention span on social media. By immediately identifying the target user ('Frequent international traveller?'), the ad ensures high relevance for the right audience, increasing the likelihood of engagement. The simple, single-minded proposition is easy to understand and act upon, making the conversion-led call-to-action more effective.",
+            "concerns": [
+              "The actor's delivery, while clear, feels slightly rehearsed and lacks a fully natural, conversational flow.",
+              "The hand gestures are a bit stiff and deliberate, which can be a minor distraction.",
+              "The audio has a slight echo, which is common for the location but slightly detracts from the overall polish."
+            ],
+            "assessedAt": "2026-03-27T10:30:46.261Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "AP-R2",
+      "product": "kotak_air_plus",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Focus on 5% rewards on travel bookings via Kotak Unbox. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012076-c9d7be80",
+      "launchError": null,
+      "status": "completed",
+      "script": "Get five percent rewards on travel bookings through Kotak Unbox with Kotak Air Plus. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607039891-bbb7c817",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607039891-bbb7c817/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607039891-bbb7c817/asset/raw.mp4",
+          "assessment": {
+            "score": 8,
+            "whatWillWork": "The video's core strength lies in its directness and clarity. The direct-to-camera address by a polished, relatable actor in a premium travel setting immediately establishes the context. The script is incredibly concise, leading with the primary benefit (5% rewards) which serves as an effective hook for the target audience of frequent travelers.",
+            "whyItWillWork": "This approach works because it respects the viewer's time in a fast-scroll environment. By presenting the key value proposition within the first two seconds, it captures the attention of anyone interested in travel rewards. The direct eye contact creates a sense of personal address, while the aspirational background reinforces the premium nature of the product, aligning perfectly with the target demographic's desires.",
+            "concerns": [
+              "The lip-sync is slightly imperfect, which can be a minor distraction and betray the AI generation.",
+              "The actor's body language is very static and lacks the subtle, natural movements of a human, making the performance feel a bit stiff.",
+              "The vocal delivery, while clear, has a slightly flat and synthetic intonation.",
+              "There is a subtle 'uncanny valley' quality to the facial expressions, particularly around the mouth during speech."
+            ],
+            "assessedAt": "2026-03-27T10:34:55.461Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607039891-16a895ad",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607039891-16a895ad/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607039891-16a895ad/asset/raw.mp4",
+          "assessment": {
+            "score": 8,
+            "whatWillWork": "The video's strength lies in its directness and strong alignment with the target audience. The actor, styled as a premium traveler in an aspirational setting, speaks directly to the camera, clearly and concisely delivering the core value proposition (5% rewards) and a direct call to action. This no-frills, benefit-led approach is highly effective for a bottom-of-funnel (BOFU) ad.",
+            "whyItWillWork": "This format works well in a social feed because it immediately establishes relevance and value. The direct-to-camera communication builds a sense of trust and personal connection. The aspirational visuals resonate with the target demographic's lifestyle, making the product feel like a natural fit. By getting straight to the point, the ad respects the viewer's time and increases the likelihood of them absorbing the key message before scrolling away.",
+            "concerns": [
+              "The actor's delivery has a slightly unnatural cadence, with some pauses that feel more read than spoken.",
+              "The initial hand movement at the very start is a little abrupt and doesn't feel fully motivated.",
+              "There is a faint, high-pitched ambient noise in the background that could be a minor distraction."
+            ],
+            "assessedAt": "2026-03-27T10:29:50.156Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "AP-R3",
+      "product": "kotak_air_plus",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Create urgency around unlocking a complimentary flight after Rs. 1.5 lakh quarterly spend. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012082-7ff8d5ac",
+      "launchError": null,
+      "status": "completed",
+      "script": "Ready to fly free? Spend one lakh fifty thousand this quarter and unlock a complimentary flight. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607034053-e8399c89",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607034053-e8399c89/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607034053-e8399c89/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The video's strength lies in its authentic execution. The direct-to-camera address by a polished, confident speaker in a realistic airport terminal immediately establishes credibility and context. The hook 'Ready to fly free?' is direct and benefit-driven, and the script is delivered with perfect clarity, concisely explaining the offer and call to action.",
+            "whyItWillWork": "This approach works because it perfectly mimics high-performing, native user-generated content (UGC) while maintaining a premium feel. The aspirational yet relatable persona of the frequent traveller builds instant trust with the target audience. The relevant setting and clear value proposition stop the scroll and communicate the benefit efficiently, making it highly effective for a conversion-focused social ad.",
+            "concerns": [
+              "The audio has a noticeable echo, which, while realistic for an airport, slightly reduces the overall polish.",
+              "The repetitive 'FREE FLIGHT' text overlay from 0:05-0:07 is visually disruptive and feels less premium than the rest of the video.",
+              "The hard cut to the end card is abrupt; a smoother, more dynamic transition could improve the viewing experience."
+            ],
+            "assessedAt": "2026-03-27T10:34:42.863Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607034054-ef60b351",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607034054-ef60b351/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607034054-ef60b351/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The video's strength lies in its directness and clarity. The hook 'Ready to fly free?' is immediately engaging for the target audience. The presenter is polished and aspirational, fitting the 'premium frequent traveller' brief, and the airport setting provides instant context. The core offer\u2014spend \u20b91.5 lakh for a complimentary flight\u2014is stated simply and effectively, followed by a clear call-to-action.",
+            "whyItWillWork": "This ad works by combining a strong, benefit-led hook with a simple, easy-to-understand value proposition. In a fast-scrolling social feed, clarity is key to stopping the thumb. The direct-to-camera approach creates a personal connection, making the message feel more like a tip than an ad. The aspirational visuals appeal to the target demographic's lifestyle, making the offer more desirable.",
+            "concerns": [
+              "The repetitive 'FREE FLIGHT' text overlay is a bit jarring and can feel slightly low-budget, which contrasts with the otherwise premium aesthetic.",
+              "The AI voice, while clear, has a subtle lack of natural intonation that might be perceptible to some viewers.",
+              "The background is completely static, which can make the video feel less dynamic than typical user-generated or professionally shot content."
+            ],
+            "assessedAt": "2026-03-27T10:30:07.630Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "AP-R4",
+      "product": "kotak_air_plus",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Highlight annual travel privileges worth over Rs. 80,000. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012087-b539c1e4",
+      "launchError": null,
+      "status": "completed",
+      "script": "Unlock travel privileges worth over eighty thousand rupees with Kotak Air Plus. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607038004-884c2d7f",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607038004-884c2d7f/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607038004-884c2d7f/asset/raw.mp4",
+          "assessment": {
+            "score": 6,
+            "whatWillWork": "The direct-to-camera presentation by a polished, aspirational talent is a strong point. The script is delivered clearly and concisely, immediately stating the high-value proposition (privileges worth over Rs. 80,000) which serves as an effective hook for the target audience of premium travellers.",
+            "whyItWillWork": "This approach works because it creates a direct, personal connection with the viewer, fostering a sense of trust. The aspirational aesthetic aligns with the target demographic's self-perception and desires, while the clear, benefit-driven message (a high monetary value) appeals directly to their rational decision-making, making the offer compelling and easy to understand.",
+            "concerns": [
+              "The lip-sync is slightly off, which can be distracting and reduce the ad's credibility.",
+              "The talent's body is unnaturally still, resembling a 'living photo' rather than a real video, which can feel uncanny and break immersion.",
+              "The voice-over, while clear, has a slightly synthetic or robotic quality that undermines the authenticity of the direct-to-camera communication.",
+              "The background is generic and lacks any specific detail that would make the travel context more tangible or believable."
+            ],
+            "assessedAt": "2026-03-27T10:35:01.912Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607038004-618941a9",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607038004-618941a9/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607038004-618941a9/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The direct-to-camera delivery by a polished and professional-looking actor is highly effective. She clearly and immediately communicates the core value proposition\u2014travel privileges worth over Rs. 80,000\u2014which serves as a strong hook for the target audience. The ad is concise, respects the viewer's time, and ends with a clear call-to-action.",
+            "whyItWillWork": "This approach works because it builds trust and conveys authority quickly. In a fast-scrolling social feed, a clear, confident human face making a high-value offer is more likely to stop a user than a generic graphic. The message is benefit-driven and simple to understand, making it ideal for a bottom-of-funnel, conversion-focused campaign where clarity is paramount.",
+            "concerns": [
+              "The actor's delivery, while professional, is very measured and could benefit from a slight increase in energy to make the hook even more impactful.",
+              "The background is appropriate (looks like an airport lounge or modern office) but visually static and generic, lacking a dynamic element to hold attention.",
+              "The transition from the actor to the end card is a simple cut, which feels slightly abrupt."
+            ],
+            "assessedAt": "2026-03-27T10:29:18.124Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "AP-R5",
+      "product": "kotak_air_plus",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Air Plus credit card. Push zero joining fee for a limited period. Premium frequent traveller, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012092-7adfd8f2",
+      "launchError": null,
+      "status": "completed",
+      "script": "Elevate your travels. Kotak Air Plus offers zero joining fee for a limited period. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607036934-38071ad9",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036934-38071ad9/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036934-38071ad9/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The direct-to-camera delivery by a polished, aspirational actor is the video's strongest asset. The setting immediately establishes a travel context, and the script is delivered with perfect clarity and fidelity. The core message\u2014product name, zero joining fee offer, and a clear call-to-action\u2014is communicated concisely within the first six seconds, making it ideal for a performance marketing context.",
+            "whyItWillWork": "This direct approach builds a sense of personal connection and trust, which is crucial for a financial product. By getting straight to the point, the ad respects the viewer's time and ensures the key value proposition is understood before they can scroll away. The aspirational 'premium traveller' aesthetic resonates with the target audience, making the offer feel exclusive and desirable, which drives conversion.",
+            "concerns": [
+              "The hook 'Elevate your travels' is a common phrase in the travel industry and may not be strong enough to stop a seasoned scroller.",
+              "The overall production is very polished, which could make it feel more like a traditional ad than native social content, potentially reducing engagement for some audiences.",
+              "The background ambient noise, while adding realism, is noticeable and could slightly detract from the clarity of the voiceover in noisy environments."
+            ],
+            "assessedAt": "2026-03-27T10:33:16.403Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607036934-334432fa",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036934-334432fa/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036934-334432fa/asset/raw.mp4",
+          "assessment": {
+            "score": 8,
+            "whatWillWork": "The direct-to-camera delivery by a professional and confident actor in a highly relevant, aspirational setting (an airport drop-off) will work well. The message is extremely clear, simple, and focuses on a single, compelling offer: a zero joining fee for a limited time. The pacing is quick and respects the viewer's time, ending with a direct call-to-action.",
+            "whyItWillWork": "This approach builds trust and feels personal, which is effective for financial product advertising. The clear value proposition is easy to grasp in a fast-scrolling social feed, and the sense of urgency encourages immediate action. The setting instantly qualifies the target audience (travellers) and makes the product's benefits feel tangible, increasing the likelihood of conversion for this bottom-of-funnel ad.",
+            "concerns": [
+              "The actor's delivery, while clear, feels slightly rehearsed and lacks a completely natural flow, particularly in the first two seconds.",
+              "The lip-sync is not perfectly aligned with the audio, which is a common AI artifact that can be subtly distracting to some viewers.",
+              "The opening line, 'Elevate your travels,' is a common marketing phrase and may not be strong enough to act as a powerful scroll-stopping hook on its own."
+            ],
+            "assessedAt": "2026-03-27T10:30:49.809Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "CB-R1",
+      "product": "kotak_cashback",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on 5% cashback on online grocery. Urban salaried, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012096-c3a2601a",
+      "launchError": null,
+      "status": "completed",
+      "script": "Get five percent cashback on your online grocery. Make daily savings easier. for Kotak Cashback+ now. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607058493-f0024ebc",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607058493-f0024ebc/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607058493-f0024ebc/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The video's directness and clarity are its greatest strengths. It opens immediately with the core value proposition (5% cashback on online grocery), delivered by a relatable actor looking directly at the camera. The setting in a grocery store provides immediate context, and the script is concise and conversion-focused, ending with a clear call to action.",
+            "whyItWillWork": "This approach works because it respects the viewer's time and attention span on social media. The direct-to-camera style creates a sense of personal address, while the clear, tangible benefit of saving money on a common expense like groceries is a powerful motivator. The contextual setting makes the offer feel practical and immediately applicable to the viewer's daily life, increasing the likelihood of conversion.",
+            "concerns": [
+              "The actor's delivery is slightly stiff and lacks strong emotional expression, which could make the ad feel less authentic or engaging.",
+              "The lip-sync is very good but has a subtle, almost imperceptible AI quality that might feel slightly off to some viewers.",
+              "The pacing of the spoken lines is very even, which could be improved with more dynamic intonation to emphasize key benefits."
+            ],
+            "assessedAt": "2026-03-27T10:36:07.424Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607058493-a3b4f4f5",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607058493-a3b4f4f5/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607058493-a3b4f4f5/asset/raw.mp4",
+          "assessment": {
+            "score": 8,
+            "whatWillWork": "The ad's directness and clarity are its greatest strengths. It opens immediately with the core value proposition (5% cashback on groceries), delivered by a relatable actor looking directly at the camera. The setting in a supermarket checkout line perfectly contextualizes the benefit, making the offer feel tangible and immediately relevant to the target audience's daily life.",
+            "whyItWillWork": "This approach works because it respects the viewer's time in a fast-scrolling social feed. There is no ambiguity; the benefit is understood in the first two seconds. This clarity, combined with a strong, direct call-to-action, effectively moves a user who is already considering a credit card towards conversion by highlighting a practical, everyday saving.",
+            "concerns": [
+              "The spoken line 'for Kotak Cashback+ now' is grammatically awkward and sounds unnatural. It slightly disrupts the flow and clarity of the message.",
+              "The actor's delivery is very polished, which can sometimes feel more like a traditional TV commercial than native social media content, potentially impacting perceived authenticity.",
+              "The editing between phrases is noticeable, with slight jumps in the actor's position, which can be a minor distraction."
+            ],
+            "assessedAt": "2026-03-27T10:30:30.051Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "CB-R2",
+      "product": "kotak_cashback",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on 5% cashback on food delivery. Urban salaried, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012100-0a55111f",
+      "launchError": null,
+      "status": "completed",
+      "script": "Craving food delivery? Get five percent cashback on every order with Kotak Cashback+. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607044194-5a1c2b6c",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607044194-5a1c2b6c/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607044194-5a1c2b6c/asset/raw.mp4",
+          "assessment": {
+            "score": 7,
+            "whatWillWork": "The direct-to-camera delivery by a relatable actor is the strongest element. The script is concise, clear, and focuses on a single, compelling benefit (5% cashback on food delivery), which is ideal for a short-form, conversion-focused ad. The overall aesthetic is polished and professional, aligning well with a financial brand like Kotak.",
+            "whyItWillWork": "This approach works because it quickly establishes a personal connection and builds trust. Viewers are presented with a common problem ('Craving food delivery?') followed immediately by a simple, valuable solution. This clarity minimizes cognitive load, making the value proposition easy to understand and act upon within the short runtime of a social media reel.",
+            "concerns": [
+              "The actor's lip-sync is slightly imperfect and doesn't fully match the audio, which is a common AI artifact that can reduce authenticity.",
+              "The performance, while clear, is somewhat low-energy. A more dynamic delivery could have made the hook more engaging.",
+              "The background is generic and static, adding little visual interest to hold a viewer's attention in a fast-scrolling feed."
+            ],
+            "assessedAt": "2026-03-27T10:36:28.049Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607044194-98f17184",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607044194-98f17184/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607044194-98f17184/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The video's primary strength is its directness and clarity. The actor delivers a simple, highly relevant message directly to the camera with confident and friendly body language. The hook is relatable, the value proposition is stated immediately, and the call-to-action is clear. The polished, urban setting effectively targets the intended demographic.",
+            "whyItWillWork": "This approach works because it removes all friction in communication. In a fast-scrolling social feed, viewers instantly understand the benefit (5% cashback on food delivery). The direct-to-camera style builds a sense of personal connection and trust, making the ad feel more like a helpful tip from a friend than a corporate message, which is highly effective for driving conversions.",
+            "concerns": [
+              "The actor's energy level is slightly inconsistent, which can momentarily break the otherwise smooth flow of the delivery.",
+              "While the background adds authenticity, its busyness could be mildly distracting from the core message for some viewers.",
+              "The creative is very functional and may lack a unique or highly memorable element to stand out in a hyper-saturated ad environment."
+            ],
+            "assessedAt": "2026-03-27T10:31:52.096Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "CB-R3",
+      "product": "kotak_cashback",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on 5% cashback on online entertainment and OTT. Urban salaried, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012116-da761864",
+      "launchError": null,
+      "status": "completed",
+      "script": "Get five percent cashback on online entertainment and OTT with Kotak Cashback+. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607036044-31a3ab56",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036044-31a3ab56/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036044-31a3ab56/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The video's strength lies in its directness and clarity. The actor, who fits the target demographic, looks directly at the camera and delivers a concise, benefit-led message immediately. The script is delivered perfectly, stating the core value proposition (5% cashback) and the call-to-action within the first five seconds, which is ideal for short-form social media.",
+            "whyItWillWork": "This approach works because it respects the viewer's time and overcomes short attention spans on platforms like Meta. The direct-to-camera style creates a personal, authentic connection that feels more like a recommendation than a traditional advertisement. By leading with the strongest benefit, the ad immediately qualifies interested viewers and is highly likely to drive conversions in a performance marketing context.",
+            "concerns": [
+              "The lip-sync is very slightly mismatched with the audio, which can be a subtle indicator of AI generation and may feel uncanny to some viewers.",
+              "The actor's head movements between phrases are a little repetitive and unnatural, lacking the micro-expressions of a human actor.",
+              "The background is clean but generic, offering little visual interest to help the ad stand out in a crowded feed."
+            ],
+            "assessedAt": "2026-03-27T10:36:50.941Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607036044-955d7843",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036044-955d7843/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036044-955d7843/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The ad's directness and clarity are its greatest strengths. It opens immediately with the core value proposition\u2014'Get five percent cashback'\u2014which serves as an effective hook. The actor's confident, direct-to-camera delivery feels personal and engaging, and the polished, relatable cafe setting successfully targets the intended urban professional demographic.",
+            "whyItWillWork": "In a fast-scrolling social media environment, this ad respects the viewer's time by eliminating fluff and presenting the key benefit upfront. This clarity immediately qualifies the audience (people who spend on entertainment/OTT). The friendly, conversational tone helps build quick rapport and trust, making the clear call-to-action feel like a helpful tip rather than a hard sell, increasing the likelihood of conversion.",
+            "concerns": [
+              "The actor's performance, while polished, is somewhat generic and may not be distinct enough to stand out in a highly saturated ad feed.",
+              "The delivery of the 'Apply Now' call-to-action feels slightly less energetic than the rest of the script, potentially weakening its impact.",
+              "The background is clean but lacks any unique visual elements that could make the ad more memorable."
+            ],
+            "assessedAt": "2026-03-27T10:32:12.181Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "CB-R4",
+      "product": "kotak_cashback",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Focus on up to 4% fuel benefits. Urban salaried, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012121-87f725c2",
+      "launchError": null,
+      "status": "completed",
+      "script": "Get up to four percent fuel benefits with Kotak Cashback+. Take control of your monthly spending. Apply Now.",
+      "children": {
+        "sora": {
+          "status": "completed",
+          "jobId": "1774607036613-dd46cd1f",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036613-dd46cd1f/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036613-dd46cd1f/asset/raw.mp4",
+          "assessment": {
+            "score": 8,
+            "whatWillWork": "The video's primary strength lies in its directness and clarity. The benefit-led hook ('up to four percent fuel benefits') is delivered immediately and clearly by a relatable actor looking straight at the camera. The high-quality, realistic visuals and professional setting align perfectly with the target audience of urban salaried individuals, making the ad feel credible and polished.",
+            "whyItWillWork": "This approach works because it respects the viewer's time on a fast-scrolling platform. The direct-to-camera communication builds a sense of personal connection and trust, while the specific, tangible benefit (saving money on fuel) provides a strong, logical reason to consider the product. The high realism prevents the ad from being dismissed as low-quality or untrustworthy, effectively stopping the scroll and conveying the core message in seconds.",
+            "concerns": [
+              "The actor's body language is quite static, which could reduce engagement slightly.",
+              "The lip-sync, while very good, has a subtle artificial quality that might be noticeable to some viewers.",
+              "The second line, 'Take control of your monthly spending,' is a generic marketing phrase that adds little to the core, powerful message about fuel benefits."
+            ],
+            "assessedAt": "2026-03-27T10:35:30.083Z",
+            "model": "gemini-2.5-pro"
+          }
+        },
+        "veo31_standard": {
+          "status": "completed",
+          "jobId": "1774607036613-f80b6f8d",
+          "message": "Final video ready.",
+          "finalVideoUrl": "/api/jobs/1774607036613-f80b6f8d/asset/final.mp4",
+          "rawVideoUrl": "/api/jobs/1774607036613-f80b6f8d/asset/raw.mp4",
+          "assessment": {
+            "score": 9,
+            "whatWillWork": "The direct-to-camera delivery by a confident and relatable actor is the strongest element. He immediately states the core benefit\u2014up to 4% on fuel\u2014which serves as an excellent hook. The setting at a petrol pump visually reinforces the message, making the value proposition instantly clear and relevant to the target audience of urban car owners.",
+            "whyItWillWork": "This approach works because it builds trust and communicates value efficiently, which is critical in a fast-scrolling social feed. The direct address feels personal, while the clear, single-minded message about saving money on a common expense (fuel) resonates immediately. This clarity and relatability make the viewer more likely to stop, listen, and consider the call to action.",
+            "concerns": [
+              "The actor's delivery is very polished, which could feel slightly less authentic than more native, UGC-style content that often performs well on Reels.",
+              "The lip-sync is slightly imperfect in the first two seconds, which can be a minor distraction.",
+              "The pacing of the lines is very rapid, which might cause some viewers to miss the secondary benefit about controlling spending."
+            ],
+            "assessedAt": "2026-03-27T10:30:51.653Z",
+            "model": "gemini-2.5-pro"
+          }
+        }
+      }
+    },
+    {
+      "caseId": "CB-R5",
+      "product": "kotak_cashback",
+      "brief": "Need an 8 second BOFU Meta reel for Kotak Cashback+ credit card. Push zero joining fee as a limited period promotional benefit. Urban salaried, direct-to-camera, polished, conversion-led.",
+      "runId": "1774607012127-7847f4ec",
+      "launchError": null,
+      "status": "failed",
+      "script": null,
+      "children": {
+        "sora": {
+          "status": "pending",
+          "jobId": null,
+          "message": "Waiting to start.",
+          "finalVideoUrl": null,
+          "rawVideoUrl": null,
+          "assessment": null
+        },
+        "veo31_standard": {
+          "status": "pending",
+          "jobId": null,
+          "message": "Waiting to start.",
+          "finalVideoUrl": null,
+          "rawVideoUrl": null,
+          "assessment": null
+        }
+      }
+    }
+  ],
+  "metrics": {
+    "kotak_air_plus": {
+      "sora": {
+        "completed": 5,
+        "failed": 0,
+        "acceptable_ge_7": 4,
+        "avg_score": 8.0
+      },
+      "veo31_standard": {
+        "completed": 5,
+        "failed": 0,
+        "acceptable_ge_7": 5,
+        "avg_score": 8.2
+      }
+    },
+    "kotak_cashback": {
+      "sora": {
+        "completed": 4,
+        "failed": 0,
+        "acceptable_ge_7": 4,
+        "avg_score": 8.25
+      },
+      "veo31_standard": {
+        "completed": 4,
+        "failed": 0,
+        "acceptable_ge_7": 4,
+        "avg_score": 8.75
+      }
+    }
+  }
+}
