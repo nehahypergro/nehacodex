@@ -173,27 +173,21 @@ SORA_STUDIO_CASHBACK_LOGO_PATH=assets/product-logos/cashback.png
 
 ## Captions
 
-For non-premium products, Sora Studio burns captions into the generated video before attaching the end slate.
-The caption text comes from the generated screenplay's `VO/Dialogue`, `Dialogue`, `VO`, `Voice Over`, or `Voiceover`
-lines. When shot timings are available, captions follow those shot ranges.
+Sora Studio can burn captions into every generated video before attaching the end slate.
+Captions are created from the generated video's actual audio through OpenAI Whisper, using word-level timestamps when available.
+The generated screenplay is sent only as transcription context so product names and offer terms are more likely to be spelled correctly.
+Whisper captioning uses the same `OPENAI_API_KEY` environment variable as direct Sora generation.
 
-Captions are skipped by default for these premium profiles:
-
-```text
-privy
-privy_plus
-privy_business
-privy_plus_business
-solitaire
-solitaire_business
-```
+If Whisper cannot run, captions are skipped and the video still completes with branding and end slate. You can optionally allow a screenplay-timed fallback.
 
 Controls:
 
 ```bash
 SORA_STUDIO_CAPTIONS=false
-SORA_STUDIO_CAPTIONS_FORCE=true
-SORA_STUDIO_CAPTIONS_EXCLUDE_PROFILES=privy,privy_plus,solitaire
+SORA_STUDIO_CAPTION_TRANSCRIPTION_MODEL=whisper-1
+SORA_STUDIO_CAPTION_TRANSCRIPTION_TIMEOUT_MS=120000
+SORA_STUDIO_CAPTION_AUDIO_MAX_MB=24
+SORA_STUDIO_CAPTIONS_SCRIPT_FALLBACK=true
 ```
 
 The current caption style is `boxed_bottom`: bold white text in a subtle dark box near the lower part of the generated video. The end slate itself is not captioned.

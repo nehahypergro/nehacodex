@@ -32,15 +32,16 @@ const FFPROBE_BIN =
 const BRANDING_ENABLED = process.env.SORA_STUDIO_BRANDING?.trim().toLowerCase() !== "false";
 const WARN_MISSING_LOGO = process.env.SORA_STUDIO_BRANDING_WARN_MISSING_LOGO?.trim().toLowerCase() === "true";
 const CAPTIONS_ENABLED = process.env.SORA_STUDIO_CAPTIONS?.trim().toLowerCase() !== "false";
-const FORCE_CAPTIONS = process.env.SORA_STUDIO_CAPTIONS_FORCE?.trim().toLowerCase() === "true";
-const DEFAULT_CAPTION_EXCLUDED_PROFILES = new Set([
-  "privy",
-  "privy_plus",
-  "privy_business",
-  "privy_plus_business",
-  "solitaire",
-  "solitaire_business"
-]);
+const CAPTION_TRANSCRIPTION_MODEL = process.env.SORA_STUDIO_CAPTION_TRANSCRIPTION_MODEL?.trim() || "whisper-1";
+const CAPTION_TRANSCRIPTION_URL =
+  process.env.SORA_STUDIO_CAPTION_TRANSCRIPTION_URL?.trim() || "https://api.openai.com/v1/audio/transcriptions";
+const CAPTION_TRANSCRIPTION_TIMEOUT_MS = Math.max(
+  10_000,
+  Number(process.env.SORA_STUDIO_CAPTION_TRANSCRIPTION_TIMEOUT_MS ?? 120_000)
+);
+const CAPTION_AUDIO_MAX_BYTES = Math.max(1, Number(process.env.SORA_STUDIO_CAPTION_AUDIO_MAX_MB ?? 24)) * 1024 * 1024;
+const CAPTION_SCRIPT_FALLBACK =
+  process.env.SORA_STUDIO_CAPTIONS_SCRIPT_FALLBACK?.trim().toLowerCase() === "true";
 
 interface ProductBrandingProfile {
   key: string;
@@ -79,8 +80,31 @@ interface CaptionCue {
 interface CaptionPlan {
   cues: CaptionCue[];
   assPath: string;
-  source: "script_voiceover";
+  source: "whisper" | "script_voiceover";
   style: "boxed_bottom";
+}
+
+interface CaptionPlanResult {
+  plan?: CaptionPlan;
+  warnings: string[];
+}
+
+interface WhisperTranscriptionWord {
+  word?: string;
+  start?: number;
+  end?: number;
+}
+
+interface WhisperTranscriptionSegment {
+  text?: string;
+  start?: number;
+  end?: number;
+}
+
+interface WhisperTranscriptionResponse {
+  text?: string;
+  words?: WhisperTranscriptionWord[];
+  segments?: WhisperTranscriptionSegment[];
 }
 
 interface ResolvedBranding {
@@ -557,19 +581,6 @@ function firstExisting(candidates: Array<string | undefined>): string | undefine
   return undefined;
 }
 
-function csvEnvSet(name: string): Set<string> | undefined {
-  const raw = process.env[name]?.trim();
-  if (!raw) {
-    return undefined;
-  }
-  return new Set(
-    raw
-      .split(",")
-      .map((item) => item.trim())
-      .filter(Boolean)
-  );
-}
-
 function extensionCandidates(stem: string): string[] {
   return [".png", ".jpg", ".jpeg", ".webp"].map((extension) => `${stem}${extension}`);
 }
@@ -778,18 +789,8 @@ function resolveBranding(input: SoraStudioResolvedInputRow): ResolvedBranding {
   };
 }
 
-function excludedCaptionProfiles(): Set<string> {
-  return csvEnvSet("SORA_STUDIO_CAPTIONS_EXCLUDE_PROFILES") ?? DEFAULT_CAPTION_EXCLUDED_PROFILES;
-}
-
-function shouldApplyCaptions(profileKey: string): boolean {
-  if (!CAPTIONS_ENABLED) {
-    return false;
-  }
-  if (FORCE_CAPTIONS) {
-    return true;
-  }
-  return !excludedCaptionProfiles().has(profileKey);
+function shouldApplyCaptions(): boolean {
+  return CAPTIONS_ENABLED;
 }
 
 function normalizeCaptionText(value: string): string {
@@ -923,6 +924,258 @@ function buildCaptionCues(script: string, durationSeconds: number): CaptionCue[]
   return distributeCaptionChunks(allChunks, { startSeconds: captionStart, endSeconds: captionEnd }, durationSeconds);
 }
 
+function normalizeTranscriptWord(value: string | undefined): string {
+  return compact(value)
+    .replace(/\s+([,.!?;:])/g, "$1")
+    .replace(/^["']+|["']+$/g, "");
+}
+
+function clampCaptionTime(value: number, durationSeconds: number): number {
+  if (!Number.isFinite(value)) {
+    return 0;
+  }
+  return Math.max(0, Math.min(value, Math.max(0.1, durationSeconds)));
+}
+
+function finalizeCaptionCue(params: {
+  words: string[];
+  startSeconds: number;
+  endSeconds: number;
+  durationSeconds: number;
+}): CaptionCue | undefined {
+  const text = normalizeCaptionText(params.words.join(" "));
+  const startSeconds = clampCaptionTime(params.startSeconds, params.durationSeconds);
+  const rawEnd = clampCaptionTime(params.endSeconds + 0.08, params.durationSeconds);
+  const endSeconds = Math.max(startSeconds + 0.45, rawEnd);
+  if (!text || endSeconds <= startSeconds) {
+    return undefined;
+  }
+  return {
+    text,
+    startSeconds,
+    endSeconds: clampCaptionTime(endSeconds, params.durationSeconds)
+  };
+}
+
+function buildCaptionCuesFromWhisperWords(words: WhisperTranscriptionWord[] | undefined, durationSeconds: number): CaptionCue[] {
+  if (!Array.isArray(words) || words.length === 0 || durationSeconds <= 0) {
+    return [];
+  }
+
+  const cues: CaptionCue[] = [];
+  let currentWords: string[] = [];
+  let currentStart = 0;
+  let currentEnd = 0;
+  const maxWords = 6;
+  const maxChars = 42;
+  const maxDuration = 2.25;
+
+  const pushCurrent = () => {
+    const cue = finalizeCaptionCue({
+      words: currentWords,
+      startSeconds: currentStart,
+      endSeconds: currentEnd,
+      durationSeconds
+    });
+    if (cue) {
+      cues.push(cue);
+    }
+    currentWords = [];
+    currentStart = 0;
+    currentEnd = 0;
+  };
+
+  for (const item of words) {
+    const word = normalizeTranscriptWord(item.word);
+    if (!word || typeof item.start !== "number" || typeof item.end !== "number") {
+      continue;
+    }
+    const start = clampCaptionTime(item.start, durationSeconds);
+    const end = clampCaptionTime(item.end, durationSeconds);
+    if (end <= start) {
+      continue;
+    }
+
+    const nextText = [...currentWords, word].join(" ");
+    const wouldOverflow =
+      currentWords.length > 0 &&
+      (currentWords.length + 1 > maxWords || nextText.length > maxChars || end - currentStart > maxDuration);
+    if (wouldOverflow) {
+      pushCurrent();
+    }
+
+    if (currentWords.length === 0) {
+      currentStart = start;
+    }
+    currentWords.push(word);
+    currentEnd = end;
+
+    if (/[.!?।]$/.test(word) && currentWords.length >= 3) {
+      pushCurrent();
+    }
+  }
+
+  if (currentWords.length > 0) {
+    pushCurrent();
+  }
+
+  return cues.filter((cue, index) => {
+    const next = cues[index + 1];
+    if (next && cue.endSeconds > next.startSeconds) {
+      cue.endSeconds = Math.max(cue.startSeconds + 0.35, next.startSeconds - 0.03);
+    }
+    return cue.endSeconds > cue.startSeconds;
+  });
+}
+
+function buildCaptionCuesFromWhisperSegments(
+  segments: WhisperTranscriptionSegment[] | undefined,
+  durationSeconds: number
+): CaptionCue[] {
+  if (!Array.isArray(segments) || segments.length === 0 || durationSeconds <= 0) {
+    return [];
+  }
+  const cues: CaptionCue[] = [];
+  for (const segment of segments) {
+    if (typeof segment.start !== "number" || typeof segment.end !== "number") {
+      continue;
+    }
+    const chunks = splitCaptionText(segment.text ?? "");
+    if (chunks.length === 0) {
+      continue;
+    }
+    cues.push(
+      ...distributeCaptionChunks(
+        chunks,
+        {
+          startSeconds: segment.start,
+          endSeconds: segment.end
+        },
+        durationSeconds
+      )
+    );
+  }
+  return cues.filter((cue) => cue.endSeconds > cue.startSeconds);
+}
+
+function buildWhisperCaptionCues(transcription: WhisperTranscriptionResponse, durationSeconds: number): CaptionCue[] {
+  const wordCues = buildCaptionCuesFromWhisperWords(transcription.words, durationSeconds);
+  if (wordCues.length > 0) {
+    return wordCues;
+  }
+  return buildCaptionCuesFromWhisperSegments(transcription.segments, durationSeconds);
+}
+
+function languageCodeForWhisper(value: string | undefined): string | undefined {
+  const normalized = compact(value).toLowerCase();
+  const languageMap: Record<string, string> = {
+    english: "en",
+    hindi: "hi",
+    marathi: "mr",
+    tamil: "ta",
+    telugu: "te",
+    kannada: "kn",
+    bengali: "bn",
+    gujarati: "gu",
+    malayalam: "ml",
+    punjabi: "pa",
+    urdu: "ur"
+  };
+  return languageMap[normalized];
+}
+
+function captionPrompt(params: { input: SoraStudioResolvedInputRow; captionText?: string }): string | undefined {
+  const prompt = compact(
+    [
+      params.input.product ? `Product: ${params.input.product}.` : "",
+      params.input.brief ? `Brief: ${params.input.brief}` : "",
+      params.captionText ? `Expected ad dialogue context: ${params.captionText}` : ""
+    ].join(" ")
+  );
+  return prompt ? prompt.slice(-900) : undefined;
+}
+
+function whisperErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
+}
+
+async function extractAudioForTranscription(inputPath: string, outputPath: string): Promise<void> {
+  await runProcess(
+    FFMPEG_BIN,
+    ["-y", "-i", inputPath, "-vn", "-ac", "1", "-ar", "16000", "-c:a", "aac", "-b:a", "64k", outputPath],
+    "ffmpeg caption audio extraction failed"
+  );
+}
+
+async function transcribeAudioWithWhisper(params: {
+  audioPath: string;
+  input: SoraStudioResolvedInputRow;
+  captionText?: string;
+}): Promise<WhisperTranscriptionResponse> {
+  const apiKey = process.env.OPENAI_API_KEY?.trim();
+  if (!apiKey) {
+    throw new Error("OPENAI_API_KEY is missing, so Whisper captions could not be generated.");
+  }
+
+  const stat = await fs.stat(params.audioPath);
+  if (stat.size > CAPTION_AUDIO_MAX_BYTES) {
+    throw new Error(
+      `caption audio is ${(stat.size / 1024 / 1024).toFixed(1)} MB, above the configured ${(
+        CAPTION_AUDIO_MAX_BYTES /
+        1024 /
+        1024
+      ).toFixed(1)} MB limit.`
+    );
+  }
+
+  const audioBytes = await fs.readFile(params.audioPath);
+  const audioArrayBuffer = audioBytes.buffer.slice(
+    audioBytes.byteOffset,
+    audioBytes.byteOffset + audioBytes.byteLength
+  ) as ArrayBuffer;
+  const form = new FormData();
+  form.append("file", new Blob([audioArrayBuffer], { type: "audio/mp4" }), path.basename(params.audioPath));
+  form.append("model", CAPTION_TRANSCRIPTION_MODEL);
+  form.append("response_format", "verbose_json");
+  form.append("timestamp_granularities[]", "word");
+
+  const language = languageCodeForWhisper(params.input.resolvedLanguage || params.input.language);
+  if (language) {
+    form.append("language", language);
+  }
+  const prompt = captionPrompt({ input: params.input, captionText: params.captionText });
+  if (prompt) {
+    form.append("prompt", prompt);
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), CAPTION_TRANSCRIPTION_TIMEOUT_MS);
+  try {
+    const response = await fetch(CAPTION_TRANSCRIPTION_URL, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`
+      },
+      body: form,
+      signal: controller.signal
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text().catch(() => "");
+      throw new Error(
+        `OpenAI transcription failed (${response.status}): ${compact(errorText).slice(0, 400) || response.statusText}`
+      );
+    }
+
+    return (await response.json()) as WhisperTranscriptionResponse;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function formatAssTime(value: number): string {
   const totalCentiseconds = Math.max(0, Math.round(value * 100));
   const hours = Math.floor(totalCentiseconds / 360000);
@@ -977,27 +1230,73 @@ function buildAssSubtitle(cues: CaptionCue[], frame: { width: number; height: nu
 }
 
 async function createCaptionPlan(params: {
-  profileKey: string;
+  input: SoraStudioResolvedInputRow;
+  inputPath: string;
+  inputProbe: MediaProbe;
   captionText?: string;
-  durationSeconds: number;
   frame: { width: number; height: number };
   outputPath: string;
-}): Promise<CaptionPlan | undefined> {
-  if (!shouldApplyCaptions(params.profileKey)) {
-    return undefined;
+}): Promise<CaptionPlanResult> {
+  const warnings: string[] = [];
+  if (!shouldApplyCaptions()) {
+    return { warnings };
   }
-  const cues = buildCaptionCues(params.captionText ?? "", params.durationSeconds);
-  if (cues.length === 0) {
-    return undefined;
-  }
+
+  const durationSeconds = params.inputProbe.durationSeconds;
+  let cues: CaptionCue[] = [];
+  let source: CaptionPlan["source"] = "whisper";
   const parsed = path.parse(params.outputPath);
   const digest = createHash("sha256")
     .update(`${params.outputPath}:caption:${Date.now()}:${Math.random()}`)
     .digest("hex")
     .slice(0, 8);
   const assPath = path.join(parsed.dir, `${parsed.name}.captions-${digest}.ass`);
+  const audioPath = path.join(parsed.dir, `${parsed.name}.caption-audio-${digest}.m4a`);
+
+  if (!params.inputProbe.hasAudio) {
+    warnings.push("Captions skipped: generated video has no audio track for Whisper transcription.");
+  } else {
+    try {
+      await extractAudioForTranscription(params.inputPath, audioPath);
+      const transcription = await transcribeAudioWithWhisper({
+        audioPath,
+        input: params.input,
+        captionText: params.captionText
+      });
+      cues = buildWhisperCaptionCues(transcription, durationSeconds);
+      if (cues.length === 0) {
+        throw new Error("Whisper did not return usable word or segment timestamps.");
+      }
+    } catch (error) {
+      warnings.push(`Whisper captions skipped: ${whisperErrorMessage(error)}`);
+    } finally {
+      await fs.unlink(audioPath).catch(() => undefined);
+    }
+  }
+
+  if (cues.length === 0 && CAPTION_SCRIPT_FALLBACK) {
+    const fallbackCues = buildCaptionCues(params.captionText ?? "", durationSeconds);
+    if (fallbackCues.length > 0) {
+      cues = fallbackCues;
+      source = "script_voiceover";
+      warnings.push("Used generated screenplay captions as a fallback because Whisper captions were unavailable.");
+    }
+  }
+
+  if (cues.length === 0) {
+    return { warnings };
+  }
+
   await fs.writeFile(assPath, buildAssSubtitle(cues, params.frame), "utf8");
-  return { cues, assPath, source: "script_voiceover", style: "boxed_bottom" };
+  return {
+    warnings,
+    plan: {
+      cues,
+      assPath,
+      source,
+      style: "boxed_bottom"
+    }
+  };
 }
 
 function escapeFilterPath(value: string): string {
@@ -1234,7 +1533,7 @@ export async function applySoraStudioProductBranding(params: {
   const warnings = [...branding.warnings];
   const effectiveLogoPath = BRANDING_ENABLED ? branding.logoPath : undefined;
   const effectiveEndSlatePath = BRANDING_ENABLED ? branding.endSlatePath : undefined;
-  const captionsWanted = shouldApplyCaptions(branding.profileKey) && compact(params.captionText).length > 0;
+  const captionsWanted = shouldApplyCaptions();
   const disabledWarning = BRANDING_ENABLED ? undefined : "Product branding is disabled.";
   const initialWarnings = disabledWarning ? [...warnings, disabledWarning] : warnings;
   const basePostProcess: SoraStudioRenderPostProcess = {
@@ -1266,16 +1565,20 @@ export async function applySoraStudioProductBranding(params: {
 
   const tempOutputPath = buildTempOutputPath(params.outputPath);
   let captionPlan: CaptionPlan | undefined;
+  let captionWarnings: string[] = [];
   try {
     const inputProbe = await probeMedia(params.inputPath);
     const frame = targetFrame(inputProbe, params.input.renderAspectRatio);
-    captionPlan = await createCaptionPlan({
-      profileKey: branding.profileKey,
+    const captionResult = await createCaptionPlan({
+      input: params.input,
+      inputPath: params.inputPath,
+      inputProbe,
       captionText: params.captionText,
-      durationSeconds: inputProbe.durationSeconds,
       frame,
       outputPath: params.outputPath
     });
+    captionPlan = captionResult.plan;
+    captionWarnings = captionResult.warnings;
 
     if (!effectiveLogoPath && !effectiveEndSlatePath && !captionPlan) {
       await fs.copyFile(params.inputPath, params.outputPath);
@@ -1305,7 +1608,7 @@ export async function applySoraStudioProductBranding(params: {
       await fs.rename(tempOutputPath, params.outputPath);
     }
     const bytes = await fs.readFile(params.outputPath);
-    const nextWarnings = initialWarnings;
+    const nextWarnings = [...initialWarnings, ...captionWarnings];
     return {
       bytes,
       warnings: nextWarnings,
@@ -1325,7 +1628,7 @@ export async function applySoraStudioProductBranding(params: {
     const fallbackWarning = `Post-processing failed; kept original generated video. ${
       error instanceof Error ? error.message : String(error)
     }`;
-    const nextWarnings = [...initialWarnings, fallbackWarning];
+    const nextWarnings = [...initialWarnings, ...captionWarnings, fallbackWarning];
     return {
       bytes,
       warnings: nextWarnings,
